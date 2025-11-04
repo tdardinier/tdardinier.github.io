@@ -1,0 +1,36 @@
+field next: Ref
+field elem: Int
+
+predicate list(this: Ref) {
+    acc(this.elem) && acc(this.next) && 
+    (this.next != null ==> list(this.next))
+}
+
+function cont(this: Ref): Seq[Int]
+    requires list(this)
+{
+    unfolding list(this) in (this.next == null ? Seq[Int]() : Seq(this.elem) ++ cont(this.next))
+}
+
+method append(this: Ref, e: Int) 
+    requires list(this)
+    ensures  list(this)
+    ensures  cont(this) == old(cont(this)) ++ Seq(e)
+{
+    unfold list(this)
+    if(this.next == null) {
+        var n: Ref
+        n := new(*)
+        n.next := null
+        this.elem := e
+        this.next := n
+        fold list(n)
+    } else {
+        append(this.next, e)
+    }
+    fold list(this)
+}
+
+
+
+

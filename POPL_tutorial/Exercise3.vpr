@@ -1,0 +1,33 @@
+field val: Int
+// TODO: maybe use a field to track initialization
+
+define Uninit(l) (
+  // TODO: define macro
+)
+
+define Pointsto(l, k) (
+  // TODO: define macro
+)
+
+
+method sum(p: Ref, q: Ref) returns (res: Int)
+  requires Pointsto(p, 1/2) && Pointsto(q, 1/2)
+  ensures  Pointsto(p, 1/2) && Pointsto(q, 1/2)
+  ensures  res == p.val + q.val
+{
+  // TODO: add assertions and code
+  var a: Int := p.val
+  var b: Int := q.val
+  res := a + b
+}
+
+method client() {
+  // TODO: add assertions and code
+  var x: Ref
+  var y: Ref
+  x.val := 2
+  y.val := 3
+  var s: Int := sum(x, y)
+  assert s == 5
+}
+

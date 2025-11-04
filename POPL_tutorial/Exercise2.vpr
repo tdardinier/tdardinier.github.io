@@ -1,0 +1,19 @@
+field next: Ref
+field elem: Int
+
+
+predicate lseg(this: Ref, last: Ref) {
+  // TODO: define predicate
+}
+
+function segcont(this: Ref, last: Ref): Seq[Int] 
+  // TODO: define function
+
+method single(e: Int) returns (res: Ref)
+  // TODO: add specification and ghost code
+{
+  res := new(*)
+  res.next := res
+  res.elem := e
+}
+

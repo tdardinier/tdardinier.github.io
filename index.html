@@ -1,0 +1,1961 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<title>Thibault Dardinier</title>
+	<link rel="stylesheet" href="style.css">
+	<script>
+		function showAbstract(id, s = "abstract") {
+			var x = document.getElementById(s + id.toString());
+			if (x.style.display === "block") {
+				x.style.display = "none";
+			} else {
+				x.style.display = "block";
+			}
+		}
+
+		var current_highlighted = "publications";
+		function unhighlight() {
+			document.getElementById(current_highlighted).style.backgroundColor = "transparent";
+		}
+	
+		function highlight(s) {
+			console.log(s);
+			unhighlight();
+			document.getElementById(s).style.backgroundColor = "rgb(255, 255, 150)";
+			current_highlighted = s;
+		}
+	</script>
+
+  </head>
+  <body onclick="unhighlight()">
+
+	<div class="content container">
+		<div class="row">
+			<div class="col-md-3 col-sm-12" style="text-align:center;vertical-align:center">
+				<img src="picture_profile.jpg" style="border-radius: 2%;" height="280px"/>
+			</div>
+			<div class="col-md-9 col-sm-12" style="vertical-align:bottom">
+				<br/>
+				<br/>
+				<br/>
+				<h1>Thibault Dardinier</h1>
+				<span style="font-size:22px; color:grey">PhD student, Programming Methodology Group, ETH Zurich
+					<br/>
+					<span style="font-size:20px">firstname.lastname@inf.ethz.ch</span>
+				<br/>
+				</span>
+				<br/>
+				<a class="special-links" href="https://scholar.google.com/citations?user=rXhHGREAAAAJ"><img class="header-icon" src="images/scholar.svg"/></a>
+				<a class="special-links" href="https://orcid.org/0000-0003-2719-4856"><img class="header-icon" src="images/ORCID_iD.png"/></a>
+				<a class="special-links" href="https://www.semanticscholar.org/author/Thibault-Dardinier/51040746"><img class="header-icon" src="images/semantic_scholar.png"/></a>
+				<a class="special-links" href="https://dblp.uni-trier.de/pers/d/Dardinier:Thibault.html"><img class="header-icon" src="images/dblp.jpg"/></a>
+				<a class="special-links" href="https://www.researchgate.net/profile/Thibault_Dardinier"><img class="header-icon" src="images/researchgate.svg"/></a>
+				<a class="special-links" href="https://github.com/tdardinier"><img class="header-icon" src="images/github.svg"/></a>
+				<a class="special-links" href="https://www.linkedin.com/in/tdardinier"><img class="header-icon" src="images/linkedin.svg"/></a>
+
+			</div>
+		</div>
+
+		<hr/>
+
+		<span style="font-size:20px">
+			<a class="link" href="#publications">Publications</a>
+			<a class="link" href="#talks">Talks</a>
+			<a class="link" href="#education">Education</a>
+			<a class="link" href="#awards">Awards</a>
+			<a class="link" href="#experience">Internships</a>
+			<a class="link" href="#supervision">Supervision</a>
+			<a class="link" href="#teaching">Teaching</a>
+			<a class="link" href="#service">Service</a>
+			<a class="link" href="#other">Other</a>
+		</span>
+
+		<hr/>
+
+
+		<div id="about">
+		<span style="font-size:18px">
+			<p style="text-align: justify">
+I am a PhD student in the <a href="https://www.pm.inf.ethz.ch/">Programming Methodology Group</a> at ETH Zurich, advised by <a href="https://www.pm.inf.ethz.ch/people/personal/pmueller-pers.html">Prof. Peter Müller</a>.
+The goal of my research is to build provably sound deductive verifiers with state-of-the-art automation for correctness, security, and privacy properties.
+To achieve this, my research addresses both theoretical and practical aspects, ranging from developing machine-checked (using the <a href="https://isabelle.in.tum.de/">Isabelle proof assistant</a>)
+program logics (e.g., <a href="#paperPLDI24_HHL">Hyper Hoare Logic</a>, <a href="#paperPLDI23_CommCSL">CommCSL</a>)
+and formal foundations (e.g., for 
+<a href="#paperPOPL25_CoreIVL">translational verifiers based on separation logic</a>,
+<a href="#paperCAV22_Wands">magic wands</a>, <a href="#paperOOPSLA22_Fractional">fractional resources</a>, <a href="#paperOOPSLA23_Inlining">verification-preserving inlining</a>)
+to building novel automated verifiers (e.g., <a href="#paperOOPSLA24_Hypra">Hypra</a>).
+			</p>
+			<p><strong>I will join
+				<a href="https://cs.nyu.edu/">NYU's Courant Institute</a>
+				as an Assistant Professor of Computer Science
+				in Fall 2026, as part of the <a href="https://cs.nyu.edu/acsys/">Analysis of Computer Systems group</a>.</strong></p>
+			<p>
+				During my PhD, I completed an internship at <a href="#stage-msr">Microsoft Research</a>.
+				Before my PhD, I graduated from <a href="#master-eth">ETH Zurich</a> (as part of the <a href="#direct-doctorate">Direct Doctorate</a> program) and from <a href="#master-x">École Polytechnique</a> in France,
+				and completed internships at <a href="#stage-sri">SRI International</a>, <a href="#stage-siemens">Siemens</a>, and the <a href="#stage-defense">Ministry of Defense (France)</a>.
+			</p>
+		</span>
+		</div>
+
+
+
+		<div id="publications">
+	  <h2>Publications</h2>
+
+	  <!-- <h3>Preprints</h3> -->
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+	    <h3>Conference</h3>
+		
+		
+		<div class="element row" id="paperPLDI25_PulseCore">
+			<div class="left col-sm-1 col-xs-12">
+				2025
+			</div>
+			<div class="middle col-sm-1 col-xs-12">
+				<strong>PLDI</strong>
+				
+			</div>
+			<div class="right col-sm-10 col-xs-12">
+				<h4> PulseCore: An Impredicative Concurrent Separation Logic for Dependently Typed Programs </h4>
+				Gabriel Ebner, Guido Martínez, Aseem Rastogi, Thibault Dardinier, Megan Frisella, Tahina Ramananandro, Nikhil Swamy
+				<br/>
+				<span class="conf">ACM SIGPLAN International Conference on Programming Language Design and Implementation</span>
+				<br/>
+
+				
+					<a class="link" href="#" onclick="showAbstract(1);return false">[Abstract]</a>
+				
+
+				
+					<a class="link" href="papers/PLDI25_PulseCore.pdf">[PDF]</a>
+				
+					<a class="link" href="https://dl.acm.org/doi/10.1145/3729311">[Publisher]</a>
+				
+					<a class="link" href="https://zenodo.org/records/15047546">[Artifact]</a>
+				
+
+				
+
+				
+					<p id="abstract1" class="abstract"> PulseCore is a new program logic suitable for intrinsic proofs of higher-order, stateful, concurrent, dependently typed programs. It provides many of the features of a modern, concurrent separation logic, including dynamically allocated impredicative invariants, higher-order ghost state, step-indexing with later credits, and support for user-defined ghost state constructions. PulseCore is developed foundationally within the F★ programming language with fully mechanized proofs, and is applicable to F★ programs itself. To evaluate our work, we use Pulse, a surface language within F★ for PulseCore, to develop a range of program proofs. Illustrating its suitability for proving higher-order concurrent programs, we present a verified library for task pools in the style of OCaml5, together with some verified task-parallel programs. Next, we present various data structures and synchronization primitives, including a barrier that requires the use of higher-order ghost state. Finally, we present a verified implementation of the DICE Protection Environment, an industry standard secure boot protocol. Taken together, our evaluation consists of more than 31,000 lines of verified code in a range of settings, providing evidence that PulseCore is both highly expressive as well as practical for a variety of program proof applications. </p>
+				
+
+			</div>
+		</div>
+
+		
+		
+		
+		<div class="element row" id="paperPOPL25_CoreIVL">
+			<div class="left col-sm-1 col-xs-12">
+				
+			</div>
+			<div class="middle col-sm-1 col-xs-12">
+				<strong>POPL</strong>
+				
+			</div>
+			<div class="right col-sm-10 col-xs-12">
+				<h4> Formal Foundations for Translational Separation Logic Verifiers </h4>
+				Thibault Dardinier, Michael Sammler, Gaurav Parthasarathy, Alexander J. Summers, Peter Müller
+				<br/>
+				<span class="conf">ACM SIGPLAN Symposium on Principles of Programming Languages</span>
+				<br/>
+
+				
+					<a class="link" href="#" onclick="showAbstract(2);return false">[Abstract]</a>
+				
+
+				
+					<a class="link" href="papers/POPL25_CoreIVL.pdf">[PDF]</a>
+				
+					<a class="link" href="https://dl.acm.org/doi/10.1145/3704856">[Publisher]</a>
+				
+					<a class="link" href="slides/POPL25.pdf">[Slides]</a>
+				
+					<a class="link" href="https://arxiv.org/abs/2407.20002">[Extended version]</a>
+				
+					<a class="link" href="https://zenodo.org/records/13938950">[Artifact]</a>
+				
+
+				
+
+				
+					<p id="abstract2" class="abstract"> Program verification tools are often implemented as front-end translations of an input program into an intermediate verification language (IVL) such as Boogie, GIL, Viper, or Why3. The resulting IVL program is then verified using an existing back-end verifier. A soundness proof for such a translational verifier needs to relate the input program and verification logic to the semantics of the IVL, which in turn needs to be connected with the verification logic implemented in the back-end verifiers. Performing such proofs is challenging due to the large semantic gap between the input and output programs and logics, especially for complex verification logics such as separation logic. This paper presents a formal framework for reasoning about translational separation logic verifiers. At its center is a generic core IVL that captures the essence of different separation logics. We define its operational semantics and formally connect it to two different back-end verifiers, which use symbolic execution and verification condition generation, resp. Crucially, this semantics uses angelic non-determinism to enable the application of different proof search algorithms and heuristics in the back-end verifiers. An axiomatic semantics for the core IVL simplifies reasoning about the front-end translation by performing essential proof steps once and for all in the equivalence proof with the operational semantics rather than for each concrete front-end translation. We illustrate the usefulness of our formal framework by instantiating our core IVL with elements of Viper and connecting it to two Viper back-ends as well as a front-end for concurrent separation logic. All our technical results have been formalized in Isabelle/HOL, including the core IVL and its semantics, the semantics of two back-ends for a subset of Viper, and all proofs. </p>
+				
+
+			</div>
+		</div>
+
+		
+		
+		
+		<div class="element row" id="paperOOPSLA24_Hypra">
+			<div class="left col-sm-1 col-xs-12">
+				2024
+			</div>
+			<div class="middle col-sm-1 col-xs-12">
+				<strong>OOPSLA</strong>
+				
+			</div>
+			<div class="right col-sm-10 col-xs-12">
+				<h4> Hypra: A Deductive Program Verifier for Hyper Hoare Logic </h4>
+				Thibault Dardinier*, Anqi Li*, Peter Müller
+				<br/>
+				<span class="conf">ACM SIGPLAN International Conference on Object-Oriented Programming, Systems, Languages, and Applications</span>
+				<br/>
+
+				
+					<a class="link" href="#" onclick="showAbstract(3);return false">[Abstract]</a>
+				
+
+				
+					<a class="link" href="papers/OOPSLA24_Hypra.pdf">[PDF]</a>
+				
+					<a class="link" href="https://doi.org/10.1145/3689756">[Publisher]</a>
+				
+					<a class="link" href="slides/OOPSLA24.pdf">[Slides (from Anqi)]</a>
+				
+					<a class="link" href="https://zenodo.org/records/12671562">[Artifact]</a>
+				
+
+				
+
+				
+					<p id="abstract3" class="abstract"> Hyperproperties relate multiple executions of a program and are useful to express common correctness properties (such as determinism) and security properties (such as non-interference). While there are a number of powerful program logics for the deductive verification of hyperproperties, their automation falls behind. Most existing deductive verification tools are limited to safety properties, but cannot reason about the existence of executions, for instance, to prove the violation of a safety property. Others support more flexible hyperproperties such as generalized non-interference, but have limitations in terms of the programs and proof structures they support. In this paper, we present the first deductive verification technique for arbitrary hyperproperties over multiple executions of the same program. Our technique automates the generation of verification conditions for Hyper Hoare Logic. Our key insight is that arbitrary hyperproperties and the corresponding proof rules can be encoded into a standard intermediate verification language by representing sets of states of the input program explicitly in the states of the intermediate program. Verification is then automated using an existing SMT-based verifier for the intermediate language. We implement our technique in a tool called Hypra and demonstrate that it can reliably verify complex hyperproperties. </p>
+				
+
+			</div>
+		</div>
+
+		
+		
+		
+		<div class="element row" id="paperPLDI24_HHL">
+			<div class="left col-sm-1 col-xs-12">
+				
+			</div>
+			<div class="middle col-sm-1 col-xs-12">
+				<strong>PLDI</strong>
+				
+			</div>
+			<div class="right col-sm-10 col-xs-12">
+				<h4> Hyper Hoare Logic: (Dis-)Proving Program Hyperproperties </h4>
+				Thibault Dardinier, Peter Müller
+				<br/>
+				<span class="conf">ACM SIGPLAN International Conference on Programming Language Design and Implementation</span>
+				<br/>
+
+				
+					<a class="link" href="#" onclick="showAbstract(4);return false">[Abstract]</a>
+				
+
+				
+					<a class="link" href="papers/PLDI24_HHL.pdf">[PDF]</a>
+				
+					<a class="link" href="https://dl.acm.org/doi/10.1145/3656437">[Publisher]</a>
+				
+					<a class="link" href="slides/PLDI24.pdf">[Slides]</a>
+				
+					<a class="link" href="https://arxiv.org/abs/2301.10037">[Extended version]</a>
+				
+					<a class="link" href="https://zenodo.org/records/10808236">[Artifact]</a>
+				
+					<a class="link" href="https://www.isa-afp.org/entries/HyperHoareLogic.html">[Archive of Formal Proofs]</a>
+				
+
+				
+
+				
+					<p id="abstract4" class="abstract"> Hoare logics are proof systems that allow one to formally establish properties of computer programs. Traditional Hoare logics prove properties of individual program executions (so-called trace properties, such as functional correctness). Hoare logic has been generalized to prove also properties of multiple executions of a program (so-called hyperproperties, such as determinism or non-interference). These program logics prove the absence of (bad combinations of) executions. On the other hand, program logics similar to Hoare logic have been proposed to disprove program properties (e.g., Incorrectness Logic), by proving the existence of (bad combinations of) executions. All of these logics have in common that they specify program properties using assertions over a fixed number of states, for instance, a single pre- and post-state for functional properties or pairs of pre- and post-states for non-interference. In this paper, we present Hyper Hoare Logic, a generalization of Hoare logic that lifts assertions to properties of arbitrary sets of states. The resulting logic is simple yet expressive: its judgments can express arbitrary trace- and hyperproperties over the terminating executions of a program. By allowing assertions to reason about sets of states, Hyper Hoare Logic can reason about both the absence and the existence of (combinations of) executions, and, thereby, supports both proving and disproving program (hyper-)properties within the same logic, including (hyper-)properties that no existing Hoare logic can express. We prove that Hyper Hoare Logic is sound and complete, and demonstrate that it captures important proof principles naturally. All our technical results have been proved in Isabelle/HOL. </p>
+				
+
+			</div>
+		</div>
+
+		
+		
+		
+		<div class="element row" id="paperPLDI24_CPG">
+			<div class="left col-sm-1 col-xs-12">
+				
+			</div>
+			<div class="middle col-sm-1 col-xs-12">
+				<strong>PLDI</strong>
+				
+			</div>
+			<div class="right col-sm-10 col-xs-12">
+				<h4> Towards Trustworthy Automated Program Verifiers: Formally Validating Translations into an Intermediate Verification Language </h4>
+				Gaurav Parthasarathy, Thibault Dardinier, Benjamin Bonneau, Peter Müller, Alexander J. Summers
+				<br/>
+				<span class="conf">ACM SIGPLAN International Conference on Programming Language Design and Implementation</span>
+				<br/>
+
+				
+					<a class="link" href="#" onclick="showAbstract(5);return false">[Abstract]</a>
+				
+
+				
+					<a class="link" href="papers/PLDI24_CPG.pdf">[PDF]</a>
+				
+					<a class="link" href="https://dl.acm.org/doi/abs/10.1145/3656438">[Publisher]</a>
+				
+					<a class="link" href="https://arxiv.org/abs/2404.03614">[Extended version]</a>
+				
+					<a class="link" href="https://zenodo.org/records/10802176">[Artifact]</a>
+				
+
+				
+
+				
+					<p id="abstract5" class="abstract"> Automated program verifiers are typically implemented using an intermediate verification language (IVL), such as Boogie or Why3. A verifier front-end translates the input program and specification into an IVL program, while the back-end generates proof obligations for the IVL program and employs an SMT solver to discharge them. Soundness of such verifiers therefore requires that the front-end translation faithfully captures the semantics of the input program and specification in the IVL program, and that the back-end reports success only if the IVL program is actually correct. For a verification tool to be trustworthy, these soundness conditions must be satisfied by its actual implementation, not just the program logic it uses. In this paper, we present a novel validation methodology that provides formal soundness guarantees for front-end implementations. For each successful run of the verifier, we automatically generate a proof in Isabelle showing that the correctness of the produced IVL program implies the correctness of the input program. This proof can be checked independently from the verifier in Isabelle and can be combined with existing work on validating back-ends to obtain an end-to-end soundness guarantee. Our methodology based on forward simulation employs several modularisation strategies to handle the large semantic gap between the input language and the IVL, as well as the intricacies of practical, optimised translations. We present our methodology for the widely-used Viper and Boogie languages. Our evaluation demonstrates that it is effective in validating the translations performed by the existing Viper implementation. </p>
+				
+
+			</div>
+		</div>
+
+		
+		
+		
+		<div class="element row" id="paperPLDI23_CommCSL">
+			<div class="left col-sm-1 col-xs-12">
+				2023
+			</div>
+			<div class="middle col-sm-1 col-xs-12">
+				<strong>PLDI</strong>
+				
+			</div>
+			<div class="right col-sm-10 col-xs-12">
+				<h4> CommCSL: Proving Information Flow Security for Concurrent Programs using Abstract Commutativity </h4>
+				Marco Eilers, Thibault Dardinier, Peter Müller
+				<br/>
+				<span class="conf">ACM SIGPLAN International Conference on Programming Language Design and Implementation</span>
+				<br/>
+
+				
+					<a class="link" href="#" onclick="showAbstract(6);return false">[Abstract]</a>
+				
+
+				
+					<a class="link" href="papers/PLDI23_CommCSL.pdf">[PDF]</a>
+				
+					<a class="link" href="https://dl.acm.org/doi/10.1145/3591289">[Publisher]</a>
+				
+					<a class="link" href="https://arxiv.org/abs/2211.08459">[Extended version]</a>
+				
+					<a class="link" href="https://zenodo.org/records/7813862">[Artifact]</a>
+				
+					<a class="link" href="https://www.isa-afp.org/entries/CommCSL.html">[Archive of Formal Proofs]</a>
+				
+
+				
+
+				
+					<p id="abstract6" class="abstract"> Information flow security ensures that the secret data manipulated by a program does not influence its observable output. Proving information flow security is especially challenging for concurrent programs, where operations on secret data may influence the execution time of a thread and, thereby, the interleaving between different threads. Such internal timing channels may affect the observable outcome of a program even if an attacker does not observe execution times. Existing verification techniques for information flow security in concurrent programs attempt to prove that secret data does not influence the relative timing of threads. However, these techniques are often restrictive (for instance because they disallow branching on secret data) and make strong assumptions about the execution platform (ignoring caching, processor instructions with data-dependent runtime, and other common features that affect execution time). In this paper, we present a novel verification technique for secure information flow in concurrent programs that lifts these restrictions and does not make any assumptions about timing behavior. The key idea is to prove that all mutating operations performed on shared data commute, such that different thread interleavings do not influence its final value. Crucially, commutativity is required only for an abstraction of the shared data that contains the information that will be leaked to a public output. Abstract commutativity is satisfied by many more operations than standard commutativity, which makes our technique widely applicable. We formalize our technique in CommCSL, a relational concurrent separation logic with support for commutativity-based reasoning, and prove its soundness in Isabelle/HOL. We implemented CommCSL in HyperViper, an automated verifier based on the Viper verification infrastructure, and demonstrate its ability to verify challenging examples. </p>
+				
+
+			</div>
+		</div>
+
+		
+		
+		
+		<div class="element row" id="paperOOPSLA23_Inlining">
+			<div class="left col-sm-1 col-xs-12">
+				
+			</div>
+			<div class="middle col-sm-1 col-xs-12">
+				<strong>OOPSLA</strong>
+				
+			</div>
+			<div class="right col-sm-10 col-xs-12">
+				<h4> Verification-Preserving Inlining in Automatic Separation Logic Verifiers </h4>
+				Thibault Dardinier, Gaurav Parthasarathy, Peter Müller
+				<br/>
+				<span class="conf">ACM SIGPLAN International Conference on Object-Oriented Programming, Systems, Languages, and Applications</span>
+				<br/>
+
+				
+					<a class="link" href="#" onclick="showAbstract(7);return false">[Abstract]</a>
+				
+
+				
+					<a class="link" href="papers/OOPSLA23_Inlining.pdf">[PDF]</a>
+				
+					<a class="link" href="https://dl.acm.org/doi/10.1145/3586054">[Publisher]</a>
+				
+					<a class="link" href="https://arxiv.org/abs/2208.10456">[Extended version]</a>
+				
+					<a class="link" href="https://zenodo.org/records/7711788">[Artifact]</a>
+				
+
+				
+
+				
+					<p id="abstract7" class="abstract"> Bounded verification has proved useful to detect bugs and to increase confidence in the correctness of a program. In contrast to unbounded verification, reasoning about calls via (bounded) inlining and about loops via (bounded) unrolling does not require method specifications and loop invariants and, therefore, reduces the annotation overhead to the bare minimum, namely specifications of the properties to be verified. For verifiers based on traditional program logics, verification via inlining (and unrolling) is verification-preserving: successful unbounded verification of a program w.r.t. some annotation implies successful verification of the inlined program. That is, any error detected in the inlined program reveals a true error in the original program. However, this essential property might not hold for automatic separation logic verifiers such as Caper, GRASShopper, RefinedC, Steel, VeriFast, and verifiers based on Viper. In this setting, inlining generally changes the resources owned by method executions, which may affect automatic proof search algorithms and introduce spurious errors. In this paper, we present the first technique for verification-preserving inlining in automatic separation logic verifiers. We identify a semantic condition on programs and prove in Isabelle/HOL that it ensures verification-preserving inlining for state-of-the-art automatic separation logic verifiers. We also prove a dual result: successful verification of the inlined program ensures that there are method and loop annotations that enable the verification of the original program for bounded executions. To check our semantic condition automatically, we present two approximations that can be checked syntactically and with a program verifier, respectively. We implement these checks in Viper and demonstrate that they are effective for non-trivial examples from different verifiers. </p>
+				
+
+			</div>
+		</div>
+
+		
+		
+		
+		<div class="element row" id="paperOOPSLA22_Fractional">
+			<div class="left col-sm-1 col-xs-12">
+				2022
+			</div>
+			<div class="middle col-sm-1 col-xs-12">
+				<strong>OOPSLA</strong>
+				
+			</div>
+			<div class="right col-sm-10 col-xs-12">
+				<h4> Fractional Resources in Unbounded Separation Logic </h4>
+				Thibault Dardinier, Peter Müller, Alexander J. Summers
+				<br/>
+				<span class="conf">ACM SIGPLAN International Conference on Object-Oriented Programming, Systems, Languages, and Applications</span>
+				<br/>
+
+				
+					<a class="link" href="#" onclick="showAbstract(8);return false">[Abstract]</a>
+				
+
+				
+					<a class="link" href="papers/OOPSLA22_Fractional.pdf">[PDF]</a>
+				
+					<a class="link" href="https://dl.acm.org/doi/10.1145/3563326">[Publisher]</a>
+				
+					<a class="link" href="slides/OOPSLA22.pdf">[Slides]</a>
+				
+					<a class="link" href="https://zenodo.org/records/7072457">[Artifact]</a>
+				
+					<a class="link" href="https://www.isa-afp.org/entries/Separation_Logic_Unbounded.html">[Archive of Formal Proof]</a>
+				
+
+				
+					<h4 style="color:green"><img src="images/medal.svg" alt="Medal" height="40">ACM SIGPLAN Distinguished Paper Award</h4>
+				
+
+				
+					<p id="abstract8" class="abstract"> Many separation logics support fractional permissions to distinguish between read and write access to a heap location, for instance, to allow concurrent reads while enforcing exclusive writes. Fractional permissions extend to composite assertions such as (co)inductive predicates and magic wands by allowing those to be multiplied by a fraction. Typical separation logic proofs require that this multiplication has three key properties: it needs to distribute over assertions, it should permit fractions to be factored out from assertions, and two fractions of the same assertion should be combinable into one larger fraction. Existing formal semantics incorporating fractional assertions into a separation logic define multiplication semantically (via models), resulting in a semantics in which distributivity and combinability do not hold for key resource assertions such as magic wands, and fractions cannot be factored out from a separating conjunction. By contrast, existing automatic separation logic verifiers define multiplication syntactically, resulting in a different semantics for which it is unknown whether distributivity and combinability hold for all assertions. In this paper, we present a novel semantics for separation logic assertions that allows states to hold more than a full permission to a heap location during the evaluation of an assertion. By reimposing upper bounds on the permissions held per location at statement boundaries, we retain key properties of separation logic, in particular, the frame rule. Our assertion semantics unifies semantic and syntactic multiplication and thereby reconciles the discrepancy between separation logic theory and tools and enjoys distributivity, factorisability, and combinability. We have formalised our semantics and proved its properties in Isabelle/HOL. </p>
+				
+
+			</div>
+		</div>
+
+		
+		
+		
+		<div class="element row" id="paperCAV22_Wands">
+			<div class="left col-sm-1 col-xs-12">
+				
+			</div>
+			<div class="middle col-sm-1 col-xs-12">
+				<strong>CAV</strong>
+				
+			</div>
+			<div class="right col-sm-10 col-xs-12">
+				<h4> Sound Automation of Magic Wands </h4>
+				Thibault Dardinier, Gaurav Parthasarathy, Noé Weeks, Peter Müller, Alexander J. Summers
+				<br/>
+				<span class="conf">International Conference on Computer Aided Verification</span>
+				<br/>
+
+				
+					<a class="link" href="#" onclick="showAbstract(9);return false">[Abstract]</a>
+				
+
+				
+					<a class="link" href="papers/CAV22_Wands.pdf">[PDF]</a>
+				
+					<a class="link" href="https://link.springer.com/chapter/10.1007/978-3-031-13188-2_7">[Publisher]</a>
+				
+					<a class="link" href="https://arxiv.org/abs/2205.11325">[Extended version]</a>
+				
+					<a class="link" href="slides/CAV22.pdf">[Slides]</a>
+				
+					<a class="link" href="https://doi.org/10.5281/zenodo.6525310">[Artifact]</a>
+				
+					<a class="link" href="https://www.isa-afp.org/entries/Package_logic.html">[Archive of Formal Proof]</a>
+				
+
+				
+
+				
+					<p id="abstract9" class="abstract"> The magic wand −∗ (also called separating implication) is a separation logic connective commonly used to specify properties of partial data structures, for instance during iterative traversals. A footprint of a magic wand formula is a state that, combined with any state in which A holds, yields a state in which B holds. The key challenge of proving a magic wand (also called packaging a wand) is to find such a footprint. Existing package algorithms either have a high annotation overhead or, as we show in this paper, are unsound. We present a formal framework that precisely characterises a wide design space of possible package algorithms applicable to a large class of separation logics. We prove in Isabelle/HOL that our formal framework is sound and complete, and use it to develop a novel package algorithm that offers competitive automation and is sound. Moreover, we present a novel, restricted definition of wands and prove in Isabelle/HOL that it is possible to soundly combine fractions of such wands, which is not the case for arbitrary wands. We have implemented our techniques for the Viper language, and demonstrate that they are effective in practice. </p>
+				
+
+			</div>
+		</div>
+
+		
+		
+		
+		<div class="element row" id="paperICTAC22_VeriMon">
+			<div class="left col-sm-1 col-xs-12">
+				
+			</div>
+			<div class="middle col-sm-1 col-xs-12">
+				<strong>ICTAC</strong>
+				
+				<br/><span style="font-size:11pt">(invited)</span>
+				
+			</div>
+			<div class="right col-sm-10 col-xs-12">
+				<h4> VeriMon: A Formally Verified Monitoring Tool </h4>
+				David Basin, Thibault Dardinier, Nico Hauser, Lukas Heimes, Jonathan Julián Huerta y Munive, Nicolas Kaletsch, Srđan Krstić, Emanuele Marsicano, Martin Raszyk, Joshua Schneider, Dawit Legesse Tirore, Dmitriy Traytel, Sheila Zingg
+				<br/>
+				<span class="conf">International Colloquium on Theoretical Aspects of Computing</span>
+				<br/>
+
+				
+					<a class="link" href="#" onclick="showAbstract(10);return false">[Abstract]</a>
+				
+
+				
+					<a class="link" href="papers/ICTAC22_VeriMon.pdf">[PDF]</a>
+				
+					<a class="link" href="https://link.springer.com/chapter/10.1007/978-3-031-17715-6_1">[Publisher]</a>
+				
+
+				
+
+				
+					<p id="abstract10" class="abstract"> A runtime monitor observes a running system and checks whether the sequence of events the system generates satisfies a given specification. We describe the evolution of VeriMon: an expressive and efficient monitor that has been formally verified using the Isabelle proof assistant. </p>
+				
+
+			</div>
+		</div>
+
+		
+		
+		
+		<div class="element row" id="paperIJCAR20_VeriMon">
+			<div class="left col-sm-1 col-xs-12">
+				2020
+			</div>
+			<div class="middle col-sm-1 col-xs-12">
+				<strong>IJCAR</strong>
+				
+			</div>
+			<div class="right col-sm-10 col-xs-12">
+				<h4> A Formally Verified, Optimized Monitor for Metric First-Order Dynamic Logic </h4>
+				David Basin, Thibault Dardinier, Lukas Heimes, Srđan Krstić, Martin Raszyk, Joshua Schneider, Dmitriy Traytel
+				<br/>
+				<span class="conf">International Joint Conference on Automated Reasoning</span>
+				<br/>
+
+				
+					<a class="link" href="#" onclick="showAbstract(11);return false">[Abstract]</a>
+				
+
+				
+					<a class="link" href="papers/IJCAR20_VeriMon.pdf">[PDF]</a>
+				
+					<a class="link" href="https://link.springer.com/chapter/10.1007/978-3-030-51074-9_25">[Publisher]</a>
+				
+					<a class="link" href="https://www.isa-afp.org/entries/MFODL_Monitor_Optimized.html">[Archive of Formal Proof]</a>
+				
+
+				
+
+				
+					<p id="abstract11" class="abstract"> Runtime monitors for rich specification languages are sophisticated algorithms, especially when they are heavily optimized. To gain trust in them and safely explore the space of possible optimizations, it is important to verify the monitors themselves. We describe the development and correctness proof in Isabelle/HOL of a monitor for metric first-order dynamic logic. This monitor significantly extends previous work on formally verified monitors by supporting aggregations, regular expressions (the dynamic part), and optimizations including multi-way joins adopted from databases and a new sliding window algorithm. </p>
+				
+
+			</div>
+		</div>
+
+		
+		
+		
+		<div class="element row" id="paperGECCO18">
+			<div class="left col-sm-1 col-xs-12">
+				2018
+			</div>
+			<div class="middle col-sm-1 col-xs-12">
+				<strong>GECCO</strong>
+				
+			</div>
+			<div class="right col-sm-10 col-xs-12">
+				<h4> A New Analysis Method for Evolutionary Optimization of Dynamic and Noisy Objective Functions </h4>
+				Raphaël Dang-Nhu, Thibault Dardinier, Benjamin Doerr, Gautier Izacard, Dorian Nogneng
+				<br/>
+				<span class="conf">Genetic and Evolutionary Computation Conference</span>
+				<br/>
+
+				
+					<a class="link" href="#" onclick="showAbstract(12);return false">[Abstract]</a>
+				
+
+				
+					<a class="link" href="papers/GECCO18.pdf">[PDF]</a>
+				
+					<a class="link" href="https://dl.acm.org/doi/10.1145/3205455.3205563">[Publisher]</a>
+				
+
+				
+
+				
+					<p id="abstract12" class="abstract"> Evolutionary algorithms, being problem-independent and randomized heuristics, are generally believed to be robust to dynamic changes and noisy access to the problem instance. We propose a new method to obtain rigorous runtime results for such settings. In contrast to many previous works, our new approach mostly relies on general parameters of the dynamics or the noise models, such as the expected change of the dynamic optimum or the probability to have a dynamic change in one iteration. Consequently, we obtain bounds which are valid for large varieties of such models. Despite this generality, for almost all particular models regarded in the past our bounds are stronger than those given in previous works. As one particular result, we prove that the (1 + λ) EA can optimize the OneMax benchmark function efficiently despite a constant rate of 1-bit flip noise. For this, a logarithmic size offspring population suffices (the previous-best result required a super-linear value of λ). Our results suggest that the typical way to find the optimum in such adverse settings is not via a steady approach of the optimum, but rather via an exceptionally fast approach after waiting for a rare phase of low dynamic changes or noise. </p>
+				
+
+			</div>
+		</div>
+
+		
+		
+
+	</div>
+
+
+    <h3>Master's Thesis</h3>
+
+	<div class="element row" id="master-thesis">
+			<div class="left col-sm-2 col-xs-12">
+				2020
+			</div>
+			<div class="right col-sm-10 col-xs-12">
+				<h4>
+					Beyond the Frame Rule: Static Inlining in Separation Logic
+				</h4>
+				<span class="self-author">Thibault Dardinier</span>
+				<br/>
+				<span class="conf">
+					Master's Thesis. ETH Zurich, Switzerland.
+				</span>
+				<br/>
+				<a class="link" href="#" onclick="showAbstract(0);return false">[Abstract]</a>
+				<a class="link" href="papers/MSc_thesis.pdf">[PDF]</a>
+				<p id="abstract0" class="abstract">
+						Various formal verification techniques can be used to automatically verify the absence of errors in programs. This provides an advantage over testing approaches, namely the guarantee that a program is correct for any possible execution. However, such approaches often require a user to provide additional specifications to guide the verification, in the form of loop invariants and method preconditions and postconditions, which places a burden on the user. When no specifications are provided, verifiers usually report potential errors which are not actual errors, hence lowering confidence in error reporting.
+
+						Users might want to learn quickly (without providing too many specifications) and with high confidence whether a program is incorrect. This would speed up the development and verification process by only having to provide specifications when one is fairly certain that the program is correct. Static inlining, that is inlining of method calls and unrolling of loop iterations, is an interesting approach to tackle this issue. Using approaches based on static inlining, verifiers could inform a user of the existence of fundamental errors, errors for which no annotation can make the program verify. The existence of fundamental errors indicates an error in the program itself, informing the user this program cannot be verified, without the user needing to waste time and energy in the search of the right annotation.
+ One would expect that errors reported in an inlined program always correspond to fundamental errors in the original program, since annotations only serve as approximations of method calls and loops. Surprisingly, this is not always the case. Indeed, Viper, a verification infrastructure for permissionbased reasoning, partly based on separation logic and implicit dynamic frames with fractional permissions, has special features (such as permission introspection) which give rise to examples where this is not the case. These examples have all in common that they do not satisfy the frame rule.
+ In this thesis, we find (and prove correct) a soundness condition which characterizes the set of Viper programs for which static inlining is sound, that is errors in the inlined program correspond to fundamental errors in the original program. We define a parametric language which generalizes Viper, where program states are elements of a separation algebra, define the soundness condition in terms of this language, and prove the soundness property of inlining under this soundness condition, using the proof assistant Isabelle/HOL. We then show how one can instantiate this parametric language to transfer the results to Viper. We also explore a completeness property of static inlining, and consider extensions to different loop semantics and different ways of inlining.
+				</p>
+				<h4 style="color:green"><img src="images/medal.svg" alt="Medal" height="40">ETH Medal for Outstanding Master's Thesis</h4>
+			</div>
+		</div>
+	<div id="talks">
+	  <h2>Talks</h2>
+
+	  
+	  <div class="element row">
+		<div class="left col-sm-2 col-xs-12">
+			July 2025
+		</div>
+		<div class="right col-sm-10 col-xs-12">
+			<h4> Hypra: An Automated Deductive Verifier for Hyperproperties</h4>
+
+			Workshop talk at
+			
+				<a href="https://hyperworkshop25.cispa.io/">HYPER 2025</a>
+			
+			<br/>
+
+			
+
+			
+
+			
+		</div>
+	</div>
+    
+	  
+	  <div class="element row">
+		<div class="left col-sm-2 col-xs-12">
+			March 2025
+		</div>
+		<div class="right col-sm-10 col-xs-12">
+			<h4> Sound and Automated Deductive Verifiers for Advanced Properties</h4>
+
+			Invited talk at
+			
+				<a href="https://nus.edu.sg/">National University of Singapore</a>
+			
+			<br/>
+
+			
+				<a class="link" href="#" onclick="showAbstract(-2);return false">[Abstract]</a>
+			
+
+			
+
+			
+			<p id="abstract-2" class="abstract"> Automated deductive verifiers are tools that take as input a program and a specification and attempt to construct a formal proof, using a program logic, that the program satisfies its specification. Modern verifiers have had significant practical impact, with notable examples including the use of Dafny at Amazon, F* at Microsoft, and Viper in the VerifiedSCION project. However, modern verifiers face two fundamental challenges: trustworthiness (how can we ensure that verifiers are sound?) and expressivity (how can we build verifiers that can prove security and privacy properties?). In this talk, I will present my research, which addresses both challenges. First, I will introduce a comprehensive formal framework for systematically proving the soundness of modern verifiers based on separation logic (a state-of-the-art program logic for modular reasoning about sequential and concurrent programs). Second, I will present an expressive program logic for hyperproperties (properties relating multiple executions of a program), which has been automated in a deductive verifier. Finally, I will outline my research agenda for developing trustworthy, automated verifiers for advanced correctness and security properties. </p>
+			
+		</div>
+	</div>
+    
+	  
+	  <div class="element row">
+		<div class="left col-sm-2 col-xs-12">
+			March 2025
+		</div>
+		<div class="right col-sm-10 col-xs-12">
+			<h4> Sound and Automated Deductive Verifiers for Advanced Properties</h4>
+
+			Invited talk at
+			
+				<a href="https://memento.epfl.ch/event/ic-colloquium-sound-and-automated-deductive-verifi/">EPFL</a>
+			
+			<br/>
+
+			
+				<a class="link" href="#" onclick="showAbstract(-3);return false">[Abstract]</a>
+			
+
+			
+
+			
+			<p id="abstract-3" class="abstract"> Automated deductive verifiers are tools that take as input a program and a specification and attempt to construct a formal proof, using a program logic, that the program satisfies its specification. Modern verifiers have had significant practical impact, with notable examples including the use of Dafny at Amazon, F* at Microsoft, and Viper in the VerifiedSCION project. However, modern verifiers face two fundamental challenges: trustworthiness (how can we ensure that verifiers are sound?) and expressivity (how can we build verifiers that can prove security and privacy properties?). In this talk, I will present my research, which addresses both challenges. First, I will introduce a comprehensive formal framework for systematically proving the soundness of modern verifiers based on separation logic (a state-of-the-art program logic for modular reasoning about sequential and concurrent programs). Second, I will present an expressive program logic for hyperproperties (properties relating multiple executions of a program), which has been automated in a deductive verifier. Finally, I will outline my research agenda for developing trustworthy, automated verifiers for advanced correctness and security properties. </p>
+			
+		</div>
+	</div>
+    
+	  
+	  <div class="element row">
+		<div class="left col-sm-2 col-xs-12">
+			February 2025
+		</div>
+		<div class="right col-sm-10 col-xs-12">
+			<h4> Sound and Automated Deductive Verifiers for Advanced Properties</h4>
+
+			Invited talk at
+			
+				<a href="https://www.stevens.edu/">Stevens Institute of Technology</a>
+			
+			<br/>
+
+			
+				<a class="link" href="#" onclick="showAbstract(-4);return false">[Abstract]</a>
+			
+
+			
+
+			
+			<p id="abstract-4" class="abstract"> Automated deductive verifiers are tools that take as input a program and a specification and attempt to construct a formal proof, using a program logic, that the program satisfies its specification. Modern verifiers have had significant practical impact, with notable examples including the use of Dafny at Amazon, F* at Microsoft, and Viper in the VerifiedSCION project. However, modern verifiers face two fundamental challenges: trustworthiness (how can we ensure that verifiers are sound?) and expressivity (how can we build verifiers that can prove security and privacy properties?). In this talk, I will present my research, which addresses both challenges. First, I will discuss a comprehensive formal framework for systematically proving the soundness of modern verifiers based on separation logic (a state-of-the-art program logic for modular reasoning about sequential and concurrent programs). Second, I will present Hyper Hoare Logic, an expressive program logic for hyperproperties (properties relating multiple executions of a program), which has been automated in a deductive verifier. </p>
+			
+		</div>
+	</div>
+    
+	  
+	  <div class="element row">
+		<div class="left col-sm-2 col-xs-12">
+			February 2025
+		</div>
+		<div class="right col-sm-10 col-xs-12">
+			<h4> Sound and Automated Deductive Verifiers for Advanced Properties</h4>
+
+			Invited talk at
+			
+				<a href="https://cs.nyu.edu/dynamic/about/news/colloquium/1359/">NYU's Courant Institute</a>
+			
+			<br/>
+
+			
+				<a class="link" href="#" onclick="showAbstract(-5);return false">[Abstract]</a>
+			
+
+			
+
+			
+			<p id="abstract-5" class="abstract"> Automated deductive verifiers are tools that take as input a program and a specification and attempt to construct a formal proof, using a program logic, that the program satisfies its specification. Modern verifiers have had significant practical impact, with notable examples including the use of Dafny at Amazon, F* at Microsoft, and Viper in the VerifiedSCION project. However, modern verifiers face two fundamental challenges: trustworthiness (how can we ensure that verifiers are sound?) and expressivity (how can we build verifiers that can prove security and privacy properties?). In this talk, I will present my research, which addresses both challenges. First, I will introduce a comprehensive formal framework for systematically proving the soundness of modern verifiers based on separation logic (a state-of-the-art program logic for modular reasoning about sequential and concurrent programs). Second, I will present an expressive program logic for hyperproperties (properties relating multiple executions of a program), which has been automated in a deductive verifier. Finally, I will outline my research agenda for developing trustworthy, automated verifiers for advanced correctness and security properties. </p>
+			
+		</div>
+	</div>
+    
+	  
+	  <div class="element row">
+		<div class="left col-sm-2 col-xs-12">
+			February 2025
+		</div>
+		<div class="right col-sm-10 col-xs-12">
+			<h4> Sound and Automated Deductive Verifiers for Advanced Properties</h4>
+
+			Invited talk at
+			
+				<a href="https://today.wisc.edu/events/view/205951">University of Wisconsin-Madison</a>
+			
+			<br/>
+
+			
+				<a class="link" href="#" onclick="showAbstract(-6);return false">[Abstract]</a>
+			
+
+			
+
+			
+			<p id="abstract-6" class="abstract"> Automated deductive verifiers are tools that take as input a program and a specification and attempt to construct a formal proof, using a program logic, that the program satisfies its specification. Modern verifiers have had significant practical impact, with notable examples including the use of Dafny at Amazon, F* at Microsoft, and Viper in the VerifiedSCION project. However, modern verifiers face two fundamental challenges: trustworthiness (how can we ensure that verifiers are sound?) and expressivity (how can we build verifiers that can prove security and privacy properties?). In this talk, I will present my research, which addresses both challenges. First, I will introduce a comprehensive formal framework for systematically proving the soundness of modern verifiers based on separation logic (a state-of-the-art program logic for modular reasoning about sequential and concurrent programs). Second, I will present an expressive program logic for hyperproperties (properties relating multiple executions of a program), which has been automated in a deductive verifier. Finally, I will outline my research agenda for developing trustworthy, automated verifiers for advanced correctness and security properties. </p>
+			
+		</div>
+	</div>
+    
+	  
+	  <div class="element row">
+		<div class="left col-sm-2 col-xs-12">
+			February 2025
+		</div>
+		<div class="right col-sm-10 col-xs-12">
+			<h4> Sound and Automated Deductive Verifiers for Advanced Properties</h4>
+
+			Keynote at
+			
+				<a href="https://proofs.swiss/svd/2025/">Swiss Verification Day 2025</a>
+			
+			<br/>
+
+			
+
+			
+
+			
+		</div>
+	</div>
+    
+	  
+	  <div class="element row">
+		<div class="left col-sm-2 col-xs-12">
+			January 2025
+		</div>
+		<div class="right col-sm-10 col-xs-12">
+			<h4> Formal Foundations for Translational Separation Logic Verifiers</h4>
+
+			Conference talk at
+			
+				<a href="https://popl25.sigplan.org/details/POPL-2025-popl-research-papers/20/Formal-Foundations-for-Translational-Separation-Logic-Verifiers">POPL 2025</a>
+			
+			<br/>
+
+			
+				<a class="link" href="#" onclick="showAbstract(-8);return false">[Abstract]</a>
+			
+
+			
+				<a class="link" href="slides/POPL25.pdf">[Slides]</a>
+			
+				<a class="link" href="https://www.youtube.com/live/fXLdJBBsYR4?si=esFNzpUUNLW04aZq&t=30103">[Recording]</a>
+			
+				<a class="link" href="#paperPOPL25_CoreIVL">[Paper]</a>
+			
+
+			
+			<p id="abstract-8" class="abstract"> Program verification tools are often implemented as front-end translations of an input program into an intermediate verification language (IVL) such as Boogie, GIL, Viper, or Why3. The resulting IVL program is then verified using an existing back-end verifier. A soundness proof for such a translational verifier needs to relate the input program and verification logic to the semantics of the IVL, which in turn needs to be connected with the verification logic implemented in the back-end verifiers. Performing such proofs is challenging due to the large semantic gap between the input and output programs and logics, especially for complex verification logics such as separation logic. This paper presents a formal framework for reasoning about translational separation logic verifiers. At its center is a generic core IVL that captures the essence of different separation logics. We define its operational semantics and formally connect it to two different back-end verifiers, which use symbolic execution and verification condition generation, resp. Crucially, this semantics uses angelic non-determinism to enable the application of different proof search algorithms and heuristics in the back-end verifiers. An axiomatic semantics for the core IVL simplifies reasoning about the front-end translation by performing essential proof steps once and for all in the equivalence proof with the operational semantics rather than for each concrete front-end translation. We illustrate the usefulness of our formal framework by instantiating our core IVL with elements of Viper and connecting it to two Viper back-ends as well as a front-end for concurrent separation logic. All our technical results have been formalized in Isabelle/HOL, including the core IVL and its semantics, the semantics of two back-ends for a subset of Viper, and all proofs. </p>
+			
+		</div>
+	</div>
+    
+	  
+	  <div class="element row">
+		<div class="left col-sm-2 col-xs-12">
+			January 2025
+		</div>
+		<div class="right col-sm-10 col-xs-12">
+			<h4> Viper: An Infrastructure for Automated Verification in Separation Logic</h4>
+
+			Tutorial at
+			
+				<a href="https://popl25.sigplan.org/details/POPL-2025-tutorials/5/Viper-An-Infrastructure-for-Automated-Verification-in-Separation-Logic-">POPL 2025</a>
+			
+			<br/>
+
+			
+				<a class="link" href="#" onclick="showAbstract(-9);return false">[Abstract]</a>
+			
+
+			
+				<a class="link" href="slides/tutorial_POPL25.pdf">[Slides]</a>
+			
+				<a class="link" href="https://sites.google.com/view/vipertutorialpopl2025/home">[Website]</a>
+			
+
+			
+			<p id="abstract-9" class="abstract"> Viper is a verification infrastructure that facilitates the development of program verifiers based on separation logic. It consists of the Viper intermediate verification language and two SMT-based verification back-ends that automate proof search and can be reused across different front-ends. These front-end express verification problems in Viper by encoding an input program, its specification, and often dedicated proof rules. These encodings are facilitated by Viper’s expressive separation logic, offering fractional permissions, inductive predicates, iterated separating conjunction, and magic wands. This interactive tutorial explains how to use Viper and how to automate different verification problems by encoding them into the Viper language, for instance, to efficiently prototype new verification logics, or develop entire program verifiers. Additional information, especially installation instructions, are available at https://sites.google.com/view/vipertutorialpopl2025/home. </p>
+			
+		</div>
+	</div>
+    
+	  
+	  <div class="element row">
+		<div class="left col-sm-2 col-xs-12">
+			June 2024
+		</div>
+		<div class="right col-sm-10 col-xs-12">
+			<h4> Hyper Hoare Logic: (Dis-)Proving Program Hyperproperties</h4>
+
+			Conference talk at
+			
+				<a href="https://pldi24.sigplan.org/details/pldi-2024-papers/61/Hyper-Hoare-Logic-Dis-Proving-Program-Hyperproperties">PLDI 2024</a>
+			
+			<br/>
+
+			
+				<a class="link" href="#" onclick="showAbstract(-10);return false">[Abstract]</a>
+			
+
+			
+				<a class="link" href="slides/PLDI24.pdf">[Slides]</a>
+			
+				<a class="link" href="https://www.youtube.com/watch?v=BcT2Bqj1vd4">[Recording]</a>
+			
+				<a class="link" href="#paperPLDI24_HHL">[Paper]</a>
+			
+
+			
+			<p id="abstract-10" class="abstract"> Hoare logics are proof systems that allow one to formally establish properties of computer programs. Traditional Hoare logics prove properties of individual program executions (so-called trace properties, such as functional correctness). Hoare logic has been generalized to prove also properties of multiple executions of a program (so-called hyperproperties, such as determinism or non-interference). These program logics prove the absence of (bad combinations of) executions. On the other hand, program logics similar to Hoare logic have been proposed to disprove program properties (e.g., Incorrectness Logic), by proving the existence of (bad combinations of) executions. All of these logics have in common that they specify program properties using assertions over a fixed number of states, for instance, a single pre- and post-state for functional properties or pairs of pre- and post-states for non-interference. In this paper, we present Hyper Hoare Logic, a generalization of Hoare logic that lifts assertions to properties of arbitrary sets of states. The resulting logic is simple yet expressive: its judgments can express arbitrary trace- and hyperproperties over the terminating executions of a program. By allowing assertions to reason about sets of states, Hyper Hoare Logic can reason about both the absence and the existence of (combinations of) executions, and, thereby, supports both proving and disproving program (hyper-)properties within the same logic, including (hyper-)properties that no existing Hoare logic can express. We prove that Hyper Hoare Logic is sound and complete, and demonstrate that it captures important proof principles naturally. All our technical results have been proved in Isabelle/HOL. </p>
+			
+		</div>
+	</div>
+    
+	  
+	  <div class="element row">
+		<div class="left col-sm-2 col-xs-12">
+			January 2024
+		</div>
+		<div class="right col-sm-10 col-xs-12">
+			<h4> Formal Foundations of the Viper Verification Infrastructure</h4>
+
+			Workshop talk at
+			
+				<a href="https://proofs.swiss/svd/2024/">the Swiss Verification Day 2024</a>
+			
+			<br/>
+
+			
+				<a class="link" href="#" onclick="showAbstract(-11);return false">[Abstract]</a>
+			
+
+			
+				<a class="link" href="slides/SVD24.pdf">[Slides]</a>
+			
+
+			
+			<p id="abstract-11" class="abstract"> The Viper verification infrastructure provides an architecture on which new automatic verification tools and prototypes can be developed simply and quickly. Viper comprises an intermediate verification language (the Viper language) based on separation logic, as well as automatic verifiers for the language. In this talk, I will first give an overview of Viper. I will then present and illustrate the use of inhale and exhale, two key verification primitives provided by Viper. Finally, I will describe our ongoing work to give formal foundations to Viper, which includes proving that the successful verification of a Viper program corresponds to a valid proof in separation logic. </p>
+			
+		</div>
+	</div>
+    
+	  
+	  <div class="element row">
+		<div class="left col-sm-2 col-xs-12">
+			October 2023
+		</div>
+		<div class="right col-sm-10 col-xs-12">
+			<h4> Verification-Preserving Inlining in Automatic Separation Logic Verifiers</h4>
+
+			Conference talk at
+			
+				<a href="https://2023.splashcon.org/details/splash-2023-oopsla/28/Verification-Preserving-Inlining-in-Automatic-Separation-Logic-Verifiers">OOPSLA 2023</a>
+			
+			<br/>
+
+			
+				<a class="link" href="#" onclick="showAbstract(-12);return false">[Abstract]</a>
+			
+
+			
+				<a class="link" href="https://www.youtube.com/watch?v=o6noLdDpbXE">[Recording]</a>
+			
+				<a class="link" href="#paperOOPSLA23_Inlining">[Paper]</a>
+			
+
+			
+			<p id="abstract-12" class="abstract"> Bounded verification has proved useful to detect bugs and to increase confidence in the correctness of a program. In contrast to unbounded verification, reasoning about calls via (bounded) inlining and about loops via (bounded) unrolling does not require method specifications and loop invariants and, therefore, reduces the annotation overhead to the bare minimum, namely specifications of the properties to be verified. For verifiers based on traditional program logics, verification via inlining (and unrolling) is verification-preserving: successful unbounded verification of a program w.r.t. some annotation implies successful verification of the inlined program. That is, any error detected in the inlined program reveals a true error in the original program. However, this essential property might not hold for automatic separation logic verifiers such as Caper, GRASShopper, RefinedC, Steel, VeriFast, and verifiers based on Viper. In this setting, inlining generally changes the resources owned by method executions, which may affect automatic proof search algorithms and introduce spurious errors. In this paper, we present the first technique for verification-preserving inlining in automatic separation logic verifiers. We identify a semantic condition on programs and prove in Isabelle/HOL that it ensures verification-preserving inlining for state-of-the-art automatic separation logic verifiers. We also prove a dual result: successful verification of the inlined program ensures that there are method and loop annotations that enable the verification of the original program for bounded executions. To check our semantic condition automatically, we present two approximations that can be checked syntactically and with a program verifier, respectively. We implement these checks in Viper and demonstrate that they are effective for non-trivial examples from different verifiers. </p>
+			
+		</div>
+	</div>
+    
+	  
+	  <div class="element row">
+		<div class="left col-sm-2 col-xs-12">
+			September 2023
+		</div>
+		<div class="right col-sm-10 col-xs-12">
+			<h4> Intuitive and Automated Reasoning for Concurrent Programs in Pulse</h4>
+
+			End of internship talk at
+			
+				Microsoft Research (Redmond)
+			
+			<br/>
+
+			
+
+			
+
+			
+		</div>
+	</div>
+    
+	  
+	  <div class="element row">
+		<div class="left col-sm-2 col-xs-12">
+			May 2023
+		</div>
+		<div class="right col-sm-10 col-xs-12">
+			<h4> Viper: A Verification Framework Designed to Automate Separation Logic</h4>
+
+			Invited talk at
+			
+				<a href="https://iris-project.org/workshop-2023/">the Iris Workshop 2023</a>
+			
+			<br/>
+
+			
+				<a class="link" href="#" onclick="showAbstract(-14);return false">[Abstract]</a>
+			
+
+			
+				<a class="link" href="slides/Iris_Workshop_Viper.pdf">[Slides]</a>
+			
+
+			
+			<p id="abstract-14" class="abstract"> Viper is a framework on which new automatic verification tools and prototypes can be developed simply and quickly. Viper comprises an intermediate verification language (the Viper language) based on separation logic, as well as automatic verifiers for the language. In this talk, I will first give an overview of Viper. I will then discuss how the design of the Viper language enables automatic verification. Finally, I will describe our ongoing work to give a formal foundation for Viper, which includes proving that the successful verification of a Viper program corresponds to a valid proof in separation logic. </p>
+			
+		</div>
+	</div>
+    
+	  
+	  <div class="element row">
+		<div class="left col-sm-2 col-xs-12">
+			May 2023
+		</div>
+		<div class="right col-sm-10 col-xs-12">
+			<h4> Proving Information Flow Security for Concurrent Programs</h4>
+
+			Invited talk at
+			
+				<a href="https://zisc.ethz.ch/event/information-flow-security">the Zurich Information Security and Privacy Center (ZISC) Seminar</a>
+			
+			<br/>
+
+			
+				<a class="link" href="#" onclick="showAbstract(-15);return false">[Abstract]</a>
+			
+
+			
+				<a class="link" href="slides/ZISC_CommCSL.pdf">[Slides]</a>
+			
+				<a class="link" href="#paperPLDI23_CommCSL">[Paper]</a>
+			
+
+			
+			<p id="abstract-15" class="abstract"> (Program) verification is the process of proving that a program satisfies some properties by using mathematical techniques and formal reasoning, rather than relying on testing the program with inputs. Program verification is typically used to prove functional correctness properties (e.g., proving that a sorting algorithm does not crash and correctly sorts inputs), but it can also be used to prove security properties such as information flow security, which ensures that the secret data manipulated by a program does not influence its observable output. Proving information flow security is especially challenging for concurrent programs, where operations on secret data may influence the execution time of a thread and, thereby, the interleaving between different threads. Such internal timing channels may affect the observable outcome of a program even if an attacker does not observe execution times. Existing verification techniques for information flow security in concurrent programs attempt to prove that secret data does not influence the relative timing of threads. However, these techniques are often restrictive (for instance because they disallow branching on secret data) and make strong assumptions about the execution platform (ignoring caching, processor instructions with data-dependent runtime, and other common features that affect execution time). In this talk, we present a novel verification technique for secure information flow in concurrent programs that lifts these restrictions and does not make any assumptions about timing behavior. The key idea is to prove that all mutating operations performed on shared data commute, such that different thread interleavings do not influence its final value. Crucially, commutativity is required only for an abstraction of the shared data that contains the information that will be leaked to a public output. Abstract commutativity is satisfied by many more operations than standard commutativity, which makes our technique widely applicable. We formalize our technique in CommCSL, a relational concurrent separation logic with support for commutativity-based reasoning, and prove its soundness in Isabelle/HOL. We implemented CommCSL in HyperViper, an automated verifier based on the Viper verification infrastructure, and demonstrate its ability to verify challenging examples. </p>
+			
+		</div>
+	</div>
+    
+	  
+	  <div class="element row">
+		<div class="left col-sm-2 col-xs-12">
+			December 2022
+		</div>
+		<div class="right col-sm-10 col-xs-12">
+			<h4> Fractional Resources in Unbounded Separation Logic</h4>
+
+			Conference talk at
+			
+				<a href="https://2022.splashcon.org/details/splash-2022-oopsla/63/Fractional-Resources-in-Unbounded-Separation-Logic">OOPSLA 2022</a>
+			
+			<br/>
+
+			
+				<a class="link" href="#" onclick="showAbstract(-16);return false">[Abstract]</a>
+			
+
+			
+				<a class="link" href="slides/OOPSLA22.pdf">[Slides]</a>
+			
+				<a class="link" href="https://www.youtube.com/watch?v=B6Todn1VQY0">[Recording]</a>
+			
+				<a class="link" href="#paperOOPSLA22_Fractional">[Paper]</a>
+			
+
+			
+			<p id="abstract-16" class="abstract"> Many separation logics support fractional permissions to distinguish between read and write access to a heap location, for instance, to allow concurrent reads while enforcing exclusive writes. Fractional permissions extend to composite assertions such as (co)inductive predicates and magic wands by allowing those to be multiplied by a fraction. Typical separation logic proofs require that this multiplication has three key properties: it needs to distribute over assertions, it should permit fractions to be factored out from assertions, and two fractions of the same assertion should be combinable into one larger fraction. Existing formal semantics incorporating fractional assertions into a separation logic define multiplication semantically (via models), resulting in a semantics in which distributivity and combinability do not hold for key resource assertions such as magic wands, and fractions cannot be factored out from a separating conjunction. By contrast, existing automatic separation logic verifiers define multiplication syntactically, resulting in a different semantics for which it is unknown whether distributivity and combinability hold for all assertions. In this paper, we present a novel semantics for separation logic assertions that allows states to hold more than a full permission to a heap location during the evaluation of an assertion. By reimposing upper bounds on the permissions held per location at statement boundaries, we retain key properties of separation logic, in particular, the frame rule. Our assertion semantics unifies semantic and syntactic multiplication and thereby reconciles the discrepancy between separation logic theory and tools and enjoys distributivity, factorisability, and combinability. We have formalised our semantics and proved its properties in Isabelle/HOL. </p>
+			
+		</div>
+	</div>
+    
+	  
+	  <div class="element row">
+		<div class="left col-sm-2 col-xs-12">
+			August 2022
+		</div>
+		<div class="right col-sm-10 col-xs-12">
+			<h4> Sound Automation of Magic Wands</h4>
+
+			Conference talk at
+			
+				<a href="http://i-cav.org/2022/">CAV 2022</a>
+			
+			<br/>
+
+			
+				<a class="link" href="#" onclick="showAbstract(-17);return false">[Abstract]</a>
+			
+
+			
+				<a class="link" href="slides/CAV22.pdf">[Slides]</a>
+			
+				<a class="link" href="#paperCAV22_Wands">[Paper]</a>
+			
+
+			
+			<p id="abstract-17" class="abstract"> The magic wand −∗ (also called separating implication) is a separation logic connective commonly used to specify properties of partial data structures, for instance during iterative traversals. A footprint of a magic wand formula is a state that, combined with any state in which A holds, yields a state in which B holds. The key challenge of proving a magic wand (also called packaging a wand) is to find such a footprint. Existing package algorithms either have a high annotation overhead or, as we show in this paper, are unsound. We present a formal framework that precisely characterises a wide design space of possible package algorithms applicable to a large class of separation logics. We prove in Isabelle/HOL that our formal framework is sound and complete, and use it to develop a novel package algorithm that offers competitive automation and is sound. Moreover, we present a novel, restricted definition of wands and prove in Isabelle/HOL that it is possible to soundly combine fractions of such wands, which is not the case for arbitrary wands. We have implemented our techniques for the Viper language, and demonstrate that they are effective in practice. </p>
+			
+		</div>
+	</div>
+    
+	  
+
+	</div>
+
+
+
+
+	<div id="education">
+		<h2>Education</h2>
+
+	  <div class="element row" id="direct-doctorate">
+			<span class="left col-sm-2 col-xs-12">2020 - now</span>
+			<span class="right col-sm-10 col-xs-12">
+				<h4>PhD Student, <span class="notbold">ETH Zurich</span></h4>
+				<span class="location">Zurich, Switzerland</span>
+				<span class="description">
+					Part of the <a href="#direct-doctorate">Direct Doctorate</a> program.
+				</span>
+			</span>
+		</div>
+
+
+
+	  <div id="master-eth" class="element row">
+			<span class="left col-sm-2 col-xs-12">
+				2018 - 20
+			</span>
+			<span class="right col-sm-10 col-xs-12">
+				<h4>
+					Master of Computer Science <em>with distinction</em>, <span class="notbold">ETH Zurich, <i>5.8/6</i></span>
+				</h4>
+				<span class="location">Zurich, Switzerland</span>
+				<span class="description">
+					<li>Part of the <a href="#direct-doctorate">Direct Doctorate</a> program.</li>
+					<li>Classes on theoretical computer science, formal verification, artificial intelligence and parallel computing.</li>
+					<li>Received the <a href="#eth-medal">ETH Medal</a> for my Master's Thesis: <a href="#master-thesis">Beyond the Frame Rule: Static Inlining in Separation Logic</a>.</li>
+				</span>
+			</span>
+		</div>
+
+	  <div id="master-x" class="element row">
+			<span class="left col-sm-2 col-xs-12">
+				2015 - 18
+			</span>
+			<span class="right col-sm-10 col-xs-12">
+				<h4>
+					Diplôme d'Ingénieur (MSc), <span class="notbold">École Polytechnique, <i>3.96/4 (top 5%)</i></span>
+				</h4>
+				<span class="location">Palaiseau, France</span>
+				<span class="description">
+					<li>Focus on Computer Science: Algorithms and Foundations of Programming Languages.</li>
+					<li>Minor: Mathematics, Applied Mathematics and Economy.</li>
+					<li>Member of the video association (JTX), the 2017 TEDx team, and player of the football team.</li>
+				</span>
+			</span>
+		</div>
+
+	  <div class="element row">
+			<span class="left col-sm-2 col-xs-12">2013 - 15</span>
+			<span class="right col-sm-10 col-xs-12">
+				<h4>
+					Classes Préparatoires (MPSI-MP), <span class="notbold">Lycée du Parc</span>
+				</h4>
+				<span class="location">Lyon, France</span>
+				<span class="description">
+				<li>Two-year undergraduate preparatory course for the competitive entrance exams to France’s leading scientific schools.</li>
+				<li>Focus on Mathematics, Physics, Computer Science.</li>
+				<li>Admitted to École Polytechnique and ENS Paris (Ulm).
+			</span>
+			</span>
+		</div>
+
+
+	</div>
+	<div id="awards">
+
+		<h2>Awards</h2>
+
+	  <div class="element row">
+			<span class="left col-sm-2 col-xs-12">2025</span>
+			<span class="right col-sm-10 col-xs-12">
+				<h4>
+					Overall Best Team, <span class="notbold">VerifyThis (Program Verification Competition)</span>
+				</h4>
+				with Jonás Fiala
+				<span class="description">
+
+				<ul>
+					<li><a href="https://verifythis.github.io/">VerifyThis</a> is a program verification competition,
+						which takes yearly place during <a href="https://etaps.org/">ETAPS</a>.
+					<li>
+						It offers several challenges presented in natural language and pseudo code.
+						Participants have to formalize the requirements, implement a solution, and formally verify the implementation for adherence to the specification.
+					</li>
+					<li>Our team won the <a href="https://verifythis.github.io/onsite/archive/2025/">"Overall Best Team" prize</a>
+						using <a href="https://viper.ethz.ch/">Viper</a>.</li>
+			</span>
+			</span>
+		</div>
+
+
+
+	  <div class="element row">
+			<span class="left col-sm-2 col-xs-12">2024</span>
+			<span class="right col-sm-10 col-xs-12">
+				<h4>
+					Best Student Team, <span class="notbold">VerifyThis (Program Verification Competition)</span>
+				</h4>
+				with Jonás Fiala
+				<span class="description">
+					Our team won the <a href="https://verifythis.github.io/onsite/archive/2024/">"Best Student Team" prize</a>
+					using <a href="https://viper.ethz.ch">Viper</a>.
+				</span>
+			</span>
+			</span>
+		</div>
+
+
+
+	  <div class="element row">
+			<span class="left col-sm-2 col-xs-12">2023</span>
+			<span class="right col-sm-10 col-xs-12">
+				<h4>
+					Best Student Team, <span class="notbold">VerifyThis (Program Verification Competition)</span>
+				</h4>
+				with Jonás Fiala
+				<span class="description">
+					Our team won the <a href="https://verifythis.github.io/onsite/archive/2023/">"Best Student Team" prize</a>
+					using <a href="https://viper.ethz.ch">Viper</a>.
+				</span>
+			</span>
+		</div>
+
+
+
+	  <div class="element row">
+			<span class="left col-sm-2 col-xs-12">2022</span>
+			<span class="right col-sm-10 col-xs-12">
+				<h4>
+					ACM SIGPLAN Distinguished Paper Award (OOPSLA)
+				</h4>
+				<span class="description">
+					For the paper <a href="#paper6">Fractional Resources in Unbounded Separation Logic</a>.
+			</span>
+			</span>
+		</div>
+
+
+
+	  <div class="element row">
+			<span class="left col-sm-2 col-xs-12"></span>
+			<span class="right col-sm-10 col-xs-12">
+				<h4>
+					Best Overall Team, <span class="notbold">VerifyThis (Program Verification Competition)</span>
+				</h4>
+				with Jonás Fiala
+				<span class="description">
+					<ul>
+					<li>Our team won the <a href="https://verifythis.github.io/onsite/archive/2022/">"Best Overall Team" prize</a>
+						using <a href="https://viper.ethz.ch">Viper</a>.</li>
+					<li><a href="https://ethz.ch/content/dam/ethz/special-interest/infk/chair-program-method/pm/documents/publications/FarrellLammichHuismannMonahanM%C3%BCllerUllbrich.pdf">Report about the competition</a>.</li>
+			</span>
+			</span>
+		</div>
+
+
+
+	  <div class="element row" id="eth-medal">
+			<span class="left col-sm-2 col-xs-12">2020</span>
+			<span class="right col-sm-10 col-xs-12">
+				<h4>
+					ETH Medal, <span class="notbold">ETH Zurich</span>
+				</h4>
+				<span class="description">
+					<a href="https://inf.ethz.ch/news-and-events/spotlights/2020/09/eth-medal-master-fourwinners.html">Awarded</a>
+					by ETH Zürich
+					for my <a href="#master-thesis-exp">Master's thesis on inlining in separation logic</a>, along with a financial sum.
+					The ETH Medal is awarded to less than 2.5% of all Master's graduates of an ETH department.
+			</span>
+			</span>
+		</div>
+
+
+	  <div class="element row" id="research-prize">
+			<span class="left col-sm-2 col-xs-12">2018</span>
+			<span class="right col-sm-10 col-xs-12">
+				<h4>
+					Research Internship Prize, <span class="notbold">École Polytechnique</span>
+				</h4>
+				<span class="description">
+					Awarded by École Polytechnique for my <a href="#stage-sri">work on Gaussian Processes at SRI International</a>.
+			</span>
+			</span>
+		</div>
+
+	  <div class="element row" id="defense-medal">
+			<span class="left col-sm-2 col-xs-12">2016</span>
+			<span class="right col-sm-10 col-xs-12">
+				<h4>
+					National Defense Medal (France)
+				</h4>
+				<span class="description">
+				Awarded for my <a href="#stage-defense">internship at the Ministry of Defense</a>.
+			</span>
+			</span>
+		</div>
+
+	  <div class="element row">
+			<span class="left col-sm-2 col-xs-12">2015</span>
+			<span class="right col-sm-10 col-xs-12">
+				<h4>
+					3rd Place, <span class="notbold">Prologin (National Programming Contest)</span>
+				</h4>
+				<span class="description">
+				<a href="https://prologin.org/">Prologin</a> is a contest for French speaking students under 21, with qualifiers. The best 100 candidates meet and discover a multiplayer game created for the contest. They have 36 hours in a row to create an AI for the game. A ranking is established with the results of a contest between all AIs.
+					<a href="https://prologin.org/archives/2015/final/scoreboard">Ranked 3rd.</a>
+			</span>
+			</span>
+		</div>
+
+	  <div class="element row">
+			<span class="left col-sm-2 col-xs-12">2014</span>
+			<span class="right col-sm-10 col-xs-12">
+				<h4>
+					2nd Place, <span class="notbold">Prologin (National Programming Contest)</span>
+				</h4>
+				<span class="description">
+					<a href="https://prologin.org/archives/2014/final/scoreboard">Ranked 2nd.</a>
+				</span>
+			</span>
+		</div>
+	</div>
+
+	<div id="experience">
+
+		<h2>Internships</h2>
+
+	  <div class="element row" id="stage-msr">
+			<span class="left col-sm-2 col-xs-12">2023</span>
+			<span class="right col-sm-10 col-xs-12">
+				<h4>
+					Research Intern, <span class="notbold">Microsoft Research (RiSE)</span>
+				</h4>
+				<span class="location">Redmond, Washington, USA</span>
+				<br/>
+				Supervision: Guido Martinez, Tahina Ramananandro, Nikhil Swamy
+				<br/>
+				<span class="description">
+					Worked on Pulse, a novel DSL built within the <a href="https://www.fstar-lang.org/">F* proof assistant</a>, which offers both a language to write imperative concurrent programs in a Rust-like syntax and a checker based on concurrent separation logic to verify programs written in this DSL (with the help of proof annotations from the user).</li>
+				In particular, I developed a new way to automatically infer suitable annotations for parallel programs, reducing the proof burden on the user.
+				I also worked on a new intuitive way of specifying and proving properties that will hold in the future (e.g., when a task will be done).
+				</span>
+			</span>
+		</div>
+
+
+
+	  <div class="element row" id="stage-sri">
+			<span class="left col-sm-2 col-xs-12">2018</span>
+			<span class="right col-sm-10 col-xs-12">
+				<h4>
+					Research Fellow, <span class="notbold">SRI International (CSL)</span>
+				</h4>
+				<span class="location">Menlo Park, California, USA</span>
+				<br/>
+				Supervision: Susmit Jha
+				<br/>
+				<span class="description">
+					<li>Developed an extension of Gaussian Processes to symbolically reason over sets and trajectories in order to enable multiple-step ahead forecasting with propagation of uncertainty.</li>
+					<li>Received the <a href="#research-prize">Research Internship Prize</a> from École Polytechnique.</li>
+				</span>
+			</span>
+		</div>
+
+	  <div class="element row" id="stage-siemens">
+			<span class="left col-sm-2 col-xs-12">2017</span>
+			<span class="right col-sm-10 col-xs-12">
+				<h4>
+					R&D Intern, <span class="notbold">Siemens (Corporate Technology)</span>
+				</h4>
+				<span class="location">Munich, Germany</span>
+				<span class="description">
+				<li>Created a dynamic programming algorithm to locate a train without GPS, using other sensors and previous recordings, and filed an Invention Disclosure for this algorithm.</li>
+				<li>Enhanced an existing Indoor Positioning System Android app, based on Bluetooth Low Energy and Ultra-Wideband technologies.</li>
+				<li>Set a structure up on a server to collect data from the previous app in a database to run experiments and show the results.</li>
+			</span>
+			</span>
+		</div>
+
+	  <div class="element row" id="stage-defense">
+			<span class="left col-sm-2 col-xs-12">2015 - 16</span>
+			<span class="right col-sm-10 col-xs-12">
+				<h4>
+					Research Intern, <span class="notbold">Ministry of Defense (France)</span>
+				</h4>
+				<span class="location">Paris, France</span>
+				<span class="description">
+				<li>Used machine learning methods to automate the processing and analysis of many documents.</li>
+				<li>Developed an app to interactively explore complex graphs.</li>
+				<li>Received the <a href="#defense-medal">National Defense Medal</a>.</li>
+			</span>
+			</span>
+		</div>
+
+
+
+
+	</div>
+	
+
+
+	<div id="supervision">
+		<h2>Student Supervision</h2>
+
+					
+					<div class="element row">
+						
+							<span class="left col-sm-2 col-xs-12">Ongoing</span>
+						
+						<span class="right col-sm-10 col-xs-12">
+							David Hagen (BSc thesis)
+							<br/>
+							<span class="description">
+								
+									<a href="https://ethz.ch/content/dam/ethz/special-interest/infk/chair-program-method/pm/documents/Education/Theses/David_Hagen_BS_Description.pdf">Automating Hyper Hoare Logic via Predicate Transformers</a> (project description)
+								
+							</span>
+						</span>
+					</div>
+					
+					<div class="element row">
+						
+							<span class="left col-sm-2 col-xs-12">2025</span>
+						
+						<span class="right col-sm-10 col-xs-12">
+							Ramon Wick (MSc practical work project)
+							<br/>
+							<span class="description">
+								
+									<a href="https://ethz.ch/content/dam/ethz/special-interest/infk/chair-program-method/pm/documents/Education/Theses/Ramon_Wick_PW_Description.pdf">Hypertypes: Types for Hyperproperties</a> (project description)
+								
+							</span>
+						</span>
+					</div>
+					
+					<div class="element row">
+						
+							<span class="left col-sm-2 col-xs-12"></span>
+						
+						<span class="right col-sm-10 col-xs-12">
+							Patrick Neugebauer (BSc thesis,
+							co-supervised with Anqi Li)
+							<br/>
+							<span class="description">
+								
+									<a href="https://ethz.ch/content/dam/ethz/special-interest/infk/chair-program-method/pm/documents/Education/Theses/Patrick_Neugebauer_BS_Report.pdf">Automated Compositional Verification of Hyperproperties</a>
+								
+							</span>
+						</span>
+					</div>
+					
+					<div class="element row">
+						
+							<span class="left col-sm-2 col-xs-12"></span>
+						
+						<span class="right col-sm-10 col-xs-12">
+							Paul Winkler (BSc thesis,
+							co-supervised with Anqi Li)
+							<br/>
+							<span class="description">
+								
+									<a href="https://ethz.ch/content/dam/ethz/special-interest/infk/chair-program-method/pm/documents/Education/Theses/Paul_Winkler_BS_Report.pdf">Improving a Deductive Program Verifier for Hyperproperties</a>
+								
+							</span>
+						</span>
+					</div>
+					
+					<div class="element row">
+						
+							<span class="left col-sm-2 col-xs-12">2024</span>
+						
+						<span class="right col-sm-10 col-xs-12">
+							Trayan Gospodinov (MSc thesis)
+							<br/>
+							<span class="description">
+								
+									<a href="https://store.fmi.uni-sofia.bg/fmi/logic/theses/TrayanGospodinov/MScThesis-Trayan-Final.pdf">Hyper Separation Logic: (Dis-)Proving Hyperproperties of Programs with Pointers</a>
+								
+							</span>
+						</span>
+					</div>
+					
+					<div class="element row">
+						
+							<span class="left col-sm-2 col-xs-12"></span>
+						
+						<span class="right col-sm-10 col-xs-12">
+							Yushuo Xiao (MSc thesis,
+							co-supervised with Gaurav Parthasarathy)
+							<br/>
+							<span class="description">
+								
+									<a href="https://ethz.ch/content/dam/ethz/special-interest/infk/chair-program-method/pm/documents/Education/Theses/Yushuo_Xiao_MS_Description.pdf">A Semantics for Predicates in Automated Separation Logic Verifiers</a>
+								
+							</span>
+						</span>
+					</div>
+					
+					<div class="element row">
+						
+							<span class="left col-sm-2 col-xs-12"></span>
+						
+						<span class="right col-sm-10 col-xs-12">
+							Hongyi Ling (MSc thesis,
+							co-supervised with Gaurav Parthasarathy)
+							<br/>
+							<span class="description">
+								
+									<a href="https://ethz.ch/content/dam/ethz/special-interest/infk/chair-program-method/pm/documents/Education/Theses/Hongyi_Ling_MA_Report.pdf">A General Approach to Formally Verify Viper Front-ends</a>
+								
+							</span>
+						</span>
+					</div>
+					
+					<div class="element row">
+						
+							<span class="left col-sm-2 col-xs-12"></span>
+						
+						<span class="right col-sm-10 col-xs-12">
+							Yushuo Xiao (MSc practical work project)
+							<br/>
+							<span class="description">
+								
+									<a href="https://ethz.ch/content/dam/ethz/special-interest/infk/chair-program-method/pm/documents/Education/Theses/Yushuo_Xiao_PW_Report.pdf">Hyperwand: Extending the Magic Wand Operator in Separation Logic</a>
+								
+							</span>
+						</span>
+					</div>
+					
+					<div class="element row">
+						
+							<span class="left col-sm-2 col-xs-12"></span>
+						
+						<span class="right col-sm-10 col-xs-12">
+							Yiqun Liu (MSc practical work project)
+							<br/>
+							<span class="description">
+								
+									<a href="https://ethz.ch/content/dam/ethz/special-interest/infk/chair-program-method/pm/documents/Education/Theses/Yiqun_Liu_PW_Thesis.pdf">Automating Magic Wands with Advanced Features</a> (project description)
+								
+							</span>
+						</span>
+					</div>
+					
+					<div class="element row">
+						
+							<span class="left col-sm-2 col-xs-12">2023</span>
+						
+						<span class="right col-sm-10 col-xs-12">
+							Anqi Li (MSc thesis)
+							<br/>
+							<span class="description">
+								
+									<a href="https://ethz.ch/content/dam/ethz/special-interest/infk/chair-program-method/pm/documents/Education/Theses/Anqi_Li_MS_Thesis.pdf">An Automatic Program Verifier for Hyperproperties</a>
+								
+							</span>
+						</span>
+					</div>
+					
+					<div class="element row">
+						
+							<span class="left col-sm-2 col-xs-12"></span>
+						
+						<span class="right col-sm-10 col-xs-12">
+							Hongyi Ling (MSc practical work project,
+							co-supervised with Gaurav Parthasarathy)
+							<br/>
+							<span class="description">
+								
+									<a href="https://ethz.ch/content/dam/ethz/special-interest/infk/chair-program-method/pm/documents/Education/Theses/Hongyi_Ling_PW_description.pdf">Formally Deriving an Equirecursive Viper Semantics via a Least Fixed Point Predicate Interpretation</a> (project description)
+								
+							</span>
+						</span>
+					</div>
+					
+					<div class="element row">
+						
+							<span class="left col-sm-2 col-xs-12"></span>
+						
+						<span class="right col-sm-10 col-xs-12">
+							Ellen Arlt (MSc thesis,
+							co-supervised with Gaurav Parthasarathy)
+							<br/>
+							<span class="description">
+								
+									<a href="https://ethz.ch/content/dam/ethz/special-interest/infk/chair-program-method/pm/documents/Education/Theses/Ellen_Arlt_MS_Thesis.pdf">A Formally Verified Automatic Verifier for Concurrent Programs</a>
+								
+							</span>
+						</span>
+					</div>
+					
+					<div class="element row">
+						
+							<span class="left col-sm-2 col-xs-12"></span>
+						
+						<span class="right col-sm-10 col-xs-12">
+							Anqi Li (MSc practical work project)
+							<br/>
+							<span class="description">
+								
+									<a href="https://ethz.ch/content/dam/ethz/special-interest/infk/chair-program-method/pm/documents/Education/Theses/Anqi_Li_PW_report.pdf">Improving User-Defined Permission Models in Viper</a>
+								
+							</span>
+						</span>
+					</div>
+					
+					<div class="element row">
+						
+							<span class="left col-sm-2 col-xs-12"></span>
+						
+						<span class="right col-sm-10 col-xs-12">
+							Dina Weiersmüller (BSc thesis,
+							co-supervised with Linard Arquint)
+							<br/>
+							<span class="description">
+								
+									<a href="https://ethz.ch/content/dam/ethz/special-interest/infk/chair-program-method/pm/documents/Education/Theses/Dina_Weiersmueller_BA_Report.pdf">Advanced Logical Proofs in a Verifier</a>
+								
+							</span>
+						</span>
+					</div>
+					
+					<div class="element row">
+						
+							<span class="left col-sm-2 col-xs-12">2022</span>
+						
+						<span class="right col-sm-10 col-xs-12">
+							Matthias Schenk (BSc thesis)
+							<br/>
+							<span class="description">
+								
+									<a href="https://ethz.ch/content/dam/ethz/special-interest/infk/chair-program-method/pm/documents/Education/Theses/Matthias_Schenk_BS_Thesis.pdf">Practical Inlining in Viper</a>
+								
+							</span>
+						</span>
+					</div>
+					
+					<div class="element row">
+						
+							<span class="left col-sm-2 col-xs-12"></span>
+						
+						<span class="right col-sm-10 col-xs-12">
+							Nicola Widmer (BSc thesis,
+							co-supervised with Malte Schwerhoff)
+							<br/>
+							<span class="description">
+								
+									<a href="https://ethz.ch/content/dam/ethz/special-interest/infk/chair-program-method/pm/documents/Education/Theses/Nicola_Widmer_BS_Report.pdf">Sound Automation of Magic Wands in a Symbolic-Execution Verifier</a>
+								
+							</span>
+						</span>
+					</div>
+					
+					<div class="element row">
+						
+							<span class="left col-sm-2 col-xs-12">2021</span>
+						
+						<span class="right col-sm-10 col-xs-12">
+							Matthias Roshardt (MSc thesis)
+							<br/>
+							<span class="description">
+								
+									<a href="https://ethz.ch/content/dam/ethz/special-interest/infk/chair-program-method/pm/documents/Education/Theses/Matthias_Roshardt_MS_Report.pdf">Extending the Viper Verification Language with User-Defined Permission Models</a>
+								
+							</span>
+						</span>
+					</div>
+					
+					<div class="element row">
+						
+							<span class="left col-sm-2 col-xs-12"></span>
+						
+						<span class="right col-sm-10 col-xs-12">
+							Noé Weeks (BSc internship,
+							co-supervised with Gaurav Parthasarathy)
+							<br/>
+							<span class="description">
+								
+									Making Magic Wands Combinable
+								
+							</span>
+						</span>
+					</div>
+					
+					<div class="element row">
+						
+							<span class="left col-sm-2 col-xs-12"></span>
+						
+						<span class="right col-sm-10 col-xs-12">
+							Benjamin Bonneau (MSc internship,
+							co-supervised with Gaurav Parthasarathy)
+							<br/>
+							<span class="description">
+								
+									<a href="https://ethz.ch/content/dam/ethz/special-interest/infk/chair-program-method/pm/documents/Education/Theses/Benjamin_Bonneau_internship_report.pdf">A Formal Foundation for the Dafny Verifier</a>
+								
+							</span>
+						</span>
+					</div>
+					
+					<div class="element row">
+						
+							<span class="left col-sm-2 col-xs-12"></span>
+						
+						<span class="right col-sm-10 col-xs-12">
+							Yanick Bachmann (BSc thesis)
+							<br/>
+							<span class="description">
+								
+									<a href="https://ethz.ch/content/dam/ethz/special-interest/infk/chair-program-method/pm/documents/Education/Theses/Yanick_%20Bachmann_BS-Report.pdf">An Abstract Representation for Wildcard Permissions in Viper</a>
+								
+							</span>
+						</span>
+					</div>
+					
+	</div>
+
+	<div id="teaching">
+		<h2>Teaching</h2>
+
+			<div class="element row">
+				<span class="left col-sm-2 col-xs-12">2020 - 2025</span>
+				<span class="right col-sm-10 col-xs-12">
+					<h4>
+						Teaching Assistant, <span class="notbold">ETH Zurich</span>
+					</h4>
+					<span class="location">Zurich, Switzerland</span><br/>
+				<span class="description">
+					<ul>
+						<li><a href="https://www.pm.inf.ethz.ch/education/courses/COOP.html">Concepts of Object-Oriented Programming</a> (2020, 2021, 2022)</li>
+						<li><a href="https://infsec.ethz.ch/education/ss2023/fmfp.html">Formal Methods and Functional Programming</a> (2021, 2022, 2023, 2024, 2025)</li>
+						<li><a href="https://pls.inf.ethz.ch/education/Research_Topics_in_Software_Engineering.html">Research Topics in Software Engineering</a> (2023)</li>
+					</ul>
+				</span>
+				</span>
+			</div>
+
+			<div class="element row">
+				<span class="left col-sm-2 col-xs-12">2021 - 2022</span>
+				<span class="right col-sm-10 col-xs-12">
+					<h4>
+						Head Teaching Assistant, <span class="notbold">ETH Zurich</span>
+					</h4>
+					<span class="location">Zurich, Switzerland</span><br/>
+				<span class="description">
+						<a href="https://infsec.ethz.ch/education/ss2022/fmfp.html">Formal Methods and Functional Programming</a> (2021 and 2022)
+				</span>
+				</span>
+			</div>
+
+
+
+			<div class="element row">
+				<span class="left col-sm-2 col-xs-12">2016 - 17</span>
+				<span class="right col-sm-10 col-xs-12">
+					<h4>
+						Oral Examiner in Mathematics, <span class="notbold">Lycée Blaise Pascal</span>
+					</h4>
+					<span class="location">Orsay, France</span><br/>
+				<span class="description">
+					Two hours weekly for undergraduates preparing competitive entrance exams to France’s top-ranking scientific schools.
+				</span>
+				</span>
+			</div>
+	</div>
+
+	<div id="service">
+		<h2>Service</h2>
+
+			<div class="element row">
+				<span class="left col-sm-3 col-xs-12">PC member</span>
+				<span class="right col-sm-9 col-xs-12">
+					CPP'26
+				</span>
+			</div>
+
+
+
+			<div class="element row">
+				<span class="left col-sm-3 col-xs-12">External reviewer</span>
+				<span class="right col-sm-9 col-xs-12">
+					PLDI'22, TACAS'23, POPL'24, LICS'24, ESOP'25
+				</span>
+			</div>
+
+			<div class="element row">
+				<span class="left col-sm-3 col-xs-12">Student volunteer</span>
+				<span class="right col-sm-9 col-xs-12">
+					POPL'24
+				</span>
+			</div>
+	
+	
+	</div>
+
+
+
+
+	<div id="other">
+		<h2>Other Activities</h2>
+
+			<div class="element row">
+				<span class="left col-sm-2 col-xs-12">2017</span>
+				<span class="right col-sm-10 col-xs-12">
+					<h4>
+						Development of an Online Video Platform for the Video Association (JTX)
+					</h4>
+				<span class="description">
+					<li>A <a href="https://binet-jtx.com/jtx">YouTube-like website</a> where the school video association shares its videos with the students, with many specific features.</li>
+					<li>Visited monthly by thousands students and alumni (restricted access for others).</li>
+				</span>
+				</span>
+			</div>
+
+			<div class="element row">
+				<span class="left col-sm-2 col-xs-12"></span>
+				<span class="right col-sm-10 col-xs-12">
+					<h4>
+						Development of an Optimization Algorithm (Bin Packing) for Industrial Purposes
+					</h4>
+				<span class="description">
+					<li>Studied state-of-the-art algorithms to solve the “Bin packing” problem : Bin Completion (BC) by Korf [2002, 2003, 2013] and Branch-and-Cut-and-Price (BCP) by Belov and Scheithauer [2006].</li>
+					<li>Implemented an improved version of Korf’s BC algorithm.</li>
+					<li>Adapted the previous algorithm and other algorithms (such as Knapsack) to tackle industrial issues as requested.</li>
+				</span>
+				</span>
+			</div>
+
+			<div class="element row">
+				<span class="left col-sm-2 col-xs-12">2016</span>
+				<span class="right col-sm-10 col-xs-12">
+					<h4>
+						Volunteer, <span class="notbold">Mission Potosi</span>
+					</h4>
+					<span class="location">Potosi, Bolivia</span><br/>
+				<span class="description">
+					<a href="https://missionpotosi.wixsite.com/leblog">Mission Potosi</a> is an organisation with about 50 students from 4 schools (business, medical and engineering), which collaborates with local ONGs (Cepromin, Pasocap) and a german ONG (Kindernothilfe) in Potosi (Bolivia) to provide childcare for mining families.
+					<li>Helped to develop and maintain a children's center.</li>
+					<li>Helped children with school and sanitary issues.</li>
+					<li>Collected money to give deserving children scholarships.</li>
+				</span>
+				</span>
+			</div>
+
+			<div class="element row">
+				<span class="left col-sm-2 col-xs-12">2015</span>
+				<span class="right col-sm-10 col-xs-12">
+					<h4>
+						Military Training as an Officer
+					</h4>
+					<span class="location">Coëtquidan, France</span><br/>
+				<span class="description">
+					This military training, part of the cursus at École polytechnique, teaches us a lot on various subjects such as strategy, communication, leadership, etc.
+				</span>
+				</span>
+			</div>
+		</div>
+
+	</div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+	<script>
+
+
+
+		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+			if (anchor.href.split("#")[1] != "") {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth',
+			block: 'center'
+					});
+			});
+		}
+	});
+
+	// Add feature to highlight to all anchor links
+	var elements = document.querySelectorAll('a[href^="#"]')
+
+		$("a").click(function (event) {
+			event.stopPropagation();
+			var anchorValue= $(this).attr("href");
+			if (anchorValue[0] == "#" && anchorValue.length > 1) {
+				highlight(anchorValue.slice(1));
+			}
+		});
+
+// Add target blank to all links
+var links = document.getElementsByTagName('a');
+var len = links.length;
+
+for(var i=0; i<len; i++)
+{
+   links[i].target = "_blank";
+}
+
+
+	</script>
+
+  </body>
+</html>
