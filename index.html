@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -46,7 +47,10 @@
 				<br/>
 				<br/>
 				<h1>Thibault Dardinier</h1>
-				<span style="font-size:22px; color:grey">PhD student, Programming Methodology Group, ETH Zurich
+				<span style="font-size:22px; color:grey">
+					Visiting Research Fellow, National University of Singapore
+					<br/>
+					Incoming Assistant Professor (Fall 2026), New York University
 					<br/>
 					<span style="font-size:20px">firstname.lastname@inf.ethz.ch</span>
 				<br/>
@@ -82,8 +86,12 @@
 
 		<div id="about">
 		<span style="font-size:18px">
+            <p>
+			I am currently a visiting research fellow at <a href="https://nus.edu.sg/">NUS</a>, working with <a href="https://ilyasergey.net/">Ilya Sergey</a>.
+            I recently got my PhD from <a href="https://ethz.ch/">ETH Zurich</a>, advised by <a href="https://www.pm.inf.ethz.ch/people/personal/pmueller-pers.html">Peter Müller</a>.
+			</p>
+
 			<p style="text-align: justify">
-I am a PhD student in the <a href="https://www.pm.inf.ethz.ch/">Programming Methodology Group</a> at ETH Zurich, advised by <a href="https://www.pm.inf.ethz.ch/people/personal/pmueller-pers.html">Prof. Peter Müller</a>.
 The goal of my research is to build provably sound deductive verifiers with state-of-the-art automation for correctness, security, and privacy properties.
 To achieve this, my research addresses both theoretical and practical aspects, ranging from developing machine-checked (using the <a href="https://isabelle.in.tum.de/">Isabelle proof assistant</a>)
 program logics (e.g., <a href="#paperPLDI24_HHL">Hyper Hoare Logic</a>, <a href="#paperPLDI23_CommCSL">CommCSL</a>)
@@ -639,8 +647,35 @@ to building novel automated verifiers (e.g., <a href="#paperOOPSLA24_Hypra">Hypr
 
 	</div>
 
+	    <h3>Theses</h3>
 
-    <h3>Master's Thesis</h3>
+	<div class="element row" id="master-thesis">
+			<div class="left col-sm-2 col-xs-12">
+				2025
+			</div>
+			<div class="right col-sm-10 col-xs-12">
+				<h4>
+					Formal Foundations for Automated Deductive Verifiers
+				</h4>
+				<span class="self-author">Thibault Dardinier</span>
+				<br/>
+				<span class="conf">
+					PhD Thesis. ETH Zurich, Switzerland.
+				</span>
+				<br/>
+				<a class="link" href="#" onclick="showAbstract(13);return false">[Abstract]</a>
+				<a class="link" href="papers/PhD_thesis.pdf">[PDF]</a>
+				<p id="abstract13" class="abstract">
+				Automated deductive verifiers are tools that attempt to prove, with mathematical certainty, that all executions of a program satisfy a given specification, using program logics such as Hoare logic or separation logic. Modern verifiers have already had significant impact in industry: the F* verifier has been used at Microsoft to verify code deployed in Microsoft Azure, Firefox, and the Linux kernel; the Gobra verifier (based on Viper) has been used to verify SCION’s next-generation router; and the Dafny verifier has been used to verify the core authorization engine of Amazon Web Services, which runs a billion times per second. Despite these achievements, modern verifiers face two key challenges. First, for verification results to be trustworthy, verifiers must be sound, i.e., they should only verify programs that actually satisfy their specifications. However, unsoundnesses (cases where a verifier incorrectly verifies an invalid program) are regularly discovered in practice, undermining trust in these tools. Second, automated verifiers are limited in their expressiveness. While they can prove properties of individual executions (such as the absence of runtime errors), they fall short when it comes to establishing hyperproperties, an important class of functional and security properties that relate multiple executions of a program. This thesis addresses both of these challenges.
+
+To address the trustworthiness challenge, this thesis develops formal foundations for establishing the soundness of automated verifiers based on separation logic (SL), a state-of-the-art class of program logics for modular reasoning about sequential and concurrent heap-manipulating programs, and the basis of many modern verifiers. We start by introducing the first formal framework for proving the soundness of SL-based translational verifiers, which work by translating the input program and its specification into an intermediate verification language (IVL), subsequently checked by a dedicated verifier for the IVL. Our framework applies to a wide range of translational verifiers, including Gillian (for C, JavaScript, Rust), VeriFast (for C, Java, C++, Rust), and Viper (for C, Java, Rust, Go, Python, and others). Crucially, our framework modularizes the reasoning required for the correctness of the front-end translation from that of the back-end verifier, while supporting diverse verification algorithms and heuristics in the back-end. We demonstrate its practical utility by instantiating it for Viper and connecting it to a front-end translation for concurrent programs. Second, we focus on fractional predicates, a generalization of fractional permissions to arbitrary SL predicates, which enable automated verifiers to reason about concurrent reads of shared data structures. We identify a fundamental discrepancy between the theoretical treatment of fractional predicates and their practical implementation in automated verifiers. To resolve this, we present a novel semantics for SL assertions that allows states to temporarily hold more than full permission to a heap location during assertion evaluation. This semantics formally justifies the rules used by existing automated verifiers and provides a foundation for further extensions. Third, we address the automation of the magic wand (also called separating implication), a key SL connective for reasoning about ownership of partial data structures. Prior to this work, all support for magic wands in automated verifiers was either manual or unsound. We present a novel formal foundation that characterizes the broad design space of sound and automated verification algorithms for magic wands, and use it to implement, in Viper, the first such algorithm.
+
+To address the expressiveness challenge, we introduce Hyper Hoare Logic (HHL), a novel program logic for hyperproperties. HHL generalizes Hoare logic by lifting assertions from predicates over individual states to predicates over sets of states. As a result, HHL can be used to establish a broad range of hyperproperties, encompassing those supported by existing program logics as well as hyperproperties beyond their reach. Despite its expressiveness, we show that HHL admits intuitive and powerful inference rules that capture important reasoning principles, e.g., to compose different types of hyperproperties in the same proof, or to reason about loops where different executions perform different numbers of iterations. We then demonstrate that HHL is amenable to automation by presenting Hypra, a novel automated verifier for hyperproperties based on HHL. Hypra automates HHL by translating an input program and its HHL specification into a Viper program, where one execution of the Viper program simulates a set of executions of the input program. Our evaluation on new and existing benchmarks demonstrates that Hypra can effectively prove a large class of hyperproperties in reasonable time and with minimal annotation overhead.
+
+All formal results in this thesis have been formalized in the interactive proof assistant Isabelle/HOL.
+				</p>
+			</div>
+		</div>
 
 	<div class="element row" id="master-thesis">
 			<div class="left col-sm-2 col-xs-12">
@@ -671,6 +706,58 @@ to building novel automated verifiers (e.g., <a href="#paperOOPSLA24_Hypra">Hypr
 	<div id="talks">
 	  <h2>Talks</h2>
 
+	  
+	  <div class="element row">
+		<div class="left col-sm-2 col-xs-12">
+			October 2025
+		</div>
+		<div class="right col-sm-10 col-xs-12">
+			<h4> Hyper Hoare Logic: Proving and Disproving Program Hyperproperties</h4>
+
+			Invited talk at
+			
+				<a href="https://pl.cs.cornell.edu/pldg/2025fa/">Cornell University</a>
+			
+			<br/>
+
+			
+				<a class="link" href="#" onclick="showAbstract(-1);return false">[Abstract]</a>
+			
+
+			
+
+			
+			<p id="abstract-1" class="abstract"> Hyperproperties relate multiple executions of a program and capture essential correctness and security properties such as determinism, monotonicity, transitivity, reachability, and (generalized) non-interference. Existing program logics for hyperproperties typically reason about a fixed number of states, which limits the kinds of hyperproperties they can express and prove, and hinders the reuse of proofs across different formalisms. In this talk, I will present Hyper Hoare Logic (HHL), a generalization of Hoare logic that lifts assertions from predicates over individual states to predicates over sets of states. This generalization enables uniform reasoning for a wide range of hyperproperties, including those beyond the reach of existing logics. Despite its expressiveness, HHL admits simple and intuitive inference rules that support key reasoning principles, such as composing different kinds of hyperproperties in the same proof or reasoning about loops where different executions perform different numbers of iterations. To show that HHL is amenable to automation, I will then introduce Hypra, an automated verifier for hyperproperties based on HHL. Hypra translates a program and its HHL specification into a Viper program, where each execution of the latter represents a set of executions of the original program. Our evaluation on new and existing benchmarks shows that Hypra can automatically prove diverse hyperproperties efficiently and with minimal annotation overhead. </p>
+			
+		</div>
+	</div>
+    
+	  
+	  <div class="element row">
+		<div class="left col-sm-2 col-xs-12">
+			October 2025
+		</div>
+		<div class="right col-sm-10 col-xs-12">
+			<h4> Hyper Hoare Logic: Proving and Disproving Program Hyperproperties</h4>
+
+			Invited talk at
+			
+				<a href="https://www.mpi-sws.org/">Max Planck Institute for Software Systems</a>
+			
+			<br/>
+
+			
+				<a class="link" href="#" onclick="showAbstract(-2);return false">[Abstract]</a>
+			
+
+			
+
+			
+			<p id="abstract-2" class="abstract"> Hyperproperties relate multiple executions of a program and capture essential correctness and security properties such as determinism, monotonicity, transitivity, reachability, and (generalized) non-interference. Existing program logics for hyperproperties typically reason about a fixed number of states, which limits the kinds of hyperproperties they can express and prove, and hinders the reuse of proofs across different formalisms. In this talk, I will present Hyper Hoare Logic (HHL), a generalization of Hoare logic that lifts assertions from predicates over individual states to predicates over sets of states. This generalization enables uniform reasoning for a wide range of hyperproperties, including those beyond the reach of existing logics. Despite its expressiveness, HHL admits simple and intuitive inference rules that support key reasoning principles, such as composing different kinds of hyperproperties in the same proof or reasoning about loops where different executions perform different numbers of iterations. To show that HHL is amenable to automation, I will then introduce Hypra, an automated verifier for hyperproperties based on HHL. Hypra translates a program and its HHL specification into a Viper program, where each execution of the latter represents a set of executions of the original program. Our evaluation on new and existing benchmarks shows that Hypra can automatically prove diverse hyperproperties efficiently and with minimal annotation overhead. </p>
+			
+		</div>
+	</div>
+    
 	  
 	  <div class="element row">
 		<div class="left col-sm-2 col-xs-12">
@@ -708,13 +795,13 @@ to building novel automated verifiers (e.g., <a href="#paperOOPSLA24_Hypra">Hypr
 			<br/>
 
 			
-				<a class="link" href="#" onclick="showAbstract(-2);return false">[Abstract]</a>
+				<a class="link" href="#" onclick="showAbstract(-4);return false">[Abstract]</a>
 			
 
 			
 
 			
-			<p id="abstract-2" class="abstract"> Automated deductive verifiers are tools that take as input a program and a specification and attempt to construct a formal proof, using a program logic, that the program satisfies its specification. Modern verifiers have had significant practical impact, with notable examples including the use of Dafny at Amazon, F* at Microsoft, and Viper in the VerifiedSCION project. However, modern verifiers face two fundamental challenges: trustworthiness (how can we ensure that verifiers are sound?) and expressivity (how can we build verifiers that can prove security and privacy properties?). In this talk, I will present my research, which addresses both challenges. First, I will introduce a comprehensive formal framework for systematically proving the soundness of modern verifiers based on separation logic (a state-of-the-art program logic for modular reasoning about sequential and concurrent programs). Second, I will present an expressive program logic for hyperproperties (properties relating multiple executions of a program), which has been automated in a deductive verifier. Finally, I will outline my research agenda for developing trustworthy, automated verifiers for advanced correctness and security properties. </p>
+			<p id="abstract-4" class="abstract"> Automated deductive verifiers are tools that take as input a program and a specification and attempt to construct a formal proof, using a program logic, that the program satisfies its specification. Modern verifiers have had significant practical impact, with notable examples including the use of Dafny at Amazon, F* at Microsoft, and Viper in the VerifiedSCION project. However, modern verifiers face two fundamental challenges: trustworthiness (how can we ensure that verifiers are sound?) and expressivity (how can we build verifiers that can prove security and privacy properties?). In this talk, I will present my research, which addresses both challenges. First, I will introduce a comprehensive formal framework for systematically proving the soundness of modern verifiers based on separation logic (a state-of-the-art program logic for modular reasoning about sequential and concurrent programs). Second, I will present an expressive program logic for hyperproperties (properties relating multiple executions of a program), which has been automated in a deductive verifier. Finally, I will outline my research agenda for developing trustworthy, automated verifiers for advanced correctness and security properties. </p>
 			
 		</div>
 	</div>
@@ -730,58 +817,6 @@ to building novel automated verifiers (e.g., <a href="#paperOOPSLA24_Hypra">Hypr
 			Invited talk at
 			
 				<a href="https://memento.epfl.ch/event/ic-colloquium-sound-and-automated-deductive-verifi/">EPFL</a>
-			
-			<br/>
-
-			
-				<a class="link" href="#" onclick="showAbstract(-3);return false">[Abstract]</a>
-			
-
-			
-
-			
-			<p id="abstract-3" class="abstract"> Automated deductive verifiers are tools that take as input a program and a specification and attempt to construct a formal proof, using a program logic, that the program satisfies its specification. Modern verifiers have had significant practical impact, with notable examples including the use of Dafny at Amazon, F* at Microsoft, and Viper in the VerifiedSCION project. However, modern verifiers face two fundamental challenges: trustworthiness (how can we ensure that verifiers are sound?) and expressivity (how can we build verifiers that can prove security and privacy properties?). In this talk, I will present my research, which addresses both challenges. First, I will introduce a comprehensive formal framework for systematically proving the soundness of modern verifiers based on separation logic (a state-of-the-art program logic for modular reasoning about sequential and concurrent programs). Second, I will present an expressive program logic for hyperproperties (properties relating multiple executions of a program), which has been automated in a deductive verifier. Finally, I will outline my research agenda for developing trustworthy, automated verifiers for advanced correctness and security properties. </p>
-			
-		</div>
-	</div>
-    
-	  
-	  <div class="element row">
-		<div class="left col-sm-2 col-xs-12">
-			February 2025
-		</div>
-		<div class="right col-sm-10 col-xs-12">
-			<h4> Sound and Automated Deductive Verifiers for Advanced Properties</h4>
-
-			Invited talk at
-			
-				<a href="https://www.stevens.edu/">Stevens Institute of Technology</a>
-			
-			<br/>
-
-			
-				<a class="link" href="#" onclick="showAbstract(-4);return false">[Abstract]</a>
-			
-
-			
-
-			
-			<p id="abstract-4" class="abstract"> Automated deductive verifiers are tools that take as input a program and a specification and attempt to construct a formal proof, using a program logic, that the program satisfies its specification. Modern verifiers have had significant practical impact, with notable examples including the use of Dafny at Amazon, F* at Microsoft, and Viper in the VerifiedSCION project. However, modern verifiers face two fundamental challenges: trustworthiness (how can we ensure that verifiers are sound?) and expressivity (how can we build verifiers that can prove security and privacy properties?). In this talk, I will present my research, which addresses both challenges. First, I will discuss a comprehensive formal framework for systematically proving the soundness of modern verifiers based on separation logic (a state-of-the-art program logic for modular reasoning about sequential and concurrent programs). Second, I will present Hyper Hoare Logic, an expressive program logic for hyperproperties (properties relating multiple executions of a program), which has been automated in a deductive verifier. </p>
-			
-		</div>
-	</div>
-    
-	  
-	  <div class="element row">
-		<div class="left col-sm-2 col-xs-12">
-			February 2025
-		</div>
-		<div class="right col-sm-10 col-xs-12">
-			<h4> Sound and Automated Deductive Verifiers for Advanced Properties</h4>
-
-			Invited talk at
-			
-				<a href="https://cs.nyu.edu/dynamic/about/news/colloquium/1359/">NYU's Courant Institute</a>
 			
 			<br/>
 
@@ -807,7 +842,7 @@ to building novel automated verifiers (e.g., <a href="#paperOOPSLA24_Hypra">Hypr
 
 			Invited talk at
 			
-				<a href="https://today.wisc.edu/events/view/205951">University of Wisconsin-Madison</a>
+				<a href="https://www.stevens.edu/">Stevens Institute of Technology</a>
 			
 			<br/>
 
@@ -818,7 +853,59 @@ to building novel automated verifiers (e.g., <a href="#paperOOPSLA24_Hypra">Hypr
 			
 
 			
-			<p id="abstract-6" class="abstract"> Automated deductive verifiers are tools that take as input a program and a specification and attempt to construct a formal proof, using a program logic, that the program satisfies its specification. Modern verifiers have had significant practical impact, with notable examples including the use of Dafny at Amazon, F* at Microsoft, and Viper in the VerifiedSCION project. However, modern verifiers face two fundamental challenges: trustworthiness (how can we ensure that verifiers are sound?) and expressivity (how can we build verifiers that can prove security and privacy properties?). In this talk, I will present my research, which addresses both challenges. First, I will introduce a comprehensive formal framework for systematically proving the soundness of modern verifiers based on separation logic (a state-of-the-art program logic for modular reasoning about sequential and concurrent programs). Second, I will present an expressive program logic for hyperproperties (properties relating multiple executions of a program), which has been automated in a deductive verifier. Finally, I will outline my research agenda for developing trustworthy, automated verifiers for advanced correctness and security properties. </p>
+			<p id="abstract-6" class="abstract"> Automated deductive verifiers are tools that take as input a program and a specification and attempt to construct a formal proof, using a program logic, that the program satisfies its specification. Modern verifiers have had significant practical impact, with notable examples including the use of Dafny at Amazon, F* at Microsoft, and Viper in the VerifiedSCION project. However, modern verifiers face two fundamental challenges: trustworthiness (how can we ensure that verifiers are sound?) and expressivity (how can we build verifiers that can prove security and privacy properties?). In this talk, I will present my research, which addresses both challenges. First, I will discuss a comprehensive formal framework for systematically proving the soundness of modern verifiers based on separation logic (a state-of-the-art program logic for modular reasoning about sequential and concurrent programs). Second, I will present Hyper Hoare Logic, an expressive program logic for hyperproperties (properties relating multiple executions of a program), which has been automated in a deductive verifier. </p>
+			
+		</div>
+	</div>
+    
+	  
+	  <div class="element row">
+		<div class="left col-sm-2 col-xs-12">
+			February 2025
+		</div>
+		<div class="right col-sm-10 col-xs-12">
+			<h4> Sound and Automated Deductive Verifiers for Advanced Properties</h4>
+
+			Invited talk at
+			
+				<a href="https://cs.nyu.edu/dynamic/about/news/colloquium/1359/">NYU's Courant Institute</a>
+			
+			<br/>
+
+			
+				<a class="link" href="#" onclick="showAbstract(-7);return false">[Abstract]</a>
+			
+
+			
+
+			
+			<p id="abstract-7" class="abstract"> Automated deductive verifiers are tools that take as input a program and a specification and attempt to construct a formal proof, using a program logic, that the program satisfies its specification. Modern verifiers have had significant practical impact, with notable examples including the use of Dafny at Amazon, F* at Microsoft, and Viper in the VerifiedSCION project. However, modern verifiers face two fundamental challenges: trustworthiness (how can we ensure that verifiers are sound?) and expressivity (how can we build verifiers that can prove security and privacy properties?). In this talk, I will present my research, which addresses both challenges. First, I will introduce a comprehensive formal framework for systematically proving the soundness of modern verifiers based on separation logic (a state-of-the-art program logic for modular reasoning about sequential and concurrent programs). Second, I will present an expressive program logic for hyperproperties (properties relating multiple executions of a program), which has been automated in a deductive verifier. Finally, I will outline my research agenda for developing trustworthy, automated verifiers for advanced correctness and security properties. </p>
+			
+		</div>
+	</div>
+    
+	  
+	  <div class="element row">
+		<div class="left col-sm-2 col-xs-12">
+			February 2025
+		</div>
+		<div class="right col-sm-10 col-xs-12">
+			<h4> Sound and Automated Deductive Verifiers for Advanced Properties</h4>
+
+			Invited talk at
+			
+				<a href="https://today.wisc.edu/events/view/205951">University of Wisconsin-Madison</a>
+			
+			<br/>
+
+			
+				<a class="link" href="#" onclick="showAbstract(-8);return false">[Abstract]</a>
+			
+
+			
+
+			
+			<p id="abstract-8" class="abstract"> Automated deductive verifiers are tools that take as input a program and a specification and attempt to construct a formal proof, using a program logic, that the program satisfies its specification. Modern verifiers have had significant practical impact, with notable examples including the use of Dafny at Amazon, F* at Microsoft, and Viper in the VerifiedSCION project. However, modern verifiers face two fundamental challenges: trustworthiness (how can we ensure that verifiers are sound?) and expressivity (how can we build verifiers that can prove security and privacy properties?). In this talk, I will present my research, which addresses both challenges. First, I will introduce a comprehensive formal framework for systematically proving the soundness of modern verifiers based on separation logic (a state-of-the-art program logic for modular reasoning about sequential and concurrent programs). Second, I will present an expressive program logic for hyperproperties (properties relating multiple executions of a program), which has been automated in a deductive verifier. Finally, I will outline my research agenda for developing trustworthy, automated verifiers for advanced correctness and security properties. </p>
 			
 		</div>
 	</div>
@@ -860,7 +947,7 @@ to building novel automated verifiers (e.g., <a href="#paperOOPSLA24_Hypra">Hypr
 			<br/>
 
 			
-				<a class="link" href="#" onclick="showAbstract(-8);return false">[Abstract]</a>
+				<a class="link" href="#" onclick="showAbstract(-10);return false">[Abstract]</a>
 			
 
 			
@@ -872,7 +959,7 @@ to building novel automated verifiers (e.g., <a href="#paperOOPSLA24_Hypra">Hypr
 			
 
 			
-			<p id="abstract-8" class="abstract"> Program verification tools are often implemented as front-end translations of an input program into an intermediate verification language (IVL) such as Boogie, GIL, Viper, or Why3. The resulting IVL program is then verified using an existing back-end verifier. A soundness proof for such a translational verifier needs to relate the input program and verification logic to the semantics of the IVL, which in turn needs to be connected with the verification logic implemented in the back-end verifiers. Performing such proofs is challenging due to the large semantic gap between the input and output programs and logics, especially for complex verification logics such as separation logic. This paper presents a formal framework for reasoning about translational separation logic verifiers. At its center is a generic core IVL that captures the essence of different separation logics. We define its operational semantics and formally connect it to two different back-end verifiers, which use symbolic execution and verification condition generation, resp. Crucially, this semantics uses angelic non-determinism to enable the application of different proof search algorithms and heuristics in the back-end verifiers. An axiomatic semantics for the core IVL simplifies reasoning about the front-end translation by performing essential proof steps once and for all in the equivalence proof with the operational semantics rather than for each concrete front-end translation. We illustrate the usefulness of our formal framework by instantiating our core IVL with elements of Viper and connecting it to two Viper back-ends as well as a front-end for concurrent separation logic. All our technical results have been formalized in Isabelle/HOL, including the core IVL and its semantics, the semantics of two back-ends for a subset of Viper, and all proofs. </p>
+			<p id="abstract-10" class="abstract"> Program verification tools are often implemented as front-end translations of an input program into an intermediate verification language (IVL) such as Boogie, GIL, Viper, or Why3. The resulting IVL program is then verified using an existing back-end verifier. A soundness proof for such a translational verifier needs to relate the input program and verification logic to the semantics of the IVL, which in turn needs to be connected with the verification logic implemented in the back-end verifiers. Performing such proofs is challenging due to the large semantic gap between the input and output programs and logics, especially for complex verification logics such as separation logic. This paper presents a formal framework for reasoning about translational separation logic verifiers. At its center is a generic core IVL that captures the essence of different separation logics. We define its operational semantics and formally connect it to two different back-end verifiers, which use symbolic execution and verification condition generation, resp. Crucially, this semantics uses angelic non-determinism to enable the application of different proof search algorithms and heuristics in the back-end verifiers. An axiomatic semantics for the core IVL simplifies reasoning about the front-end translation by performing essential proof steps once and for all in the equivalence proof with the operational semantics rather than for each concrete front-end translation. We illustrate the usefulness of our formal framework by instantiating our core IVL with elements of Viper and connecting it to two Viper back-ends as well as a front-end for concurrent separation logic. All our technical results have been formalized in Isabelle/HOL, including the core IVL and its semantics, the semantics of two back-ends for a subset of Viper, and all proofs. </p>
 			
 		</div>
 	</div>
@@ -892,7 +979,7 @@ to building novel automated verifiers (e.g., <a href="#paperOOPSLA24_Hypra">Hypr
 			<br/>
 
 			
-				<a class="link" href="#" onclick="showAbstract(-9);return false">[Abstract]</a>
+				<a class="link" href="#" onclick="showAbstract(-11);return false">[Abstract]</a>
 			
 
 			
@@ -902,7 +989,7 @@ to building novel automated verifiers (e.g., <a href="#paperOOPSLA24_Hypra">Hypr
 			
 
 			
-			<p id="abstract-9" class="abstract"> Viper is a verification infrastructure that facilitates the development of program verifiers based on separation logic. It consists of the Viper intermediate verification language and two SMT-based verification back-ends that automate proof search and can be reused across different front-ends. These front-end express verification problems in Viper by encoding an input program, its specification, and often dedicated proof rules. These encodings are facilitated by Viper’s expressive separation logic, offering fractional permissions, inductive predicates, iterated separating conjunction, and magic wands. This interactive tutorial explains how to use Viper and how to automate different verification problems by encoding them into the Viper language, for instance, to efficiently prototype new verification logics, or develop entire program verifiers. Additional information, especially installation instructions, are available at https://sites.google.com/view/vipertutorialpopl2025/home. </p>
+			<p id="abstract-11" class="abstract"> Viper is a verification infrastructure that facilitates the development of program verifiers based on separation logic. It consists of the Viper intermediate verification language and two SMT-based verification back-ends that automate proof search and can be reused across different front-ends. These front-end express verification problems in Viper by encoding an input program, its specification, and often dedicated proof rules. These encodings are facilitated by Viper’s expressive separation logic, offering fractional permissions, inductive predicates, iterated separating conjunction, and magic wands. This interactive tutorial explains how to use Viper and how to automate different verification problems by encoding them into the Viper language, for instance, to efficiently prototype new verification logics, or develop entire program verifiers. Additional information, especially installation instructions, are available at https://sites.google.com/view/vipertutorialpopl2025/home. </p>
 			
 		</div>
 	</div>
@@ -922,7 +1009,7 @@ to building novel automated verifiers (e.g., <a href="#paperOOPSLA24_Hypra">Hypr
 			<br/>
 
 			
-				<a class="link" href="#" onclick="showAbstract(-10);return false">[Abstract]</a>
+				<a class="link" href="#" onclick="showAbstract(-12);return false">[Abstract]</a>
 			
 
 			
@@ -934,7 +1021,7 @@ to building novel automated verifiers (e.g., <a href="#paperOOPSLA24_Hypra">Hypr
 			
 
 			
-			<p id="abstract-10" class="abstract"> Hoare logics are proof systems that allow one to formally establish properties of computer programs. Traditional Hoare logics prove properties of individual program executions (so-called trace properties, such as functional correctness). Hoare logic has been generalized to prove also properties of multiple executions of a program (so-called hyperproperties, such as determinism or non-interference). These program logics prove the absence of (bad combinations of) executions. On the other hand, program logics similar to Hoare logic have been proposed to disprove program properties (e.g., Incorrectness Logic), by proving the existence of (bad combinations of) executions. All of these logics have in common that they specify program properties using assertions over a fixed number of states, for instance, a single pre- and post-state for functional properties or pairs of pre- and post-states for non-interference. In this paper, we present Hyper Hoare Logic, a generalization of Hoare logic that lifts assertions to properties of arbitrary sets of states. The resulting logic is simple yet expressive: its judgments can express arbitrary trace- and hyperproperties over the terminating executions of a program. By allowing assertions to reason about sets of states, Hyper Hoare Logic can reason about both the absence and the existence of (combinations of) executions, and, thereby, supports both proving and disproving program (hyper-)properties within the same logic, including (hyper-)properties that no existing Hoare logic can express. We prove that Hyper Hoare Logic is sound and complete, and demonstrate that it captures important proof principles naturally. All our technical results have been proved in Isabelle/HOL. </p>
+			<p id="abstract-12" class="abstract"> Hoare logics are proof systems that allow one to formally establish properties of computer programs. Traditional Hoare logics prove properties of individual program executions (so-called trace properties, such as functional correctness). Hoare logic has been generalized to prove also properties of multiple executions of a program (so-called hyperproperties, such as determinism or non-interference). These program logics prove the absence of (bad combinations of) executions. On the other hand, program logics similar to Hoare logic have been proposed to disprove program properties (e.g., Incorrectness Logic), by proving the existence of (bad combinations of) executions. All of these logics have in common that they specify program properties using assertions over a fixed number of states, for instance, a single pre- and post-state for functional properties or pairs of pre- and post-states for non-interference. In this paper, we present Hyper Hoare Logic, a generalization of Hoare logic that lifts assertions to properties of arbitrary sets of states. The resulting logic is simple yet expressive: its judgments can express arbitrary trace- and hyperproperties over the terminating executions of a program. By allowing assertions to reason about sets of states, Hyper Hoare Logic can reason about both the absence and the existence of (combinations of) executions, and, thereby, supports both proving and disproving program (hyper-)properties within the same logic, including (hyper-)properties that no existing Hoare logic can express. We prove that Hyper Hoare Logic is sound and complete, and demonstrate that it captures important proof principles naturally. All our technical results have been proved in Isabelle/HOL. </p>
 			
 		</div>
 	</div>
@@ -954,7 +1041,7 @@ to building novel automated verifiers (e.g., <a href="#paperOOPSLA24_Hypra">Hypr
 			<br/>
 
 			
-				<a class="link" href="#" onclick="showAbstract(-11);return false">[Abstract]</a>
+				<a class="link" href="#" onclick="showAbstract(-13);return false">[Abstract]</a>
 			
 
 			
@@ -962,7 +1049,7 @@ to building novel automated verifiers (e.g., <a href="#paperOOPSLA24_Hypra">Hypr
 			
 
 			
-			<p id="abstract-11" class="abstract"> The Viper verification infrastructure provides an architecture on which new automatic verification tools and prototypes can be developed simply and quickly. Viper comprises an intermediate verification language (the Viper language) based on separation logic, as well as automatic verifiers for the language. In this talk, I will first give an overview of Viper. I will then present and illustrate the use of inhale and exhale, two key verification primitives provided by Viper. Finally, I will describe our ongoing work to give formal foundations to Viper, which includes proving that the successful verification of a Viper program corresponds to a valid proof in separation logic. </p>
+			<p id="abstract-13" class="abstract"> The Viper verification infrastructure provides an architecture on which new automatic verification tools and prototypes can be developed simply and quickly. Viper comprises an intermediate verification language (the Viper language) based on separation logic, as well as automatic verifiers for the language. In this talk, I will first give an overview of Viper. I will then present and illustrate the use of inhale and exhale, two key verification primitives provided by Viper. Finally, I will describe our ongoing work to give formal foundations to Viper, which includes proving that the successful verification of a Viper program corresponds to a valid proof in separation logic. </p>
 			
 		</div>
 	</div>
@@ -982,7 +1069,7 @@ to building novel automated verifiers (e.g., <a href="#paperOOPSLA24_Hypra">Hypr
 			<br/>
 
 			
-				<a class="link" href="#" onclick="showAbstract(-12);return false">[Abstract]</a>
+				<a class="link" href="#" onclick="showAbstract(-14);return false">[Abstract]</a>
 			
 
 			
@@ -992,7 +1079,7 @@ to building novel automated verifiers (e.g., <a href="#paperOOPSLA24_Hypra">Hypr
 			
 
 			
-			<p id="abstract-12" class="abstract"> Bounded verification has proved useful to detect bugs and to increase confidence in the correctness of a program. In contrast to unbounded verification, reasoning about calls via (bounded) inlining and about loops via (bounded) unrolling does not require method specifications and loop invariants and, therefore, reduces the annotation overhead to the bare minimum, namely specifications of the properties to be verified. For verifiers based on traditional program logics, verification via inlining (and unrolling) is verification-preserving: successful unbounded verification of a program w.r.t. some annotation implies successful verification of the inlined program. That is, any error detected in the inlined program reveals a true error in the original program. However, this essential property might not hold for automatic separation logic verifiers such as Caper, GRASShopper, RefinedC, Steel, VeriFast, and verifiers based on Viper. In this setting, inlining generally changes the resources owned by method executions, which may affect automatic proof search algorithms and introduce spurious errors. In this paper, we present the first technique for verification-preserving inlining in automatic separation logic verifiers. We identify a semantic condition on programs and prove in Isabelle/HOL that it ensures verification-preserving inlining for state-of-the-art automatic separation logic verifiers. We also prove a dual result: successful verification of the inlined program ensures that there are method and loop annotations that enable the verification of the original program for bounded executions. To check our semantic condition automatically, we present two approximations that can be checked syntactically and with a program verifier, respectively. We implement these checks in Viper and demonstrate that they are effective for non-trivial examples from different verifiers. </p>
+			<p id="abstract-14" class="abstract"> Bounded verification has proved useful to detect bugs and to increase confidence in the correctness of a program. In contrast to unbounded verification, reasoning about calls via (bounded) inlining and about loops via (bounded) unrolling does not require method specifications and loop invariants and, therefore, reduces the annotation overhead to the bare minimum, namely specifications of the properties to be verified. For verifiers based on traditional program logics, verification via inlining (and unrolling) is verification-preserving: successful unbounded verification of a program w.r.t. some annotation implies successful verification of the inlined program. That is, any error detected in the inlined program reveals a true error in the original program. However, this essential property might not hold for automatic separation logic verifiers such as Caper, GRASShopper, RefinedC, Steel, VeriFast, and verifiers based on Viper. In this setting, inlining generally changes the resources owned by method executions, which may affect automatic proof search algorithms and introduce spurious errors. In this paper, we present the first technique for verification-preserving inlining in automatic separation logic verifiers. We identify a semantic condition on programs and prove in Isabelle/HOL that it ensures verification-preserving inlining for state-of-the-art automatic separation logic verifiers. We also prove a dual result: successful verification of the inlined program ensures that there are method and loop annotations that enable the verification of the original program for bounded executions. To check our semantic condition automatically, we present two approximations that can be checked syntactically and with a program verifier, respectively. We implement these checks in Viper and demonstrate that they are effective for non-trivial examples from different verifiers. </p>
 			
 		</div>
 	</div>
@@ -1034,7 +1121,7 @@ to building novel automated verifiers (e.g., <a href="#paperOOPSLA24_Hypra">Hypr
 			<br/>
 
 			
-				<a class="link" href="#" onclick="showAbstract(-14);return false">[Abstract]</a>
+				<a class="link" href="#" onclick="showAbstract(-16);return false">[Abstract]</a>
 			
 
 			
@@ -1042,7 +1129,7 @@ to building novel automated verifiers (e.g., <a href="#paperOOPSLA24_Hypra">Hypr
 			
 
 			
-			<p id="abstract-14" class="abstract"> Viper is a framework on which new automatic verification tools and prototypes can be developed simply and quickly. Viper comprises an intermediate verification language (the Viper language) based on separation logic, as well as automatic verifiers for the language. In this talk, I will first give an overview of Viper. I will then discuss how the design of the Viper language enables automatic verification. Finally, I will describe our ongoing work to give a formal foundation for Viper, which includes proving that the successful verification of a Viper program corresponds to a valid proof in separation logic. </p>
+			<p id="abstract-16" class="abstract"> Viper is a framework on which new automatic verification tools and prototypes can be developed simply and quickly. Viper comprises an intermediate verification language (the Viper language) based on separation logic, as well as automatic verifiers for the language. In this talk, I will first give an overview of Viper. I will then discuss how the design of the Viper language enables automatic verification. Finally, I will describe our ongoing work to give a formal foundation for Viper, which includes proving that the successful verification of a Viper program corresponds to a valid proof in separation logic. </p>
 			
 		</div>
 	</div>
@@ -1062,7 +1149,7 @@ to building novel automated verifiers (e.g., <a href="#paperOOPSLA24_Hypra">Hypr
 			<br/>
 
 			
-				<a class="link" href="#" onclick="showAbstract(-15);return false">[Abstract]</a>
+				<a class="link" href="#" onclick="showAbstract(-17);return false">[Abstract]</a>
 			
 
 			
@@ -1072,7 +1159,7 @@ to building novel automated verifiers (e.g., <a href="#paperOOPSLA24_Hypra">Hypr
 			
 
 			
-			<p id="abstract-15" class="abstract"> (Program) verification is the process of proving that a program satisfies some properties by using mathematical techniques and formal reasoning, rather than relying on testing the program with inputs. Program verification is typically used to prove functional correctness properties (e.g., proving that a sorting algorithm does not crash and correctly sorts inputs), but it can also be used to prove security properties such as information flow security, which ensures that the secret data manipulated by a program does not influence its observable output. Proving information flow security is especially challenging for concurrent programs, where operations on secret data may influence the execution time of a thread and, thereby, the interleaving between different threads. Such internal timing channels may affect the observable outcome of a program even if an attacker does not observe execution times. Existing verification techniques for information flow security in concurrent programs attempt to prove that secret data does not influence the relative timing of threads. However, these techniques are often restrictive (for instance because they disallow branching on secret data) and make strong assumptions about the execution platform (ignoring caching, processor instructions with data-dependent runtime, and other common features that affect execution time). In this talk, we present a novel verification technique for secure information flow in concurrent programs that lifts these restrictions and does not make any assumptions about timing behavior. The key idea is to prove that all mutating operations performed on shared data commute, such that different thread interleavings do not influence its final value. Crucially, commutativity is required only for an abstraction of the shared data that contains the information that will be leaked to a public output. Abstract commutativity is satisfied by many more operations than standard commutativity, which makes our technique widely applicable. We formalize our technique in CommCSL, a relational concurrent separation logic with support for commutativity-based reasoning, and prove its soundness in Isabelle/HOL. We implemented CommCSL in HyperViper, an automated verifier based on the Viper verification infrastructure, and demonstrate its ability to verify challenging examples. </p>
+			<p id="abstract-17" class="abstract"> (Program) verification is the process of proving that a program satisfies some properties by using mathematical techniques and formal reasoning, rather than relying on testing the program with inputs. Program verification is typically used to prove functional correctness properties (e.g., proving that a sorting algorithm does not crash and correctly sorts inputs), but it can also be used to prove security properties such as information flow security, which ensures that the secret data manipulated by a program does not influence its observable output. Proving information flow security is especially challenging for concurrent programs, where operations on secret data may influence the execution time of a thread and, thereby, the interleaving between different threads. Such internal timing channels may affect the observable outcome of a program even if an attacker does not observe execution times. Existing verification techniques for information flow security in concurrent programs attempt to prove that secret data does not influence the relative timing of threads. However, these techniques are often restrictive (for instance because they disallow branching on secret data) and make strong assumptions about the execution platform (ignoring caching, processor instructions with data-dependent runtime, and other common features that affect execution time). In this talk, we present a novel verification technique for secure information flow in concurrent programs that lifts these restrictions and does not make any assumptions about timing behavior. The key idea is to prove that all mutating operations performed on shared data commute, such that different thread interleavings do not influence its final value. Crucially, commutativity is required only for an abstraction of the shared data that contains the information that will be leaked to a public output. Abstract commutativity is satisfied by many more operations than standard commutativity, which makes our technique widely applicable. We formalize our technique in CommCSL, a relational concurrent separation logic with support for commutativity-based reasoning, and prove its soundness in Isabelle/HOL. We implemented CommCSL in HyperViper, an automated verifier based on the Viper verification infrastructure, and demonstrate its ability to verify challenging examples. </p>
 			
 		</div>
 	</div>
@@ -1092,7 +1179,7 @@ to building novel automated verifiers (e.g., <a href="#paperOOPSLA24_Hypra">Hypr
 			<br/>
 
 			
-				<a class="link" href="#" onclick="showAbstract(-16);return false">[Abstract]</a>
+				<a class="link" href="#" onclick="showAbstract(-18);return false">[Abstract]</a>
 			
 
 			
@@ -1104,7 +1191,7 @@ to building novel automated verifiers (e.g., <a href="#paperOOPSLA24_Hypra">Hypr
 			
 
 			
-			<p id="abstract-16" class="abstract"> Many separation logics support fractional permissions to distinguish between read and write access to a heap location, for instance, to allow concurrent reads while enforcing exclusive writes. Fractional permissions extend to composite assertions such as (co)inductive predicates and magic wands by allowing those to be multiplied by a fraction. Typical separation logic proofs require that this multiplication has three key properties: it needs to distribute over assertions, it should permit fractions to be factored out from assertions, and two fractions of the same assertion should be combinable into one larger fraction. Existing formal semantics incorporating fractional assertions into a separation logic define multiplication semantically (via models), resulting in a semantics in which distributivity and combinability do not hold for key resource assertions such as magic wands, and fractions cannot be factored out from a separating conjunction. By contrast, existing automatic separation logic verifiers define multiplication syntactically, resulting in a different semantics for which it is unknown whether distributivity and combinability hold for all assertions. In this paper, we present a novel semantics for separation logic assertions that allows states to hold more than a full permission to a heap location during the evaluation of an assertion. By reimposing upper bounds on the permissions held per location at statement boundaries, we retain key properties of separation logic, in particular, the frame rule. Our assertion semantics unifies semantic and syntactic multiplication and thereby reconciles the discrepancy between separation logic theory and tools and enjoys distributivity, factorisability, and combinability. We have formalised our semantics and proved its properties in Isabelle/HOL. </p>
+			<p id="abstract-18" class="abstract"> Many separation logics support fractional permissions to distinguish between read and write access to a heap location, for instance, to allow concurrent reads while enforcing exclusive writes. Fractional permissions extend to composite assertions such as (co)inductive predicates and magic wands by allowing those to be multiplied by a fraction. Typical separation logic proofs require that this multiplication has three key properties: it needs to distribute over assertions, it should permit fractions to be factored out from assertions, and two fractions of the same assertion should be combinable into one larger fraction. Existing formal semantics incorporating fractional assertions into a separation logic define multiplication semantically (via models), resulting in a semantics in which distributivity and combinability do not hold for key resource assertions such as magic wands, and fractions cannot be factored out from a separating conjunction. By contrast, existing automatic separation logic verifiers define multiplication syntactically, resulting in a different semantics for which it is unknown whether distributivity and combinability hold for all assertions. In this paper, we present a novel semantics for separation logic assertions that allows states to hold more than a full permission to a heap location during the evaluation of an assertion. By reimposing upper bounds on the permissions held per location at statement boundaries, we retain key properties of separation logic, in particular, the frame rule. Our assertion semantics unifies semantic and syntactic multiplication and thereby reconciles the discrepancy between separation logic theory and tools and enjoys distributivity, factorisability, and combinability. We have formalised our semantics and proved its properties in Isabelle/HOL. </p>
 			
 		</div>
 	</div>
@@ -1124,7 +1211,7 @@ to building novel automated verifiers (e.g., <a href="#paperOOPSLA24_Hypra">Hypr
 			<br/>
 
 			
-				<a class="link" href="#" onclick="showAbstract(-17);return false">[Abstract]</a>
+				<a class="link" href="#" onclick="showAbstract(-19);return false">[Abstract]</a>
 			
 
 			
@@ -1134,7 +1221,7 @@ to building novel automated verifiers (e.g., <a href="#paperOOPSLA24_Hypra">Hypr
 			
 
 			
-			<p id="abstract-17" class="abstract"> The magic wand −∗ (also called separating implication) is a separation logic connective commonly used to specify properties of partial data structures, for instance during iterative traversals. A footprint of a magic wand formula is a state that, combined with any state in which A holds, yields a state in which B holds. The key challenge of proving a magic wand (also called packaging a wand) is to find such a footprint. Existing package algorithms either have a high annotation overhead or, as we show in this paper, are unsound. We present a formal framework that precisely characterises a wide design space of possible package algorithms applicable to a large class of separation logics. We prove in Isabelle/HOL that our formal framework is sound and complete, and use it to develop a novel package algorithm that offers competitive automation and is sound. Moreover, we present a novel, restricted definition of wands and prove in Isabelle/HOL that it is possible to soundly combine fractions of such wands, which is not the case for arbitrary wands. We have implemented our techniques for the Viper language, and demonstrate that they are effective in practice. </p>
+			<p id="abstract-19" class="abstract"> The magic wand −∗ (also called separating implication) is a separation logic connective commonly used to specify properties of partial data structures, for instance during iterative traversals. A footprint of a magic wand formula is a state that, combined with any state in which A holds, yields a state in which B holds. The key challenge of proving a magic wand (also called packaging a wand) is to find such a footprint. Existing package algorithms either have a high annotation overhead or, as we show in this paper, are unsound. We present a formal framework that precisely characterises a wide design space of possible package algorithms applicable to a large class of separation logics. We prove in Isabelle/HOL that our formal framework is sound and complete, and use it to develop a novel package algorithm that offers competitive automation and is sound. Moreover, we present a novel, restricted definition of wands and prove in Isabelle/HOL that it is possible to soundly combine fractions of such wands, which is not the case for arbitrary wands. We have implemented our techniques for the Viper language, and demonstrate that they are effective in practice. </p>
 			
 		</div>
 	</div>
@@ -1150,9 +1237,9 @@ to building novel automated verifiers (e.g., <a href="#paperOOPSLA24_Hypra">Hypr
 		<h2>Education</h2>
 
 	  <div class="element row" id="direct-doctorate">
-			<span class="left col-sm-2 col-xs-12">2020 - now</span>
+			<span class="left col-sm-2 col-xs-12">2020 - 2025</span>
 			<span class="right col-sm-10 col-xs-12">
-				<h4>PhD Student, <span class="notbold">ETH Zurich</span></h4>
+				<h4>PhD in Computer Science, <span class="notbold">ETH Zurich</span></h4>
 				<span class="location">Zurich, Switzerland</span>
 				<span class="description">
 					Part of the <a href="#direct-doctorate">Direct Doctorate</a> program.
