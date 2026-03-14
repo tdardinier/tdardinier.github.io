@@ -91,19 +91,6 @@
             I recently got my PhD from <a href="https://ethz.ch/">ETH Zurich</a>, advised by <a href="https://www.pm.inf.ethz.ch/people/personal/pmueller-pers.html">Peter Müller</a>.
 			</p>
 
-			<p>I will join
-				<a href="https://cs.nyu.edu/">NYU's Courant Institute</a>
-				as an Assistant Professor of Computer Science
-				in Fall 2026, as part of the <a href="https://cs.nyu.edu/acsys/">Analysis of Computer Systems group</a>.
-				<strong>I am planning to hire two PhD students starting in September 2026.</strong>
-					If you are interested, please read
-					<a href="https://cs.nyu.edu/dynamic/phd/admissions/">this</a>
-					and apply
-					<a href="https://gsas.nyu.edu/admissions/arc.html">here</a>
-					(and mention my name in your statement of purpose).
-			</p>
-	
-
 			<p style="text-align: justify">
 The goal of my research is to build provably sound deductive verifiers with state-of-the-art automation for correctness, security, and privacy properties.
 To achieve this, my research addresses both theoretical and practical aspects, ranging from developing machine-checked (using the <a href="https://isabelle.in.tum.de/">Isabelle proof assistant</a>)
@@ -113,7 +100,11 @@ and formal foundations (e.g., for
 <a href="#paperCAV22_Wands">magic wands</a>, <a href="#paperOOPSLA22_Fractional">fractional resources</a>, <a href="#paperOOPSLA23_Inlining">verification-preserving inlining</a>)
 to building novel automated verifiers (e.g., <a href="#paperOOPSLA24_Hypra">Hypra</a>).
 			</p>
-		<p>
+			<p><strong>I will join
+				<a href="https://cs.nyu.edu/">NYU's Courant Institute</a>
+				as an Assistant Professor of Computer Science
+				in Fall 2026, as part of the <a href="https://cs.nyu.edu/acsys/">Analysis of Computer Systems group</a>.</strong></p>
+			<p>
 				During my PhD, I completed an internship at <a href="#stage-msr">Microsoft Research</a>.
 				Before my PhD, I graduated from <a href="#master-eth">ETH Zurich</a> (as part of the <a href="#direct-doctorate">Direct Doctorate</a> program) and from <a href="#master-x">École Polytechnique</a> in France,
 				and completed internships at <a href="#stage-sri">SRI International</a>, <a href="#stage-siemens">Siemens</a>, and the <a href="#stage-defense">Ministry of Defense (France)</a>.
@@ -674,6 +665,7 @@ to building novel automated verifiers (e.g., <a href="#paperOOPSLA24_Hypra">Hypr
 				<br/>
 				<a class="link" href="#" onclick="showAbstract(13);return false">[Abstract]</a>
 				<a class="link" href="papers/PhD_thesis.pdf">[PDF]</a>
+				<a class="link" href="https://doi.org/10.5281/zenodo.17120271">[Isabelle formalization]</a>
 				<p id="abstract13" class="abstract">
 				Automated deductive verifiers are tools that attempt to prove, with mathematical certainty, that all executions of a program satisfy a given specification, using program logics such as Hoare logic or separation logic. Modern verifiers have already had significant impact in industry: the F* verifier has been used at Microsoft to verify code deployed in Microsoft Azure, Firefox, and the Linux kernel; the Gobra verifier (based on Viper) has been used to verify SCION’s next-generation router; and the Dafny verifier has been used to verify the core authorization engine of Amazon Web Services, which runs a billion times per second. Despite these achievements, modern verifiers face two key challenges. First, for verification results to be trustworthy, verifiers must be sound, i.e., they should only verify programs that actually satisfy their specifications. However, unsoundnesses (cases where a verifier incorrectly verifies an invalid program) are regularly discovered in practice, undermining trust in these tools. Second, automated verifiers are limited in their expressiveness. While they can prove properties of individual executions (such as the absence of runtime errors), they fall short when it comes to establishing hyperproperties, an important class of functional and security properties that relate multiple executions of a program. This thesis addresses both of these challenges.
 
