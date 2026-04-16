@@ -8,9 +8,9 @@
     window.location.replace(`${proto}//${hostName}${path}/${srch}${hsh}`);
   }
 })()</script>
-    <base href="./../"><meta charset="utf-8">
+    <base href="./../../"><meta charset="utf-8">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-    <title>Symbolic Delay Analysis</title><link rel="stylesheet" href="book.css">
+    <title>Algorithm</title><link rel="stylesheet" href="book.css">
     <link rel="stylesheet" href="verso-vars.css">
     <script src="https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js" integrity="sha384-zbcZAIxlvJtNE3Dp5nxLXdXtXyxwOdnILY1TDPVmKFhl4r4nSUG1r8bcFXGVa4Te" crossorigin="anonymous"></script>
     <script src="-verso-search/elasticlunr.min.js"></script>
@@ -6936,37 +6936,768 @@ window.onload = () => {
             </a><div class="split-tocs">
             <div class="split-toc book">
               <div class="title">
-                <label for="--verso-manual-toc-----bookRoot" class="toggle-split-toc"><input type="checkbox" class="toggle-split-toc" id="--verso-manual-toc-----bookRoot" checked="checked"></label><span class="">Table of Contents</span></div>
-              <table><tr class="numbered"><td class="num">1.</td><td><a href="Core-Model/#Network-Performance-Verification--Core-Model">Core Model</a></td></tr><tr class="current numbered"><td class="num">2.</td><td><a href="Symbolic-Delay-Analysis/#Network-Performance-Verification--Symbolic-Delay-Analysis">Symbolic Delay Analysis</a></td></tr><tr class="numbered"><td class="num">3.</td><td><a href="Tagged-Delay-Analysis/#Network-Performance-Verification--Tagged-Delay-Analysis">Tagged Delay Analysis</a></td></tr><tr class="unnumbered"><td class="num"><td><a href="Dependency-Graph/#Network-Performance-Verification--Dependency-Graph">Dependency Graph</a></td></tr><tr class="unnumbered"><td class="num"><td><a href="Blueprint-Summary/#Network-Performance-Verification--Blueprint-Summary">Blueprint Summary</a></td></tr></table></div>
+                <label for="--verso-manual-toc-----bookRoot" class="toggle-split-toc"><input type="checkbox" class="toggle-split-toc" id="--verso-manual-toc-----bookRoot"></label><span class="">Table of Contents</span></div>
+              <table><tr class="numbered"><td class="num">1.</td><td><a href="Core-Model/#Network-Performance-Verification--Core-Model">Core Model</a></td></tr><tr class="numbered"><td class="num">2.</td><td><a href="Symbolic-Delay-Analysis/#Network-Performance-Verification--Symbolic-Delay-Analysis">Symbolic Delay Analysis</a></td></tr><tr class="current numbered"><td class="num">3.</td><td><a href="Tagged-Delay-Analysis/#Network-Performance-Verification--Tagged-Delay-Analysis">Tagged Delay Analysis</a></td></tr><tr class="unnumbered"><td class="num"><td><a href="Dependency-Graph/#Network-Performance-Verification--Dependency-Graph">Dependency Graph</a></td></tr><tr class="unnumbered"><td class="num"><td><a href="Blueprint-Summary/#Network-Performance-Verification--Blueprint-Summary">Blueprint Summary</a></td></tr></table></div>
             <div class="split-toc">
               <div class="title">
-                <label for="--verso-manual-toc-Network-Performance-Verification--Symbolic-Delay-Analysis" class="toggle-split-toc"><input type="checkbox" class="toggle-split-toc" id="--verso-manual-toc-Network-Performance-Verification--Symbolic-Delay-Analysis" checked="checked"></label><span class="number">2.</span> <span class="current"><a href="Symbolic-Delay-Analysis/#Network-Performance-Verification--Symbolic-Delay-Analysis">Symbolic Delay Analysis</a></span></div>
-              <table><tr class="numbered"><td class="num">2.1.</td><td><a href="Symbolic-Delay-Analysis/Abstractions/#Network-Performance-Verification--Symbolic-Delay-Analysis--Abstractions">Abstractions</a></td></tr><tr class="numbered"><td class="num">2.2.</td><td><a href="Symbolic-Delay-Analysis/Reference-Algorithm/#Network-Performance-Verification--Symbolic-Delay-Analysis--Reference-Algorithm">Reference Algorithm</a></td></tr><tr class="numbered"><td class="num">2.3.</td><td><a href="Symbolic-Delay-Analysis/Soundness/#Network-Performance-Verification--Symbolic-Delay-Analysis--Soundness">Soundness</a></td></tr><tr class="numbered"><td class="num">2.4.</td><td><a href="Symbolic-Delay-Analysis/Completeness/#Network-Performance-Verification--Symbolic-Delay-Analysis--Completeness">Completeness</a></td></tr><tr class="numbered"><td class="num">2.5.</td><td><a href="Symbolic-Delay-Analysis/Optimized-Algorithm/#Network-Performance-Verification--Symbolic-Delay-Analysis--Optimized-Algorithm">Optimized Algorithm</a></td></tr></table></div>
+                <label for="--verso-manual-toc-Network-Performance-Verification--Tagged-Delay-Analysis" class="toggle-split-toc"><input type="checkbox" class="toggle-split-toc" id="--verso-manual-toc-Network-Performance-Verification--Tagged-Delay-Analysis" checked="checked"></label><span class="number">3.</span> <span class=""><a href="Tagged-Delay-Analysis/#Network-Performance-Verification--Tagged-Delay-Analysis">Tagged Delay Analysis</a></span></div>
+              <table><tr class="numbered"><td class="num">3.1.</td><td><a href="Tagged-Delay-Analysis/Interface/#Network-Performance-Verification--Tagged-Delay-Analysis--Interface">Interface</a></td></tr><tr class="current numbered"><td class="num">3.2.</td><td><a href="Tagged-Delay-Analysis/Algorithm/#Network-Performance-Verification--Tagged-Delay-Analysis--Algorithm">Algorithm</a></td></tr><tr class="numbered"><td class="num">3.3.</td><td><a href="Tagged-Delay-Analysis/Soundness/#Network-Performance-Verification--Tagged-Delay-Analysis--Soundness">Soundness</a></td></tr></table></div>
+            <div class="split-toc">
+              <div class="title">
+                <span class="no-toggle"></span><span class="number">3.2.</span> <span class="current"><a href="Tagged-Delay-Analysis/Algorithm/#Network-Performance-Verification--Tagged-Delay-Analysis--Algorithm">Algorithm</a></span></div>
+              </div>
             </div>
           </div>
         <div class="last"></div>
         </nav>
       <main><div class="content-wrapper">
           <nav class="prev-next-buttons">
-            <a class="local-button active" href="Core-Model/Delay-Semantics/#Network-Performance-Verification--Core-Model--Delay-Semantics" rel="prev" title="1.2. Delay Semantics"><span class="arrow">←</span><span class="where">1.2. Delay Semantics</span></a><a class="local-button active" href="Symbolic-Delay-Analysis/Abstractions/#Network-Performance-Verification--Symbolic-Delay-Analysis--Abstractions" rel="next" title="2.1. Abstractions"><span class="where">2.1. Abstractions</span><span class="arrow">→</span></a></nav>
+            <a class="local-button active" href="Tagged-Delay-Analysis/Interface/#Network-Performance-Verification--Tagged-Delay-Analysis--Interface" rel="prev" title="3.1. Interface"><span class="arrow">←</span><span class="where">3.1. Interface</span></a><a class="local-button active" href="Tagged-Delay-Analysis/Soundness/#Network-Performance-Verification--Tagged-Delay-Analysis--Soundness" rel="next" title="3.3. Soundness"><span class="where">3.3. Soundness</span><span class="arrow">→</span></a></nav>
           <section>
             <h1>
-              2. Symbolic Delay Analysis<span class="permalink-widget inline"><a href="find/?domain=Verso.Genre.Manual.section&amp;name=Network-Performance-Verification--Symbolic-Delay-Analysis" title="Permalink">🔗</a></span></h1>
-            <ol class="section-toc">
-              <li>
-                <a href="Symbolic-Delay-Analysis/Abstractions/#Network-Performance-Verification--Symbolic-Delay-Analysis--Abstractions"><span class="number">2.1.</span> Abstractions</a></li>
-              <li>
-                <a href="Symbolic-Delay-Analysis/Reference-Algorithm/#Network-Performance-Verification--Symbolic-Delay-Analysis--Reference-Algorithm"><span class="number">2.2.</span> Reference Algorithm</a></li>
-              <li>
-                <a href="Symbolic-Delay-Analysis/Soundness/#Network-Performance-Verification--Symbolic-Delay-Analysis--Soundness"><span class="number">2.3.</span> Soundness</a></li>
-              <li>
-                <a href="Symbolic-Delay-Analysis/Completeness/#Network-Performance-Verification--Symbolic-Delay-Analysis--Completeness"><span class="number">2.4.</span> Completeness</a></li>
-              <li>
-                <a href="Symbolic-Delay-Analysis/Optimized-Algorithm/#Network-Performance-Verification--Symbolic-Delay-Analysis--Optimized-Algorithm"><span class="number">2.5.</span> Optimized Algorithm</a></li>
-              </ol>
+              3.2. Algorithm<span class="permalink-widget inline"><a href="find/?domain=Verso.Genre.Manual.section&amp;name=Network-Performance-Verification--Tagged-Delay-Analysis--Algorithm" title="Permalink">🔗</a></span></h1>
+            <div class="bp_wrapper bp_kind_definition_wrapper definition_thmwrapper definition_thmwrapper theorem-style-definition bp_kind_definition bp_style_definition" title="build_summary_graph" id="--informal-preview-build_summary_graph--statement">
+              <div class="bp_heading bp_kind_definition_heading definition_thmheading">
+                <div class="bp_heading_title_row bp_heading_title_row_statement">
+                  <span class="bp_caption bp_kind_definition_caption definition_thmcaption" title="build_summary_graph">Definition</span><span class="bp_label bp_kind_definition_label definition_thmlabel">3.6</span></div>
+                <div class="bp_extras bp_extras_with_group thm_header_extras">
+                  <span class="bp_extra_slot bp_extra_slot_group"><div class="bp_used_by_wrap">
+                      <button type="button" class="bp_used_by_chip" title="Other entries in group BFS summary-graph construction and termination." aria-expanded="false">group</button><div class="bp_used_by_panel">
+                        <div class="bp_used_by_panel_header">
+                          <div class="bp_used_by_panel_title">
+                            Group: BFS summary-graph construction and termination. (2)</div>
+                          <div class="bp_used_by_panel_meta">
+                            Hover another entry in this group to preview it.</div>
+                          </div>
+                        <div class="bp_used_by_panel_body">
+                          <ul class="bp_used_by_list">
+                            <li class="bp_used_by_item bp_used_by_item_active" data-bp-used-preview-id="bp-group-build-005Fsummary-005Fgraph-build-005Fsummary-005Fgraph-005Ftermination" data-bp-used-preview-key="build_summary_graph_termination--statement" data-bp-used-preview-title="Theorem 3.7">
+                              <a class="bp_used_by_target" href="Tagged-Delay-Analysis/Algorithm/#--informal-preview-build_summary_graph_termination--statement"><span class="bp_used_by_target_title">Theorem 3.7</span><span class="bp_used_by_target_meta"><code>build_summary_graph_termination</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-build-005Fsummary-005Fgraph-build-005Fsummary-005Fgraph-005Ftermination"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>build_summary_graph_termination</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      BFS summary-graph construction and termination.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            <li class="bp_used_by_item" data-bp-used-preview-id="bp-group-build-005Fsummary-005Fgraph-summary-005Fgraph-005Fsolver" data-bp-used-preview-key="summary_graph_solver--statement" data-bp-used-preview-title="Definition 3.8">
+                              <a class="bp_used_by_target" href="Tagged-Delay-Analysis/Algorithm/#--informal-preview-summary_graph_solver--statement"><span class="bp_used_by_target_title">Definition 3.8</span><span class="bp_used_by_target_meta"><code>summary_graph_solver</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-build-005Fsummary-005Fgraph-summary-005Fgraph-005Fsolver"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>summary_graph_solver</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      BFS summary-graph construction and termination.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            </ul>
+                          <div class="bp_used_by_preview_surface">
+                            <div class="bp_used_by_preview_header">
+                              <div class="bp_used_by_preview_label">
+                                Preview</div>
+                              <div class="bp_used_by_preview_title">
+                                Theorem 3.7</div>
+                              </div>
+                            <div class="bp_used_by_preview_body">
+                              <div class="bp_code_hover_section">
+                                <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                  <li>
+                                    <code>build_summary_graph_termination</code></li>
+                                  </ul>
+                                </div>
+                              <div class="bp_code_hover_section">
+                                <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                  <li>
+                                    BFS summary-graph construction and termination.</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </span><span class="bp_extra_slot bp_extra_slot_code"><span class="bp_code_summary_preview_root"><span class="bp_code_summary_preview_wrap bp_code_summary_preview_wrap_active" data-bp-preview-id="bp-code-summary" data-bp-preview-title="build_summary_graph" tabindex="0" role="button" aria-label="Lean declarations (all present: 1/1)"><span class="bp_code_link bp_code_link_status bp_code_link_status_proved" title="Lean declarations (all present: 1/1)"><span class="bp_code_status_symbol">✓</span><span class="bp_code_link_label">L∃∀N</span></span></span><template class="bp_code_summary_preview_tpl" data-bp-preview-id="bp-code-summary"><div class="bp_code_summary_preview_content">
+                          <div class="bp_code_hover_section">
+                            <span class="bp_code_hover_label">Associated Lean declarations</span><ul class="bp_code_hover_list">
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002EbuildSummaryGraph" data-bp-preview-title="buildSummaryGraph" data-bp-preview-key="Informal.LeanCodePreview.buildSummaryGraph"><a href="Tagged-Delay-Analysis/Algorithm/#--informal-external-decl-build_summary_graph-buildSummaryGraph"><code>buildSummaryGraph</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </template><aside class="bp_code_summary_preview_panel bp_preview_panel" data-bp-preview-mode="hover" data-bp-preview-placement="anchored" hidden=""><div class="bp_code_summary_preview_header bp_preview_panel_header">
+                          <div class="bp_code_summary_preview_title bp_preview_panel_title"></div>
+                          <button type="button" class="bp_code_summary_preview_close bp_preview_panel_close" aria-label="Close Lean summary preview">Close</button></div>
+                        <div class="bp_code_summary_preview_body bp_preview_panel_body"></div>
+                        </aside></span></span><span class="bp_extra_slot bp_extra_slot_used_by"><span class="bp_used_by_chip bp_used_by_chip_empty" title="No reverse dependencies">used by 0</span></span></div>
+                </div>
+              <div class="bp_content bp_kind_definition_content definition_thmcontent">
+                <p>
+                  The BFS that builds the explicit summary graph. Starting from the set of canonical
+root states (reachable plain states, each lifted to a tagged state with fresh tags),
+it maintains a queue of unprocessed states and a seen set:</p>
+                <ol start="1">
+                  <li>
+                    <p>
+                      Dequeue a canonical state <code>s</code>.</p>
+                    </li>
+                  <li>
+                    <p>
+                      For each symbolic input <code>i</code>, run the device once at <code>(s, i)</code>.</p>
+                    </li>
+                  <li>
+                    <p>
+                      Store the result as a <code>StepSummary</code> (output, delay estimate, successor state).</p>
+                    </li>
+                  <li>
+                    <p>
+                      Canonicalize the successor state; if unseen, enqueue it.</p>
+                    </li>
+                  <li>
+                    <p>
+                      Recurse until the queue is empty.</p>
+                    </li>
+                  </ol>
+                <p>
+                  The result is a <code>SummaryGraph</code>: a mapping <code>state ↦ List (input × StepSummary)</code>.</p>
+                </div>
+              </div>
+            <div class="bp_wrapper bp_code_panel_wrapper">
+              <details class="bp_code_block bp_code_panel"><summary class="bp_heading lemma_thmheading" title="Lean declarations (all present: 1/1)"><span class="bp_caption lemma_thmcaption bp_code_summary_text">Code for Definition</span><span class="bp_label lemma_thmlabel bp_code_summary_label">3.6</span><span class="bp_code_summary_indicator"><span class="bp_code_summary_preview_root"><span class="bp_code_summary_preview_wrap bp_code_summary_preview_wrap_active" data-bp-preview-id="bp-code-summary" data-bp-preview-title="build_summary_graph" tabindex="0" role="button" aria-label="Lean declarations (all present: 1/1)"><span class="bp_external_status_badge bp_external_status_badge_summary bp_external_status_ok" title="Lean declarations: all 1 present"><span class="bp_external_status_icon bp_external_status_ok">●</span><span class="bp_external_status_badge_text">1 definition</span></span></span><template class="bp_code_summary_preview_tpl" data-bp-preview-id="bp-code-summary"><div class="bp_code_summary_preview_content">
+                          <div class="bp_code_hover_section">
+                            <span class="bp_code_hover_label">Associated Lean declarations</span><ul class="bp_code_hover_list">
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002EbuildSummaryGraph" data-bp-preview-title="buildSummaryGraph" data-bp-preview-key="Informal.LeanCodePreview.buildSummaryGraph"><a href="Tagged-Delay-Analysis/Algorithm/#--informal-external-decl-build_summary_graph-buildSummaryGraph"><code>buildSummaryGraph</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </template><aside class="bp_code_summary_preview_panel bp_preview_panel" data-bp-preview-mode="hover" data-bp-preview-placement="anchored" hidden=""><div class="bp_code_summary_preview_header bp_preview_panel_header">
+                          <div class="bp_code_summary_preview_title bp_preview_panel_title"></div>
+                          <button type="button" class="bp_code_summary_preview_close bp_preview_panel_close" aria-label="Close Lean summary preview">Close</button></div>
+                        <div class="bp_code_summary_preview_body bp_preview_panel_body"></div>
+                        </aside></span></span></summary><ul class="bp_code_hover_list bp_external_decl_list">
+                  <li class="bp_external_decl_item bp_external_decl_item_rendered" id="--informal-external-decl-build_summary_graph-buildSummaryGraph">
+                    <div class="bp_external_decl_rendered">
+                      <div class="declaration decl def" data-decl="buildSummaryGraph" data-kind="def">
+                        <div class="bp_external_decl_signature_wrap">
+                          <div class="wide-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">def</span> <span class="unknown token" data-binding="">buildSummaryGraph</span><span class="inter-text"> </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.2725">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.2726">m<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="unknown token" data-binding="">}</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.2727">sys<span class="hover-info"><code>system n m</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-system">system<span class="hover-info"><code>system (n m : ℕ) : Type 1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.2725">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.2726">m<span class="hover-info"><code>ℕ</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">[</span><span class="const token" data-binding="const-TaggedRunnable">TaggedRunnable<span class="hover-info"><code>TaggedRunnable {n m : ℕ} (sys : system n m) : Type 1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.2727">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">]</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">[</span><span class="var token" data-binding="var-_uniq.2730">htrav<span class="hover-info"><code>LawfulTraversable sys.stateType</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-LawfulTraversable">LawfulTraversable<span class="hover-info"><code>LawfulTraversable.{u} (t : Type u → Type u) [Traversable t] : Prop</code><span class="sep"></span><code class="docstring">A traversable functor is lawful if its `traverse` satisfies a
+number of additional properties.  It must send `pure : α → Id α` to `pure`,
+send the composition of applicative functors to the composition of the
+`traverse` of each, send each function `f` to `fun x ↦ f &lt;$&gt; x`, and
+satisfy a naturality condition with respect to applicative
+transformations. </code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.2727">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">.</span><span class="const token" data-binding="const-system.stateType">stateType<span class="hover-info"><code>system.stateType {n m : ℕ} (self : system n m) : Type → Type</code></span></span><span class="unknown token" data-binding="">]</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.2731">plainInputs<span class="hover-info"><code>List (inputsPlain sys)</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-List">List<span class="hover-info"><code>List.{u} (α : Type u) : Type u</code><span class="sep"></span><code class="docstring">Linked lists: ordered lists, in which each element has a reference to the next element.
+
+Most operations on linked lists take time proportional to the length of the list, because each
+element must be traversed to find the next element.
+
+`List α` is isomorphic to `Array α`, but they are useful for different things:
+* `List α` is easier for reasoning, and `Array α` is modeled as a wrapper around `List α`.
+* `List α` works well as a persistent data structure, when many copies of the tail are shared. When
+  the value is not shared, `Array α` will have better performance because it can do destructive
+  updates.
+</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="const token" data-binding="const-inputsPlain">inputsPlain<span class="hover-info"><code>inputsPlain {n m : ℕ} (sys : system n m) : Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.2727">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.2732">head<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.2733">queue<span class="hover-info"><code>Array (CanonStateFull sys)</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Array">Array<span class="hover-info"><code>Array.{u} (α : Type u) : Type u</code><span class="sep"></span><code class="docstring">`Array α` is the type of [dynamic arrays](https://en.wikipedia.org/wiki/Dynamic_array) with elements
+from `α`. This type has special support in the runtime.
+
+Arrays perform best when unshared. As long as there is never more than one reference to an array,
+all updates will be performed _destructively_. This results in performance comparable to mutable
+arrays in imperative programming languages.
+
+An array has a size and a capacity. The size is the number of elements present in the array, while
+the capacity is the amount of memory currently allocated for elements. The size is accessible via
+`Array.size`, but the capacity is not observable from Lean code. `Array.emptyWithCapacity n` creates
+an array which is equal to `#[]`, but internally allocates an array of capacity `n`. When the size
+exceeds the capacity, allocation is required to grow the array.
+
+From the point of view of proofs, `Array α` is just a wrapper around `List α`.
+</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="const token" data-binding="const-CanonStateFull">CanonStateFull<span class="hover-info"><code>CanonStateFull {n m : ℕ} (sys : system n m) : Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.2727">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.2734">seen<span class="hover-info"><code>Finset (CanonStateFull sys)</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Finset">Finset<span class="hover-info"><code>Finset.{u_4} (α : Type u_4) : Type u_4</code><span class="sep"></span><code class="docstring">`Finset α` is the type of finite sets of elements of `α`. It is implemented
+as a multiset (a list up to permutation) which has no duplicate elements. </code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="const token" data-binding="const-CanonStateFull">CanonStateFull<span class="hover-info"><code>CanonStateFull {n m : ℕ} (sys : system n m) : Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.2727">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.2739">transitions<span class="hover-info"><code>Std.HashMap (CanonStateFull sys) (StateSummaries sys)</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text">
+    </span><span class="const token" data-binding="const-Std.HashMap">Std.HashMap<span class="hover-info"><code>Std.HashMap.{u, v} (α : Type u) (β : Type v) [BEq α] [Hashable α] : Type (max u v)</code><span class="sep"></span><code class="docstring">Hash maps.
+
+This is a simple separate-chaining hash table. The data of the hash map consists of a cached size
+and an array of buckets, where each bucket is a linked list of key-value pairs. The number of buckets
+is always a power of two. The hash map doubles its size upon inserting an element such that the
+number of elements is more than 75% of the number of buckets.
+
+The hash table is backed by an `Array`. Users should make sure that the hash map is used linearly to
+avoid expensive copies.
+
+The hash map uses `==` (provided by the `BEq` typeclass) to compare keys and `hash` (provided by
+the `Hashable` typeclass) to hash them. To ensure that the operations behave as expected, `==`
+should be an equivalence relation and `a == b` should imply `hash a = hash b` (see also the
+`EquivBEq` and `LawfulHashable` typeclasses). Both of these conditions are automatic if the BEq
+instance is lawful, i.e., if `a == b` implies `a = b`.
+
+These hash maps contain a bundled well-formedness invariant, which means that they cannot
+be used in nested inductive types. For these use cases, `Std.Data.HashMap.Raw` and
+`Std.Data.HashMap.Raw.WF` unbundle the invariant from the hash map. When in doubt, prefer
+`HashMap` over `HashMap.Raw`.
+
+Dependent hash maps, in which keys may occur in their values' types, are available as
+`Std.Data.DHashMap`.
+</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="const token" data-binding="const-CanonStateFull">CanonStateFull<span class="hover-info"><code>CanonStateFull {n m : ℕ} (sys : system n m) : Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.2727">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="const token" data-binding="const-StateSummaries">StateSummaries<span class="hover-info"><code>StateSummaries {n m : ℕ} (sys : system n m) : Type</code><span class="sep"></span><code class="docstring">All outgoing summaries from one canonical state, one per admissible plain input. </code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.2727">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text">
+  </span><span class="const token" data-binding="const-SummaryGraph">SummaryGraph<span class="hover-info"><code>SummaryGraph {n m : ℕ} (sys : system n m) [TaggedRunnable sys] : Type</code><span class="sep"></span><code class="docstring">Explicit summary graph.
+
+`reachableStates` lists each reachable canonical state exactly once, in BFS discovery order.
+This order matters operationally because the fixed-point solver iterates over the whole reachable
+state space in that stored order. </code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.2727">sys<span class="hover-info"><code>system n m</code></span></span></pre></div>
+                          <div class="narrow-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">def</span> <span class="unknown token" data-binding="">buildSummaryGraph</span><span class="inter-text"> </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.2725">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.2726">m<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="unknown token" data-binding="">}</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.2727">sys<span class="hover-info"><code>system n m</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-system">system<span class="hover-info"><code>system (n m : ℕ) : Type 1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.2725">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.2726">m<span class="hover-info"><code>ℕ</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">[</span><span class="const token" data-binding="const-TaggedRunnable">TaggedRunnable<span class="hover-info"><code>TaggedRunnable {n m : ℕ} (sys : system n m) : Type 1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.2727">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">]</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">[</span><span class="var token" data-binding="var-_uniq.2730">htrav<span class="hover-info"><code>LawfulTraversable sys.stateType</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text">
+    </span><span class="const token" data-binding="const-LawfulTraversable">LawfulTraversable<span class="hover-info"><code>LawfulTraversable.{u} (t : Type u → Type u) [Traversable t] : Prop</code><span class="sep"></span><code class="docstring">A traversable functor is lawful if its `traverse` satisfies a
+number of additional properties.  It must send `pure : α → Id α` to `pure`,
+send the composition of applicative functors to the composition of the
+`traverse` of each, send each function `f` to `fun x ↦ f &lt;$&gt; x`, and
+satisfy a naturality condition with respect to applicative
+transformations. </code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.2727">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">.</span><span class="const token" data-binding="const-system.stateType">stateType<span class="hover-info"><code>system.stateType {n m : ℕ} (self : system n m) : Type → Type</code></span></span><span class="unknown token" data-binding="">]</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.2731">plainInputs<span class="hover-info"><code>List (inputsPlain sys)</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-List">List<span class="hover-info"><code>List.{u} (α : Type u) : Type u</code><span class="sep"></span><code class="docstring">Linked lists: ordered lists, in which each element has a reference to the next element.
+
+Most operations on linked lists take time proportional to the length of the list, because each
+element must be traversed to find the next element.
+
+`List α` is isomorphic to `Array α`, but they are useful for different things:
+* `List α` is easier for reasoning, and `Array α` is modeled as a wrapper around `List α`.
+* `List α` works well as a persistent data structure, when many copies of the tail are shared. When
+  the value is not shared, `Array α` will have better performance because it can do destructive
+  updates.
+</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="const token" data-binding="const-inputsPlain">inputsPlain<span class="hover-info"><code>inputsPlain {n m : ℕ} (sys : system n m) : Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.2727">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.2732">head<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.2733">queue<span class="hover-info"><code>Array (CanonStateFull sys)</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Array">Array<span class="hover-info"><code>Array.{u} (α : Type u) : Type u</code><span class="sep"></span><code class="docstring">`Array α` is the type of [dynamic arrays](https://en.wikipedia.org/wiki/Dynamic_array) with elements
+from `α`. This type has special support in the runtime.
+
+Arrays perform best when unshared. As long as there is never more than one reference to an array,
+all updates will be performed _destructively_. This results in performance comparable to mutable
+arrays in imperative programming languages.
+
+An array has a size and a capacity. The size is the number of elements present in the array, while
+the capacity is the amount of memory currently allocated for elements. The size is accessible via
+`Array.size`, but the capacity is not observable from Lean code. `Array.emptyWithCapacity n` creates
+an array which is equal to `#[]`, but internally allocates an array of capacity `n`. When the size
+exceeds the capacity, allocation is required to grow the array.
+
+From the point of view of proofs, `Array α` is just a wrapper around `List α`.
+</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="const token" data-binding="const-CanonStateFull">CanonStateFull<span class="hover-info"><code>CanonStateFull {n m : ℕ} (sys : system n m) : Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.2727">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.2734">seen<span class="hover-info"><code>Finset (CanonStateFull sys)</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Finset">Finset<span class="hover-info"><code>Finset.{u_4} (α : Type u_4) : Type u_4</code><span class="sep"></span><code class="docstring">`Finset α` is the type of finite sets of elements of `α`. It is implemented
+as a multiset (a list up to permutation) which has no duplicate elements. </code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="const token" data-binding="const-CanonStateFull">CanonStateFull<span class="hover-info"><code>CanonStateFull {n m : ℕ} (sys : system n m) : Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.2727">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.2739">transitions<span class="hover-info"><code>Std.HashMap (CanonStateFull sys) (StateSummaries sys)</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text">
+    </span><span class="const token" data-binding="const-Std.HashMap">Std.HashMap<span class="hover-info"><code>Std.HashMap.{u, v} (α : Type u) (β : Type v) [BEq α] [Hashable α] : Type (max u v)</code><span class="sep"></span><code class="docstring">Hash maps.
+
+This is a simple separate-chaining hash table. The data of the hash map consists of a cached size
+and an array of buckets, where each bucket is a linked list of key-value pairs. The number of buckets
+is always a power of two. The hash map doubles its size upon inserting an element such that the
+number of elements is more than 75% of the number of buckets.
+
+The hash table is backed by an `Array`. Users should make sure that the hash map is used linearly to
+avoid expensive copies.
+
+The hash map uses `==` (provided by the `BEq` typeclass) to compare keys and `hash` (provided by
+the `Hashable` typeclass) to hash them. To ensure that the operations behave as expected, `==`
+should be an equivalence relation and `a == b` should imply `hash a = hash b` (see also the
+`EquivBEq` and `LawfulHashable` typeclasses). Both of these conditions are automatic if the BEq
+instance is lawful, i.e., if `a == b` implies `a = b`.
+
+These hash maps contain a bundled well-formedness invariant, which means that they cannot
+be used in nested inductive types. For these use cases, `Std.Data.HashMap.Raw` and
+`Std.Data.HashMap.Raw.WF` unbundle the invariant from the hash map. When in doubt, prefer
+`HashMap` over `HashMap.Raw`.
+
+Dependent hash maps, in which keys may occur in their values' types, are available as
+`Std.Data.DHashMap`.
+</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="const token" data-binding="const-CanonStateFull">CanonStateFull<span class="hover-info"><code>CanonStateFull {n m : ℕ} (sys : system n m) : Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.2727">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+      </span><span class="unknown token" data-binding="">(</span><span class="const token" data-binding="const-StateSummaries">StateSummaries<span class="hover-info"><code>StateSummaries {n m : ℕ} (sys : system n m) : Type</code><span class="sep"></span><code class="docstring">All outgoing summaries from one canonical state, one per admissible plain input. </code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.2727">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text">
+  </span><span class="const token" data-binding="const-SummaryGraph">SummaryGraph<span class="hover-info"><code>SummaryGraph {n m : ℕ} (sys : system n m) [TaggedRunnable sys] : Type</code><span class="sep"></span><code class="docstring">Explicit summary graph.
+
+`reachableStates` lists each reachable canonical state exactly once, in BFS discovery order.
+This order matters operationally because the fixed-point solver iterates over the whole reachable
+state space in that stored order. </code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.2727">sys<span class="hover-info"><code>system n m</code></span></span></pre></div>
+                          </div>
+                        <div class="bp_external_decl_body">
+                          <pre class="docstring">Build the summary table by BFS from the root canonical states. Each reachable
+canonical `(state,input)` pair is processed exactly once. </pre></div>
+                        </div>
+                      </div>
+                    <div class="bp_external_decl_meta bp_external_decl_rendered_meta">
+                      <span class="bp_external_status_badge bp_external_decl_footer_status bp_external_decl_ok">complete</span></div>
+                    </li>
+                  </ul>
+                </details></div>
+            <div class="bp_wrapper bp_kind_theorem_wrapper theorem_thmwrapper theorem_thmwrapper theorem-style-plain bp_kind_theorem bp_style_plain" title="build_summary_graph_termination" id="--informal-preview-build_summary_graph_termination--statement">
+              <div class="bp_heading bp_kind_theorem_heading theorem_thmheading">
+                <div class="bp_heading_title_row bp_heading_title_row_statement">
+                  <span class="bp_caption bp_kind_theorem_caption theorem_thmcaption" title="build_summary_graph_termination">Theorem</span><span class="bp_label bp_kind_theorem_label theorem_thmlabel">3.7</span></div>
+                <div class="bp_extras bp_extras_with_group thm_header_extras">
+                  <span class="bp_extra_slot bp_extra_slot_group"><div class="bp_used_by_wrap">
+                      <button type="button" class="bp_used_by_chip" title="Other entries in group BFS summary-graph construction and termination." aria-expanded="false">group</button><div class="bp_used_by_panel">
+                        <div class="bp_used_by_panel_header">
+                          <div class="bp_used_by_panel_title">
+                            Group: BFS summary-graph construction and termination. (2)</div>
+                          <div class="bp_used_by_panel_meta">
+                            Hover another entry in this group to preview it.</div>
+                          </div>
+                        <div class="bp_used_by_panel_body">
+                          <ul class="bp_used_by_list">
+                            <li class="bp_used_by_item bp_used_by_item_active" data-bp-used-preview-id="bp-group-build-005Fsummary-005Fgraph-005Ftermination-build-005Fsummary-005Fgraph" data-bp-used-preview-key="build_summary_graph--statement" data-bp-used-preview-title="Definition 3.6">
+                              <a class="bp_used_by_target" href="Tagged-Delay-Analysis/Algorithm/#--informal-preview-build_summary_graph--statement"><span class="bp_used_by_target_title">Definition 3.6</span><span class="bp_used_by_target_meta"><code>build_summary_graph</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-build-005Fsummary-005Fgraph-005Ftermination-build-005Fsummary-005Fgraph"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>build_summary_graph</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      BFS summary-graph construction and termination.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            <li class="bp_used_by_item" data-bp-used-preview-id="bp-group-build-005Fsummary-005Fgraph-005Ftermination-summary-005Fgraph-005Fsolver" data-bp-used-preview-key="summary_graph_solver--statement" data-bp-used-preview-title="Definition 3.8">
+                              <a class="bp_used_by_target" href="Tagged-Delay-Analysis/Algorithm/#--informal-preview-summary_graph_solver--statement"><span class="bp_used_by_target_title">Definition 3.8</span><span class="bp_used_by_target_meta"><code>summary_graph_solver</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-build-005Fsummary-005Fgraph-005Ftermination-summary-005Fgraph-005Fsolver"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>summary_graph_solver</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      BFS summary-graph construction and termination.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            </ul>
+                          <div class="bp_used_by_preview_surface">
+                            <div class="bp_used_by_preview_header">
+                              <div class="bp_used_by_preview_label">
+                                Preview</div>
+                              <div class="bp_used_by_preview_title">
+                                Definition 3.6</div>
+                              </div>
+                            <div class="bp_used_by_preview_body">
+                              <div class="bp_code_hover_section">
+                                <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                  <li>
+                                    <code>build_summary_graph</code></li>
+                                  </ul>
+                                </div>
+                              <div class="bp_code_hover_section">
+                                <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                  <li>
+                                    BFS summary-graph construction and termination.</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </span><span class="bp_extra_slot bp_extra_slot_code"><span class="bp_code_summary_preview_root"><span class="bp_code_summary_preview_wrap bp_code_summary_preview_wrap_active" data-bp-preview-id="bp-code-summary" data-bp-preview-title="build_summary_graph_termination" tabindex="0" role="button" aria-label="Lean declarations (all present: 1/1)"><span class="bp_code_link bp_code_link_status bp_code_link_status_proved" title="Lean declarations (all present: 1/1)"><span class="bp_code_status_symbol">✓</span><span class="bp_code_link_label">L∃∀N</span></span></span><template class="bp_code_summary_preview_tpl" data-bp-preview-id="bp-code-summary"><div class="bp_code_summary_preview_content">
+                          <div class="bp_code_hover_section">
+                            <span class="bp_code_hover_label">Associated Lean declarations</span><ul class="bp_code_hover_list">
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002EbuildSummaryGraph" data-bp-preview-title="buildSummaryGraph" data-bp-preview-key="Informal.LeanCodePreview.buildSummaryGraph"><a href="Tagged-Delay-Analysis/Algorithm/#--informal-external-decl-build_summary_graph_termination-buildSummaryGraph"><code>buildSummaryGraph</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </template><aside class="bp_code_summary_preview_panel bp_preview_panel" data-bp-preview-mode="hover" data-bp-preview-placement="anchored" hidden=""><div class="bp_code_summary_preview_header bp_preview_panel_header">
+                          <div class="bp_code_summary_preview_title bp_preview_panel_title"></div>
+                          <button type="button" class="bp_code_summary_preview_close bp_preview_panel_close" aria-label="Close Lean summary preview">Close</button></div>
+                        <div class="bp_code_summary_preview_body bp_preview_panel_body"></div>
+                        </aside></span></span><span class="bp_extra_slot bp_extra_slot_used_by"><span class="bp_used_by_chip bp_used_by_chip_empty" title="No reverse dependencies">used by 0</span></span></div>
+                </div>
+              <div class="bp_content bp_kind_theorem_content theorem_thmcontent">
+                <p>
+                  <code>buildSummaryGraph</code> is a terminating (non-<code>partial</code>) definition. Termination is
+witnessed by the strictly decreasing measure
+<code class="bp_math display">(\mathit{queue.size} - \mathit{head}) +
+  (|\mathcal{U}| - |\mathit{seen} \cap \mathcal{U}|)</code>$$
+where <code class="bp_math inline">\mathcal{U}</code>$ is the finite bounded-canonical universe
+(<code>boundedCanonUniverse</code>). The first summand decreases when the queue is consumed;
+the second decreases when a new unseen state is discovered. The measure never
+increases because:</p>
+                <ul>
+                  <li>
+                    <p>
+                      <code>expandState_seen_subset</code>: the seen set only grows.</p>
+                    </li>
+                  <li>
+                    <p>
+                      <code>expandState_queue_seen_delta</code>: new queue entries are canonical states not
+  yet in <code>seen</code>, so they reduce the second summand.</p>
+                    </li>
+                  </ul>
+                <p>
+                  The bounded-canonical universe is finite by the packet-slot and bounded-tag
+lemmas proved in <code>TaggedModel</code> and <code>Summary</code>.</p>
+                </div>
+              </div>
+            <div class="bp_wrapper bp_code_panel_wrapper">
+              <details class="bp_code_block bp_code_panel"><summary class="bp_heading lemma_thmheading" title="Lean declarations (all present: 1/1)"><span class="bp_caption lemma_thmcaption bp_code_summary_text">Code for Theorem</span><span class="bp_label lemma_thmlabel bp_code_summary_label">3.7</span><span class="bp_code_summary_indicator"><span class="bp_code_summary_preview_root"><span class="bp_code_summary_preview_wrap bp_code_summary_preview_wrap_active" data-bp-preview-id="bp-code-summary" data-bp-preview-title="build_summary_graph_termination" tabindex="0" role="button" aria-label="Lean declarations (all present: 1/1)"><span class="bp_external_status_badge bp_external_status_badge_summary bp_external_status_ok" title="Lean declarations: all 1 present"><span class="bp_external_status_icon bp_external_status_ok">●</span><span class="bp_external_status_badge_text">1 definition</span></span></span><template class="bp_code_summary_preview_tpl" data-bp-preview-id="bp-code-summary"><div class="bp_code_summary_preview_content">
+                          <div class="bp_code_hover_section">
+                            <span class="bp_code_hover_label">Associated Lean declarations</span><ul class="bp_code_hover_list">
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002EbuildSummaryGraph" data-bp-preview-title="buildSummaryGraph" data-bp-preview-key="Informal.LeanCodePreview.buildSummaryGraph"><a href="Tagged-Delay-Analysis/Algorithm/#--informal-external-decl-build_summary_graph_termination-buildSummaryGraph"><code>buildSummaryGraph</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </template><aside class="bp_code_summary_preview_panel bp_preview_panel" data-bp-preview-mode="hover" data-bp-preview-placement="anchored" hidden=""><div class="bp_code_summary_preview_header bp_preview_panel_header">
+                          <div class="bp_code_summary_preview_title bp_preview_panel_title"></div>
+                          <button type="button" class="bp_code_summary_preview_close bp_preview_panel_close" aria-label="Close Lean summary preview">Close</button></div>
+                        <div class="bp_code_summary_preview_body bp_preview_panel_body"></div>
+                        </aside></span></span></summary><ul class="bp_code_hover_list bp_external_decl_list">
+                  <li class="bp_external_decl_item bp_external_decl_item_rendered" id="--informal-external-decl-build_summary_graph_termination-buildSummaryGraph">
+                    <div class="bp_external_decl_rendered">
+                      <div class="declaration decl def" data-decl="buildSummaryGraph" data-kind="def">
+                        <div class="bp_external_decl_signature_wrap">
+                          <div class="wide-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">def</span> <span class="unknown token" data-binding="">buildSummaryGraph</span><span class="inter-text"> </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.3924">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.3925">m<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="unknown token" data-binding="">}</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.3926">sys<span class="hover-info"><code>system n m</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-system">system<span class="hover-info"><code>system (n m : ℕ) : Type 1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.3924">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.3925">m<span class="hover-info"><code>ℕ</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">[</span><span class="const token" data-binding="const-TaggedRunnable">TaggedRunnable<span class="hover-info"><code>TaggedRunnable {n m : ℕ} (sys : system n m) : Type 1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.3926">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">]</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">[</span><span class="var token" data-binding="var-_uniq.3929">htrav<span class="hover-info"><code>LawfulTraversable sys.stateType</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-LawfulTraversable">LawfulTraversable<span class="hover-info"><code>LawfulTraversable.{u} (t : Type u → Type u) [Traversable t] : Prop</code><span class="sep"></span><code class="docstring">A traversable functor is lawful if its `traverse` satisfies a
+number of additional properties.  It must send `pure : α → Id α` to `pure`,
+send the composition of applicative functors to the composition of the
+`traverse` of each, send each function `f` to `fun x ↦ f &lt;$&gt; x`, and
+satisfy a naturality condition with respect to applicative
+transformations. </code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.3926">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">.</span><span class="const token" data-binding="const-system.stateType">stateType<span class="hover-info"><code>system.stateType {n m : ℕ} (self : system n m) : Type → Type</code></span></span><span class="unknown token" data-binding="">]</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.3930">plainInputs<span class="hover-info"><code>List (inputsPlain sys)</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-List">List<span class="hover-info"><code>List.{u} (α : Type u) : Type u</code><span class="sep"></span><code class="docstring">Linked lists: ordered lists, in which each element has a reference to the next element.
+
+Most operations on linked lists take time proportional to the length of the list, because each
+element must be traversed to find the next element.
+
+`List α` is isomorphic to `Array α`, but they are useful for different things:
+* `List α` is easier for reasoning, and `Array α` is modeled as a wrapper around `List α`.
+* `List α` works well as a persistent data structure, when many copies of the tail are shared. When
+  the value is not shared, `Array α` will have better performance because it can do destructive
+  updates.
+</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="const token" data-binding="const-inputsPlain">inputsPlain<span class="hover-info"><code>inputsPlain {n m : ℕ} (sys : system n m) : Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.3926">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.3931">head<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.3932">queue<span class="hover-info"><code>Array (CanonStateFull sys)</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Array">Array<span class="hover-info"><code>Array.{u} (α : Type u) : Type u</code><span class="sep"></span><code class="docstring">`Array α` is the type of [dynamic arrays](https://en.wikipedia.org/wiki/Dynamic_array) with elements
+from `α`. This type has special support in the runtime.
+
+Arrays perform best when unshared. As long as there is never more than one reference to an array,
+all updates will be performed _destructively_. This results in performance comparable to mutable
+arrays in imperative programming languages.
+
+An array has a size and a capacity. The size is the number of elements present in the array, while
+the capacity is the amount of memory currently allocated for elements. The size is accessible via
+`Array.size`, but the capacity is not observable from Lean code. `Array.emptyWithCapacity n` creates
+an array which is equal to `#[]`, but internally allocates an array of capacity `n`. When the size
+exceeds the capacity, allocation is required to grow the array.
+
+From the point of view of proofs, `Array α` is just a wrapper around `List α`.
+</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="const token" data-binding="const-CanonStateFull">CanonStateFull<span class="hover-info"><code>CanonStateFull {n m : ℕ} (sys : system n m) : Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.3926">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.3933">seen<span class="hover-info"><code>Finset (CanonStateFull sys)</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Finset">Finset<span class="hover-info"><code>Finset.{u_4} (α : Type u_4) : Type u_4</code><span class="sep"></span><code class="docstring">`Finset α` is the type of finite sets of elements of `α`. It is implemented
+as a multiset (a list up to permutation) which has no duplicate elements. </code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="const token" data-binding="const-CanonStateFull">CanonStateFull<span class="hover-info"><code>CanonStateFull {n m : ℕ} (sys : system n m) : Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.3926">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.3938">transitions<span class="hover-info"><code>Std.HashMap (CanonStateFull sys) (StateSummaries sys)</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text">
+    </span><span class="const token" data-binding="const-Std.HashMap">Std.HashMap<span class="hover-info"><code>Std.HashMap.{u, v} (α : Type u) (β : Type v) [BEq α] [Hashable α] : Type (max u v)</code><span class="sep"></span><code class="docstring">Hash maps.
+
+This is a simple separate-chaining hash table. The data of the hash map consists of a cached size
+and an array of buckets, where each bucket is a linked list of key-value pairs. The number of buckets
+is always a power of two. The hash map doubles its size upon inserting an element such that the
+number of elements is more than 75% of the number of buckets.
+
+The hash table is backed by an `Array`. Users should make sure that the hash map is used linearly to
+avoid expensive copies.
+
+The hash map uses `==` (provided by the `BEq` typeclass) to compare keys and `hash` (provided by
+the `Hashable` typeclass) to hash them. To ensure that the operations behave as expected, `==`
+should be an equivalence relation and `a == b` should imply `hash a = hash b` (see also the
+`EquivBEq` and `LawfulHashable` typeclasses). Both of these conditions are automatic if the BEq
+instance is lawful, i.e., if `a == b` implies `a = b`.
+
+These hash maps contain a bundled well-formedness invariant, which means that they cannot
+be used in nested inductive types. For these use cases, `Std.Data.HashMap.Raw` and
+`Std.Data.HashMap.Raw.WF` unbundle the invariant from the hash map. When in doubt, prefer
+`HashMap` over `HashMap.Raw`.
+
+Dependent hash maps, in which keys may occur in their values' types, are available as
+`Std.Data.DHashMap`.
+</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="const token" data-binding="const-CanonStateFull">CanonStateFull<span class="hover-info"><code>CanonStateFull {n m : ℕ} (sys : system n m) : Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.3926">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="const token" data-binding="const-StateSummaries">StateSummaries<span class="hover-info"><code>StateSummaries {n m : ℕ} (sys : system n m) : Type</code><span class="sep"></span><code class="docstring">All outgoing summaries from one canonical state, one per admissible plain input. </code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.3926">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text">
+  </span><span class="const token" data-binding="const-SummaryGraph">SummaryGraph<span class="hover-info"><code>SummaryGraph {n m : ℕ} (sys : system n m) [TaggedRunnable sys] : Type</code><span class="sep"></span><code class="docstring">Explicit summary graph.
+
+`reachableStates` lists each reachable canonical state exactly once, in BFS discovery order.
+This order matters operationally because the fixed-point solver iterates over the whole reachable
+state space in that stored order. </code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.3926">sys<span class="hover-info"><code>system n m</code></span></span></pre></div>
+                          <div class="narrow-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">def</span> <span class="unknown token" data-binding="">buildSummaryGraph</span><span class="inter-text"> </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.3924">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.3925">m<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="unknown token" data-binding="">}</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.3926">sys<span class="hover-info"><code>system n m</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-system">system<span class="hover-info"><code>system (n m : ℕ) : Type 1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.3924">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.3925">m<span class="hover-info"><code>ℕ</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">[</span><span class="const token" data-binding="const-TaggedRunnable">TaggedRunnable<span class="hover-info"><code>TaggedRunnable {n m : ℕ} (sys : system n m) : Type 1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.3926">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">]</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">[</span><span class="var token" data-binding="var-_uniq.3929">htrav<span class="hover-info"><code>LawfulTraversable sys.stateType</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text">
+    </span><span class="const token" data-binding="const-LawfulTraversable">LawfulTraversable<span class="hover-info"><code>LawfulTraversable.{u} (t : Type u → Type u) [Traversable t] : Prop</code><span class="sep"></span><code class="docstring">A traversable functor is lawful if its `traverse` satisfies a
+number of additional properties.  It must send `pure : α → Id α` to `pure`,
+send the composition of applicative functors to the composition of the
+`traverse` of each, send each function `f` to `fun x ↦ f &lt;$&gt; x`, and
+satisfy a naturality condition with respect to applicative
+transformations. </code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.3926">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">.</span><span class="const token" data-binding="const-system.stateType">stateType<span class="hover-info"><code>system.stateType {n m : ℕ} (self : system n m) : Type → Type</code></span></span><span class="unknown token" data-binding="">]</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.3930">plainInputs<span class="hover-info"><code>List (inputsPlain sys)</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-List">List<span class="hover-info"><code>List.{u} (α : Type u) : Type u</code><span class="sep"></span><code class="docstring">Linked lists: ordered lists, in which each element has a reference to the next element.
+
+Most operations on linked lists take time proportional to the length of the list, because each
+element must be traversed to find the next element.
+
+`List α` is isomorphic to `Array α`, but they are useful for different things:
+* `List α` is easier for reasoning, and `Array α` is modeled as a wrapper around `List α`.
+* `List α` works well as a persistent data structure, when many copies of the tail are shared. When
+  the value is not shared, `Array α` will have better performance because it can do destructive
+  updates.
+</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="const token" data-binding="const-inputsPlain">inputsPlain<span class="hover-info"><code>inputsPlain {n m : ℕ} (sys : system n m) : Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.3926">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.3931">head<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.3932">queue<span class="hover-info"><code>Array (CanonStateFull sys)</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Array">Array<span class="hover-info"><code>Array.{u} (α : Type u) : Type u</code><span class="sep"></span><code class="docstring">`Array α` is the type of [dynamic arrays](https://en.wikipedia.org/wiki/Dynamic_array) with elements
+from `α`. This type has special support in the runtime.
+
+Arrays perform best when unshared. As long as there is never more than one reference to an array,
+all updates will be performed _destructively_. This results in performance comparable to mutable
+arrays in imperative programming languages.
+
+An array has a size and a capacity. The size is the number of elements present in the array, while
+the capacity is the amount of memory currently allocated for elements. The size is accessible via
+`Array.size`, but the capacity is not observable from Lean code. `Array.emptyWithCapacity n` creates
+an array which is equal to `#[]`, but internally allocates an array of capacity `n`. When the size
+exceeds the capacity, allocation is required to grow the array.
+
+From the point of view of proofs, `Array α` is just a wrapper around `List α`.
+</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="const token" data-binding="const-CanonStateFull">CanonStateFull<span class="hover-info"><code>CanonStateFull {n m : ℕ} (sys : system n m) : Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.3926">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.3933">seen<span class="hover-info"><code>Finset (CanonStateFull sys)</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Finset">Finset<span class="hover-info"><code>Finset.{u_4} (α : Type u_4) : Type u_4</code><span class="sep"></span><code class="docstring">`Finset α` is the type of finite sets of elements of `α`. It is implemented
+as a multiset (a list up to permutation) which has no duplicate elements. </code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="const token" data-binding="const-CanonStateFull">CanonStateFull<span class="hover-info"><code>CanonStateFull {n m : ℕ} (sys : system n m) : Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.3926">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.3938">transitions<span class="hover-info"><code>Std.HashMap (CanonStateFull sys) (StateSummaries sys)</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text">
+    </span><span class="const token" data-binding="const-Std.HashMap">Std.HashMap<span class="hover-info"><code>Std.HashMap.{u, v} (α : Type u) (β : Type v) [BEq α] [Hashable α] : Type (max u v)</code><span class="sep"></span><code class="docstring">Hash maps.
+
+This is a simple separate-chaining hash table. The data of the hash map consists of a cached size
+and an array of buckets, where each bucket is a linked list of key-value pairs. The number of buckets
+is always a power of two. The hash map doubles its size upon inserting an element such that the
+number of elements is more than 75% of the number of buckets.
+
+The hash table is backed by an `Array`. Users should make sure that the hash map is used linearly to
+avoid expensive copies.
+
+The hash map uses `==` (provided by the `BEq` typeclass) to compare keys and `hash` (provided by
+the `Hashable` typeclass) to hash them. To ensure that the operations behave as expected, `==`
+should be an equivalence relation and `a == b` should imply `hash a = hash b` (see also the
+`EquivBEq` and `LawfulHashable` typeclasses). Both of these conditions are automatic if the BEq
+instance is lawful, i.e., if `a == b` implies `a = b`.
+
+These hash maps contain a bundled well-formedness invariant, which means that they cannot
+be used in nested inductive types. For these use cases, `Std.Data.HashMap.Raw` and
+`Std.Data.HashMap.Raw.WF` unbundle the invariant from the hash map. When in doubt, prefer
+`HashMap` over `HashMap.Raw`.
+
+Dependent hash maps, in which keys may occur in their values' types, are available as
+`Std.Data.DHashMap`.
+</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="const token" data-binding="const-CanonStateFull">CanonStateFull<span class="hover-info"><code>CanonStateFull {n m : ℕ} (sys : system n m) : Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.3926">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+      </span><span class="unknown token" data-binding="">(</span><span class="const token" data-binding="const-StateSummaries">StateSummaries<span class="hover-info"><code>StateSummaries {n m : ℕ} (sys : system n m) : Type</code><span class="sep"></span><code class="docstring">All outgoing summaries from one canonical state, one per admissible plain input. </code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.3926">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text">
+  </span><span class="const token" data-binding="const-SummaryGraph">SummaryGraph<span class="hover-info"><code>SummaryGraph {n m : ℕ} (sys : system n m) [TaggedRunnable sys] : Type</code><span class="sep"></span><code class="docstring">Explicit summary graph.
+
+`reachableStates` lists each reachable canonical state exactly once, in BFS discovery order.
+This order matters operationally because the fixed-point solver iterates over the whole reachable
+state space in that stored order. </code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.3926">sys<span class="hover-info"><code>system n m</code></span></span></pre></div>
+                          </div>
+                        <div class="bp_external_decl_body">
+                          <pre class="docstring">Build the summary table by BFS from the root canonical states. Each reachable
+canonical `(state,input)` pair is processed exactly once. </pre></div>
+                        </div>
+                      </div>
+                    <div class="bp_external_decl_meta bp_external_decl_rendered_meta">
+                      <span class="bp_external_status_badge bp_external_decl_footer_status bp_external_decl_ok">complete</span></div>
+                    </li>
+                  </ul>
+                </details></div>
+            <div class="bp_wrapper bp_kind_definition_wrapper definition_thmwrapper definition_thmwrapper theorem-style-definition bp_kind_definition bp_style_definition" title="summary_graph_solver" id="--informal-preview-summary_graph_solver--statement">
+              <div class="bp_heading bp_kind_definition_heading definition_thmheading">
+                <div class="bp_heading_title_row bp_heading_title_row_statement">
+                  <span class="bp_caption bp_kind_definition_caption definition_thmcaption" title="summary_graph_solver">Definition</span><span class="bp_label bp_kind_definition_label definition_thmlabel">3.8</span></div>
+                <div class="bp_extras bp_extras_with_group thm_header_extras">
+                  <span class="bp_extra_slot bp_extra_slot_group"><div class="bp_used_by_wrap">
+                      <button type="button" class="bp_used_by_chip" title="Other entries in group BFS summary-graph construction and termination." aria-expanded="false">group</button><div class="bp_used_by_panel">
+                        <div class="bp_used_by_panel_header">
+                          <div class="bp_used_by_panel_title">
+                            Group: BFS summary-graph construction and termination. (2)</div>
+                          <div class="bp_used_by_panel_meta">
+                            Hover another entry in this group to preview it.</div>
+                          </div>
+                        <div class="bp_used_by_panel_body">
+                          <ul class="bp_used_by_list">
+                            <li class="bp_used_by_item bp_used_by_item_active" data-bp-used-preview-id="bp-group-summary-005Fgraph-005Fsolver-build-005Fsummary-005Fgraph" data-bp-used-preview-key="build_summary_graph--statement" data-bp-used-preview-title="Definition 3.6">
+                              <a class="bp_used_by_target" href="Tagged-Delay-Analysis/Algorithm/#--informal-preview-build_summary_graph--statement"><span class="bp_used_by_target_title">Definition 3.6</span><span class="bp_used_by_target_meta"><code>build_summary_graph</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-summary-005Fgraph-005Fsolver-build-005Fsummary-005Fgraph"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>build_summary_graph</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      BFS summary-graph construction and termination.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            <li class="bp_used_by_item" data-bp-used-preview-id="bp-group-summary-005Fgraph-005Fsolver-build-005Fsummary-005Fgraph-005Ftermination" data-bp-used-preview-key="build_summary_graph_termination--statement" data-bp-used-preview-title="Theorem 3.7">
+                              <a class="bp_used_by_target" href="Tagged-Delay-Analysis/Algorithm/#--informal-preview-build_summary_graph_termination--statement"><span class="bp_used_by_target_title">Theorem 3.7</span><span class="bp_used_by_target_meta"><code>build_summary_graph_termination</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-summary-005Fgraph-005Fsolver-build-005Fsummary-005Fgraph-005Ftermination"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>build_summary_graph_termination</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      BFS summary-graph construction and termination.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            </ul>
+                          <div class="bp_used_by_preview_surface">
+                            <div class="bp_used_by_preview_header">
+                              <div class="bp_used_by_preview_label">
+                                Preview</div>
+                              <div class="bp_used_by_preview_title">
+                                Definition 3.6</div>
+                              </div>
+                            <div class="bp_used_by_preview_body">
+                              <div class="bp_code_hover_section">
+                                <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                  <li>
+                                    <code>build_summary_graph</code></li>
+                                  </ul>
+                                </div>
+                              <div class="bp_code_hover_section">
+                                <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                  <li>
+                                    BFS summary-graph construction and termination.</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </span><span class="bp_extra_slot bp_extra_slot_code"><span class="bp_code_summary_preview_root"><span class="bp_code_summary_preview_wrap bp_code_summary_preview_wrap_active" data-bp-preview-id="bp-code-summary" data-bp-preview-title="summary_graph_solver" tabindex="0" role="button" aria-label="Lean declarations (all present: 1/1)"><span class="bp_code_link bp_code_link_status bp_code_link_status_proved" title="Lean declarations (all present: 1/1)"><span class="bp_code_status_symbol">✓</span><span class="bp_code_link_label">L∃∀N</span></span></span><template class="bp_code_summary_preview_tpl" data-bp-preview-id="bp-code-summary"><div class="bp_code_summary_preview_content">
+                          <div class="bp_code_hover_section">
+                            <span class="bp_code_hover_label">Associated Lean declarations</span><ul class="bp_code_hover_list">
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002EsolveDelayTable" data-bp-preview-title="solveDelayTable" data-bp-preview-key="Informal.LeanCodePreview.solveDelayTable"><a href="Tagged-Delay-Analysis/Algorithm/#--informal-external-decl-summary_graph_solver-solveDelayTable"><code>solveDelayTable</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </template><aside class="bp_code_summary_preview_panel bp_preview_panel" data-bp-preview-mode="hover" data-bp-preview-placement="anchored" hidden=""><div class="bp_code_summary_preview_header bp_preview_panel_header">
+                          <div class="bp_code_summary_preview_title bp_preview_panel_title"></div>
+                          <button type="button" class="bp_code_summary_preview_close bp_preview_panel_close" aria-label="Close Lean summary preview">Close</button></div>
+                        <div class="bp_code_summary_preview_body bp_preview_panel_body"></div>
+                        </aside></span></span><span class="bp_extra_slot bp_extra_slot_used_by"><span class="bp_used_by_chip bp_used_by_chip_empty" title="No reverse dependencies">used by 0</span></span></div>
+                </div>
+              <div class="bp_content bp_kind_definition_content definition_thmcontent">
+                <p>
+                  After the BFS, the summary graph is solved by a Bellman-Ford-style fixed-point
+iteration (<code>solveDelayTable</code>). Starting from a zero delay table, it repeatedly
+propagates delay estimates through the stored <code>StepSummary</code> entries until the
+table stabilizes (early stopping). The final worst-case delay is then read off
+by <code>queryWorstCaseDelay</code>.</p>
+                </div>
+              </div>
+            <div class="bp_wrapper bp_code_panel_wrapper">
+              <details class="bp_code_block bp_code_panel"><summary class="bp_heading lemma_thmheading" title="Lean declarations (all present: 1/1)"><span class="bp_caption lemma_thmcaption bp_code_summary_text">Code for Definition</span><span class="bp_label lemma_thmlabel bp_code_summary_label">3.8</span><span class="bp_code_summary_indicator"><span class="bp_code_summary_preview_root"><span class="bp_code_summary_preview_wrap bp_code_summary_preview_wrap_active" data-bp-preview-id="bp-code-summary" data-bp-preview-title="summary_graph_solver" tabindex="0" role="button" aria-label="Lean declarations (all present: 1/1)"><span class="bp_external_status_badge bp_external_status_badge_summary bp_external_status_ok" title="Lean declarations: all 1 present"><span class="bp_external_status_icon bp_external_status_ok">●</span><span class="bp_external_status_badge_text">1 definition</span></span></span><template class="bp_code_summary_preview_tpl" data-bp-preview-id="bp-code-summary"><div class="bp_code_summary_preview_content">
+                          <div class="bp_code_hover_section">
+                            <span class="bp_code_hover_label">Associated Lean declarations</span><ul class="bp_code_hover_list">
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002EsolveDelayTable" data-bp-preview-title="solveDelayTable" data-bp-preview-key="Informal.LeanCodePreview.solveDelayTable"><a href="Tagged-Delay-Analysis/Algorithm/#--informal-external-decl-summary_graph_solver-solveDelayTable"><code>solveDelayTable</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </template><aside class="bp_code_summary_preview_panel bp_preview_panel" data-bp-preview-mode="hover" data-bp-preview-placement="anchored" hidden=""><div class="bp_code_summary_preview_header bp_preview_panel_header">
+                          <div class="bp_code_summary_preview_title bp_preview_panel_title"></div>
+                          <button type="button" class="bp_code_summary_preview_close bp_preview_panel_close" aria-label="Close Lean summary preview">Close</button></div>
+                        <div class="bp_code_summary_preview_body bp_preview_panel_body"></div>
+                        </aside></span></span></summary><ul class="bp_code_hover_list bp_external_decl_list">
+                  <li class="bp_external_decl_item bp_external_decl_item_rendered" id="--informal-external-decl-summary_graph_solver-solveDelayTable">
+                    <div class="bp_external_decl_rendered">
+                      <div class="declaration decl def" data-decl="solveDelayTable" data-kind="def">
+                        <div class="bp_external_decl_signature_wrap">
+                          <div class="wide-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">def</span> <span class="unknown token" data-binding="">solveDelayTable</span><span class="inter-text"> </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.5329">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5330">m<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="unknown token" data-binding="">}</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.5331">sys<span class="hover-info"><code>system n m</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-system">system<span class="hover-info"><code>system (n m : ℕ) : Type 1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5329">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5330">m<span class="hover-info"><code>ℕ</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">[</span><span class="const token" data-binding="const-TaggedRunnable">TaggedRunnable<span class="hover-info"><code>TaggedRunnable {n m : ℕ} (sys : system n m) : Type 1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5331">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">]</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.5333">graph<span class="hover-info"><code>SummaryGraph sys</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-SummaryGraph">SummaryGraph<span class="hover-info"><code>SummaryGraph {n m : ℕ} (sys : system n m) [TaggedRunnable sys] : Type</code><span class="sep"></span><code class="docstring">Explicit summary graph.
+
+`reachableStates` lists each reachable canonical state exactly once, in BFS discovery order.
+This order matters operationally because the fixed-point solver iterates over the whole reachable
+state space in that stored order. </code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5331">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-DelayTable">DelayTable<span class="hover-info"><code>DelayTable {n m : ℕ} (sys : system n m) [TaggedRunnable sys] : Type</code><span class="sep"></span><code class="docstring">A delay table maps each canonical tagged state to its current delay map. </code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5331">sys<span class="hover-info"><code>system n m</code></span></span></pre></div>
+                          <div class="narrow-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">def</span> <span class="unknown token" data-binding="">solveDelayTable</span><span class="inter-text"> </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.5329">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5330">m<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="unknown token" data-binding="">}</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.5331">sys<span class="hover-info"><code>system n m</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-system">system<span class="hover-info"><code>system (n m : ℕ) : Type 1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5329">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5330">m<span class="hover-info"><code>ℕ</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">[</span><span class="const token" data-binding="const-TaggedRunnable">TaggedRunnable<span class="hover-info"><code>TaggedRunnable {n m : ℕ} (sys : system n m) : Type 1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5331">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">]</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.5333">graph<span class="hover-info"><code>SummaryGraph sys</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-SummaryGraph">SummaryGraph<span class="hover-info"><code>SummaryGraph {n m : ℕ} (sys : system n m) [TaggedRunnable sys] : Type</code><span class="sep"></span><code class="docstring">Explicit summary graph.
+
+`reachableStates` lists each reachable canonical state exactly once, in BFS discovery order.
+This order matters operationally because the fixed-point solver iterates over the whole reachable
+state space in that stored order. </code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5331">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text">
+  </span><span class="const token" data-binding="const-DelayTable">DelayTable<span class="hover-info"><code>DelayTable {n m : ℕ} (sys : system n m) [TaggedRunnable sys] : Type</code><span class="sep"></span><code class="docstring">A delay table maps each canonical tagged state to its current delay map. </code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5331">sys<span class="hover-info"><code>system n m</code></span></span></pre></div>
+                          </div>
+                        <div class="bp_external_decl_body">
+                          <pre class="docstring">Solve the delay equations on the stored summary table. </pre></div>
+                        </div>
+                      </div>
+                    <div class="bp_external_decl_meta bp_external_decl_rendered_meta">
+                      <span class="bp_external_status_badge bp_external_decl_footer_status bp_external_decl_ok">complete</span></div>
+                    </li>
+                  </ul>
+                </details></div>
             </section>
           <nav class="prev-next-buttons">
-            <a class="local-button active" href="Core-Model/Delay-Semantics/#Network-Performance-Verification--Core-Model--Delay-Semantics" rel="prev" title="1.2. Delay Semantics"><span class="arrow">←</span><span class="where">1.2. Delay Semantics</span></a><a class="local-button active" href="Symbolic-Delay-Analysis/Abstractions/#Network-Performance-Verification--Symbolic-Delay-Analysis--Abstractions" rel="next" title="2.1. Abstractions"><span class="where">2.1. Abstractions</span><span class="arrow">→</span></a></nav>
+            <a class="local-button active" href="Tagged-Delay-Analysis/Interface/#Network-Performance-Verification--Tagged-Delay-Analysis--Interface" rel="prev" title="3.1. Interface"><span class="arrow">←</span><span class="where">3.1. Interface</span></a><a class="local-button active" href="Tagged-Delay-Analysis/Soundness/#Network-Performance-Verification--Tagged-Delay-Analysis--Soundness" rel="next" title="3.3. Soundness"><span class="where">3.3. Soundness</span><span class="arrow">→</span></a></nav>
           </div>
         </main></div>
     </body>

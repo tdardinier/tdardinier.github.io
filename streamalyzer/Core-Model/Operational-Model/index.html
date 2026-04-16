@@ -8,9 +8,9 @@
     window.location.replace(`${proto}//${hostName}${path}/${srch}${hsh}`);
   }
 })()</script>
-    <base href="./../"><meta charset="utf-8">
+    <base href="./../../"><meta charset="utf-8">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-    <title>Symbolic Delay Analysis</title><link rel="stylesheet" href="book.css">
+    <title>Operational Model</title><link rel="stylesheet" href="book.css">
     <link rel="stylesheet" href="verso-vars.css">
     <script src="https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js" integrity="sha384-zbcZAIxlvJtNE3Dp5nxLXdXtXyxwOdnILY1TDPVmKFhl4r4nSUG1r8bcFXGVa4Te" crossorigin="anonymous"></script>
     <script src="-verso-search/elasticlunr.min.js"></script>
@@ -6936,37 +6936,897 @@ window.onload = () => {
             </a><div class="split-tocs">
             <div class="split-toc book">
               <div class="title">
-                <label for="--verso-manual-toc-----bookRoot" class="toggle-split-toc"><input type="checkbox" class="toggle-split-toc" id="--verso-manual-toc-----bookRoot" checked="checked"></label><span class="">Table of Contents</span></div>
-              <table><tr class="numbered"><td class="num">1.</td><td><a href="Core-Model/#Network-Performance-Verification--Core-Model">Core Model</a></td></tr><tr class="current numbered"><td class="num">2.</td><td><a href="Symbolic-Delay-Analysis/#Network-Performance-Verification--Symbolic-Delay-Analysis">Symbolic Delay Analysis</a></td></tr><tr class="numbered"><td class="num">3.</td><td><a href="Tagged-Delay-Analysis/#Network-Performance-Verification--Tagged-Delay-Analysis">Tagged Delay Analysis</a></td></tr><tr class="unnumbered"><td class="num"><td><a href="Dependency-Graph/#Network-Performance-Verification--Dependency-Graph">Dependency Graph</a></td></tr><tr class="unnumbered"><td class="num"><td><a href="Blueprint-Summary/#Network-Performance-Verification--Blueprint-Summary">Blueprint Summary</a></td></tr></table></div>
+                <label for="--verso-manual-toc-----bookRoot" class="toggle-split-toc"><input type="checkbox" class="toggle-split-toc" id="--verso-manual-toc-----bookRoot"></label><span class="">Table of Contents</span></div>
+              <table><tr class="current numbered"><td class="num">1.</td><td><a href="Core-Model/#Network-Performance-Verification--Core-Model">Core Model</a></td></tr><tr class="numbered"><td class="num">2.</td><td><a href="Symbolic-Delay-Analysis/#Network-Performance-Verification--Symbolic-Delay-Analysis">Symbolic Delay Analysis</a></td></tr><tr class="numbered"><td class="num">3.</td><td><a href="Tagged-Delay-Analysis/#Network-Performance-Verification--Tagged-Delay-Analysis">Tagged Delay Analysis</a></td></tr><tr class="unnumbered"><td class="num"><td><a href="Dependency-Graph/#Network-Performance-Verification--Dependency-Graph">Dependency Graph</a></td></tr><tr class="unnumbered"><td class="num"><td><a href="Blueprint-Summary/#Network-Performance-Verification--Blueprint-Summary">Blueprint Summary</a></td></tr></table></div>
             <div class="split-toc">
               <div class="title">
-                <label for="--verso-manual-toc-Network-Performance-Verification--Symbolic-Delay-Analysis" class="toggle-split-toc"><input type="checkbox" class="toggle-split-toc" id="--verso-manual-toc-Network-Performance-Verification--Symbolic-Delay-Analysis" checked="checked"></label><span class="number">2.</span> <span class="current"><a href="Symbolic-Delay-Analysis/#Network-Performance-Verification--Symbolic-Delay-Analysis">Symbolic Delay Analysis</a></span></div>
-              <table><tr class="numbered"><td class="num">2.1.</td><td><a href="Symbolic-Delay-Analysis/Abstractions/#Network-Performance-Verification--Symbolic-Delay-Analysis--Abstractions">Abstractions</a></td></tr><tr class="numbered"><td class="num">2.2.</td><td><a href="Symbolic-Delay-Analysis/Reference-Algorithm/#Network-Performance-Verification--Symbolic-Delay-Analysis--Reference-Algorithm">Reference Algorithm</a></td></tr><tr class="numbered"><td class="num">2.3.</td><td><a href="Symbolic-Delay-Analysis/Soundness/#Network-Performance-Verification--Symbolic-Delay-Analysis--Soundness">Soundness</a></td></tr><tr class="numbered"><td class="num">2.4.</td><td><a href="Symbolic-Delay-Analysis/Completeness/#Network-Performance-Verification--Symbolic-Delay-Analysis--Completeness">Completeness</a></td></tr><tr class="numbered"><td class="num">2.5.</td><td><a href="Symbolic-Delay-Analysis/Optimized-Algorithm/#Network-Performance-Verification--Symbolic-Delay-Analysis--Optimized-Algorithm">Optimized Algorithm</a></td></tr></table></div>
+                <label for="--verso-manual-toc-Network-Performance-Verification--Core-Model" class="toggle-split-toc"><input type="checkbox" class="toggle-split-toc" id="--verso-manual-toc-Network-Performance-Verification--Core-Model" checked="checked"></label><span class="number">1.</span> <span class=""><a href="Core-Model/#Network-Performance-Verification--Core-Model">Core Model</a></span></div>
+              <table><tr class="current numbered"><td class="num">1.1.</td><td><a href="Core-Model/Operational-Model/#Network-Performance-Verification--Core-Model--Operational-Model">Operational Model</a></td></tr><tr class="numbered"><td class="num">1.2.</td><td><a href="Core-Model/Delay-Semantics/#Network-Performance-Verification--Core-Model--Delay-Semantics">Delay Semantics</a></td></tr></table></div>
+            <div class="split-toc">
+              <div class="title">
+                <span class="no-toggle"></span><span class="number">1.1.</span> <span class="current"><a href="Core-Model/Operational-Model/#Network-Performance-Verification--Core-Model--Operational-Model">Operational Model</a></span></div>
+              </div>
             </div>
           </div>
         <div class="last"></div>
         </nav>
       <main><div class="content-wrapper">
           <nav class="prev-next-buttons">
-            <a class="local-button active" href="Core-Model/Delay-Semantics/#Network-Performance-Verification--Core-Model--Delay-Semantics" rel="prev" title="1.2. Delay Semantics"><span class="arrow">←</span><span class="where">1.2. Delay Semantics</span></a><a class="local-button active" href="Symbolic-Delay-Analysis/Abstractions/#Network-Performance-Verification--Symbolic-Delay-Analysis--Abstractions" rel="next" title="2.1. Abstractions"><span class="where">2.1. Abstractions</span><span class="arrow">→</span></a></nav>
+            <a class="local-button active" href="Core-Model/#Network-Performance-Verification--Core-Model" rel="prev" title="1. Core Model"><span class="arrow">←</span><span class="where">1. Core Model</span></a><a class="local-button active" href="Core-Model/Delay-Semantics/#Network-Performance-Verification--Core-Model--Delay-Semantics" rel="next" title="1.2. Delay Semantics"><span class="where">1.2. Delay Semantics</span><span class="arrow">→</span></a></nav>
           <section>
             <h1>
-              2. Symbolic Delay Analysis<span class="permalink-widget inline"><a href="find/?domain=Verso.Genre.Manual.section&amp;name=Network-Performance-Verification--Symbolic-Delay-Analysis" title="Permalink">🔗</a></span></h1>
-            <ol class="section-toc">
-              <li>
-                <a href="Symbolic-Delay-Analysis/Abstractions/#Network-Performance-Verification--Symbolic-Delay-Analysis--Abstractions"><span class="number">2.1.</span> Abstractions</a></li>
-              <li>
-                <a href="Symbolic-Delay-Analysis/Reference-Algorithm/#Network-Performance-Verification--Symbolic-Delay-Analysis--Reference-Algorithm"><span class="number">2.2.</span> Reference Algorithm</a></li>
-              <li>
-                <a href="Symbolic-Delay-Analysis/Soundness/#Network-Performance-Verification--Symbolic-Delay-Analysis--Soundness"><span class="number">2.3.</span> Soundness</a></li>
-              <li>
-                <a href="Symbolic-Delay-Analysis/Completeness/#Network-Performance-Verification--Symbolic-Delay-Analysis--Completeness"><span class="number">2.4.</span> Completeness</a></li>
-              <li>
-                <a href="Symbolic-Delay-Analysis/Optimized-Algorithm/#Network-Performance-Verification--Symbolic-Delay-Analysis--Optimized-Algorithm"><span class="number">2.5.</span> Optimized Algorithm</a></li>
-              </ol>
+              1.1. Operational Model<span class="permalink-widget inline"><a href="find/?domain=Verso.Genre.Manual.section&amp;name=Network-Performance-Verification--Core-Model--Operational-Model" title="Permalink">🔗</a></span></h1>
+            <div class="bp_wrapper bp_kind_definition_wrapper definition_thmwrapper definition_thmwrapper theorem-style-definition bp_kind_definition bp_style_definition" title="device_type" id="--informal-preview-device_type--statement">
+              <div class="bp_heading bp_kind_definition_heading definition_thmheading">
+                <div class="bp_heading_title_row bp_heading_title_row_statement">
+                  <span class="bp_caption bp_kind_definition_caption definition_thmcaption" title="device_type">Definition</span><span class="bp_label bp_kind_definition_label definition_thmlabel">1.4</span></div>
+                <div class="bp_extras bp_extras_with_group thm_header_extras">
+                  <span class="bp_extra_slot bp_extra_slot_group"><div class="bp_used_by_wrap">
+                      <button type="button" class="bp_used_by_chip" title="Other entries in group Operational model of stateful packet-processing networks." aria-expanded="false">group</button><div class="bp_used_by_panel">
+                        <div class="bp_used_by_panel_header">
+                          <div class="bp_used_by_panel_title">
+                            Group: Operational model of stateful packet-processing networks. (3)</div>
+                          <div class="bp_used_by_panel_meta">
+                            Hover another entry in this group to preview it.</div>
+                          </div>
+                        <div class="bp_used_by_panel_body">
+                          <ul class="bp_used_by_list">
+                            <li class="bp_used_by_item bp_used_by_item_active" data-bp-used-preview-id="bp-group-device-005Ftype-stream-005Fsemantics" data-bp-used-preview-key="stream_semantics--statement" data-bp-used-preview-title="Definition 1.5">
+                              <a class="bp_used_by_target" href="Core-Model/Operational-Model/#--informal-preview-stream_semantics--statement"><span class="bp_used_by_target_title">Definition 1.5</span><span class="bp_used_by_target_meta"><code>stream_semantics</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-device-005Ftype-stream-005Fsemantics"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>stream_semantics</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      Operational model of stateful packet-processing networks.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            <li class="bp_used_by_item" data-bp-used-preview-id="bp-group-device-005Ftype-composition-005Foperators" data-bp-used-preview-key="composition_operators--statement" data-bp-used-preview-title="Definition 1.6">
+                              <a class="bp_used_by_target" href="Core-Model/Operational-Model/#--informal-preview-composition_operators--statement"><span class="bp_used_by_target_title">Definition 1.6</span><span class="bp_used_by_target_meta"><code>composition_operators</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-device-005Ftype-composition-005Foperators"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>composition_operators</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      Operational model of stateful packet-processing networks.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            <li class="bp_used_by_item" data-bp-used-preview-id="bp-group-device-005Ftype-concrete-005Fdevices" data-bp-used-preview-key="concrete_devices--statement" data-bp-used-preview-title="Definition 1.7">
+                              <a class="bp_used_by_target" href="Core-Model/Operational-Model/#--informal-preview-concrete_devices--statement"><span class="bp_used_by_target_title">Definition 1.7</span><span class="bp_used_by_target_meta"><code>concrete_devices</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-device-005Ftype-concrete-005Fdevices"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>concrete_devices</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      Operational model of stateful packet-processing networks.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            </ul>
+                          <div class="bp_used_by_preview_surface">
+                            <div class="bp_used_by_preview_header">
+                              <div class="bp_used_by_preview_label">
+                                Preview</div>
+                              <div class="bp_used_by_preview_title">
+                                Definition 1.5</div>
+                              </div>
+                            <div class="bp_used_by_preview_body">
+                              <div class="bp_code_hover_section">
+                                <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                  <li>
+                                    <code>stream_semantics</code></li>
+                                  </ul>
+                                </div>
+                              <div class="bp_code_hover_section">
+                                <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                  <li>
+                                    Operational model of stateful packet-processing networks.</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </span><span class="bp_extra_slot bp_extra_slot_code"><span class="bp_code_summary_preview_root"><span class="bp_code_summary_preview_wrap bp_code_summary_preview_wrap_active" data-bp-preview-id="bp-code-summary" data-bp-preview-title="device_type" tabindex="0" role="button" aria-label="Lean declarations (all present: 1/1)"><span class="bp_code_link bp_code_link_status bp_code_link_status_proved" title="Lean declarations (all present: 1/1)"><span class="bp_code_status_symbol">✓</span><span class="bp_code_link_label">L∃∀N</span></span></span><template class="bp_code_summary_preview_tpl" data-bp-preview-id="bp-code-summary"><div class="bp_code_summary_preview_content">
+                          <div class="bp_code_hover_section">
+                            <span class="bp_code_hover_label">Associated Lean declarations</span><ul class="bp_code_hover_list">
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002Esystem" data-bp-preview-title="system" data-bp-preview-key="Informal.LeanCodePreview.system"><a href="Core-Model/Operational-Model/#--informal-external-decl-device_type-system"><code>system</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </template><aside class="bp_code_summary_preview_panel bp_preview_panel" data-bp-preview-mode="hover" data-bp-preview-placement="anchored" hidden=""><div class="bp_code_summary_preview_header bp_preview_panel_header">
+                          <div class="bp_code_summary_preview_title bp_preview_panel_title"></div>
+                          <button type="button" class="bp_code_summary_preview_close bp_preview_panel_close" aria-label="Close Lean summary preview">Close</button></div>
+                        <div class="bp_code_summary_preview_body bp_preview_panel_body"></div>
+                        </aside></span></span><span class="bp_extra_slot bp_extra_slot_used_by"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-used-by-device-005Ftype-good-005Fsystem" data-bp-preview-title="Definition 2.5" data-bp-preview-key="good_system--statement" data-bp-preview-fallback-label="good_system"><a class="bp_used_by_chip bp_code_link" href="Symbolic-Delay-Analysis/Abstractions/#--informal-preview-good_system--statement" title="Reverse dependency: Definition 2.5">used by 1</a></span></span></div>
+                </div>
+              <div class="bp_content bp_kind_definition_content definition_thmcontent">
+                <p>
+                  A <code>system n m</code> is a stateful, packet-polymorphic device with <code>n</code> input links
+and <code>m</code> output links. Its four fields are:</p>
+                <ul>
+                  <li>
+                    <p>
+                      <code>stateType : Type → Type</code> — the internal state, polymorphic in the packet type.</p>
+                    </li>
+                  <li>
+                    <p>
+                      <code>initState : stateType α</code> — the initial state, natural with respect to packet maps.</p>
+                    </li>
+                  <li>
+                    <p>
+                      <code>branchingType : Type</code> — the observable part of a packet used for routing decisions.</p>
+                    </li>
+                  <li>
+                    <p>
+                      <code>device : (α → branchingType) → statefulDevice α (stateType α) n m</code> — the
+  one-step transition, parameterized by an inspection function <code>inspect : α → branchingType</code>.</p>
+                    </li>
+                  </ul>
+                <p>
+                  The key invariant is that the device may only observe packets through <code>inspect</code>.
+This separation between the concrete packet identity <code>α</code> and the routing label
+<code>branchingType</code> is what makes the symbolic delay analysis possible: two concrete
+packets with the same branch label are indistinguishable to the system.</p>
+                </div>
+              </div>
+            <div class="bp_wrapper bp_code_panel_wrapper">
+              <details class="bp_code_block bp_code_panel"><summary class="bp_heading lemma_thmheading" title="Lean declarations (all present: 1/1)"><span class="bp_caption lemma_thmcaption bp_code_summary_text">Code for Definition</span><span class="bp_label lemma_thmlabel bp_code_summary_label">1.4</span><span class="bp_code_summary_indicator"><span class="bp_code_summary_preview_root"><span class="bp_code_summary_preview_wrap bp_code_summary_preview_wrap_active" data-bp-preview-id="bp-code-summary" data-bp-preview-title="device_type" tabindex="0" role="button" aria-label="Lean declarations (all present: 1/1)"><span class="bp_external_status_badge bp_external_status_badge_summary bp_external_status_ok" title="Lean declarations: all 1 present"><span class="bp_external_status_icon bp_external_status_ok">●</span><span class="bp_external_status_badge_text">1 definition</span></span></span><template class="bp_code_summary_preview_tpl" data-bp-preview-id="bp-code-summary"><div class="bp_code_summary_preview_content">
+                          <div class="bp_code_hover_section">
+                            <span class="bp_code_hover_label">Associated Lean declarations</span><ul class="bp_code_hover_list">
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002Esystem" data-bp-preview-title="system" data-bp-preview-key="Informal.LeanCodePreview.system"><a href="Core-Model/Operational-Model/#--informal-external-decl-device_type-system"><code>system</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </template><aside class="bp_code_summary_preview_panel bp_preview_panel" data-bp-preview-mode="hover" data-bp-preview-placement="anchored" hidden=""><div class="bp_code_summary_preview_header bp_preview_panel_header">
+                          <div class="bp_code_summary_preview_title bp_preview_panel_title"></div>
+                          <button type="button" class="bp_code_summary_preview_close bp_preview_panel_close" aria-label="Close Lean summary preview">Close</button></div>
+                        <div class="bp_code_summary_preview_body bp_preview_panel_body"></div>
+                        </aside></span></span></summary><ul class="bp_code_hover_list bp_external_decl_list">
+                  <li class="bp_external_decl_item bp_external_decl_item_rendered" id="--informal-external-decl-device_type-system">
+                    <div class="bp_external_decl_rendered">
+                      <div class="declaration decl structure" data-decl="system" data-kind="structure">
+                        <div class="bp_external_decl_signature_wrap">
+                          <div class="wide-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">structure</span> <span class="unknown token" data-binding="">system</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.34">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.35">m<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-7243200735919010059">Type 1<span class="hover-info"><code class="docstring">A type universe. `Type ≡ Type 0`, `Type u ≡ Sort (u + 1)`. </code></span></span></pre></div>
+                          <div class="narrow-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">structure</span> <span class="unknown token" data-binding="">system</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.34">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.35">m<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-7243200735919010059">Type 1<span class="hover-info"><code class="docstring">A type universe. `Type ≡ Type 0`, `Type u ≡ Sort (u + 1)`. </code></span></span></pre></div>
+                          </div>
+                        <div class="bp_external_decl_body">
+                          <h1>
+                            Constructor</h1>
+                          <div class="constructor">
+                            <pre class="name-and-type hl lean"><span class="unknown token" data-binding="">system.mk</span><span class="inter-text"> </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.20">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.21">m<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="unknown token" data-binding="">}</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.23">stateType<span class="hover-info"><code>Type → Type</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-7243200735919010059">Type<span class="hover-info"><code class="docstring">A type universe. `Type ≡ Type 0`, `Type u ≡ Sort (u + 1)`. </code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-7243200735919010059">Type<span class="hover-info"><code class="docstring">A type universe. `Type ≡ Type 0`, `Type u ≡ Sort (u + 1)`. </code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.25">initState<span class="hover-info"><code>{α : Type} → stateType α</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.24">α<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-7243200735919010059">Type<span class="hover-info"><code class="docstring">A type universe. `Type ≡ Type 0`, `Type u ≡ Sort (u + 1)`. </code></span></span><span class="unknown token" data-binding="">}</span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.23">stateType<span class="hover-info"><code>Type → Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.24">α<span class="hover-info"><code>Type</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.26">branchingType<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-7243200735919010059">Type<span class="hover-info"><code class="docstring">A type universe. `Type ≡ Type 0`, `Type u ≡ Sort (u + 1)`. </code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.31">device<span class="hover-info"><code>{α : Type} → (α → branchingType) → statefulDevice α (stateType α) n m</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text">
+    </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.28">α<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-7243200735919010059">Type<span class="hover-info"><code class="docstring">A type universe. `Type ≡ Type 0`, `Type u ≡ Sort (u + 1)`. </code></span></span><span class="unknown token" data-binding="">}</span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text">
+      </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.28">α<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.26">branchingType<span class="hover-info"><code>Type</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text">
+        </span><span class="const token" data-binding="const-statefulDevice">statefulDevice<span class="hover-info"><code>statefulDevice (α σ : Type) (n m : ℕ) : Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.28">α<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.23">stateType<span class="hover-info"><code>Type → Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.28">α<span class="hover-info"><code>Type</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.20">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text">
+          </span><span class="var token" data-binding="var-_uniq.21">m<span class="hover-info"><code>ℕ</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text">
+  </span><span class="const token" data-binding="const-system">system<span class="hover-info"><code>system (n m : ℕ) : Type 1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.20">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.21">m<span class="hover-info"><code>ℕ</code></span></span></pre><div class="docs"></div>
+                            </div>
+                          <h1>
+                            Fields</h1>
+                          <section class="subdocs">
+                            <pre class="name-and-type hl lean"><span class="const token" data-binding="const-system.stateType">stateType<span class="hover-info"><code>Type → Type</code></span></span> : <span class="inter-text"></span><span class="sort token" data-binding="sort-7243200735919010059">Type<span class="hover-info"><code class="docstring">A type universe. `Type ≡ Type 0`, `Type u ≡ Sort (u + 1)`. </code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-7243200735919010059">Type<span class="hover-info"><code class="docstring">A type universe. `Type ≡ Type 0`, `Type u ≡ Sort (u + 1)`. </code></span></span></pre><div class="docs"></div>
+                            </section>
+                          <section class="subdocs">
+                            <pre class="name-and-type hl lean"><span class="const token" data-binding="const-system.initState">initState<span class="hover-info"><code>{α : Type} → self.stateType α</code></span></span> : <span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.14">α<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-7243200735919010059">Type<span class="hover-info"><code class="docstring">A type universe. `Type ≡ Type 0`, `Type u ≡ Sort (u + 1)`. </code></span></span><span class="unknown token" data-binding="">}</span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12">self<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">.</span><span class="const token" data-binding="const-system.stateType">stateType<span class="hover-info"><code>system.stateType {n m : ℕ} (self : system n m) : Type → Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.14">α<span class="hover-info"><code>Type</code></span></span></pre><div class="docs"></div>
+                            </section>
+                          <section class="subdocs">
+                            <pre class="name-and-type hl lean"><span class="const token" data-binding="const-system.branchingType">branchingType<span class="hover-info"><code>Type</code></span></span> : <span class="inter-text"></span><span class="sort token" data-binding="sort-7243200735919010059">Type<span class="hover-info"><code class="docstring">A type universe. `Type ≡ Type 0`, `Type u ≡ Sort (u + 1)`. </code></span></span><span class="inter-text"></span></pre><div class="docs"></div>
+                            </section>
+                          <section class="subdocs">
+                            <pre class="name-and-type hl lean"><span class="const token" data-binding="const-system.device">device<span class="hover-info"><code>{α : Type} → (α → self.branchingType) → statefulDevice α (self.stateType α) n m</code></span></span> : <span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.16">α<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-7243200735919010059">Type<span class="hover-info"><code class="docstring">A type universe. `Type ≡ Type 0`, `Type u ≡ Sort (u + 1)`. </code></span></span><span class="unknown token" data-binding="">}</span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.16">α<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.12">self<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">.</span><span class="const token" data-binding="const-system.branchingType">branchingType<span class="hover-info"><code>system.branchingType {n m : ℕ} (self : system n m) : Type</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text"> </span><span class="const token" data-binding="const-statefulDevice">statefulDevice<span class="hover-info"><code>statefulDevice (α σ : Type) (n m : ℕ) : Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.16">α<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.12">self<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">.</span><span class="const token" data-binding="const-system.stateType">stateType<span class="hover-info"><code>system.stateType {n m : ℕ} (self : system n m) : Type → Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.16">α<span class="hover-info"><code>Type</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.10">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.11">m<span class="hover-info"><code>ℕ</code></span></span></pre><div class="docs"></div>
+                            </section>
+                          </div>
+                        </div>
+                      </div>
+                    <div class="bp_external_decl_meta bp_external_decl_rendered_meta">
+                      <span class="bp_external_status_badge bp_external_decl_footer_status bp_external_decl_ok">complete</span></div>
+                    </li>
+                  </ul>
+                </details></div>
+            <div class="bp_wrapper bp_kind_definition_wrapper definition_thmwrapper definition_thmwrapper theorem-style-definition bp_kind_definition bp_style_definition" title="stream_semantics" id="--informal-preview-stream_semantics--statement">
+              <div class="bp_heading bp_kind_definition_heading definition_thmheading">
+                <div class="bp_heading_title_row bp_heading_title_row_statement">
+                  <span class="bp_caption bp_kind_definition_caption definition_thmcaption" title="stream_semantics">Definition</span><span class="bp_label bp_kind_definition_label definition_thmlabel">1.5</span></div>
+                <div class="bp_extras bp_extras_with_group thm_header_extras">
+                  <span class="bp_extra_slot bp_extra_slot_group"><div class="bp_used_by_wrap">
+                      <button type="button" class="bp_used_by_chip" title="Other entries in group Operational model of stateful packet-processing networks." aria-expanded="false">group</button><div class="bp_used_by_panel">
+                        <div class="bp_used_by_panel_header">
+                          <div class="bp_used_by_panel_title">
+                            Group: Operational model of stateful packet-processing networks. (3)</div>
+                          <div class="bp_used_by_panel_meta">
+                            Hover another entry in this group to preview it.</div>
+                          </div>
+                        <div class="bp_used_by_panel_body">
+                          <ul class="bp_used_by_list">
+                            <li class="bp_used_by_item bp_used_by_item_active" data-bp-used-preview-id="bp-group-stream-005Fsemantics-device-005Ftype" data-bp-used-preview-key="device_type--statement" data-bp-used-preview-title="Definition 1.4">
+                              <a class="bp_used_by_target" href="Core-Model/Operational-Model/#--informal-preview-device_type--statement"><span class="bp_used_by_target_title">Definition 1.4</span><span class="bp_used_by_target_meta"><code>device_type</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-stream-005Fsemantics-device-005Ftype"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>device_type</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      Operational model of stateful packet-processing networks.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            <li class="bp_used_by_item" data-bp-used-preview-id="bp-group-stream-005Fsemantics-composition-005Foperators" data-bp-used-preview-key="composition_operators--statement" data-bp-used-preview-title="Definition 1.6">
+                              <a class="bp_used_by_target" href="Core-Model/Operational-Model/#--informal-preview-composition_operators--statement"><span class="bp_used_by_target_title">Definition 1.6</span><span class="bp_used_by_target_meta"><code>composition_operators</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-stream-005Fsemantics-composition-005Foperators"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>composition_operators</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      Operational model of stateful packet-processing networks.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            <li class="bp_used_by_item" data-bp-used-preview-id="bp-group-stream-005Fsemantics-concrete-005Fdevices" data-bp-used-preview-key="concrete_devices--statement" data-bp-used-preview-title="Definition 1.7">
+                              <a class="bp_used_by_target" href="Core-Model/Operational-Model/#--informal-preview-concrete_devices--statement"><span class="bp_used_by_target_title">Definition 1.7</span><span class="bp_used_by_target_meta"><code>concrete_devices</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-stream-005Fsemantics-concrete-005Fdevices"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>concrete_devices</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      Operational model of stateful packet-processing networks.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            </ul>
+                          <div class="bp_used_by_preview_surface">
+                            <div class="bp_used_by_preview_header">
+                              <div class="bp_used_by_preview_label">
+                                Preview</div>
+                              <div class="bp_used_by_preview_title">
+                                Definition 1.4</div>
+                              </div>
+                            <div class="bp_used_by_preview_body">
+                              <div class="bp_code_hover_section">
+                                <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                  <li>
+                                    <code>device_type</code></li>
+                                  </ul>
+                                </div>
+                              <div class="bp_code_hover_section">
+                                <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                  <li>
+                                    Operational model of stateful packet-processing networks.</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </span><span class="bp_extra_slot bp_extra_slot_code"><span class="bp_code_summary_preview_root"><span class="bp_code_summary_preview_wrap bp_code_summary_preview_wrap_active" data-bp-preview-id="bp-code-summary" data-bp-preview-title="stream_semantics" tabindex="0" role="button" aria-label="Lean declarations (all present: 1/1)"><span class="bp_code_link bp_code_link_status bp_code_link_status_proved" title="Lean declarations (all present: 1/1)"><span class="bp_code_status_symbol">✓</span><span class="bp_code_link_label">L∃∀N</span></span></span><template class="bp_code_summary_preview_tpl" data-bp-preview-id="bp-code-summary"><div class="bp_code_summary_preview_content">
+                          <div class="bp_code_hover_section">
+                            <span class="bp_code_hover_label">Associated Lean declarations</span><ul class="bp_code_hover_list">
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002EliftToStream" data-bp-preview-title="liftToStream" data-bp-preview-key="Informal.LeanCodePreview.liftToStream"><a href="Core-Model/Operational-Model/#--informal-external-decl-stream_semantics-liftToStream"><code>liftToStream</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </template><aside class="bp_code_summary_preview_panel bp_preview_panel" data-bp-preview-mode="hover" data-bp-preview-placement="anchored" hidden=""><div class="bp_code_summary_preview_header bp_preview_panel_header">
+                          <div class="bp_code_summary_preview_title bp_preview_panel_title"></div>
+                          <button type="button" class="bp_code_summary_preview_close bp_preview_panel_close" aria-label="Close Lean summary preview">Close</button></div>
+                        <div class="bp_code_summary_preview_body bp_preview_panel_body"></div>
+                        </aside></span></span><span class="bp_extra_slot bp_extra_slot_used_by"><span class="bp_used_by_chip bp_used_by_chip_empty" title="No reverse dependencies">used by 0</span></span></div>
+                </div>
+              <div class="bp_content bp_kind_definition_content definition_thmcontent">
+                <p>
+                  A <code>system n m</code> denotes a causal stream transformer from <code>n</code> input streams to <code>m</code>
+output streams. The one-step transition is iterated by <code>liftToStream</code>, which
+feeds the current input and state to the device, collects the output, and
+threads the successor state forward.</p>
+                <p>
+                  Streams are functions <code>ℕ → Option α</code>; a <code>None</code> at time <code>t</code> means no packet
+arrives on that link at step <code>t</code>. The <code>k</code>-stream type <code>kStreams α k</code> is a
+<code>k</code>-tuple of streams.</p>
+                </div>
+              </div>
+            <div class="bp_wrapper bp_code_panel_wrapper">
+              <details class="bp_code_block bp_code_panel"><summary class="bp_heading lemma_thmheading" title="Lean declarations (all present: 1/1)"><span class="bp_caption lemma_thmcaption bp_code_summary_text">Code for Definition</span><span class="bp_label lemma_thmlabel bp_code_summary_label">1.5</span><span class="bp_code_summary_indicator"><span class="bp_code_summary_preview_root"><span class="bp_code_summary_preview_wrap bp_code_summary_preview_wrap_active" data-bp-preview-id="bp-code-summary" data-bp-preview-title="stream_semantics" tabindex="0" role="button" aria-label="Lean declarations (all present: 1/1)"><span class="bp_external_status_badge bp_external_status_badge_summary bp_external_status_ok" title="Lean declarations: all 1 present"><span class="bp_external_status_icon bp_external_status_ok">●</span><span class="bp_external_status_badge_text">1 definition</span></span></span><template class="bp_code_summary_preview_tpl" data-bp-preview-id="bp-code-summary"><div class="bp_code_summary_preview_content">
+                          <div class="bp_code_hover_section">
+                            <span class="bp_code_hover_label">Associated Lean declarations</span><ul class="bp_code_hover_list">
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002EliftToStream" data-bp-preview-title="liftToStream" data-bp-preview-key="Informal.LeanCodePreview.liftToStream"><a href="Core-Model/Operational-Model/#--informal-external-decl-stream_semantics-liftToStream"><code>liftToStream</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </template><aside class="bp_code_summary_preview_panel bp_preview_panel" data-bp-preview-mode="hover" data-bp-preview-placement="anchored" hidden=""><div class="bp_code_summary_preview_header bp_preview_panel_header">
+                          <div class="bp_code_summary_preview_title bp_preview_panel_title"></div>
+                          <button type="button" class="bp_code_summary_preview_close bp_preview_panel_close" aria-label="Close Lean summary preview">Close</button></div>
+                        <div class="bp_code_summary_preview_body bp_preview_panel_body"></div>
+                        </aside></span></span></summary><ul class="bp_code_hover_list bp_external_decl_list">
+                  <li class="bp_external_decl_item bp_external_decl_item_rendered" id="--informal-external-decl-stream_semantics-liftToStream">
+                    <div class="bp_external_decl_rendered">
+                      <div class="declaration decl def" data-decl="liftToStream" data-kind="def">
+                        <div class="bp_external_decl_signature_wrap">
+                          <div class="wide-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">def</span> <span class="unknown token" data-binding="">liftToStream</span><span class="inter-text"> </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.1398">α<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-7243200735919010059">Type<span class="hover-info"><code class="docstring">A type universe. `Type ≡ Type 0`, `Type u ≡ Sort (u + 1)`. </code></span></span><span class="unknown token" data-binding="">}</span><span class="inter-text"> </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.1399">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1400">m<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="unknown token" data-binding="">}</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.1401">sys<span class="hover-info"><code>system n m</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-system">system<span class="hover-info"><code>system (n m : ℕ) : Type 1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1399">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1400">m<span class="hover-info"><code>ℕ</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.1403">inspect<span class="hover-info"><code>α → sys.branchingType</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1398">α<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1401">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">.</span><span class="const token" data-binding="const-system.branchingType">branchingType<span class="hover-info"><code>system.branchingType {n m : ℕ} (self : system n m) : Type</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.1405">R<span class="hover-info"><code>kStreams α n</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-kStreams">kStreams<span class="hover-info"><code>kStreams (α : Type) (k : ℕ) : Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1398">α<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1399">n<span class="hover-info"><code>ℕ</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-kStreams">kStreams<span class="hover-info"><code>kStreams (α : Type) (k : ℕ) : Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1398">α<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1400">m<span class="hover-info"><code>ℕ</code></span></span></pre></div>
+                          <div class="narrow-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">def</span> <span class="unknown token" data-binding="">liftToStream</span><span class="inter-text"> </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.1398">α<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-7243200735919010059">Type<span class="hover-info"><code class="docstring">A type universe. `Type ≡ Type 0`, `Type u ≡ Sort (u + 1)`. </code></span></span><span class="unknown token" data-binding="">}</span><span class="inter-text"> </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.1399">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1400">m<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="unknown token" data-binding="">}</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.1401">sys<span class="hover-info"><code>system n m</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-system">system<span class="hover-info"><code>system (n m : ℕ) : Type 1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1399">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1400">m<span class="hover-info"><code>ℕ</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.1403">inspect<span class="hover-info"><code>α → sys.branchingType</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1398">α<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1401">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">.</span><span class="const token" data-binding="const-system.branchingType">branchingType<span class="hover-info"><code>system.branchingType {n m : ℕ} (self : system n m) : Type</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.1405">R<span class="hover-info"><code>kStreams α n</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-kStreams">kStreams<span class="hover-info"><code>kStreams (α : Type) (k : ℕ) : Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1398">α<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1399">n<span class="hover-info"><code>ℕ</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-kStreams">kStreams<span class="hover-info"><code>kStreams (α : Type) (k : ℕ) : Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1398">α<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1400">m<span class="hover-info"><code>ℕ</code></span></span></pre></div>
+                          </div>
+                        <div class="bp_external_decl_body"></div>
+                        </div>
+                      </div>
+                    <div class="bp_external_decl_meta bp_external_decl_rendered_meta">
+                      <span class="bp_external_status_badge bp_external_decl_footer_status bp_external_decl_ok">complete</span></div>
+                    </li>
+                  </ul>
+                </details></div>
+            <div class="bp_wrapper bp_kind_definition_wrapper definition_thmwrapper definition_thmwrapper theorem-style-definition bp_kind_definition bp_style_definition" title="composition_operators" id="--informal-preview-composition_operators--statement">
+              <div class="bp_heading bp_kind_definition_heading definition_thmheading">
+                <div class="bp_heading_title_row bp_heading_title_row_statement">
+                  <span class="bp_caption bp_kind_definition_caption definition_thmcaption" title="composition_operators">Definition</span><span class="bp_label bp_kind_definition_label definition_thmlabel">1.6</span></div>
+                <div class="bp_extras bp_extras_with_group thm_header_extras">
+                  <span class="bp_extra_slot bp_extra_slot_group"><div class="bp_used_by_wrap">
+                      <button type="button" class="bp_used_by_chip" title="Other entries in group Operational model of stateful packet-processing networks." aria-expanded="false">group</button><div class="bp_used_by_panel">
+                        <div class="bp_used_by_panel_header">
+                          <div class="bp_used_by_panel_title">
+                            Group: Operational model of stateful packet-processing networks. (3)</div>
+                          <div class="bp_used_by_panel_meta">
+                            Hover another entry in this group to preview it.</div>
+                          </div>
+                        <div class="bp_used_by_panel_body">
+                          <ul class="bp_used_by_list">
+                            <li class="bp_used_by_item bp_used_by_item_active" data-bp-used-preview-id="bp-group-composition-005Foperators-device-005Ftype" data-bp-used-preview-key="device_type--statement" data-bp-used-preview-title="Definition 1.4">
+                              <a class="bp_used_by_target" href="Core-Model/Operational-Model/#--informal-preview-device_type--statement"><span class="bp_used_by_target_title">Definition 1.4</span><span class="bp_used_by_target_meta"><code>device_type</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-composition-005Foperators-device-005Ftype"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>device_type</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      Operational model of stateful packet-processing networks.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            <li class="bp_used_by_item" data-bp-used-preview-id="bp-group-composition-005Foperators-stream-005Fsemantics" data-bp-used-preview-key="stream_semantics--statement" data-bp-used-preview-title="Definition 1.5">
+                              <a class="bp_used_by_target" href="Core-Model/Operational-Model/#--informal-preview-stream_semantics--statement"><span class="bp_used_by_target_title">Definition 1.5</span><span class="bp_used_by_target_meta"><code>stream_semantics</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-composition-005Foperators-stream-005Fsemantics"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>stream_semantics</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      Operational model of stateful packet-processing networks.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            <li class="bp_used_by_item" data-bp-used-preview-id="bp-group-composition-005Foperators-concrete-005Fdevices" data-bp-used-preview-key="concrete_devices--statement" data-bp-used-preview-title="Definition 1.7">
+                              <a class="bp_used_by_target" href="Core-Model/Operational-Model/#--informal-preview-concrete_devices--statement"><span class="bp_used_by_target_title">Definition 1.7</span><span class="bp_used_by_target_meta"><code>concrete_devices</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-composition-005Foperators-concrete-005Fdevices"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>concrete_devices</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      Operational model of stateful packet-processing networks.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            </ul>
+                          <div class="bp_used_by_preview_surface">
+                            <div class="bp_used_by_preview_header">
+                              <div class="bp_used_by_preview_label">
+                                Preview</div>
+                              <div class="bp_used_by_preview_title">
+                                Definition 1.4</div>
+                              </div>
+                            <div class="bp_used_by_preview_body">
+                              <div class="bp_code_hover_section">
+                                <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                  <li>
+                                    <code>device_type</code></li>
+                                  </ul>
+                                </div>
+                              <div class="bp_code_hover_section">
+                                <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                  <li>
+                                    Operational model of stateful packet-processing networks.</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </span><span class="bp_extra_slot bp_extra_slot_code"><span class="bp_code_summary_preview_root"><span class="bp_code_summary_preview_wrap bp_code_summary_preview_wrap_active" data-bp-preview-id="bp-code-summary" data-bp-preview-title="composition_operators" tabindex="0" role="button" aria-label="No associated Lean declarations"><span class="bp_code_link bp_code_link_status bp_code_link_status_absent bp_code_link_empty" title="No associated Lean declarations"><span class="bp_code_status_symbol">X</span><span class="bp_code_link_label">L∃∀N</span></span></span><template class="bp_code_summary_preview_tpl" data-bp-preview-id="bp-code-summary"><div class="bp_code_summary_preview_content">
+                          <div class="bp_code_hover_section">
+                            <span class="bp_code_hover_label">Lean status</span><ul class="bp_code_hover_list">
+                              <li class="bp_code_hover_none">
+                                No associated Lean code or declarations.</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </template><aside class="bp_code_summary_preview_panel bp_preview_panel" data-bp-preview-mode="hover" data-bp-preview-placement="anchored" hidden=""><div class="bp_code_summary_preview_header bp_preview_panel_header">
+                          <div class="bp_code_summary_preview_title bp_preview_panel_title"></div>
+                          <button type="button" class="bp_code_summary_preview_close bp_preview_panel_close" aria-label="Close Lean summary preview">Close</button></div>
+                        <div class="bp_code_summary_preview_body bp_preview_panel_body"></div>
+                        </aside></span></span><span class="bp_extra_slot bp_extra_slot_used_by"><span class="bp_used_by_chip bp_used_by_chip_empty" title="No reverse dependencies">used by 0</span></span></div>
+                </div>
+              <div class="bp_content bp_kind_definition_content definition_thmcontent">
+                <p>
+                  Three composition operators build networks from components.</p>
+                <ul>
+                  <li>
+                    <p>
+                      <em>Sequential</em> <span><span class="bp_inline_preview_ref" data-bp-preview-id="bp-uses-seq-005Fcomp-statement" data-bp-preview-title="Definition 0" data-bp-preview-key="seq_comp--statement" data-bp-preview-fallback-label="seq_comp"><code>seqComp</code></span><template class="bp_inline_preview_tpl" data-bp-preview-id="bp-uses-seq-005Fcomp-statement"><div class="bp_code_hover_section">
+                            <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                              <li>
+                                <code>seq_comp</code></li>
+                              </ul>
+                            </div>
+                          </template></span> <code>sysL sysR</code> (notation <code>sysL ; sysR</code>): the <code>k</code> outputs
+  of <code>sysL</code> feed as the <code>k</code> inputs of <code>sysR</code>. The combined state is
+  <code>sysL.stateType × sysR.stateType</code>.</p>
+                    </li>
+                  <li>
+                    <p>
+                      <em>Parallel</em> <span><span class="bp_inline_preview_ref" data-bp-preview-id="bp-uses-par-005Fcomp-statement" data-bp-preview-title="Definition 0" data-bp-preview-key="par_comp--statement" data-bp-preview-fallback-label="par_comp"><code>parComp</code></span><template class="bp_inline_preview_tpl" data-bp-preview-id="bp-uses-par-005Fcomp-statement"><div class="bp_code_hover_section">
+                            <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                              <li>
+                                <code>par_comp</code></li>
+                              </ul>
+                            </div>
+                          </template></span> <code>sys1 sys2</code> (notation <code>sys1 + sys2</code>): inputs split
+  between <code>sys1</code> and <code>sys2</code>; outputs concatenate. The combined state is a product.</p>
+                    </li>
+                  <li>
+                    <p>
+                      <em>Loop</em> <span><span class="bp_inline_preview_ref" data-bp-preview-id="bp-uses-loop-005Fcomp-statement" data-bp-preview-title="Definition 0" data-bp-preview-key="loop_comp--statement" data-bp-preview-fallback-label="loop_comp"><code>loopComp</code></span><template class="bp_inline_preview_tpl" data-bp-preview-id="bp-uses-loop-005Fcomp-statement"><div class="bp_code_hover_section">
+                            <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                              <li>
+                                <code>loop_comp</code></li>
+                              </ul>
+                            </div>
+                          </template></span> <code>sys</code>: for <code>sys : system (n + k) (m + k)</code>, the last <code>k</code>
+  outputs are fed back as the last <code>k</code> inputs at the next step, reducing to a <code>system n m</code>.</p>
+                    </li>
+                  </ul>
+                <p>
+                  These operators let us build expressive network topologies compositionally while
+preserving a uniform one-step operational semantics.</p>
+                </div>
+              </div>
+            <div class="bp_wrapper bp_kind_definition_wrapper definition_thmwrapper definition_thmwrapper theorem-style-definition bp_kind_definition bp_style_definition" title="concrete_devices" id="--informal-preview-concrete_devices--statement">
+              <div class="bp_heading bp_kind_definition_heading definition_thmheading">
+                <div class="bp_heading_title_row bp_heading_title_row_statement">
+                  <span class="bp_caption bp_kind_definition_caption definition_thmcaption" title="concrete_devices">Definition</span><span class="bp_label bp_kind_definition_label definition_thmlabel">1.7</span></div>
+                <div class="bp_extras bp_extras_with_group thm_header_extras">
+                  <span class="bp_extra_slot bp_extra_slot_group"><div class="bp_used_by_wrap">
+                      <button type="button" class="bp_used_by_chip" title="Other entries in group Operational model of stateful packet-processing networks." aria-expanded="false">group</button><div class="bp_used_by_panel">
+                        <div class="bp_used_by_panel_header">
+                          <div class="bp_used_by_panel_title">
+                            Group: Operational model of stateful packet-processing networks. (3)</div>
+                          <div class="bp_used_by_panel_meta">
+                            Hover another entry in this group to preview it.</div>
+                          </div>
+                        <div class="bp_used_by_panel_body">
+                          <ul class="bp_used_by_list">
+                            <li class="bp_used_by_item bp_used_by_item_active" data-bp-used-preview-id="bp-group-concrete-005Fdevices-device-005Ftype" data-bp-used-preview-key="device_type--statement" data-bp-used-preview-title="Definition 1.4">
+                              <a class="bp_used_by_target" href="Core-Model/Operational-Model/#--informal-preview-device_type--statement"><span class="bp_used_by_target_title">Definition 1.4</span><span class="bp_used_by_target_meta"><code>device_type</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-concrete-005Fdevices-device-005Ftype"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>device_type</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      Operational model of stateful packet-processing networks.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            <li class="bp_used_by_item" data-bp-used-preview-id="bp-group-concrete-005Fdevices-stream-005Fsemantics" data-bp-used-preview-key="stream_semantics--statement" data-bp-used-preview-title="Definition 1.5">
+                              <a class="bp_used_by_target" href="Core-Model/Operational-Model/#--informal-preview-stream_semantics--statement"><span class="bp_used_by_target_title">Definition 1.5</span><span class="bp_used_by_target_meta"><code>stream_semantics</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-concrete-005Fdevices-stream-005Fsemantics"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>stream_semantics</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      Operational model of stateful packet-processing networks.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            <li class="bp_used_by_item" data-bp-used-preview-id="bp-group-concrete-005Fdevices-composition-005Foperators" data-bp-used-preview-key="composition_operators--statement" data-bp-used-preview-title="Definition 1.6">
+                              <a class="bp_used_by_target" href="Core-Model/Operational-Model/#--informal-preview-composition_operators--statement"><span class="bp_used_by_target_title">Definition 1.6</span><span class="bp_used_by_target_meta"><code>composition_operators</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-concrete-005Fdevices-composition-005Foperators"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>composition_operators</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      Operational model of stateful packet-processing networks.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            </ul>
+                          <div class="bp_used_by_preview_surface">
+                            <div class="bp_used_by_preview_header">
+                              <div class="bp_used_by_preview_label">
+                                Preview</div>
+                              <div class="bp_used_by_preview_title">
+                                Definition 1.4</div>
+                              </div>
+                            <div class="bp_used_by_preview_body">
+                              <div class="bp_code_hover_section">
+                                <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                  <li>
+                                    <code>device_type</code></li>
+                                  </ul>
+                                </div>
+                              <div class="bp_code_hover_section">
+                                <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                  <li>
+                                    Operational model of stateful packet-processing networks.</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </span><span class="bp_extra_slot bp_extra_slot_code"><span class="bp_code_summary_preview_root"><span class="bp_code_summary_preview_wrap bp_code_summary_preview_wrap_active" data-bp-preview-id="bp-code-summary" data-bp-preview-title="concrete_devices" tabindex="0" role="button" aria-label="Lean declarations (all present: 8/8)"><span class="bp_code_link bp_code_link_status bp_code_link_status_proved" title="Lean declarations (all present: 8/8)"><span class="bp_code_status_symbol">✓</span><span class="bp_code_link_label">L∃∀N</span></span></span><template class="bp_code_summary_preview_tpl" data-bp-preview-id="bp-code-summary"><div class="bp_code_summary_preview_content">
+                          <div class="bp_code_hover_section">
+                            <span class="bp_code_hover_label">Associated Lean declarations</span><ul class="bp_code_hover_list">
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002ElinkDelay" data-bp-preview-title="linkDelay" data-bp-preview-key="Informal.LeanCodePreview.linkDelay"><a href="Core-Model/Operational-Model/#--informal-external-decl-concrete_devices-linkDelay"><code>linkDelay</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002ErateLimitedLink" data-bp-preview-title="rateLimitedLink" data-bp-preview-key="Informal.LeanCodePreview.rateLimitedLink"><a href="Core-Model/Operational-Model/#--informal-external-decl-concrete_devices-rateLimitedLink"><code>rateLimitedLink</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002EGCRA" data-bp-preview-title="GCRA" data-bp-preview-key="Informal.LeanCodePreview.GCRA"><a href="Core-Model/Operational-Model/#--informal-external-decl-concrete_devices-GCRA"><code>GCRA</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002EsimplePriorityNode" data-bp-preview-title="simplePriorityNode" data-bp-preview-key="Informal.LeanCodePreview.simplePriorityNode"><a href="Core-Model/Operational-Model/#--informal-external-decl-concrete_devices-simplePriorityNode"><code>simplePriorityNode</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002Esplitter" data-bp-preview-title="splitter" data-bp-preview-key="Informal.LeanCodePreview.splitter"><a href="Core-Model/Operational-Model/#--informal-external-decl-concrete_devices-splitter"><code>splitter</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002EdetSprayer" data-bp-preview-title="detSprayer" data-bp-preview-key="Informal.LeanCodePreview.detSprayer"><a href="Core-Model/Operational-Model/#--informal-external-decl-concrete_devices-detSprayer"><code>detSprayer</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002Emerger" data-bp-preview-title="merger" data-bp-preview-key="Informal.LeanCodePreview.merger"><a href="Core-Model/Operational-Model/#--informal-external-decl-concrete_devices-merger"><code>merger</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002EtokenBucketFilter" data-bp-preview-title="tokenBucketFilter" data-bp-preview-key="Informal.LeanCodePreview.tokenBucketFilter"><a href="Core-Model/Operational-Model/#--informal-external-decl-concrete_devices-tokenBucketFilter"><code>tokenBucketFilter</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </template><aside class="bp_code_summary_preview_panel bp_preview_panel" data-bp-preview-mode="hover" data-bp-preview-placement="anchored" hidden=""><div class="bp_code_summary_preview_header bp_preview_panel_header">
+                          <div class="bp_code_summary_preview_title bp_preview_panel_title"></div>
+                          <button type="button" class="bp_code_summary_preview_close bp_preview_panel_close" aria-label="Close Lean summary preview">Close</button></div>
+                        <div class="bp_code_summary_preview_body bp_preview_panel_body"></div>
+                        </aside></span></span><span class="bp_extra_slot bp_extra_slot_used_by"><span class="bp_used_by_chip bp_used_by_chip_empty" title="No reverse dependencies">used by 0</span></span></div>
+                </div>
+              <div class="bp_content bp_kind_definition_content definition_thmcontent">
+                <p>
+                  The project instantiates the <code>system</code> interface with several concrete devices.</p>
+                <ul>
+                  <li>
+                    <p>
+                      <code>linkDelay D</code> — a pure delay line that holds each packet for exactly <code>D</code> steps.</p>
+                    </li>
+                  <li>
+                    <p>
+                      <code>rateLimitedLink T</code> — a 1-in/1-out link that emits at most one packet every <code>T + 1</code> steps.</p>
+                    </li>
+                  <li>
+                    <p>
+                      <code>GCRA T τ</code> — a Generic Cell Rate Algorithm / leaky-bucket shaper.</p>
+                    </li>
+                  <li>
+                    <p>
+                      <code>simplePriorityNode</code> — a two-input, two-output non-preemptive priority scheduler.</p>
+                    </li>
+                  <li>
+                    <p>
+                      <code>splitter n</code> / <code>detSprayer n</code> — 1-to-<code>n</code> packet distributors.</p>
+                    </li>
+                  <li>
+                    <p>
+                      <code>merger n C</code> — <code>n</code>-to-1 merger with a bounded queue of capacity <code>C</code>.</p>
+                    </li>
+                  <li>
+                    <p>
+                      <code>tokenBucketFilter C K sizePacket</code> — a token-bucket-style filter.</p>
+                    </li>
+                  </ul>
+                <p>
+                  More complex examples include <code>simplifiedFQCoDelCorrected</code> (a simplified FQ-CoDel
+scheduler with bounded per-flow queues and <code>new</code>/<code>old</code> active lists) and the
+<code>nonDetDelayer</code> (a 1-to-<code>n</code> delay-tagged device parameterized by a maximum delay).</p>
+                </div>
+              </div>
+            <div class="bp_wrapper bp_code_panel_wrapper">
+              <details class="bp_code_block bp_code_panel"><summary class="bp_heading lemma_thmheading" title="Lean declarations (all present: 8/8)"><span class="bp_caption lemma_thmcaption bp_code_summary_text">Code for Definition</span><span class="bp_label lemma_thmlabel bp_code_summary_label">1.7</span><span class="bp_code_summary_indicator"><span class="bp_code_summary_preview_root"><span class="bp_code_summary_preview_wrap bp_code_summary_preview_wrap_active" data-bp-preview-id="bp-code-summary" data-bp-preview-title="concrete_devices" tabindex="0" role="button" aria-label="Lean declarations (all present: 8/8)"><span class="bp_external_status_badge bp_external_status_badge_summary bp_external_status_ok" title="Lean declarations: all 8 present"><span class="bp_external_status_icon bp_external_status_ok">●</span><span class="bp_external_status_badge_text">8 definitions</span></span></span><template class="bp_code_summary_preview_tpl" data-bp-preview-id="bp-code-summary"><div class="bp_code_summary_preview_content">
+                          <div class="bp_code_hover_section">
+                            <span class="bp_code_hover_label">Associated Lean declarations</span><ul class="bp_code_hover_list">
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002ElinkDelay" data-bp-preview-title="linkDelay" data-bp-preview-key="Informal.LeanCodePreview.linkDelay"><a href="Core-Model/Operational-Model/#--informal-external-decl-concrete_devices-linkDelay"><code>linkDelay</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002ErateLimitedLink" data-bp-preview-title="rateLimitedLink" data-bp-preview-key="Informal.LeanCodePreview.rateLimitedLink"><a href="Core-Model/Operational-Model/#--informal-external-decl-concrete_devices-rateLimitedLink"><code>rateLimitedLink</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002EGCRA" data-bp-preview-title="GCRA" data-bp-preview-key="Informal.LeanCodePreview.GCRA"><a href="Core-Model/Operational-Model/#--informal-external-decl-concrete_devices-GCRA"><code>GCRA</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002EsimplePriorityNode" data-bp-preview-title="simplePriorityNode" data-bp-preview-key="Informal.LeanCodePreview.simplePriorityNode"><a href="Core-Model/Operational-Model/#--informal-external-decl-concrete_devices-simplePriorityNode"><code>simplePriorityNode</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002Esplitter" data-bp-preview-title="splitter" data-bp-preview-key="Informal.LeanCodePreview.splitter"><a href="Core-Model/Operational-Model/#--informal-external-decl-concrete_devices-splitter"><code>splitter</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002EdetSprayer" data-bp-preview-title="detSprayer" data-bp-preview-key="Informal.LeanCodePreview.detSprayer"><a href="Core-Model/Operational-Model/#--informal-external-decl-concrete_devices-detSprayer"><code>detSprayer</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002Emerger" data-bp-preview-title="merger" data-bp-preview-key="Informal.LeanCodePreview.merger"><a href="Core-Model/Operational-Model/#--informal-external-decl-concrete_devices-merger"><code>merger</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002EtokenBucketFilter" data-bp-preview-title="tokenBucketFilter" data-bp-preview-key="Informal.LeanCodePreview.tokenBucketFilter"><a href="Core-Model/Operational-Model/#--informal-external-decl-concrete_devices-tokenBucketFilter"><code>tokenBucketFilter</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </template><aside class="bp_code_summary_preview_panel bp_preview_panel" data-bp-preview-mode="hover" data-bp-preview-placement="anchored" hidden=""><div class="bp_code_summary_preview_header bp_preview_panel_header">
+                          <div class="bp_code_summary_preview_title bp_preview_panel_title"></div>
+                          <button type="button" class="bp_code_summary_preview_close bp_preview_panel_close" aria-label="Close Lean summary preview">Close</button></div>
+                        <div class="bp_code_summary_preview_body bp_preview_panel_body"></div>
+                        </aside></span></span></summary><ul class="bp_code_hover_list bp_external_decl_list">
+                  <li class="bp_external_decl_item bp_external_decl_item_rendered" id="--informal-external-decl-concrete_devices-linkDelay">
+                    <div class="bp_external_decl_rendered">
+                      <div class="declaration decl def" data-decl="linkDelay" data-kind="def">
+                        <div class="bp_external_decl_signature_wrap">
+                          <div class="wide-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">def</span> <span class="unknown token" data-binding="">linkDelay</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.4704">D<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-simpleSystem">simpleSystem<span class="hover-info"><code>simpleSystem : Type 1</code></span></span></pre></div>
+                          <div class="narrow-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">def</span> <span class="unknown token" data-binding="">linkDelay</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.4704">D<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-simpleSystem">simpleSystem<span class="hover-info"><code>simpleSystem : Type 1</code></span></span></pre></div>
+                          </div>
+                        <div class="bp_external_decl_body"></div>
+                        </div>
+                      </div>
+                    <div class="bp_external_decl_meta bp_external_decl_rendered_meta">
+                      <span class="bp_external_status_badge bp_external_decl_footer_status bp_external_decl_ok">complete</span></div>
+                    </li>
+                  <li class="bp_external_decl_item bp_external_decl_item_rendered" id="--informal-external-decl-concrete_devices-rateLimitedLink">
+                    <div class="bp_external_decl_rendered">
+                      <div class="declaration decl def" data-decl="rateLimitedLink" data-kind="def">
+                        <div class="bp_external_decl_signature_wrap">
+                          <div class="wide-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">def</span> <span class="unknown token" data-binding="">rateLimitedLink</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.4705">T<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-simpleSystem">simpleSystem<span class="hover-info"><code>simpleSystem : Type 1</code></span></span></pre></div>
+                          <div class="narrow-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">def</span> <span class="unknown token" data-binding="">rateLimitedLink</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.4705">T<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-simpleSystem">simpleSystem<span class="hover-info"><code>simpleSystem : Type 1</code></span></span></pre></div>
+                          </div>
+                        <div class="bp_external_decl_body"></div>
+                        </div>
+                      </div>
+                    <div class="bp_external_decl_meta bp_external_decl_rendered_meta">
+                      <span class="bp_external_status_badge bp_external_decl_footer_status bp_external_decl_ok">complete</span></div>
+                    </li>
+                  <li class="bp_external_decl_item bp_external_decl_item_rendered" id="--informal-external-decl-concrete_devices-GCRA">
+                    <div class="bp_external_decl_rendered">
+                      <div class="declaration decl def" data-decl="GCRA" data-kind="def">
+                        <div class="bp_external_decl_signature_wrap">
+                          <div class="wide-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">def</span> <span class="unknown token" data-binding="">GCRA</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.4706">T<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4707">τ<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-simpleSystem">simpleSystem<span class="hover-info"><code>simpleSystem : Type 1</code></span></span></pre></div>
+                          <div class="narrow-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">def</span> <span class="unknown token" data-binding="">GCRA</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.4706">T<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4707">τ<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-simpleSystem">simpleSystem<span class="hover-info"><code>simpleSystem : Type 1</code></span></span></pre></div>
+                          </div>
+                        <div class="bp_external_decl_body"></div>
+                        </div>
+                      </div>
+                    <div class="bp_external_decl_meta bp_external_decl_rendered_meta">
+                      <span class="bp_external_status_badge bp_external_decl_footer_status bp_external_decl_ok">complete</span></div>
+                    </li>
+                  <li class="bp_external_decl_item bp_external_decl_item_rendered" id="--informal-external-decl-concrete_devices-simplePriorityNode">
+                    <div class="bp_external_decl_rendered">
+                      <div class="declaration decl def" data-decl="simplePriorityNode" data-kind="def">
+                        <div class="bp_external_decl_signature_wrap">
+                          <div class="wide-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">def</span> <span class="unknown token" data-binding="">simplePriorityNode</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-system">system<span class="hover-info"><code>system (n m : ℕ) : Type 1</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">2</span><span class="inter-text"> </span><span class="unknown token" data-binding="">2</span></pre></div>
+                          <div class="narrow-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">def</span> <span class="unknown token" data-binding="">simplePriorityNode</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-system">system<span class="hover-info"><code>system (n m : ℕ) : Type 1</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">2</span><span class="inter-text"> </span><span class="unknown token" data-binding="">2</span></pre></div>
+                          </div>
+                        <div class="bp_external_decl_body"></div>
+                        </div>
+                      </div>
+                    <div class="bp_external_decl_meta bp_external_decl_rendered_meta">
+                      <span class="bp_external_status_badge bp_external_decl_footer_status bp_external_decl_ok">complete</span></div>
+                    </li>
+                  <li class="bp_external_decl_item bp_external_decl_item_rendered" id="--informal-external-decl-concrete_devices-splitter">
+                    <div class="bp_external_decl_rendered">
+                      <div class="declaration decl def" data-decl="splitter" data-kind="def">
+                        <div class="bp_external_decl_signature_wrap">
+                          <div class="wide-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">def</span> <span class="unknown token" data-binding="">splitter</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.4708">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-system">system<span class="hover-info"><code>system (n m : ℕ) : Type 1</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">1</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4708">n<span class="hover-info"><code>ℕ</code></span></span></pre></div>
+                          <div class="narrow-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">def</span> <span class="unknown token" data-binding="">splitter</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.4708">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-system">system<span class="hover-info"><code>system (n m : ℕ) : Type 1</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">1</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4708">n<span class="hover-info"><code>ℕ</code></span></span></pre></div>
+                          </div>
+                        <div class="bp_external_decl_body"></div>
+                        </div>
+                      </div>
+                    <div class="bp_external_decl_meta bp_external_decl_rendered_meta">
+                      <span class="bp_external_status_badge bp_external_decl_footer_status bp_external_decl_ok">complete</span></div>
+                    </li>
+                  <li class="bp_external_decl_item bp_external_decl_item_rendered" id="--informal-external-decl-concrete_devices-detSprayer">
+                    <div class="bp_external_decl_rendered">
+                      <div class="declaration decl def" data-decl="detSprayer" data-kind="def">
+                        <div class="bp_external_decl_signature_wrap">
+                          <div class="wide-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">def</span> <span class="unknown token" data-binding="">detSprayer</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.4709">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-system">system<span class="hover-info"><code>system (n m : ℕ) : Type 1</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">1</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4709">n<span class="hover-info"><code>ℕ</code></span></span></pre></div>
+                          <div class="narrow-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">def</span> <span class="unknown token" data-binding="">detSprayer</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.4709">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-system">system<span class="hover-info"><code>system (n m : ℕ) : Type 1</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">1</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4709">n<span class="hover-info"><code>ℕ</code></span></span></pre></div>
+                          </div>
+                        <div class="bp_external_decl_body"></div>
+                        </div>
+                      </div>
+                    <div class="bp_external_decl_meta bp_external_decl_rendered_meta">
+                      <span class="bp_external_status_badge bp_external_decl_footer_status bp_external_decl_ok">complete</span></div>
+                    </li>
+                  <li class="bp_external_decl_item bp_external_decl_item_rendered" id="--informal-external-decl-concrete_devices-merger">
+                    <div class="bp_external_decl_rendered">
+                      <div class="declaration decl def" data-decl="merger" data-kind="def">
+                        <div class="bp_external_decl_signature_wrap">
+                          <div class="wide-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">def</span> <span class="unknown token" data-binding="">merger</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.4710">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4711">C<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-system">system<span class="hover-info"><code>system (n m : ℕ) : Type 1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4710">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">1</span></pre></div>
+                          <div class="narrow-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">def</span> <span class="unknown token" data-binding="">merger</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.4710">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4711">C<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-system">system<span class="hover-info"><code>system (n m : ℕ) : Type 1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4710">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">1</span></pre></div>
+                          </div>
+                        <div class="bp_external_decl_body"></div>
+                        </div>
+                      </div>
+                    <div class="bp_external_decl_meta bp_external_decl_rendered_meta">
+                      <span class="bp_external_status_badge bp_external_decl_footer_status bp_external_decl_ok">complete</span></div>
+                    </li>
+                  <li class="bp_external_decl_item bp_external_decl_item_rendered" id="--informal-external-decl-concrete_devices-tokenBucketFilter">
+                    <div class="bp_external_decl_rendered">
+                      <div class="declaration decl def" data-decl="tokenBucketFilter" data-kind="def">
+                        <div class="bp_external_decl_signature_wrap">
+                          <div class="wide-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">def</span> <span class="unknown token" data-binding="">tokenBucketFilter</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.4712">C<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4713">K<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4714">sizePacket<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-simpleSystem">simpleSystem<span class="hover-info"><code>simpleSystem : Type 1</code></span></span></pre></div>
+                          <div class="narrow-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">def</span> <span class="unknown token" data-binding="">tokenBucketFilter</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.4712">C<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4713">K<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4714">sizePacket<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text">
+  </span><span class="const token" data-binding="const-simpleSystem">simpleSystem<span class="hover-info"><code>simpleSystem : Type 1</code></span></span></pre></div>
+                          </div>
+                        <div class="bp_external_decl_body"></div>
+                        </div>
+                      </div>
+                    <div class="bp_external_decl_meta bp_external_decl_rendered_meta">
+                      <span class="bp_external_status_badge bp_external_decl_footer_status bp_external_decl_ok">complete</span></div>
+                    </li>
+                  </ul>
+                </details></div>
             </section>
           <nav class="prev-next-buttons">
-            <a class="local-button active" href="Core-Model/Delay-Semantics/#Network-Performance-Verification--Core-Model--Delay-Semantics" rel="prev" title="1.2. Delay Semantics"><span class="arrow">←</span><span class="where">1.2. Delay Semantics</span></a><a class="local-button active" href="Symbolic-Delay-Analysis/Abstractions/#Network-Performance-Verification--Symbolic-Delay-Analysis--Abstractions" rel="next" title="2.1. Abstractions"><span class="where">2.1. Abstractions</span><span class="arrow">→</span></a></nav>
+            <a class="local-button active" href="Core-Model/#Network-Performance-Verification--Core-Model" rel="prev" title="1. Core Model"><span class="arrow">←</span><span class="where">1. Core Model</span></a><a class="local-button active" href="Core-Model/Delay-Semantics/#Network-Performance-Verification--Core-Model--Delay-Semantics" rel="next" title="1.2. Delay Semantics"><span class="where">1.2. Delay Semantics</span><span class="arrow">→</span></a></nav>
           </div>
         </main></div>
     </body>

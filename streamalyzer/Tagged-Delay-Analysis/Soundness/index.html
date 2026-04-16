@@ -8,9 +8,9 @@
     window.location.replace(`${proto}//${hostName}${path}/${srch}${hsh}`);
   }
 })()</script>
-    <base href="./../"><meta charset="utf-8">
+    <base href="./../../"><meta charset="utf-8">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-    <title>Symbolic Delay Analysis</title><link rel="stylesheet" href="book.css">
+    <title>Soundness</title><link rel="stylesheet" href="book.css">
     <link rel="stylesheet" href="verso-vars.css">
     <script src="https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js" integrity="sha384-zbcZAIxlvJtNE3Dp5nxLXdXtXyxwOdnILY1TDPVmKFhl4r4nSUG1r8bcFXGVa4Te" crossorigin="anonymous"></script>
     <script src="-verso-search/elasticlunr.min.js"></script>
@@ -6936,37 +6936,399 @@ window.onload = () => {
             </a><div class="split-tocs">
             <div class="split-toc book">
               <div class="title">
-                <label for="--verso-manual-toc-----bookRoot" class="toggle-split-toc"><input type="checkbox" class="toggle-split-toc" id="--verso-manual-toc-----bookRoot" checked="checked"></label><span class="">Table of Contents</span></div>
-              <table><tr class="numbered"><td class="num">1.</td><td><a href="Core-Model/#Network-Performance-Verification--Core-Model">Core Model</a></td></tr><tr class="current numbered"><td class="num">2.</td><td><a href="Symbolic-Delay-Analysis/#Network-Performance-Verification--Symbolic-Delay-Analysis">Symbolic Delay Analysis</a></td></tr><tr class="numbered"><td class="num">3.</td><td><a href="Tagged-Delay-Analysis/#Network-Performance-Verification--Tagged-Delay-Analysis">Tagged Delay Analysis</a></td></tr><tr class="unnumbered"><td class="num"><td><a href="Dependency-Graph/#Network-Performance-Verification--Dependency-Graph">Dependency Graph</a></td></tr><tr class="unnumbered"><td class="num"><td><a href="Blueprint-Summary/#Network-Performance-Verification--Blueprint-Summary">Blueprint Summary</a></td></tr></table></div>
+                <label for="--verso-manual-toc-----bookRoot" class="toggle-split-toc"><input type="checkbox" class="toggle-split-toc" id="--verso-manual-toc-----bookRoot"></label><span class="">Table of Contents</span></div>
+              <table><tr class="numbered"><td class="num">1.</td><td><a href="Core-Model/#Network-Performance-Verification--Core-Model">Core Model</a></td></tr><tr class="numbered"><td class="num">2.</td><td><a href="Symbolic-Delay-Analysis/#Network-Performance-Verification--Symbolic-Delay-Analysis">Symbolic Delay Analysis</a></td></tr><tr class="current numbered"><td class="num">3.</td><td><a href="Tagged-Delay-Analysis/#Network-Performance-Verification--Tagged-Delay-Analysis">Tagged Delay Analysis</a></td></tr><tr class="unnumbered"><td class="num"><td><a href="Dependency-Graph/#Network-Performance-Verification--Dependency-Graph">Dependency Graph</a></td></tr><tr class="unnumbered"><td class="num"><td><a href="Blueprint-Summary/#Network-Performance-Verification--Blueprint-Summary">Blueprint Summary</a></td></tr></table></div>
             <div class="split-toc">
               <div class="title">
-                <label for="--verso-manual-toc-Network-Performance-Verification--Symbolic-Delay-Analysis" class="toggle-split-toc"><input type="checkbox" class="toggle-split-toc" id="--verso-manual-toc-Network-Performance-Verification--Symbolic-Delay-Analysis" checked="checked"></label><span class="number">2.</span> <span class="current"><a href="Symbolic-Delay-Analysis/#Network-Performance-Verification--Symbolic-Delay-Analysis">Symbolic Delay Analysis</a></span></div>
-              <table><tr class="numbered"><td class="num">2.1.</td><td><a href="Symbolic-Delay-Analysis/Abstractions/#Network-Performance-Verification--Symbolic-Delay-Analysis--Abstractions">Abstractions</a></td></tr><tr class="numbered"><td class="num">2.2.</td><td><a href="Symbolic-Delay-Analysis/Reference-Algorithm/#Network-Performance-Verification--Symbolic-Delay-Analysis--Reference-Algorithm">Reference Algorithm</a></td></tr><tr class="numbered"><td class="num">2.3.</td><td><a href="Symbolic-Delay-Analysis/Soundness/#Network-Performance-Verification--Symbolic-Delay-Analysis--Soundness">Soundness</a></td></tr><tr class="numbered"><td class="num">2.4.</td><td><a href="Symbolic-Delay-Analysis/Completeness/#Network-Performance-Verification--Symbolic-Delay-Analysis--Completeness">Completeness</a></td></tr><tr class="numbered"><td class="num">2.5.</td><td><a href="Symbolic-Delay-Analysis/Optimized-Algorithm/#Network-Performance-Verification--Symbolic-Delay-Analysis--Optimized-Algorithm">Optimized Algorithm</a></td></tr></table></div>
+                <label for="--verso-manual-toc-Network-Performance-Verification--Tagged-Delay-Analysis" class="toggle-split-toc"><input type="checkbox" class="toggle-split-toc" id="--verso-manual-toc-Network-Performance-Verification--Tagged-Delay-Analysis" checked="checked"></label><span class="number">3.</span> <span class=""><a href="Tagged-Delay-Analysis/#Network-Performance-Verification--Tagged-Delay-Analysis">Tagged Delay Analysis</a></span></div>
+              <table><tr class="numbered"><td class="num">3.1.</td><td><a href="Tagged-Delay-Analysis/Interface/#Network-Performance-Verification--Tagged-Delay-Analysis--Interface">Interface</a></td></tr><tr class="numbered"><td class="num">3.2.</td><td><a href="Tagged-Delay-Analysis/Algorithm/#Network-Performance-Verification--Tagged-Delay-Analysis--Algorithm">Algorithm</a></td></tr><tr class="current numbered"><td class="num">3.3.</td><td><a href="Tagged-Delay-Analysis/Soundness/#Network-Performance-Verification--Tagged-Delay-Analysis--Soundness">Soundness</a></td></tr></table></div>
+            <div class="split-toc">
+              <div class="title">
+                <span class="no-toggle"></span><span class="number">3.3.</span> <span class="current"><a href="Tagged-Delay-Analysis/Soundness/#Network-Performance-Verification--Tagged-Delay-Analysis--Soundness">Soundness</a></span></div>
+              </div>
             </div>
           </div>
         <div class="last"></div>
         </nav>
       <main><div class="content-wrapper">
           <nav class="prev-next-buttons">
-            <a class="local-button active" href="Core-Model/Delay-Semantics/#Network-Performance-Verification--Core-Model--Delay-Semantics" rel="prev" title="1.2. Delay Semantics"><span class="arrow">←</span><span class="where">1.2. Delay Semantics</span></a><a class="local-button active" href="Symbolic-Delay-Analysis/Abstractions/#Network-Performance-Verification--Symbolic-Delay-Analysis--Abstractions" rel="next" title="2.1. Abstractions"><span class="where">2.1. Abstractions</span><span class="arrow">→</span></a></nav>
+            <a class="local-button active" href="Tagged-Delay-Analysis/Algorithm/#Network-Performance-Verification--Tagged-Delay-Analysis--Algorithm" rel="prev" title="3.2. Algorithm"><span class="arrow">←</span><span class="where">3.2. Algorithm</span></a><a class="local-button active" href="Dependency-Graph/#Network-Performance-Verification--Dependency-Graph" rel="next" title="Dependency Graph"><span class="where">Dependency Graph</span><span class="arrow">→</span></a></nav>
           <section>
             <h1>
-              2. Symbolic Delay Analysis<span class="permalink-widget inline"><a href="find/?domain=Verso.Genre.Manual.section&amp;name=Network-Performance-Verification--Symbolic-Delay-Analysis" title="Permalink">🔗</a></span></h1>
-            <ol class="section-toc">
-              <li>
-                <a href="Symbolic-Delay-Analysis/Abstractions/#Network-Performance-Verification--Symbolic-Delay-Analysis--Abstractions"><span class="number">2.1.</span> Abstractions</a></li>
-              <li>
-                <a href="Symbolic-Delay-Analysis/Reference-Algorithm/#Network-Performance-Verification--Symbolic-Delay-Analysis--Reference-Algorithm"><span class="number">2.2.</span> Reference Algorithm</a></li>
-              <li>
-                <a href="Symbolic-Delay-Analysis/Soundness/#Network-Performance-Verification--Symbolic-Delay-Analysis--Soundness"><span class="number">2.3.</span> Soundness</a></li>
-              <li>
-                <a href="Symbolic-Delay-Analysis/Completeness/#Network-Performance-Verification--Symbolic-Delay-Analysis--Completeness"><span class="number">2.4.</span> Completeness</a></li>
-              <li>
-                <a href="Symbolic-Delay-Analysis/Optimized-Algorithm/#Network-Performance-Verification--Symbolic-Delay-Analysis--Optimized-Algorithm"><span class="number">2.5.</span> Optimized Algorithm</a></li>
-              </ol>
+              3.3. Soundness<span class="permalink-widget inline"><a href="find/?domain=Verso.Genre.Manual.section&amp;name=Network-Performance-Verification--Tagged-Delay-Analysis--Soundness" title="Permalink">🔗</a></span></h1>
+            <div class="bp_wrapper bp_kind_theorem_wrapper theorem_thmwrapper theorem_thmwrapper theorem-style-plain bp_kind_theorem bp_style_plain" title="summary_graph_correct" id="--informal-preview-summary_graph_correct--statement">
+              <div class="bp_heading bp_kind_theorem_heading theorem_thmheading">
+                <div class="bp_heading_title_row bp_heading_title_row_statement">
+                  <span class="bp_caption bp_kind_theorem_caption theorem_thmcaption" title="summary_graph_correct">Theorem</span><span class="bp_label bp_kind_theorem_label theorem_thmlabel">3.9</span></div>
+                <div class="bp_extras bp_extras_with_group thm_header_extras">
+                  <span class="bp_extra_slot bp_extra_slot_group"><div class="bp_used_by_wrap">
+                      <button type="button" class="bp_used_by_chip" title="Other entries in group Soundness of the tagged analysis." aria-expanded="false">group</button><div class="bp_used_by_panel">
+                        <div class="bp_used_by_panel_header">
+                          <div class="bp_used_by_panel_title">
+                            Group: Soundness of the tagged analysis. (2)</div>
+                          <div class="bp_used_by_panel_meta">
+                            Hover another entry in this group to preview it.</div>
+                          </div>
+                        <div class="bp_used_by_panel_body">
+                          <ul class="bp_used_by_list">
+                            <li class="bp_used_by_item bp_used_by_item_active" data-bp-used-preview-id="bp-group-summary-005Fgraph-005Fcorrect-solved-005Fsummary-005Fgraph-005Fsound" data-bp-used-preview-key="solved_summary_graph_sound--statement" data-bp-used-preview-title="Theorem 3.10">
+                              <a class="bp_used_by_target" href="Tagged-Delay-Analysis/Soundness/#--informal-preview-solved_summary_graph_sound--statement"><span class="bp_used_by_target_title">Theorem 3.10</span><span class="bp_used_by_target_meta"><code>solved_summary_graph_sound</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-summary-005Fgraph-005Fcorrect-solved-005Fsummary-005Fgraph-005Fsound"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>solved_summary_graph_sound</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      Soundness of the tagged analysis.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            <li class="bp_used_by_item" data-bp-used-preview-id="bp-group-summary-005Fgraph-005Fcorrect-delay-005Fle-005FtaggedAnalyze" data-bp-used-preview-key="delay_le_taggedAnalyze--statement" data-bp-used-preview-title="Theorem 3.11">
+                              <a class="bp_used_by_target" href="Tagged-Delay-Analysis/Soundness/#--informal-preview-delay_le_taggedAnalyze--statement"><span class="bp_used_by_target_title">Theorem 3.11</span><span class="bp_used_by_target_meta"><code>delay_le_taggedAnalyze</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-summary-005Fgraph-005Fcorrect-delay-005Fle-005FtaggedAnalyze"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>delay_le_taggedAnalyze</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      Soundness of the tagged analysis.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            </ul>
+                          <div class="bp_used_by_preview_surface">
+                            <div class="bp_used_by_preview_header">
+                              <div class="bp_used_by_preview_label">
+                                Preview</div>
+                              <div class="bp_used_by_preview_title">
+                                Theorem 3.10</div>
+                              </div>
+                            <div class="bp_used_by_preview_body">
+                              <div class="bp_code_hover_section">
+                                <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                  <li>
+                                    <code>solved_summary_graph_sound</code></li>
+                                  </ul>
+                                </div>
+                              <div class="bp_code_hover_section">
+                                <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                  <li>
+                                    Soundness of the tagged analysis.</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </span><span class="bp_extra_slot bp_extra_slot_code"><span class="bp_code_summary_preview_root"><span class="bp_code_summary_preview_wrap bp_code_summary_preview_wrap_active" data-bp-preview-id="bp-code-summary" data-bp-preview-title="summary_graph_correct" tabindex="0" role="button" aria-label="Lean declarations (all present: 1/1)"><span class="bp_code_link bp_code_link_status bp_code_link_status_proved" title="Lean declarations (all present: 1/1)"><span class="bp_code_status_symbol">✓</span><span class="bp_code_link_label">L∃∀N</span></span></span><template class="bp_code_summary_preview_tpl" data-bp-preview-id="bp-code-summary"><div class="bp_code_summary_preview_content">
+                          <div class="bp_code_hover_section">
+                            <span class="bp_code_hover_label">Associated Lean declarations</span><ul class="bp_code_hover_list">
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002EsummaryGraphOfTaggedAnalyze-005Fcorrect" data-bp-preview-title="summaryGraphOfTaggedAnalyze_correct" data-bp-preview-key="Informal.LeanCodePreview.summaryGraphOfTaggedAnalyze_correct"><a href="Tagged-Delay-Analysis/Soundness/#--informal-external-decl-summary_graph_correct-summaryGraphOfTaggedAnalyze_correct"><code>summaryGraphOfTaggedAnalyze_correct</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </template><aside class="bp_code_summary_preview_panel bp_preview_panel" data-bp-preview-mode="hover" data-bp-preview-placement="anchored" hidden=""><div class="bp_code_summary_preview_header bp_preview_panel_header">
+                          <div class="bp_code_summary_preview_title bp_preview_panel_title"></div>
+                          <button type="button" class="bp_code_summary_preview_close bp_preview_panel_close" aria-label="Close Lean summary preview">Close</button></div>
+                        <div class="bp_code_summary_preview_body bp_preview_panel_body"></div>
+                        </aside></span></span><span class="bp_extra_slot bp_extra_slot_used_by"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-used-by-summary-005Fgraph-005Fcorrect-delay-005Fle-005FtaggedAnalyze" data-bp-preview-title="Theorem 3.11" data-bp-preview-key="delay_le_taggedAnalyze--statement" data-bp-preview-fallback-label="delay_le_taggedAnalyze"><a class="bp_used_by_chip bp_code_link" href="Tagged-Delay-Analysis/Soundness/#--informal-preview-delay_le_taggedAnalyze--statement" title="Reverse dependency: Theorem 3.11">used by 1</a></span></span></div>
+                </div>
+              <div class="bp_content bp_kind_theorem_content theorem_thmcontent">
+                <p>
+                  The summary graph produced by <code>taggedAnalyze</code> is correct: for every reachable
+canonical state <code>s</code> and input <code>i</code>, the stored <code>StepSummary</code> correctly describes
+the one-step behavior of the device at <code>(s, i)</code>.</p>
+                <p>
+                  The proof chain is:
+<code>mkStepSummary_correct</code> →
+<code>computeStepSummary_correct</code> →
+<code>expandState_correctStateSummaries_aux</code> →
+<code>buildSummaryGraph_go_correct_aux</code> →
+<code>summaryGraphOfTaggedAnalyze_correct</code>.</p>
+                </div>
+              </div>
+            <div class="bp_wrapper bp_code_panel_wrapper">
+              <details class="bp_code_block bp_code_panel"><summary class="bp_heading lemma_thmheading" title="Lean declarations (all present: 1/1)"><span class="bp_caption lemma_thmcaption bp_code_summary_text">Code for Theorem</span><span class="bp_label lemma_thmlabel bp_code_summary_label">3.9</span><span class="bp_code_summary_indicator"><span class="bp_code_summary_preview_root"><span class="bp_code_summary_preview_wrap bp_code_summary_preview_wrap_active" data-bp-preview-id="bp-code-summary" data-bp-preview-title="summary_graph_correct" tabindex="0" role="button" aria-label="Lean declarations (all present: 1/1)"><span class="bp_external_status_badge bp_external_status_badge_summary bp_external_status_ok" title="Lean declarations: all 1 present"><span class="bp_external_status_icon bp_external_status_ok">●</span><span class="bp_external_status_badge_text">1 theorem</span></span></span><template class="bp_code_summary_preview_tpl" data-bp-preview-id="bp-code-summary"><div class="bp_code_summary_preview_content">
+                          <div class="bp_code_hover_section">
+                            <span class="bp_code_hover_label">Associated Lean declarations</span><ul class="bp_code_hover_list">
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002EsummaryGraphOfTaggedAnalyze-005Fcorrect" data-bp-preview-title="summaryGraphOfTaggedAnalyze_correct" data-bp-preview-key="Informal.LeanCodePreview.summaryGraphOfTaggedAnalyze_correct"><a href="Tagged-Delay-Analysis/Soundness/#--informal-external-decl-summary_graph_correct-summaryGraphOfTaggedAnalyze_correct"><code>summaryGraphOfTaggedAnalyze_correct</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </template><aside class="bp_code_summary_preview_panel bp_preview_panel" data-bp-preview-mode="hover" data-bp-preview-placement="anchored" hidden=""><div class="bp_code_summary_preview_header bp_preview_panel_header">
+                          <div class="bp_code_summary_preview_title bp_preview_panel_title"></div>
+                          <button type="button" class="bp_code_summary_preview_close bp_preview_panel_close" aria-label="Close Lean summary preview">Close</button></div>
+                        <div class="bp_code_summary_preview_body bp_preview_panel_body"></div>
+                        </aside></span></span></summary><ul class="bp_code_hover_list bp_external_decl_list">
+                  <li class="bp_external_decl_item bp_external_decl_item_rendered" id="--informal-external-decl-summary_graph_correct-summaryGraphOfTaggedAnalyze_correct">
+                    <div class="bp_external_decl_rendered">
+                      <div class="declaration decl theorem" data-decl="summaryGraphOfTaggedAnalyze_correct" data-kind="theorem">
+                        <div class="bp_external_decl_signature_wrap">
+                          <div class="wide-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">theorem</span> <span class="unknown token" data-binding="">summaryGraphOfTaggedAnalyze_correct</span><span class="inter-text"> </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.5789">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5790">m<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="unknown token" data-binding="">}</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.5791">sys<span class="hover-info"><code>system n m</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-system">system<span class="hover-info"><code>system (n m : ℕ) : Type 1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5789">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5790">m<span class="hover-info"><code>ℕ</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">[</span><span class="const token" data-binding="const-TaggedRunnable">TaggedRunnable<span class="hover-info"><code>TaggedRunnable {n m : ℕ} (sys : system n m) : Type 1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5791">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">]</span><span class="inter-text"> </span><span class="unknown token" data-binding="">[</span><span class="const token" data-binding="const-LawfulTraversable">LawfulTraversable<span class="hover-info"><code>LawfulTraversable.{u} (t : Type u → Type u) [Traversable t] : Prop</code><span class="sep"></span><code class="docstring">A traversable functor is lawful if its `traverse` satisfies a
+number of additional properties.  It must send `pure : α → Id α` to `pure`,
+send the composition of applicative functors to the composition of the
+`traverse` of each, send each function `f` to `fun x ↦ f &lt;$&gt; x`, and
+satisfy a naturality condition with respect to applicative
+transformations. </code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5791">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">.</span><span class="const token" data-binding="const-system.stateType">stateType<span class="hover-info"><code>system.stateType {n m : ℕ} (self : system n m) : Type → Type</code></span></span><span class="unknown token" data-binding="">]</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text">
+  </span><span class="const token" data-binding="const-correctSummary">correctSummary<span class="hover-info"><code>correctSummary {n m : ℕ} (sys : system n m) [TaggedRunnable sys] (graph : SummaryGraph sys) : Prop</code><span class="sep"></span><code class="docstring">Semantic correctness of a whole stored network summary. </code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5791">sys<span class="hover-info"><code>system n m</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="const token" data-binding="const-summaryGraphOfTaggedAnalyze">summaryGraphOfTaggedAnalyze<span class="hover-info"><code>summaryGraphOfTaggedAnalyze {n m : ℕ} (sys : system n m) [TaggedRunnable sys] [LawfulTraversable sys.stateType] :
+  SummaryGraph sys</code><span class="sep"></span><code class="docstring">The explicit summary graph constructed by the reference tagged algorithm before solving. </code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5791">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">)</span></pre></div>
+                          <div class="narrow-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">theorem</span> <span class="unknown token" data-binding="">summaryGraphOfTaggedAnalyze_correct</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.5789">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5790">m<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="unknown token" data-binding="">}</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.5791">sys<span class="hover-info"><code>system n m</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-system">system<span class="hover-info"><code>system (n m : ℕ) : Type 1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5789">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5790">m<span class="hover-info"><code>ℕ</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">[</span><span class="const token" data-binding="const-TaggedRunnable">TaggedRunnable<span class="hover-info"><code>TaggedRunnable {n m : ℕ} (sys : system n m) : Type 1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5791">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">]</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">[</span><span class="const token" data-binding="const-LawfulTraversable">LawfulTraversable<span class="hover-info"><code>LawfulTraversable.{u} (t : Type u → Type u) [Traversable t] : Prop</code><span class="sep"></span><code class="docstring">A traversable functor is lawful if its `traverse` satisfies a
+number of additional properties.  It must send `pure : α → Id α` to `pure`,
+send the composition of applicative functors to the composition of the
+`traverse` of each, send each function `f` to `fun x ↦ f &lt;$&gt; x`, and
+satisfy a naturality condition with respect to applicative
+transformations. </code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5791">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">.</span><span class="const token" data-binding="const-system.stateType">stateType<span class="hover-info"><code>system.stateType {n m : ℕ} (self : system n m) : Type → Type</code></span></span><span class="unknown token" data-binding="">]</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text">
+  </span><span class="const token" data-binding="const-correctSummary">correctSummary<span class="hover-info"><code>correctSummary {n m : ℕ} (sys : system n m) [TaggedRunnable sys] (graph : SummaryGraph sys) : Prop</code><span class="sep"></span><code class="docstring">Semantic correctness of a whole stored network summary. </code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5791">sys<span class="hover-info"><code>system n m</code></span></span><span class="inter-text">
+    </span><span class="unknown token" data-binding="">(</span><span class="const token" data-binding="const-summaryGraphOfTaggedAnalyze">summaryGraphOfTaggedAnalyze<span class="hover-info"><code>summaryGraphOfTaggedAnalyze {n m : ℕ} (sys : system n m) [TaggedRunnable sys] [LawfulTraversable sys.stateType] :
+  SummaryGraph sys</code><span class="sep"></span><code class="docstring">The explicit summary graph constructed by the reference tagged algorithm before solving. </code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.5791">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">)</span></pre></div>
+                          </div>
+                        <div class="bp_external_decl_body">
+                          <pre class="docstring">Correctness of the summary graph built by the reference tagged algorithm. </pre></div>
+                        </div>
+                      </div>
+                    <div class="bp_external_decl_meta bp_external_decl_rendered_meta">
+                      <span class="bp_external_status_badge bp_external_decl_footer_status bp_external_decl_ok">complete</span></div>
+                    </li>
+                  </ul>
+                </details></div>
+            <div class="bp_wrapper bp_kind_theorem_wrapper theorem_thmwrapper theorem_thmwrapper theorem-style-plain bp_kind_theorem bp_style_plain" title="solved_summary_graph_sound" id="--informal-preview-solved_summary_graph_sound--statement">
+              <div class="bp_heading bp_kind_theorem_heading theorem_thmheading">
+                <div class="bp_heading_title_row bp_heading_title_row_statement">
+                  <span class="bp_caption bp_kind_theorem_caption theorem_thmcaption" title="solved_summary_graph_sound">Theorem</span><span class="bp_label bp_kind_theorem_label theorem_thmlabel">3.10</span></div>
+                <div class="bp_extras bp_extras_with_group thm_header_extras">
+                  <span class="bp_extra_slot bp_extra_slot_group"><div class="bp_used_by_wrap">
+                      <button type="button" class="bp_used_by_chip" title="Other entries in group Soundness of the tagged analysis." aria-expanded="false">group</button><div class="bp_used_by_panel">
+                        <div class="bp_used_by_panel_header">
+                          <div class="bp_used_by_panel_title">
+                            Group: Soundness of the tagged analysis. (2)</div>
+                          <div class="bp_used_by_panel_meta">
+                            Hover another entry in this group to preview it.</div>
+                          </div>
+                        <div class="bp_used_by_panel_body">
+                          <ul class="bp_used_by_list">
+                            <li class="bp_used_by_item bp_used_by_item_active" data-bp-used-preview-id="bp-group-solved-005Fsummary-005Fgraph-005Fsound-summary-005Fgraph-005Fcorrect" data-bp-used-preview-key="summary_graph_correct--statement" data-bp-used-preview-title="Theorem 3.9">
+                              <a class="bp_used_by_target" href="Tagged-Delay-Analysis/Soundness/#--informal-preview-summary_graph_correct--statement"><span class="bp_used_by_target_title">Theorem 3.9</span><span class="bp_used_by_target_meta"><code>summary_graph_correct</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-solved-005Fsummary-005Fgraph-005Fsound-summary-005Fgraph-005Fcorrect"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>summary_graph_correct</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      Soundness of the tagged analysis.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            <li class="bp_used_by_item" data-bp-used-preview-id="bp-group-solved-005Fsummary-005Fgraph-005Fsound-delay-005Fle-005FtaggedAnalyze" data-bp-used-preview-key="delay_le_taggedAnalyze--statement" data-bp-used-preview-title="Theorem 3.11">
+                              <a class="bp_used_by_target" href="Tagged-Delay-Analysis/Soundness/#--informal-preview-delay_le_taggedAnalyze--statement"><span class="bp_used_by_target_title">Theorem 3.11</span><span class="bp_used_by_target_meta"><code>delay_le_taggedAnalyze</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-solved-005Fsummary-005Fgraph-005Fsound-delay-005Fle-005FtaggedAnalyze"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>delay_le_taggedAnalyze</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      Soundness of the tagged analysis.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            </ul>
+                          <div class="bp_used_by_preview_surface">
+                            <div class="bp_used_by_preview_header">
+                              <div class="bp_used_by_preview_label">
+                                Preview</div>
+                              <div class="bp_used_by_preview_title">
+                                Theorem 3.9</div>
+                              </div>
+                            <div class="bp_used_by_preview_body">
+                              <div class="bp_code_hover_section">
+                                <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                  <li>
+                                    <code>summary_graph_correct</code></li>
+                                  </ul>
+                                </div>
+                              <div class="bp_code_hover_section">
+                                <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                  <li>
+                                    Soundness of the tagged analysis.</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </span><span class="bp_extra_slot bp_extra_slot_code"><span class="bp_code_summary_preview_root"><span class="bp_code_summary_preview_wrap bp_code_summary_preview_wrap_active" data-bp-preview-id="bp-code-summary" data-bp-preview-title="solved_summary_graph_sound" tabindex="0" role="button" aria-label="No associated Lean declarations"><span class="bp_code_link bp_code_link_status bp_code_link_status_absent bp_code_link_empty" title="No associated Lean declarations"><span class="bp_code_status_symbol">X</span><span class="bp_code_link_label">L∃∀N</span></span></span><template class="bp_code_summary_preview_tpl" data-bp-preview-id="bp-code-summary"><div class="bp_code_summary_preview_content">
+                          <div class="bp_code_hover_section">
+                            <span class="bp_code_hover_label">Lean status</span><ul class="bp_code_hover_list">
+                              <li class="bp_code_hover_none">
+                                No associated Lean code or declarations.</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </template><aside class="bp_code_summary_preview_panel bp_preview_panel" data-bp-preview-mode="hover" data-bp-preview-placement="anchored" hidden=""><div class="bp_code_summary_preview_header bp_preview_panel_header">
+                          <div class="bp_code_summary_preview_title bp_preview_panel_title"></div>
+                          <button type="button" class="bp_code_summary_preview_close bp_preview_panel_close" aria-label="Close Lean summary preview">Close</button></div>
+                        <div class="bp_code_summary_preview_body bp_preview_panel_body"></div>
+                        </aside></span></span><span class="bp_extra_slot bp_extra_slot_used_by"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-used-by-solved-005Fsummary-005Fgraph-005Fsound-delay-005Fle-005FtaggedAnalyze" data-bp-preview-title="Theorem 3.11" data-bp-preview-key="delay_le_taggedAnalyze--statement" data-bp-preview-fallback-label="delay_le_taggedAnalyze"><a class="bp_used_by_chip bp_code_link" href="Tagged-Delay-Analysis/Soundness/#--informal-preview-delay_le_taggedAnalyze--statement" title="Reverse dependency: Theorem 3.11">used by 1</a></span></span></div>
+                </div>
+              <div class="bp_content bp_kind_theorem_content theorem_thmcontent">
+                <p>
+                  The solved summary graph is semantically sound: if the fixed-point solver
+returns delay bound <code>d</code> for a query, then every concrete packet entering at
+time <code>t</code> exits by time <code>t + d</code>.</p>
+                <p>
+                  <em>Status: in progress.</em> The main missing bridge is completeness of the
+executable plain-state BFS: every <code>reachablePlain</code> state (a state semantically
+reachable from <code>initState</code> under plain inputs) belongs to
+<code>computeReachablePlainStates sys</code> (the array built by the BFS). Once this
+bridge is established, the concrete state at time <code>t</code> can be placed in
+<code>rootSummaryStates</code>, and the solver/query soundness argument can proceed.</p>
+                </div>
+              </div>
+            <div class="bp_wrapper bp_kind_theorem_wrapper theorem_thmwrapper theorem_thmwrapper theorem-style-plain bp_kind_theorem bp_style_plain" title="delay_le_taggedAnalyze" id="--informal-preview-delay_le_taggedAnalyze--statement">
+              <div class="bp_heading bp_kind_theorem_heading theorem_thmheading">
+                <div class="bp_heading_title_row bp_heading_title_row_statement">
+                  <span class="bp_caption bp_kind_theorem_caption theorem_thmcaption" title="delay_le_taggedAnalyze">Theorem</span><span class="bp_label bp_kind_theorem_label theorem_thmlabel">3.11</span></div>
+                <div class="bp_extras bp_extras_with_group thm_header_extras">
+                  <span class="bp_extra_slot bp_extra_slot_group"><div class="bp_used_by_wrap">
+                      <button type="button" class="bp_used_by_chip" title="Other entries in group Soundness of the tagged analysis." aria-expanded="false">group</button><div class="bp_used_by_panel">
+                        <div class="bp_used_by_panel_header">
+                          <div class="bp_used_by_panel_title">
+                            Group: Soundness of the tagged analysis. (2)</div>
+                          <div class="bp_used_by_panel_meta">
+                            Hover another entry in this group to preview it.</div>
+                          </div>
+                        <div class="bp_used_by_panel_body">
+                          <ul class="bp_used_by_list">
+                            <li class="bp_used_by_item bp_used_by_item_active" data-bp-used-preview-id="bp-group-delay-005Fle-005FtaggedAnalyze-summary-005Fgraph-005Fcorrect" data-bp-used-preview-key="summary_graph_correct--statement" data-bp-used-preview-title="Theorem 3.9">
+                              <a class="bp_used_by_target" href="Tagged-Delay-Analysis/Soundness/#--informal-preview-summary_graph_correct--statement"><span class="bp_used_by_target_title">Theorem 3.9</span><span class="bp_used_by_target_meta"><code>summary_graph_correct</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-delay-005Fle-005FtaggedAnalyze-summary-005Fgraph-005Fcorrect"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>summary_graph_correct</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      Soundness of the tagged analysis.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            <li class="bp_used_by_item" data-bp-used-preview-id="bp-group-delay-005Fle-005FtaggedAnalyze-solved-005Fsummary-005Fgraph-005Fsound" data-bp-used-preview-key="solved_summary_graph_sound--statement" data-bp-used-preview-title="Theorem 3.10">
+                              <a class="bp_used_by_target" href="Tagged-Delay-Analysis/Soundness/#--informal-preview-solved_summary_graph_sound--statement"><span class="bp_used_by_target_title">Theorem 3.10</span><span class="bp_used_by_target_meta"><code>solved_summary_graph_sound</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-delay-005Fle-005FtaggedAnalyze-solved-005Fsummary-005Fgraph-005Fsound"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>solved_summary_graph_sound</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      Soundness of the tagged analysis.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            </ul>
+                          <div class="bp_used_by_preview_surface">
+                            <div class="bp_used_by_preview_header">
+                              <div class="bp_used_by_preview_label">
+                                Preview</div>
+                              <div class="bp_used_by_preview_title">
+                                Theorem 3.9</div>
+                              </div>
+                            <div class="bp_used_by_preview_body">
+                              <div class="bp_code_hover_section">
+                                <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                  <li>
+                                    <code>summary_graph_correct</code></li>
+                                  </ul>
+                                </div>
+                              <div class="bp_code_hover_section">
+                                <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                  <li>
+                                    Soundness of the tagged analysis.</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </span><span class="bp_extra_slot bp_extra_slot_code"><span class="bp_code_summary_preview_root"><span class="bp_code_summary_preview_wrap bp_code_summary_preview_wrap_active" data-bp-preview-id="bp-code-summary" data-bp-preview-title="delay_le_taggedAnalyze" tabindex="0" role="button" aria-label="No associated Lean declarations"><span class="bp_code_link bp_code_link_status bp_code_link_status_absent bp_code_link_empty" title="No associated Lean declarations"><span class="bp_code_status_symbol">X</span><span class="bp_code_link_label">L∃∀N</span></span></span><template class="bp_code_summary_preview_tpl" data-bp-preview-id="bp-code-summary"><div class="bp_code_summary_preview_content">
+                          <div class="bp_code_hover_section">
+                            <span class="bp_code_hover_label">Lean status</span><ul class="bp_code_hover_list">
+                              <li class="bp_code_hover_none">
+                                No associated Lean code or declarations.</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </template><aside class="bp_code_summary_preview_panel bp_preview_panel" data-bp-preview-mode="hover" data-bp-preview-placement="anchored" hidden=""><div class="bp_code_summary_preview_header bp_preview_panel_header">
+                          <div class="bp_code_summary_preview_title bp_preview_panel_title"></div>
+                          <button type="button" class="bp_code_summary_preview_close bp_preview_panel_close" aria-label="Close Lean summary preview">Close</button></div>
+                        <div class="bp_code_summary_preview_body bp_preview_panel_body"></div>
+                        </aside></span></span><span class="bp_extra_slot bp_extra_slot_used_by"><span class="bp_used_by_chip bp_used_by_chip_empty" title="No reverse dependencies">used by 0</span></span></div>
+                </div>
+              <div class="bp_content bp_kind_theorem_content theorem_thmcontent">
+                <p>
+                  The semantic delay is at most the tagged algorithm's answer:
+<code class="bp_math display">\mathrm{delay}(\mathit{sys}, h) \leq \mathrm{taggedAnalyze}(\mathit{sys})</code>$$
+This is the main target theorem for the tagged track. It factors through
+<span><span class="bp_inline_preview_ref" data-bp-preview-id="bp-uses-summary-005Fgraph-005Fcorrect-statement" data-bp-preview-title="Theorem 3.9" data-bp-preview-key="summary_graph_correct--statement" data-bp-preview-fallback-label="summary_graph_correct"><a href="Tagged-Delay-Analysis/Soundness/#--informal-preview-summary_graph_correct--statement" title="summary_graph_correct">Theorem 3.9</a></span><template class="bp_inline_preview_tpl" data-bp-preview-id="bp-uses-summary-005Fgraph-005Fcorrect-statement"><p>
+                        The summary graph produced by <code>taggedAnalyze</code> is correct: for every reachable
+canonical state <code>s</code> and input <code>i</code>, the stored <code>StepSummary</code> correctly describes
+the one-step behavior of the device at <code>(s, i)</code>.</p>
+                      <p>
+                        The proof chain is:
+<code>mkStepSummary_correct</code> →
+<code>computeStepSummary_correct</code> →
+<code>expandState_correctStateSummaries_aux</code> →
+<code>buildSummaryGraph_go_correct_aux</code> →
+<code>summaryGraphOfTaggedAnalyze_correct</code>.</p>
+                      </template></span> and <span><span class="bp_inline_preview_ref" data-bp-preview-id="bp-uses-solved-005Fsummary-005Fgraph-005Fsound-statement" data-bp-preview-title="Theorem 3.10" data-bp-preview-key="solved_summary_graph_sound--statement" data-bp-preview-fallback-label="solved_summary_graph_sound"><a href="Tagged-Delay-Analysis/Soundness/#--informal-preview-solved_summary_graph_sound--statement" title="solved_summary_graph_sound">Theorem 3.10</a></span><template class="bp_inline_preview_tpl" data-bp-preview-id="bp-uses-solved-005Fsummary-005Fgraph-005Fsound-statement"><p>
+                        The solved summary graph is semantically sound: if the fixed-point solver
+returns delay bound <code>d</code> for a query, then every concrete packet entering at
+time <code>t</code> exits by time <code>t + d</code>.</p>
+                      <p>
+                        <em>Status: in progress.</em> The main missing bridge is completeness of the
+executable plain-state BFS: every <code>reachablePlain</code> state (a state semantically
+reachable from <code>initState</code> under plain inputs) belongs to
+<code>computeReachablePlainStates sys</code> (the array built by the BFS). Once this
+bridge is established, the concrete state at time <code>t</code> can be placed in
+<code>rootSummaryStates</code>, and the solver/query soundness argument can proceed.</p>
+                      </template></span>.</p>
+                <p>
+                  <em>Status: in progress</em>, pending <span><span class="bp_inline_preview_ref" data-bp-preview-id="bp-uses-solved-005Fsummary-005Fgraph-005Fsound-statement" data-bp-preview-title="Theorem 3.10" data-bp-preview-key="solved_summary_graph_sound--statement" data-bp-preview-fallback-label="solved_summary_graph_sound"><a href="Tagged-Delay-Analysis/Soundness/#--informal-preview-solved_summary_graph_sound--statement" title="solved_summary_graph_sound">Theorem 3.10</a></span></span>.</p>
+                </div>
+              </div>
             </section>
           <nav class="prev-next-buttons">
-            <a class="local-button active" href="Core-Model/Delay-Semantics/#Network-Performance-Verification--Core-Model--Delay-Semantics" rel="prev" title="1.2. Delay Semantics"><span class="arrow">←</span><span class="where">1.2. Delay Semantics</span></a><a class="local-button active" href="Symbolic-Delay-Analysis/Abstractions/#Network-Performance-Verification--Symbolic-Delay-Analysis--Abstractions" rel="next" title="2.1. Abstractions"><span class="where">2.1. Abstractions</span><span class="arrow">→</span></a></nav>
+            <a class="local-button active" href="Tagged-Delay-Analysis/Algorithm/#Network-Performance-Verification--Tagged-Delay-Analysis--Algorithm" rel="prev" title="3.2. Algorithm"><span class="arrow">←</span><span class="where">3.2. Algorithm</span></a><a class="local-button active" href="Dependency-Graph/#Network-Performance-Verification--Dependency-Graph" rel="next" title="Dependency Graph"><span class="where">Dependency Graph</span><span class="arrow">→</span></a></nav>
           </div>
         </main></div>
     </body>

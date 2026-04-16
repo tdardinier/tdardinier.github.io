@@ -8,9 +8,9 @@
     window.location.replace(`${proto}//${hostName}${path}/${srch}${hsh}`);
   }
 })()</script>
-    <base href="./../"><meta charset="utf-8">
+    <base href="./../../"><meta charset="utf-8">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-    <title>Symbolic Delay Analysis</title><link rel="stylesheet" href="book.css">
+    <title>Completeness</title><link rel="stylesheet" href="book.css">
     <link rel="stylesheet" href="verso-vars.css">
     <script src="https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js" integrity="sha384-zbcZAIxlvJtNE3Dp5nxLXdXtXyxwOdnILY1TDPVmKFhl4r4nSUG1r8bcFXGVa4Te" crossorigin="anonymous"></script>
     <script src="-verso-search/elasticlunr.min.js"></script>
@@ -6936,37 +6936,1294 @@ window.onload = () => {
             </a><div class="split-tocs">
             <div class="split-toc book">
               <div class="title">
-                <label for="--verso-manual-toc-----bookRoot" class="toggle-split-toc"><input type="checkbox" class="toggle-split-toc" id="--verso-manual-toc-----bookRoot" checked="checked"></label><span class="">Table of Contents</span></div>
+                <label for="--verso-manual-toc-----bookRoot" class="toggle-split-toc"><input type="checkbox" class="toggle-split-toc" id="--verso-manual-toc-----bookRoot"></label><span class="">Table of Contents</span></div>
               <table><tr class="numbered"><td class="num">1.</td><td><a href="Core-Model/#Network-Performance-Verification--Core-Model">Core Model</a></td></tr><tr class="current numbered"><td class="num">2.</td><td><a href="Symbolic-Delay-Analysis/#Network-Performance-Verification--Symbolic-Delay-Analysis">Symbolic Delay Analysis</a></td></tr><tr class="numbered"><td class="num">3.</td><td><a href="Tagged-Delay-Analysis/#Network-Performance-Verification--Tagged-Delay-Analysis">Tagged Delay Analysis</a></td></tr><tr class="unnumbered"><td class="num"><td><a href="Dependency-Graph/#Network-Performance-Verification--Dependency-Graph">Dependency Graph</a></td></tr><tr class="unnumbered"><td class="num"><td><a href="Blueprint-Summary/#Network-Performance-Verification--Blueprint-Summary">Blueprint Summary</a></td></tr></table></div>
             <div class="split-toc">
               <div class="title">
-                <label for="--verso-manual-toc-Network-Performance-Verification--Symbolic-Delay-Analysis" class="toggle-split-toc"><input type="checkbox" class="toggle-split-toc" id="--verso-manual-toc-Network-Performance-Verification--Symbolic-Delay-Analysis" checked="checked"></label><span class="number">2.</span> <span class="current"><a href="Symbolic-Delay-Analysis/#Network-Performance-Verification--Symbolic-Delay-Analysis">Symbolic Delay Analysis</a></span></div>
-              <table><tr class="numbered"><td class="num">2.1.</td><td><a href="Symbolic-Delay-Analysis/Abstractions/#Network-Performance-Verification--Symbolic-Delay-Analysis--Abstractions">Abstractions</a></td></tr><tr class="numbered"><td class="num">2.2.</td><td><a href="Symbolic-Delay-Analysis/Reference-Algorithm/#Network-Performance-Verification--Symbolic-Delay-Analysis--Reference-Algorithm">Reference Algorithm</a></td></tr><tr class="numbered"><td class="num">2.3.</td><td><a href="Symbolic-Delay-Analysis/Soundness/#Network-Performance-Verification--Symbolic-Delay-Analysis--Soundness">Soundness</a></td></tr><tr class="numbered"><td class="num">2.4.</td><td><a href="Symbolic-Delay-Analysis/Completeness/#Network-Performance-Verification--Symbolic-Delay-Analysis--Completeness">Completeness</a></td></tr><tr class="numbered"><td class="num">2.5.</td><td><a href="Symbolic-Delay-Analysis/Optimized-Algorithm/#Network-Performance-Verification--Symbolic-Delay-Analysis--Optimized-Algorithm">Optimized Algorithm</a></td></tr></table></div>
+                <label for="--verso-manual-toc-Network-Performance-Verification--Symbolic-Delay-Analysis" class="toggle-split-toc"><input type="checkbox" class="toggle-split-toc" id="--verso-manual-toc-Network-Performance-Verification--Symbolic-Delay-Analysis" checked="checked"></label><span class="number">2.</span> <span class=""><a href="Symbolic-Delay-Analysis/#Network-Performance-Verification--Symbolic-Delay-Analysis">Symbolic Delay Analysis</a></span></div>
+              <table><tr class="numbered"><td class="num">2.1.</td><td><a href="Symbolic-Delay-Analysis/Abstractions/#Network-Performance-Verification--Symbolic-Delay-Analysis--Abstractions">Abstractions</a></td></tr><tr class="numbered"><td class="num">2.2.</td><td><a href="Symbolic-Delay-Analysis/Reference-Algorithm/#Network-Performance-Verification--Symbolic-Delay-Analysis--Reference-Algorithm">Reference Algorithm</a></td></tr><tr class="numbered"><td class="num">2.3.</td><td><a href="Symbolic-Delay-Analysis/Soundness/#Network-Performance-Verification--Symbolic-Delay-Analysis--Soundness">Soundness</a></td></tr><tr class="current numbered"><td class="num">2.4.</td><td><a href="Symbolic-Delay-Analysis/Completeness/#Network-Performance-Verification--Symbolic-Delay-Analysis--Completeness">Completeness</a></td></tr><tr class="numbered"><td class="num">2.5.</td><td><a href="Symbolic-Delay-Analysis/Optimized-Algorithm/#Network-Performance-Verification--Symbolic-Delay-Analysis--Optimized-Algorithm">Optimized Algorithm</a></td></tr></table></div>
+            <div class="split-toc">
+              <div class="title">
+                <span class="no-toggle"></span><span class="number">2.4.</span> <span class="current"><a href="Symbolic-Delay-Analysis/Completeness/#Network-Performance-Verification--Symbolic-Delay-Analysis--Completeness">Completeness</a></span></div>
+              </div>
             </div>
           </div>
         <div class="last"></div>
         </nav>
       <main><div class="content-wrapper">
           <nav class="prev-next-buttons">
-            <a class="local-button active" href="Core-Model/Delay-Semantics/#Network-Performance-Verification--Core-Model--Delay-Semantics" rel="prev" title="1.2. Delay Semantics"><span class="arrow">←</span><span class="where">1.2. Delay Semantics</span></a><a class="local-button active" href="Symbolic-Delay-Analysis/Abstractions/#Network-Performance-Verification--Symbolic-Delay-Analysis--Abstractions" rel="next" title="2.1. Abstractions"><span class="where">2.1. Abstractions</span><span class="arrow">→</span></a></nav>
+            <a class="local-button active" href="Symbolic-Delay-Analysis/Soundness/#Network-Performance-Verification--Symbolic-Delay-Analysis--Soundness" rel="prev" title="2.3. Soundness"><span class="arrow">←</span><span class="where">2.3. Soundness</span></a><a class="local-button active" href="Symbolic-Delay-Analysis/Optimized-Algorithm/#Network-Performance-Verification--Symbolic-Delay-Analysis--Optimized-Algorithm" rel="next" title="2.5. Optimized Algorithm"><span class="where">2.5. Optimized Algorithm</span><span class="arrow">→</span></a></nav>
           <section>
             <h1>
-              2. Symbolic Delay Analysis<span class="permalink-widget inline"><a href="find/?domain=Verso.Genre.Manual.section&amp;name=Network-Performance-Verification--Symbolic-Delay-Analysis" title="Permalink">🔗</a></span></h1>
-            <ol class="section-toc">
-              <li>
-                <a href="Symbolic-Delay-Analysis/Abstractions/#Network-Performance-Verification--Symbolic-Delay-Analysis--Abstractions"><span class="number">2.1.</span> Abstractions</a></li>
-              <li>
-                <a href="Symbolic-Delay-Analysis/Reference-Algorithm/#Network-Performance-Verification--Symbolic-Delay-Analysis--Reference-Algorithm"><span class="number">2.2.</span> Reference Algorithm</a></li>
-              <li>
-                <a href="Symbolic-Delay-Analysis/Soundness/#Network-Performance-Verification--Symbolic-Delay-Analysis--Soundness"><span class="number">2.3.</span> Soundness</a></li>
-              <li>
-                <a href="Symbolic-Delay-Analysis/Completeness/#Network-Performance-Verification--Symbolic-Delay-Analysis--Completeness"><span class="number">2.4.</span> Completeness</a></li>
-              <li>
-                <a href="Symbolic-Delay-Analysis/Optimized-Algorithm/#Network-Performance-Verification--Symbolic-Delay-Analysis--Optimized-Algorithm"><span class="number">2.5.</span> Optimized Algorithm</a></li>
-              </ol>
+              2.4. Completeness<span class="permalink-widget inline"><a href="find/?domain=Verso.Genre.Manual.section&amp;name=Network-Performance-Verification--Symbolic-Delay-Analysis--Completeness" title="Permalink">🔗</a></span></h1>
+            <div class="bp_wrapper bp_kind_definition_wrapper definition_thmwrapper definition_thmwrapper theorem-style-definition bp_kind_definition bp_style_definition" title="two_in_every_fiber" id="--informal-preview-two_in_every_fiber--statement">
+              <div class="bp_heading bp_kind_definition_heading definition_thmheading">
+                <div class="bp_heading_title_row bp_heading_title_row_statement">
+                  <span class="bp_caption bp_kind_definition_caption definition_thmcaption" title="two_in_every_fiber">Definition</span><span class="bp_label bp_kind_definition_label definition_thmlabel">2.10</span></div>
+                <div class="bp_extras bp_extras_with_group thm_header_extras">
+                  <span class="bp_extra_slot bp_extra_slot_group"><div class="bp_used_by_wrap">
+                      <button type="button" class="bp_used_by_chip" title="Other entries in group Completeness and its necessary condition." aria-expanded="false">group</button><div class="bp_used_by_panel">
+                        <div class="bp_used_by_panel_header">
+                          <div class="bp_used_by_panel_title">
+                            Group: Completeness and its necessary condition. (4)</div>
+                          <div class="bp_used_by_panel_meta">
+                            Hover another entry in this group to preview it.</div>
+                          </div>
+                        <div class="bp_used_by_panel_body">
+                          <ul class="bp_used_by_list">
+                            <li class="bp_used_by_item bp_used_by_item_active" data-bp-used-preview-id="bp-group-two-005Fin-005Fevery-005Ffiber-phantom-005Fbranch-005Fcounterexample" data-bp-used-preview-key="phantom_branch_counterexample--statement" data-bp-used-preview-title="Theorem 2.11">
+                              <a class="bp_used_by_target" href="Symbolic-Delay-Analysis/Completeness/#--informal-preview-phantom_branch_counterexample--statement"><span class="bp_used_by_target_title">Theorem 2.11</span><span class="bp_used_by_target_meta"><code>phantom_branch_counterexample</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-two-005Fin-005Fevery-005Ffiber-phantom-005Fbranch-005Fcounterexample"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>phantom_branch_counterexample</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      Completeness and its necessary condition.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            <li class="bp_used_by_item" data-bp-used-preview-id="bp-group-two-005Fin-005Fevery-005Ffiber-priority-005Fbypass-005Fcounterexample" data-bp-used-preview-key="priority_bypass_counterexample--statement" data-bp-used-preview-title="Theorem 2.12">
+                              <a class="bp_used_by_target" href="Symbolic-Delay-Analysis/Completeness/#--informal-preview-priority_bypass_counterexample--statement"><span class="bp_used_by_target_title">Theorem 2.12</span><span class="bp_used_by_target_meta"><code>priority_bypass_counterexample</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-two-005Fin-005Fevery-005Ffiber-priority-005Fbypass-005Fcounterexample"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>priority_bypass_counterexample</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      Completeness and its necessary condition.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            <li class="bp_used_by_item" data-bp-used-preview-id="bp-group-two-005Fin-005Fevery-005Ffiber-analyzeDelay-005Fle-005Fdelay" data-bp-used-preview-key="analyzeDelay_le_delay--statement" data-bp-used-preview-title="Theorem 2.13">
+                              <a class="bp_used_by_target" href="Symbolic-Delay-Analysis/Completeness/#--informal-preview-analyzeDelay_le_delay--statement"><span class="bp_used_by_target_title">Theorem 2.13</span><span class="bp_used_by_target_meta"><code>analyzeDelay_le_delay</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-two-005Fin-005Fevery-005Ffiber-analyzeDelay-005Fle-005Fdelay"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>analyzeDelay_le_delay</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      Completeness and its necessary condition.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            <li class="bp_used_by_item" data-bp-used-preview-id="bp-group-two-005Fin-005Fevery-005Ffiber-delay-005Feq-005FanalyzeDelay" data-bp-used-preview-key="delay_eq_analyzeDelay--statement" data-bp-used-preview-title="Theorem 2.14">
+                              <a class="bp_used_by_target" href="Symbolic-Delay-Analysis/Completeness/#--informal-preview-delay_eq_analyzeDelay--statement"><span class="bp_used_by_target_title">Theorem 2.14</span><span class="bp_used_by_target_meta"><code>delay_eq_analyzeDelay</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-two-005Fin-005Fevery-005Ffiber-delay-005Feq-005FanalyzeDelay"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>delay_eq_analyzeDelay</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      Completeness and its necessary condition.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            </ul>
+                          <div class="bp_used_by_preview_surface">
+                            <div class="bp_used_by_preview_header">
+                              <div class="bp_used_by_preview_label">
+                                Preview</div>
+                              <div class="bp_used_by_preview_title">
+                                Theorem 2.11</div>
+                              </div>
+                            <div class="bp_used_by_preview_body">
+                              <div class="bp_code_hover_section">
+                                <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                  <li>
+                                    <code>phantom_branch_counterexample</code></li>
+                                  </ul>
+                                </div>
+                              <div class="bp_code_hover_section">
+                                <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                  <li>
+                                    Completeness and its necessary condition.</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </span><span class="bp_extra_slot bp_extra_slot_code"><span class="bp_code_summary_preview_root"><span class="bp_code_summary_preview_wrap bp_code_summary_preview_wrap_active" data-bp-preview-id="bp-code-summary" data-bp-preview-title="two_in_every_fiber" tabindex="0" role="button" aria-label="Lean declarations (all present: 1/1)"><span class="bp_code_link bp_code_link_status bp_code_link_status_proved" title="Lean declarations (all present: 1/1)"><span class="bp_code_status_symbol">✓</span><span class="bp_code_link_label">L∃∀N</span></span></span><template class="bp_code_summary_preview_tpl" data-bp-preview-id="bp-code-summary"><div class="bp_code_summary_preview_content">
+                          <div class="bp_code_hover_section">
+                            <span class="bp_code_hover_label">Associated Lean declarations</span><ul class="bp_code_hover_list">
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002ETwoInEveryFiber" data-bp-preview-title="TwoInEveryFiber" data-bp-preview-key="Informal.LeanCodePreview.TwoInEveryFiber"><a href="Symbolic-Delay-Analysis/Completeness/#--informal-external-decl-two_in_every_fiber-TwoInEveryFiber"><code>TwoInEveryFiber</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </template><aside class="bp_code_summary_preview_panel bp_preview_panel" data-bp-preview-mode="hover" data-bp-preview-placement="anchored" hidden=""><div class="bp_code_summary_preview_header bp_preview_panel_header">
+                          <div class="bp_code_summary_preview_title bp_preview_panel_title"></div>
+                          <button type="button" class="bp_code_summary_preview_close bp_preview_panel_close" aria-label="Close Lean summary preview">Close</button></div>
+                        <div class="bp_code_summary_preview_body bp_preview_panel_body"></div>
+                        </aside></span></span><span class="bp_extra_slot bp_extra_slot_used_by"><div class="bp_used_by_wrap">
+                      <button type="button" class="bp_used_by_chip" title="Reverse dependencies for two_in_every_fiber" aria-expanded="false">used by 3</button><div class="bp_used_by_panel">
+                        <div class="bp_used_by_panel_header">
+                          <div class="bp_used_by_panel_title">
+                            Used by 3</div>
+                          <div class="bp_used_by_panel_meta">
+                            Hover a use site to preview it.</div>
+                          </div>
+                        <div class="bp_used_by_panel_body">
+                          <ul class="bp_used_by_list">
+                            <li class="bp_used_by_item bp_used_by_item_active" data-bp-used-preview-id="bp-used-by-two-005Fin-005Fevery-005Ffiber-priority-005Fbypass-005Fcounterexample" data-bp-used-preview-key="priority_bypass_counterexample--statement" data-bp-used-preview-title="Theorem 2.12">
+                              <a class="bp_used_by_target" href="Symbolic-Delay-Analysis/Completeness/#--informal-preview-priority_bypass_counterexample--statement"><span class="bp_used_by_target_title">Theorem 2.12</span><span class="bp_used_by_target_meta"><code>priority_bypass_counterexample</code><span class="bp_used_by_axis_badge">statement</span></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-used-by-two-005Fin-005Fevery-005Ffiber-priority-005Fbypass-005Fcounterexample"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>priority_bypass_counterexample</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Uses target in</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      statement</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            <li class="bp_used_by_item" data-bp-used-preview-id="bp-used-by-two-005Fin-005Fevery-005Ffiber-analyzeDelay-005Fle-005Fdelay" data-bp-used-preview-key="analyzeDelay_le_delay--statement" data-bp-used-preview-title="Theorem 2.13">
+                              <a class="bp_used_by_target" href="Symbolic-Delay-Analysis/Completeness/#--informal-preview-analyzeDelay_le_delay--statement"><span class="bp_used_by_target_title">Theorem 2.13</span><span class="bp_used_by_target_meta"><code>analyzeDelay_le_delay</code><span class="bp_used_by_axis_badge">statement</span></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-used-by-two-005Fin-005Fevery-005Ffiber-analyzeDelay-005Fle-005Fdelay"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>analyzeDelay_le_delay</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Uses target in</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      statement</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            <li class="bp_used_by_item" data-bp-used-preview-id="bp-used-by-two-005Fin-005Fevery-005Ffiber-delay-005Feq-005FanalyzeDelay" data-bp-used-preview-key="delay_eq_analyzeDelay--statement" data-bp-used-preview-title="Theorem 2.14">
+                              <a class="bp_used_by_target" href="Symbolic-Delay-Analysis/Completeness/#--informal-preview-delay_eq_analyzeDelay--statement"><span class="bp_used_by_target_title">Theorem 2.14</span><span class="bp_used_by_target_meta"><code>delay_eq_analyzeDelay</code><span class="bp_used_by_axis_badge">statement</span></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-used-by-two-005Fin-005Fevery-005Ffiber-delay-005Feq-005FanalyzeDelay"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>delay_eq_analyzeDelay</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Uses target in</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      statement</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            </ul>
+                          <div class="bp_used_by_preview_surface">
+                            <div class="bp_used_by_preview_header">
+                              <div class="bp_used_by_preview_label">
+                                Preview</div>
+                              <div class="bp_used_by_preview_title">
+                                Theorem 2.12</div>
+                              </div>
+                            <div class="bp_used_by_preview_body">
+                              <div class="bp_code_hover_section">
+                                <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                  <li>
+                                    <code>priority_bypass_counterexample</code></li>
+                                  </ul>
+                                </div>
+                              <div class="bp_code_hover_section">
+                                <span class="bp_code_hover_label">Uses target in</span><ul class="bp_code_hover_list">
+                                  <li>
+                                    statement</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </span></div>
+                </div>
+              <div class="bp_content bp_kind_definition_content definition_thmcontent">
+                <p>
+                  The completeness condition. <code>TwoInEveryFiber inspect</code> requires that every fiber
+of the inspection function <code>inspect : α → β</code> contains at least two distinct
+concrete packets:
+<code class="bp_math display">\forall b : \beta,\; \exists a_1 \neq a_2 : \alpha,\;
+  \mathit{inspect}(a_1) = b \;\wedge\; \mathit{inspect}(a_2) = b</code>$$
+This is necessary because the <code>Bool</code> tag in the symbolic algorithm distinguishes
+the tracked packet from background by its tag bit — but two concrete packets
+with the same branch label are observationally identical to the system.
+If a fiber has only one element, there is no valid background representative,
+so the symbolic algorithm may chase configurations with no concrete instantiation.</p>
+                </div>
+              </div>
+            <div class="bp_wrapper bp_code_panel_wrapper">
+              <details class="bp_code_block bp_code_panel"><summary class="bp_heading lemma_thmheading" title="Lean declarations (all present: 1/1)"><span class="bp_caption lemma_thmcaption bp_code_summary_text">Code for Definition</span><span class="bp_label lemma_thmlabel bp_code_summary_label">2.10</span><span class="bp_code_summary_indicator"><span class="bp_code_summary_preview_root"><span class="bp_code_summary_preview_wrap bp_code_summary_preview_wrap_active" data-bp-preview-id="bp-code-summary" data-bp-preview-title="two_in_every_fiber" tabindex="0" role="button" aria-label="Lean declarations (all present: 1/1)"><span class="bp_external_status_badge bp_external_status_badge_summary bp_external_status_ok" title="Lean declarations: all 1 present"><span class="bp_external_status_icon bp_external_status_ok">●</span><span class="bp_external_status_badge_text">1 definition</span></span></span><template class="bp_code_summary_preview_tpl" data-bp-preview-id="bp-code-summary"><div class="bp_code_summary_preview_content">
+                          <div class="bp_code_hover_section">
+                            <span class="bp_code_hover_label">Associated Lean declarations</span><ul class="bp_code_hover_list">
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002ETwoInEveryFiber" data-bp-preview-title="TwoInEveryFiber" data-bp-preview-key="Informal.LeanCodePreview.TwoInEveryFiber"><a href="Symbolic-Delay-Analysis/Completeness/#--informal-external-decl-two_in_every_fiber-TwoInEveryFiber"><code>TwoInEveryFiber</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </template><aside class="bp_code_summary_preview_panel bp_preview_panel" data-bp-preview-mode="hover" data-bp-preview-placement="anchored" hidden=""><div class="bp_code_summary_preview_header bp_preview_panel_header">
+                          <div class="bp_code_summary_preview_title bp_preview_panel_title"></div>
+                          <button type="button" class="bp_code_summary_preview_close bp_preview_panel_close" aria-label="Close Lean summary preview">Close</button></div>
+                        <div class="bp_code_summary_preview_body bp_preview_panel_body"></div>
+                        </aside></span></span></summary><ul class="bp_code_hover_list bp_external_decl_list">
+                  <li class="bp_external_decl_item bp_external_decl_item_rendered" id="--informal-external-decl-two_in_every_fiber-TwoInEveryFiber">
+                    <div class="bp_external_decl_rendered">
+                      <div class="declaration decl def" data-decl="TwoInEveryFiber" data-kind="def">
+                        <div class="bp_external_decl_signature_wrap">
+                          <div class="wide-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">def</span> <span class="unknown token" data-binding="">TwoInEveryFiber.{u_1,</span><span class="inter-text"> </span><span class="unknown token" data-binding="">u_2}</span><span class="inter-text"> </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.9060">α<span class="hover-info"><code>Type u_1</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-7243200735919010059">Type u_1<span class="hover-info"><code class="docstring">A type universe. `Type ≡ Type 0`, `Type u ≡ Sort (u + 1)`. </code></span></span><span class="unknown token" data-binding="">}</span><span class="inter-text"> </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.9061">β<span class="hover-info"><code>Type u_2</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-7243200735919010059">Type u_2<span class="hover-info"><code class="docstring">A type universe. `Type ≡ Type 0`, `Type u ≡ Sort (u + 1)`. </code></span></span><span class="unknown token" data-binding="">}</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.9063">inspect<span class="hover-info"><code>α → β</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.9060">α<span class="hover-info"><code>Type u_1</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.9061">β<span class="hover-info"><code>Type u_2</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-14430969920833713138">Prop<span class="hover-info"><code class="docstring">The universe of propositions. `Prop ≡ Sort 0`.
+
+Every proposition is propositionally equal to either `True` or `False`. </code></span></span></pre></div>
+                          <div class="narrow-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">def</span> <span class="unknown token" data-binding="">TwoInEveryFiber.{u_1,</span><span class="inter-text"> </span><span class="unknown token" data-binding="">u_2}</span><span class="inter-text"> </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.9060">α<span class="hover-info"><code>Type u_1</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-7243200735919010059">Type u_1<span class="hover-info"><code class="docstring">A type universe. `Type ≡ Type 0`, `Type u ≡ Sort (u + 1)`. </code></span></span><span class="unknown token" data-binding="">}</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.9061">β<span class="hover-info"><code>Type u_2</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-7243200735919010059">Type u_2<span class="hover-info"><code class="docstring">A type universe. `Type ≡ Type 0`, `Type u ≡ Sort (u + 1)`. </code></span></span><span class="unknown token" data-binding="">}</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.9063">inspect<span class="hover-info"><code>α → β</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.9060">α<span class="hover-info"><code>Type u_1</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.9061">β<span class="hover-info"><code>Type u_2</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-14430969920833713138">Prop<span class="hover-info"><code class="docstring">The universe of propositions. `Prop ≡ Sort 0`.
+
+Every proposition is propositionally equal to either `True` or `False`. </code></span></span></pre></div>
+                          </div>
+                        <div class="bp_external_decl_body"></div>
+                        </div>
+                      </div>
+                    <div class="bp_external_decl_meta bp_external_decl_rendered_meta">
+                      <span class="bp_external_status_badge bp_external_decl_footer_status bp_external_decl_ok">complete</span></div>
+                    </li>
+                  </ul>
+                </details></div>
+            <div class="bp_wrapper bp_kind_theorem_wrapper theorem_thmwrapper theorem_thmwrapper theorem-style-plain bp_kind_theorem bp_style_plain" title="phantom_branch_counterexample" id="--informal-preview-phantom_branch_counterexample--statement">
+              <div class="bp_heading bp_kind_theorem_heading theorem_thmheading">
+                <div class="bp_heading_title_row bp_heading_title_row_statement">
+                  <span class="bp_caption bp_kind_theorem_caption theorem_thmcaption" title="phantom_branch_counterexample">Theorem</span><span class="bp_label bp_kind_theorem_label theorem_thmlabel">2.11</span></div>
+                <div class="bp_extras bp_extras_with_group thm_header_extras">
+                  <span class="bp_extra_slot bp_extra_slot_group"><div class="bp_used_by_wrap">
+                      <button type="button" class="bp_used_by_chip" title="Other entries in group Completeness and its necessary condition." aria-expanded="false">group</button><div class="bp_used_by_panel">
+                        <div class="bp_used_by_panel_header">
+                          <div class="bp_used_by_panel_title">
+                            Group: Completeness and its necessary condition. (4)</div>
+                          <div class="bp_used_by_panel_meta">
+                            Hover another entry in this group to preview it.</div>
+                          </div>
+                        <div class="bp_used_by_panel_body">
+                          <ul class="bp_used_by_list">
+                            <li class="bp_used_by_item bp_used_by_item_active" data-bp-used-preview-id="bp-group-phantom-005Fbranch-005Fcounterexample-two-005Fin-005Fevery-005Ffiber" data-bp-used-preview-key="two_in_every_fiber--statement" data-bp-used-preview-title="Definition 2.10">
+                              <a class="bp_used_by_target" href="Symbolic-Delay-Analysis/Completeness/#--informal-preview-two_in_every_fiber--statement"><span class="bp_used_by_target_title">Definition 2.10</span><span class="bp_used_by_target_meta"><code>two_in_every_fiber</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-phantom-005Fbranch-005Fcounterexample-two-005Fin-005Fevery-005Ffiber"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>two_in_every_fiber</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      Completeness and its necessary condition.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            <li class="bp_used_by_item" data-bp-used-preview-id="bp-group-phantom-005Fbranch-005Fcounterexample-priority-005Fbypass-005Fcounterexample" data-bp-used-preview-key="priority_bypass_counterexample--statement" data-bp-used-preview-title="Theorem 2.12">
+                              <a class="bp_used_by_target" href="Symbolic-Delay-Analysis/Completeness/#--informal-preview-priority_bypass_counterexample--statement"><span class="bp_used_by_target_title">Theorem 2.12</span><span class="bp_used_by_target_meta"><code>priority_bypass_counterexample</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-phantom-005Fbranch-005Fcounterexample-priority-005Fbypass-005Fcounterexample"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>priority_bypass_counterexample</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      Completeness and its necessary condition.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            <li class="bp_used_by_item" data-bp-used-preview-id="bp-group-phantom-005Fbranch-005Fcounterexample-analyzeDelay-005Fle-005Fdelay" data-bp-used-preview-key="analyzeDelay_le_delay--statement" data-bp-used-preview-title="Theorem 2.13">
+                              <a class="bp_used_by_target" href="Symbolic-Delay-Analysis/Completeness/#--informal-preview-analyzeDelay_le_delay--statement"><span class="bp_used_by_target_title">Theorem 2.13</span><span class="bp_used_by_target_meta"><code>analyzeDelay_le_delay</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-phantom-005Fbranch-005Fcounterexample-analyzeDelay-005Fle-005Fdelay"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>analyzeDelay_le_delay</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      Completeness and its necessary condition.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            <li class="bp_used_by_item" data-bp-used-preview-id="bp-group-phantom-005Fbranch-005Fcounterexample-delay-005Feq-005FanalyzeDelay" data-bp-used-preview-key="delay_eq_analyzeDelay--statement" data-bp-used-preview-title="Theorem 2.14">
+                              <a class="bp_used_by_target" href="Symbolic-Delay-Analysis/Completeness/#--informal-preview-delay_eq_analyzeDelay--statement"><span class="bp_used_by_target_title">Theorem 2.14</span><span class="bp_used_by_target_meta"><code>delay_eq_analyzeDelay</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-phantom-005Fbranch-005Fcounterexample-delay-005Feq-005FanalyzeDelay"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>delay_eq_analyzeDelay</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      Completeness and its necessary condition.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            </ul>
+                          <div class="bp_used_by_preview_surface">
+                            <div class="bp_used_by_preview_header">
+                              <div class="bp_used_by_preview_label">
+                                Preview</div>
+                              <div class="bp_used_by_preview_title">
+                                Definition 2.10</div>
+                              </div>
+                            <div class="bp_used_by_preview_body">
+                              <div class="bp_code_hover_section">
+                                <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                  <li>
+                                    <code>two_in_every_fiber</code></li>
+                                  </ul>
+                                </div>
+                              <div class="bp_code_hover_section">
+                                <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                  <li>
+                                    Completeness and its necessary condition.</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </span><span class="bp_extra_slot bp_extra_slot_code"><span class="bp_code_summary_preview_root"><span class="bp_code_summary_preview_wrap bp_code_summary_preview_wrap_active" data-bp-preview-id="bp-code-summary" data-bp-preview-title="phantom_branch_counterexample" tabindex="0" role="button" aria-label="Lean declarations (all present: 1/1)"><span class="bp_code_link bp_code_link_status bp_code_link_status_proved" title="Lean declarations (all present: 1/1)"><span class="bp_code_status_symbol">✓</span><span class="bp_code_link_label">L∃∀N</span></span></span><template class="bp_code_summary_preview_tpl" data-bp-preview-id="bp-code-summary"><div class="bp_code_summary_preview_content">
+                          <div class="bp_code_hover_section">
+                            <span class="bp_code_hover_label">Associated Lean declarations</span><ul class="bp_code_hover_list">
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002EphantomBranchCounterexample-005Fbreaks-005Fcompleteness" data-bp-preview-title="phantomBranchCounterexample_breaks_completeness" data-bp-preview-key="Informal.LeanCodePreview.phantomBranchCounterexample_breaks_completeness"><a href="Symbolic-Delay-Analysis/Completeness/#--informal-external-decl-phantom_branch_counterexample-phantomBranchCounterexample_breaks_completeness"><code>phantomBranchCounterexample_breaks_completeness</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </template><aside class="bp_code_summary_preview_panel bp_preview_panel" data-bp-preview-mode="hover" data-bp-preview-placement="anchored" hidden=""><div class="bp_code_summary_preview_header bp_preview_panel_header">
+                          <div class="bp_code_summary_preview_title bp_preview_panel_title"></div>
+                          <button type="button" class="bp_code_summary_preview_close bp_preview_panel_close" aria-label="Close Lean summary preview">Close</button></div>
+                        <div class="bp_code_summary_preview_body bp_preview_panel_body"></div>
+                        </aside></span></span><span class="bp_extra_slot bp_extra_slot_used_by"><span class="bp_used_by_chip bp_used_by_chip_empty" title="No reverse dependencies">used by 0</span></span></div>
+                </div>
+              <div class="bp_content bp_kind_theorem_content theorem_thmcontent">
+                <p>
+                  If <code>TwoInEveryFiber</code> fails, the algorithm may return <code>none</code> (∞) even when the
+concrete delay is 0. The <em>phantom-branch counterexample</em> has <code>branchingType = Fin 3</code>
+and <code>α = Bool</code>, with <code>inspect false = 0</code>, <code>inspect true = 1</code>. Branch <code>2</code> has an
+empty fiber — no concrete packet maps to it. Three facts hold simultaneously:</p>
+                <ul>
+                  <li>
+                    <p>
+                      <code>analyzeDelay phantomBranchCounterexample = none</code>: the algorithm sees
+  branch-<code>2</code> tracked-packet configurations and never delivers them.</p>
+                    </li>
+                  <li>
+                    <p>
+                      <code>delayAtMost (α := Bool) phantomBranchCounterexample phantomInspect 0</code>: every
+  concrete packet exits immediately (branch <code>2</code> is unreachable concretely).</p>
+                    </li>
+                  <li>
+                    <p>
+                      <code>¬ TwoInEveryFiber phantomInspect</code>: the fiber of <code>2</code> is empty.</p>
+                    </li>
+                  </ul>
+                <p>
+                  Failure mode: <em>empty fiber</em> — the algorithm chases ghost configurations that
+have no concrete instantiation.</p>
+                </div>
+              </div>
+            <div class="bp_wrapper bp_code_panel_wrapper">
+              <details class="bp_code_block bp_code_panel"><summary class="bp_heading lemma_thmheading" title="Lean declarations (all present: 1/1)"><span class="bp_caption lemma_thmcaption bp_code_summary_text">Code for Theorem</span><span class="bp_label lemma_thmlabel bp_code_summary_label">2.11</span><span class="bp_code_summary_indicator"><span class="bp_code_summary_preview_root"><span class="bp_code_summary_preview_wrap bp_code_summary_preview_wrap_active" data-bp-preview-id="bp-code-summary" data-bp-preview-title="phantom_branch_counterexample" tabindex="0" role="button" aria-label="Lean declarations (all present: 1/1)"><span class="bp_external_status_badge bp_external_status_badge_summary bp_external_status_ok" title="Lean declarations: all 1 present"><span class="bp_external_status_icon bp_external_status_ok">●</span><span class="bp_external_status_badge_text">1 theorem</span></span></span><template class="bp_code_summary_preview_tpl" data-bp-preview-id="bp-code-summary"><div class="bp_code_summary_preview_content">
+                          <div class="bp_code_hover_section">
+                            <span class="bp_code_hover_label">Associated Lean declarations</span><ul class="bp_code_hover_list">
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002EphantomBranchCounterexample-005Fbreaks-005Fcompleteness" data-bp-preview-title="phantomBranchCounterexample_breaks_completeness" data-bp-preview-key="Informal.LeanCodePreview.phantomBranchCounterexample_breaks_completeness"><a href="Symbolic-Delay-Analysis/Completeness/#--informal-external-decl-phantom_branch_counterexample-phantomBranchCounterexample_breaks_completeness"><code>phantomBranchCounterexample_breaks_completeness</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </template><aside class="bp_code_summary_preview_panel bp_preview_panel" data-bp-preview-mode="hover" data-bp-preview-placement="anchored" hidden=""><div class="bp_code_summary_preview_header bp_preview_panel_header">
+                          <div class="bp_code_summary_preview_title bp_preview_panel_title"></div>
+                          <button type="button" class="bp_code_summary_preview_close bp_preview_panel_close" aria-label="Close Lean summary preview">Close</button></div>
+                        <div class="bp_code_summary_preview_body bp_preview_panel_body"></div>
+                        </aside></span></span></summary><ul class="bp_code_hover_list bp_external_decl_list">
+                  <li class="bp_external_decl_item bp_external_decl_item_rendered" id="--informal-external-decl-phantom_branch_counterexample-phantomBranchCounterexample_breaks_completeness">
+                    <div class="bp_external_decl_rendered">
+                      <div class="declaration decl theorem" data-decl="phantomBranchCounterexample_breaks_completeness" data-kind="theorem">
+                        <div class="bp_external_decl_signature_wrap">
+                          <div class="wide-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">theorem</span> <span class="unknown token" data-binding="">phantomBranchCounterexample_breaks_completeness</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text">
+  </span><span class="const token" data-binding="const-analyzeDelay">analyzeDelay<span class="hover-info"><code>analyzeDelay {n m : ℕ} (sys : system n m) [GoodSystem sys] : ℕ∞</code></span></span><span class="inter-text"> </span><span class="const token" data-binding="const-phantomBranchCounterexample">phantomBranchCounterexample<span class="hover-info"><code>phantomBranchCounterexample : system 1 1</code><span class="sep"></span><code class="docstring">A 1-in/1-out stateless device:
+- Non-branch-`2` packets exit immediately.
+- Branch-`2` packets are silently discarded (never emitted).
+State is trivial (`Unit`, always `()`).
+</code></span></span><span class="inter-text"> </span><span class="const token" data-binding="const-Eq">=<span class="hover-info"><code>Eq.{u_1} {α : Sort u_1} : α → α → Prop</code><span class="sep"></span><code class="docstring">The equality relation. It has one introduction rule, `Eq.refl`.
+We use `a = b` as notation for `Eq a b`.
+A fundamental property of equality is that it is an equivalence relation.
+```
+variable (α : Type) (a b c d : α)
+variable (hab : a = b) (hcb : c = b) (hcd : c = d)
+
+example : a = d :=
+  Eq.trans (Eq.trans hab (Eq.symm hcb)) hcd
+```
+Equality is much more than an equivalence relation, however. It has the important property that every assertion
+respects the equivalence, in the sense that we can substitute equal expressions without changing the truth value.
+That is, given `h1 : a = b` and `h2 : p a`, we can construct a proof for `p b` using substitution: `Eq.subst h1 h2`.
+Example:
+```
+example (α : Type) (a b : α) (p : α → Prop)
+        (h1 : a = b) (h2 : p a) : p b :=
+  Eq.subst h1 h2
+
+example (α : Type) (a b : α) (p : α → Prop)
+    (h1 : a = b) (h2 : p a) : p b :=
+  h1 ▸ h2
+```
+The triangle in the second presentation is a macro built on top of `Eq.subst` and `Eq.symm`, and you can enter it by typing `\t`.
+For more information: [Equality](https://lean-lang.org/theorem_proving_in_lean4/quantifiers_and_equality.html#equality)
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `=` in identifiers is `eq`.</code></span></span><span class="inter-text"> </span><span class="const token" data-binding="const-Top.top">⊤<span class="hover-info"><code>Top.top.{u_1} {α : Type u_1} [self : Top α] : α</code><span class="sep"></span><code class="docstring">The top (`⊤`, `\top`) element 
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `⊤` in identifiers is `top`.</code></span></span><span class="inter-text"> </span><span class="const token" data-binding="const-And">∧<span class="hover-info"><code>And (a b : Prop) : Prop</code><span class="sep"></span><code class="docstring">`And a b`, or `a ∧ b`, is the conjunction of propositions. It can be
+constructed and destructed like a pair: if `ha : a` and `hb : b` then
+`⟨ha, hb⟩ : a ∧ b`, and if `h : a ∧ b` then `h.left : a` and `h.right : b`.
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `∧` in identifiers is `and`.
+
+ * The recommended spelling of `/\` in identifiers is `and` (prefer `∧` over `/\`).</code></span></span><span class="inter-text">
+    </span><span class="const token" data-binding="const-delayAtMost">delayAtMost<span class="hover-info"><code>delayAtMost {α : Type} {n m : ℕ} (sys : system n m) (inspect : α → sys.branchingType) (d : ℕ) : Prop</code><span class="sep"></span><code class="docstring">`delayAtMost sys inspect d`: every packet entering the system exits within `d` additional
+steps. This is the predicate interface used throughout soundness and completeness. </code></span></span><span class="inter-text"> </span><span class="const token" data-binding="const-phantomBranchCounterexample">phantomBranchCounterexample<span class="hover-info"><code>phantomBranchCounterexample : system 1 1</code><span class="sep"></span><code class="docstring">A 1-in/1-out stateless device:
+- Non-branch-`2` packets exit immediately.
+- Branch-`2` packets are silently discarded (never emitted).
+State is trivial (`Unit`, always `()`).
+</code></span></span><span class="inter-text"> </span><span class="const token" data-binding="const-phantomInspect">phantomInspect<span class="hover-info"><code>phantomInspect : Bool → Fin 3</code><span class="sep"></span><code class="docstring">The concrete inspection function: maps `false → 0`, `true → 1`; branch `2` is phantom. </code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">0</span><span class="inter-text"> </span><span class="const token" data-binding="const-And">∧<span class="hover-info"><code>And (a b : Prop) : Prop</code><span class="sep"></span><code class="docstring">`And a b`, or `a ∧ b`, is the conjunction of propositions. It can be
+constructed and destructed like a pair: if `ha : a` and `hb : b` then
+`⟨ha, hb⟩ : a ∧ b`, and if `h : a ∧ b` then `h.left : a` and `h.right : b`.
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `∧` in identifiers is `and`.
+
+ * The recommended spelling of `/\` in identifiers is `and` (prefer `∧` over `/\`).</code></span></span><span class="inter-text">
+      </span><span class="const token" data-binding="const-Not">¬<span class="hover-info"><code>Not (a : Prop) : Prop</code><span class="sep"></span><code class="docstring">`Not p`, or `¬p`, is the negation of `p`. It is defined to be `p → False`,
+so if your goal is `¬p` you can use `intro h` to turn the goal into
+`h : p ⊢ False`, and if you have `hn : ¬p` and `h : p` then `hn h : False`
+and `(hn h).elim` will prove anything.
+For more information: [Propositional Logic](https://lean-lang.org/theorem_proving_in_lean4/propositions_and_proofs.html#propositional-logic)
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `¬` in identifiers is `not`.</code></span></span><span class="const token" data-binding="const-TwoInEveryFiber">TwoInEveryFiber<span class="hover-info"><code>TwoInEveryFiber.{u_1, u_2} {α : Type u_1} {β : Type u_2} (inspect : α → β) : Prop</code></span></span><span class="inter-text"> </span><span class="const token" data-binding="const-phantomInspect">phantomInspect<span class="hover-info"><code>phantomInspect : Bool → Fin 3</code><span class="sep"></span><code class="docstring">The concrete inspection function: maps `false → 0`, `true → 1`; branch `2` is phantom. </code></span></span></pre></div>
+                          <div class="narrow-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">theorem</span> <span class="unknown token" data-binding="">phantomBranchCounterexample_breaks_completeness</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text">
+  </span><span class="const token" data-binding="const-analyzeDelay">analyzeDelay<span class="hover-info"><code>analyzeDelay {n m : ℕ} (sys : system n m) [GoodSystem sys] : ℕ∞</code></span></span><span class="inter-text">
+        </span><span class="const token" data-binding="const-phantomBranchCounterexample">phantomBranchCounterexample<span class="hover-info"><code>phantomBranchCounterexample : system 1 1</code><span class="sep"></span><code class="docstring">A 1-in/1-out stateless device:
+- Non-branch-`2` packets exit immediately.
+- Branch-`2` packets are silently discarded (never emitted).
+State is trivial (`Unit`, always `()`).
+</code></span></span><span class="inter-text"> </span><span class="const token" data-binding="const-Eq">=<span class="hover-info"><code>Eq.{u_1} {α : Sort u_1} : α → α → Prop</code><span class="sep"></span><code class="docstring">The equality relation. It has one introduction rule, `Eq.refl`.
+We use `a = b` as notation for `Eq a b`.
+A fundamental property of equality is that it is an equivalence relation.
+```
+variable (α : Type) (a b c d : α)
+variable (hab : a = b) (hcb : c = b) (hcd : c = d)
+
+example : a = d :=
+  Eq.trans (Eq.trans hab (Eq.symm hcb)) hcd
+```
+Equality is much more than an equivalence relation, however. It has the important property that every assertion
+respects the equivalence, in the sense that we can substitute equal expressions without changing the truth value.
+That is, given `h1 : a = b` and `h2 : p a`, we can construct a proof for `p b` using substitution: `Eq.subst h1 h2`.
+Example:
+```
+example (α : Type) (a b : α) (p : α → Prop)
+        (h1 : a = b) (h2 : p a) : p b :=
+  Eq.subst h1 h2
+
+example (α : Type) (a b : α) (p : α → Prop)
+    (h1 : a = b) (h2 : p a) : p b :=
+  h1 ▸ h2
+```
+The triangle in the second presentation is a macro built on top of `Eq.subst` and `Eq.symm`, and you can enter it by typing `\t`.
+For more information: [Equality](https://lean-lang.org/theorem_proving_in_lean4/quantifiers_and_equality.html#equality)
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `=` in identifiers is `eq`.</code></span></span><span class="inter-text">
+      </span><span class="const token" data-binding="const-Top.top">⊤<span class="hover-info"><code>Top.top.{u_1} {α : Type u_1} [self : Top α] : α</code><span class="sep"></span><code class="docstring">The top (`⊤`, `\top`) element 
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `⊤` in identifiers is `top`.</code></span></span><span class="inter-text"> </span><span class="const token" data-binding="const-And">∧<span class="hover-info"><code>And (a b : Prop) : Prop</code><span class="sep"></span><code class="docstring">`And a b`, or `a ∧ b`, is the conjunction of propositions. It can be
+constructed and destructed like a pair: if `ha : a` and `hb : b` then
+`⟨ha, hb⟩ : a ∧ b`, and if `h : a ∧ b` then `h.left : a` and `h.right : b`.
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `∧` in identifiers is `and`.
+
+ * The recommended spelling of `/\` in identifiers is `and` (prefer `∧` over `/\`).</code></span></span><span class="inter-text">
+    </span><span class="const token" data-binding="const-delayAtMost">delayAtMost<span class="hover-info"><code>delayAtMost {α : Type} {n m : ℕ} (sys : system n m) (inspect : α → sys.branchingType) (d : ℕ) : Prop</code><span class="sep"></span><code class="docstring">`delayAtMost sys inspect d`: every packet entering the system exits within `d` additional
+steps. This is the predicate interface used throughout soundness and completeness. </code></span></span><span class="inter-text">
+        </span><span class="const token" data-binding="const-phantomBranchCounterexample">phantomBranchCounterexample<span class="hover-info"><code>phantomBranchCounterexample : system 1 1</code><span class="sep"></span><code class="docstring">A 1-in/1-out stateless device:
+- Non-branch-`2` packets exit immediately.
+- Branch-`2` packets are silently discarded (never emitted).
+State is trivial (`Unit`, always `()`).
+</code></span></span><span class="inter-text">
+        </span><span class="const token" data-binding="const-phantomInspect">phantomInspect<span class="hover-info"><code>phantomInspect : Bool → Fin 3</code><span class="sep"></span><code class="docstring">The concrete inspection function: maps `false → 0`, `true → 1`; branch `2` is phantom. </code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">0</span><span class="inter-text"> </span><span class="const token" data-binding="const-And">∧<span class="hover-info"><code>And (a b : Prop) : Prop</code><span class="sep"></span><code class="docstring">`And a b`, or `a ∧ b`, is the conjunction of propositions. It can be
+constructed and destructed like a pair: if `ha : a` and `hb : b` then
+`⟨ha, hb⟩ : a ∧ b`, and if `h : a ∧ b` then `h.left : a` and `h.right : b`.
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `∧` in identifiers is `and`.
+
+ * The recommended spelling of `/\` in identifiers is `and` (prefer `∧` over `/\`).</code></span></span><span class="inter-text">
+      </span><span class="const token" data-binding="const-Not">¬<span class="hover-info"><code>Not (a : Prop) : Prop</code><span class="sep"></span><code class="docstring">`Not p`, or `¬p`, is the negation of `p`. It is defined to be `p → False`,
+so if your goal is `¬p` you can use `intro h` to turn the goal into
+`h : p ⊢ False`, and if you have `hn : ¬p` and `h : p` then `hn h : False`
+and `(hn h).elim` will prove anything.
+For more information: [Propositional Logic](https://lean-lang.org/theorem_proving_in_lean4/propositions_and_proofs.html#propositional-logic)
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `¬` in identifiers is `not`.</code></span></span><span class="const token" data-binding="const-TwoInEveryFiber">TwoInEveryFiber<span class="hover-info"><code>TwoInEveryFiber.{u_1, u_2} {α : Type u_1} {β : Type u_2} (inspect : α → β) : Prop</code></span></span><span class="inter-text"> </span><span class="const token" data-binding="const-phantomInspect">phantomInspect<span class="hover-info"><code>phantomInspect : Bool → Fin 3</code><span class="sep"></span><code class="docstring">The concrete inspection function: maps `false → 0`, `true → 1`; branch `2` is phantom. </code></span></span></pre></div>
+                          </div>
+                        <div class="bp_external_decl_body">
+                          <pre class="docstring">`TwoInEveryFiber` is **strictly** necessary for completeness — having `|α| ≥ 2` is not enough.
+
+With `α = Bool` (two concrete packet types) and `inspect = phantomInspect : Bool → Fin 3`:
+- The fiber of `2 : Fin 3` is empty, so `TwoInEveryFiber phantomInspect` fails.
+- `analyzeDelay = ⊤` because the symbolic algorithm considers branch-`2` tracked packets,
+  which the device discards; the algorithm loops forever without seeing a good output.
+- Every concrete `Bool` packet exits at its arrival time (`delayAtMost ... 0`).
+
+The completeness direction would require `⊤ ≤ delay ... = 0`, which is false.
+</pre></div>
+                        </div>
+                      </div>
+                    <div class="bp_external_decl_meta bp_external_decl_rendered_meta">
+                      <span class="bp_external_status_badge bp_external_decl_footer_status bp_external_decl_ok">complete</span></div>
+                    </li>
+                  </ul>
+                </details></div>
+            <div class="bp_wrapper bp_kind_theorem_wrapper theorem_thmwrapper theorem_thmwrapper theorem-style-plain bp_kind_theorem bp_style_plain" title="priority_bypass_counterexample" id="--informal-preview-priority_bypass_counterexample--statement">
+              <div class="bp_heading bp_kind_theorem_heading theorem_thmheading">
+                <div class="bp_heading_title_row bp_heading_title_row_statement">
+                  <span class="bp_caption bp_kind_theorem_caption theorem_thmcaption" title="priority_bypass_counterexample">Theorem</span><span class="bp_label bp_kind_theorem_label theorem_thmlabel">2.12</span></div>
+                <div class="bp_extras bp_extras_with_group thm_header_extras">
+                  <span class="bp_extra_slot bp_extra_slot_group"><div class="bp_used_by_wrap">
+                      <button type="button" class="bp_used_by_chip" title="Other entries in group Completeness and its necessary condition." aria-expanded="false">group</button><div class="bp_used_by_panel">
+                        <div class="bp_used_by_panel_header">
+                          <div class="bp_used_by_panel_title">
+                            Group: Completeness and its necessary condition. (4)</div>
+                          <div class="bp_used_by_panel_meta">
+                            Hover another entry in this group to preview it.</div>
+                          </div>
+                        <div class="bp_used_by_panel_body">
+                          <ul class="bp_used_by_list">
+                            <li class="bp_used_by_item bp_used_by_item_active" data-bp-used-preview-id="bp-group-priority-005Fbypass-005Fcounterexample-two-005Fin-005Fevery-005Ffiber" data-bp-used-preview-key="two_in_every_fiber--statement" data-bp-used-preview-title="Definition 2.10">
+                              <a class="bp_used_by_target" href="Symbolic-Delay-Analysis/Completeness/#--informal-preview-two_in_every_fiber--statement"><span class="bp_used_by_target_title">Definition 2.10</span><span class="bp_used_by_target_meta"><code>two_in_every_fiber</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-priority-005Fbypass-005Fcounterexample-two-005Fin-005Fevery-005Ffiber"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>two_in_every_fiber</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      Completeness and its necessary condition.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            <li class="bp_used_by_item" data-bp-used-preview-id="bp-group-priority-005Fbypass-005Fcounterexample-phantom-005Fbranch-005Fcounterexample" data-bp-used-preview-key="phantom_branch_counterexample--statement" data-bp-used-preview-title="Theorem 2.11">
+                              <a class="bp_used_by_target" href="Symbolic-Delay-Analysis/Completeness/#--informal-preview-phantom_branch_counterexample--statement"><span class="bp_used_by_target_title">Theorem 2.11</span><span class="bp_used_by_target_meta"><code>phantom_branch_counterexample</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-priority-005Fbypass-005Fcounterexample-phantom-005Fbranch-005Fcounterexample"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>phantom_branch_counterexample</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      Completeness and its necessary condition.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            <li class="bp_used_by_item" data-bp-used-preview-id="bp-group-priority-005Fbypass-005Fcounterexample-analyzeDelay-005Fle-005Fdelay" data-bp-used-preview-key="analyzeDelay_le_delay--statement" data-bp-used-preview-title="Theorem 2.13">
+                              <a class="bp_used_by_target" href="Symbolic-Delay-Analysis/Completeness/#--informal-preview-analyzeDelay_le_delay--statement"><span class="bp_used_by_target_title">Theorem 2.13</span><span class="bp_used_by_target_meta"><code>analyzeDelay_le_delay</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-priority-005Fbypass-005Fcounterexample-analyzeDelay-005Fle-005Fdelay"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>analyzeDelay_le_delay</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      Completeness and its necessary condition.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            <li class="bp_used_by_item" data-bp-used-preview-id="bp-group-priority-005Fbypass-005Fcounterexample-delay-005Feq-005FanalyzeDelay" data-bp-used-preview-key="delay_eq_analyzeDelay--statement" data-bp-used-preview-title="Theorem 2.14">
+                              <a class="bp_used_by_target" href="Symbolic-Delay-Analysis/Completeness/#--informal-preview-delay_eq_analyzeDelay--statement"><span class="bp_used_by_target_title">Theorem 2.14</span><span class="bp_used_by_target_meta"><code>delay_eq_analyzeDelay</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-priority-005Fbypass-005Fcounterexample-delay-005Feq-005FanalyzeDelay"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>delay_eq_analyzeDelay</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      Completeness and its necessary condition.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            </ul>
+                          <div class="bp_used_by_preview_surface">
+                            <div class="bp_used_by_preview_header">
+                              <div class="bp_used_by_preview_label">
+                                Preview</div>
+                              <div class="bp_used_by_preview_title">
+                                Definition 2.10</div>
+                              </div>
+                            <div class="bp_used_by_preview_body">
+                              <div class="bp_code_hover_section">
+                                <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                  <li>
+                                    <code>two_in_every_fiber</code></li>
+                                  </ul>
+                                </div>
+                              <div class="bp_code_hover_section">
+                                <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                  <li>
+                                    Completeness and its necessary condition.</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </span><span class="bp_extra_slot bp_extra_slot_code"><span class="bp_code_summary_preview_root"><span class="bp_code_summary_preview_wrap bp_code_summary_preview_wrap_active" data-bp-preview-id="bp-code-summary" data-bp-preview-title="priority_bypass_counterexample" tabindex="0" role="button" aria-label="Lean declarations (all present: 1/1)"><span class="bp_code_link bp_code_link_status bp_code_link_status_proved" title="Lean declarations (all present: 1/1)"><span class="bp_code_status_symbol">✓</span><span class="bp_code_link_label">L∃∀N</span></span></span><template class="bp_code_summary_preview_tpl" data-bp-preview-id="bp-code-summary"><div class="bp_code_summary_preview_content">
+                          <div class="bp_code_hover_section">
+                            <span class="bp_code_hover_label">Associated Lean declarations</span><ul class="bp_code_hover_list">
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002EpriorityBypass-005FanalyzeDelay-005Fnone" data-bp-preview-title="priorityBypass_analyzeDelay_none" data-bp-preview-key="Informal.LeanCodePreview.priorityBypass_analyzeDelay_none"><a href="Symbolic-Delay-Analysis/Completeness/#--informal-external-decl-priority_bypass_counterexample-priorityBypass_analyzeDelay_none"><code>priorityBypass_analyzeDelay_none</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </template><aside class="bp_code_summary_preview_panel bp_preview_panel" data-bp-preview-mode="hover" data-bp-preview-placement="anchored" hidden=""><div class="bp_code_summary_preview_header bp_preview_panel_header">
+                          <div class="bp_code_summary_preview_title bp_preview_panel_title"></div>
+                          <button type="button" class="bp_code_summary_preview_close bp_preview_panel_close" aria-label="Close Lean summary preview">Close</button></div>
+                        <div class="bp_code_summary_preview_body bp_preview_panel_body"></div>
+                        </aside></span></span><span class="bp_extra_slot bp_extra_slot_used_by"><span class="bp_used_by_chip bp_used_by_chip_empty" title="No reverse dependencies">used by 0</span></span></div>
+                </div>
+              <div class="bp_content bp_kind_theorem_content theorem_thmcontent">
+                <p>
+                  The <em>priority-bypass counterexample</em> shows that a singleton fiber suffices to
+break completeness. Here <code>branchingType = Bool</code>, <code>α = Fin 3</code>, with
+<code>inspect {0,1} = false</code> and <code>inspect {2} = true</code>. The <code>true</code>-fiber <code>{2}</code> is a
+singleton, violating <span><span class="bp_inline_preview_ref" data-bp-preview-id="bp-uses-two-005Fin-005Fevery-005Ffiber-statement" data-bp-preview-title="Definition 2.10" data-bp-preview-key="two_in_every_fiber--statement" data-bp-preview-fallback-label="two_in_every_fiber"><a href="Symbolic-Delay-Analysis/Completeness/#--informal-preview-two_in_every_fiber--statement" title="two_in_every_fiber">Definition 2.10</a></span><template class="bp_inline_preview_tpl" data-bp-preview-id="bp-uses-two-005Fin-005Fevery-005Ffiber-statement"><p>
+                        The completeness condition. <code>TwoInEveryFiber inspect</code> requires that every fiber
+of the inspection function <code>inspect : α → β</code> contains at least two distinct
+concrete packets:
+<code class="bp_math display">\forall b : \beta,\; \exists a_1 \neq a_2 : \alpha,\;
+  \mathit{inspect}(a_1) = b \;\wedge\; \mathit{inspect}(a_2) = b</code>$$
+This is necessary because the <code>Bool</code> tag in the symbolic algorithm distinguishes
+the tracked packet from background by its tag bit — but two concrete packets
+with the same branch label are observationally identical to the system.
+If a fiber has only one element, there is no valid background representative,
+so the symbolic algorithm may chase configurations with no concrete instantiation.</p>
+                      </template></span>. Three facts hold:</p>
+                <ul>
+                  <li>
+                    <p>
+                      <code>analyzeDelay priorityBypassCounterexample = none</code>: a tracked <code>(true, true)</code>
+  packet in the buffer is indefinitely bypassed by background <code>(true, false)</code> packets.</p>
+                    </li>
+                  <li>
+                    <p>
+                      <code>delayAtMost (α := Fin 3) priorityBypassCounterexample surjInspect2 1</code>: concretely,
+  <code>2</code> in the buffer always exits at the next step regardless of the input.</p>
+                    </li>
+                  <li>
+                    <p>
+                      <code>¬ TwoInEveryFiber surjInspect2</code>.</p>
+                    </li>
+                  </ul>
+                <p>
+                  Failure mode: <em>singleton fiber</em> — the algorithm treats <code>(true, false)</code> and
+<code>(true, true)</code> as distinct symbolic backgrounds, but concretely both map to <code>2</code>.</p>
+                </div>
+              </div>
+            <div class="bp_wrapper bp_code_panel_wrapper">
+              <details class="bp_code_block bp_code_panel"><summary class="bp_heading lemma_thmheading" title="Lean declarations (all present: 1/1)"><span class="bp_caption lemma_thmcaption bp_code_summary_text">Code for Theorem</span><span class="bp_label lemma_thmlabel bp_code_summary_label">2.12</span><span class="bp_code_summary_indicator"><span class="bp_code_summary_preview_root"><span class="bp_code_summary_preview_wrap bp_code_summary_preview_wrap_active" data-bp-preview-id="bp-code-summary" data-bp-preview-title="priority_bypass_counterexample" tabindex="0" role="button" aria-label="Lean declarations (all present: 1/1)"><span class="bp_external_status_badge bp_external_status_badge_summary bp_external_status_ok" title="Lean declarations: all 1 present"><span class="bp_external_status_icon bp_external_status_ok">●</span><span class="bp_external_status_badge_text">1 theorem</span></span></span><template class="bp_code_summary_preview_tpl" data-bp-preview-id="bp-code-summary"><div class="bp_code_summary_preview_content">
+                          <div class="bp_code_hover_section">
+                            <span class="bp_code_hover_label">Associated Lean declarations</span><ul class="bp_code_hover_list">
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002EpriorityBypass-005FanalyzeDelay-005Fnone" data-bp-preview-title="priorityBypass_analyzeDelay_none" data-bp-preview-key="Informal.LeanCodePreview.priorityBypass_analyzeDelay_none"><a href="Symbolic-Delay-Analysis/Completeness/#--informal-external-decl-priority_bypass_counterexample-priorityBypass_analyzeDelay_none"><code>priorityBypass_analyzeDelay_none</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </template><aside class="bp_code_summary_preview_panel bp_preview_panel" data-bp-preview-mode="hover" data-bp-preview-placement="anchored" hidden=""><div class="bp_code_summary_preview_header bp_preview_panel_header">
+                          <div class="bp_code_summary_preview_title bp_preview_panel_title"></div>
+                          <button type="button" class="bp_code_summary_preview_close bp_preview_panel_close" aria-label="Close Lean summary preview">Close</button></div>
+                        <div class="bp_code_summary_preview_body bp_preview_panel_body"></div>
+                        </aside></span></span></summary><ul class="bp_code_hover_list bp_external_decl_list">
+                  <li class="bp_external_decl_item bp_external_decl_item_rendered" id="--informal-external-decl-priority_bypass_counterexample-priorityBypass_analyzeDelay_none">
+                    <div class="bp_external_decl_rendered">
+                      <div class="declaration decl theorem" data-decl="priorityBypass_analyzeDelay_none" data-kind="theorem">
+                        <div class="bp_external_decl_signature_wrap">
+                          <div class="wide-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">theorem</span> <span class="unknown token" data-binding="">priorityBypass_analyzeDelay_none</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text">
+  </span><span class="const token" data-binding="const-analyzeDelay">analyzeDelay<span class="hover-info"><code>analyzeDelay {n m : ℕ} (sys : system n m) [GoodSystem sys] : ℕ∞</code></span></span><span class="inter-text"> </span><span class="const token" data-binding="const-priorityBypassCounterexample">priorityBypassCounterexample<span class="hover-info"><code>priorityBypassCounterexample : system 1 2</code><span class="sep"></span><code class="docstring">1-input/2-output device: incoming true packets take priority and exit via port 1 (when
+the buffer is occupied); if the buffer is empty a true packet is buffered. False packets
+and no-input drain the buffer to port 1. </code></span></span><span class="inter-text"> </span><span class="const token" data-binding="const-Eq">=<span class="hover-info"><code>Eq.{u_1} {α : Sort u_1} : α → α → Prop</code><span class="sep"></span><code class="docstring">The equality relation. It has one introduction rule, `Eq.refl`.
+We use `a = b` as notation for `Eq a b`.
+A fundamental property of equality is that it is an equivalence relation.
+```
+variable (α : Type) (a b c d : α)
+variable (hab : a = b) (hcb : c = b) (hcd : c = d)
+
+example : a = d :=
+  Eq.trans (Eq.trans hab (Eq.symm hcb)) hcd
+```
+Equality is much more than an equivalence relation, however. It has the important property that every assertion
+respects the equivalence, in the sense that we can substitute equal expressions without changing the truth value.
+That is, given `h1 : a = b` and `h2 : p a`, we can construct a proof for `p b` using substitution: `Eq.subst h1 h2`.
+Example:
+```
+example (α : Type) (a b : α) (p : α → Prop)
+        (h1 : a = b) (h2 : p a) : p b :=
+  Eq.subst h1 h2
+
+example (α : Type) (a b : α) (p : α → Prop)
+    (h1 : a = b) (h2 : p a) : p b :=
+  h1 ▸ h2
+```
+The triangle in the second presentation is a macro built on top of `Eq.subst` and `Eq.symm`, and you can enter it by typing `\t`.
+For more information: [Equality](https://lean-lang.org/theorem_proving_in_lean4/quantifiers_and_equality.html#equality)
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `=` in identifiers is `eq`.</code></span></span><span class="inter-text"> </span><span class="const token" data-binding="const-Option.none">none<span class="hover-info"><code>Option.none.{u} {α : Type u} : Option α</code><span class="sep"></span><code class="docstring">No value. </code></span></span></pre></div>
+                          <div class="narrow-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">theorem</span> <span class="unknown token" data-binding="">priorityBypass_analyzeDelay_none</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text">
+  </span><span class="const token" data-binding="const-analyzeDelay">analyzeDelay<span class="hover-info"><code>analyzeDelay {n m : ℕ} (sys : system n m) [GoodSystem sys] : ℕ∞</code></span></span><span class="inter-text">
+      </span><span class="const token" data-binding="const-priorityBypassCounterexample">priorityBypassCounterexample<span class="hover-info"><code>priorityBypassCounterexample : system 1 2</code><span class="sep"></span><code class="docstring">1-input/2-output device: incoming true packets take priority and exit via port 1 (when
+the buffer is occupied); if the buffer is empty a true packet is buffered. False packets
+and no-input drain the buffer to port 1. </code></span></span><span class="inter-text"> </span><span class="const token" data-binding="const-Eq">=<span class="hover-info"><code>Eq.{u_1} {α : Sort u_1} : α → α → Prop</code><span class="sep"></span><code class="docstring">The equality relation. It has one introduction rule, `Eq.refl`.
+We use `a = b` as notation for `Eq a b`.
+A fundamental property of equality is that it is an equivalence relation.
+```
+variable (α : Type) (a b c d : α)
+variable (hab : a = b) (hcb : c = b) (hcd : c = d)
+
+example : a = d :=
+  Eq.trans (Eq.trans hab (Eq.symm hcb)) hcd
+```
+Equality is much more than an equivalence relation, however. It has the important property that every assertion
+respects the equivalence, in the sense that we can substitute equal expressions without changing the truth value.
+That is, given `h1 : a = b` and `h2 : p a`, we can construct a proof for `p b` using substitution: `Eq.subst h1 h2`.
+Example:
+```
+example (α : Type) (a b : α) (p : α → Prop)
+        (h1 : a = b) (h2 : p a) : p b :=
+  Eq.subst h1 h2
+
+example (α : Type) (a b : α) (p : α → Prop)
+    (h1 : a = b) (h2 : p a) : p b :=
+  h1 ▸ h2
+```
+The triangle in the second presentation is a macro built on top of `Eq.subst` and `Eq.symm`, and you can enter it by typing `\t`.
+For more information: [Equality](https://lean-lang.org/theorem_proving_in_lean4/quantifiers_and_equality.html#equality)
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `=` in identifiers is `eq`.</code></span></span><span class="inter-text">
+    </span><span class="const token" data-binding="const-Option.none">none<span class="hover-info"><code>Option.none.{u} {α : Type u} : Option α</code><span class="sep"></span><code class="docstring">No value. </code></span></span></pre></div>
+                          </div>
+                        <div class="bp_external_decl_body">
+                          <pre class="docstring">The symbolic algorithm finds no finite delay bound: a tracked `(true, true)` packet in the
+buffer is bypassed indefinitely by a stream of background `(true, false)` packets, each of
+which exits via port 1 while the tracked packet stays buffered. </pre></div>
+                        </div>
+                      </div>
+                    <div class="bp_external_decl_meta bp_external_decl_rendered_meta">
+                      <span class="bp_external_status_badge bp_external_decl_footer_status bp_external_decl_ok">complete</span></div>
+                    </li>
+                  </ul>
+                </details></div>
+            <div class="bp_wrapper bp_kind_theorem_wrapper theorem_thmwrapper theorem_thmwrapper theorem-style-plain bp_kind_theorem bp_style_plain" title="analyzeDelay_le_delay" id="--informal-preview-analyzeDelay_le_delay--statement">
+              <div class="bp_heading bp_kind_theorem_heading theorem_thmheading">
+                <div class="bp_heading_title_row bp_heading_title_row_statement">
+                  <span class="bp_caption bp_kind_theorem_caption theorem_thmcaption" title="analyzeDelay_le_delay">Theorem</span><span class="bp_label bp_kind_theorem_label theorem_thmlabel">2.13</span></div>
+                <div class="bp_extras bp_extras_with_group thm_header_extras">
+                  <span class="bp_extra_slot bp_extra_slot_group"><div class="bp_used_by_wrap">
+                      <button type="button" class="bp_used_by_chip" title="Other entries in group Completeness and its necessary condition." aria-expanded="false">group</button><div class="bp_used_by_panel">
+                        <div class="bp_used_by_panel_header">
+                          <div class="bp_used_by_panel_title">
+                            Group: Completeness and its necessary condition. (4)</div>
+                          <div class="bp_used_by_panel_meta">
+                            Hover another entry in this group to preview it.</div>
+                          </div>
+                        <div class="bp_used_by_panel_body">
+                          <ul class="bp_used_by_list">
+                            <li class="bp_used_by_item bp_used_by_item_active" data-bp-used-preview-id="bp-group-analyzeDelay-005Fle-005Fdelay-two-005Fin-005Fevery-005Ffiber" data-bp-used-preview-key="two_in_every_fiber--statement" data-bp-used-preview-title="Definition 2.10">
+                              <a class="bp_used_by_target" href="Symbolic-Delay-Analysis/Completeness/#--informal-preview-two_in_every_fiber--statement"><span class="bp_used_by_target_title">Definition 2.10</span><span class="bp_used_by_target_meta"><code>two_in_every_fiber</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-analyzeDelay-005Fle-005Fdelay-two-005Fin-005Fevery-005Ffiber"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>two_in_every_fiber</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      Completeness and its necessary condition.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            <li class="bp_used_by_item" data-bp-used-preview-id="bp-group-analyzeDelay-005Fle-005Fdelay-phantom-005Fbranch-005Fcounterexample" data-bp-used-preview-key="phantom_branch_counterexample--statement" data-bp-used-preview-title="Theorem 2.11">
+                              <a class="bp_used_by_target" href="Symbolic-Delay-Analysis/Completeness/#--informal-preview-phantom_branch_counterexample--statement"><span class="bp_used_by_target_title">Theorem 2.11</span><span class="bp_used_by_target_meta"><code>phantom_branch_counterexample</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-analyzeDelay-005Fle-005Fdelay-phantom-005Fbranch-005Fcounterexample"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>phantom_branch_counterexample</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      Completeness and its necessary condition.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            <li class="bp_used_by_item" data-bp-used-preview-id="bp-group-analyzeDelay-005Fle-005Fdelay-priority-005Fbypass-005Fcounterexample" data-bp-used-preview-key="priority_bypass_counterexample--statement" data-bp-used-preview-title="Theorem 2.12">
+                              <a class="bp_used_by_target" href="Symbolic-Delay-Analysis/Completeness/#--informal-preview-priority_bypass_counterexample--statement"><span class="bp_used_by_target_title">Theorem 2.12</span><span class="bp_used_by_target_meta"><code>priority_bypass_counterexample</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-analyzeDelay-005Fle-005Fdelay-priority-005Fbypass-005Fcounterexample"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>priority_bypass_counterexample</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      Completeness and its necessary condition.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            <li class="bp_used_by_item" data-bp-used-preview-id="bp-group-analyzeDelay-005Fle-005Fdelay-delay-005Feq-005FanalyzeDelay" data-bp-used-preview-key="delay_eq_analyzeDelay--statement" data-bp-used-preview-title="Theorem 2.14">
+                              <a class="bp_used_by_target" href="Symbolic-Delay-Analysis/Completeness/#--informal-preview-delay_eq_analyzeDelay--statement"><span class="bp_used_by_target_title">Theorem 2.14</span><span class="bp_used_by_target_meta"><code>delay_eq_analyzeDelay</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-analyzeDelay-005Fle-005Fdelay-delay-005Feq-005FanalyzeDelay"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>delay_eq_analyzeDelay</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      Completeness and its necessary condition.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            </ul>
+                          <div class="bp_used_by_preview_surface">
+                            <div class="bp_used_by_preview_header">
+                              <div class="bp_used_by_preview_label">
+                                Preview</div>
+                              <div class="bp_used_by_preview_title">
+                                Definition 2.10</div>
+                              </div>
+                            <div class="bp_used_by_preview_body">
+                              <div class="bp_code_hover_section">
+                                <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                  <li>
+                                    <code>two_in_every_fiber</code></li>
+                                  </ul>
+                                </div>
+                              <div class="bp_code_hover_section">
+                                <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                  <li>
+                                    Completeness and its necessary condition.</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </span><span class="bp_extra_slot bp_extra_slot_code"><span class="bp_code_summary_preview_root"><span class="bp_code_summary_preview_wrap bp_code_summary_preview_wrap_active" data-bp-preview-id="bp-code-summary" data-bp-preview-title="analyzeDelay_le_delay" tabindex="0" role="button" aria-label="Lean declarations (all present: 1/1)"><span class="bp_code_link bp_code_link_status bp_code_link_status_proved" title="Lean declarations (all present: 1/1)"><span class="bp_code_status_symbol">✓</span><span class="bp_code_link_label">L∃∀N</span></span></span><template class="bp_code_summary_preview_tpl" data-bp-preview-id="bp-code-summary"><div class="bp_code_summary_preview_content">
+                          <div class="bp_code_hover_section">
+                            <span class="bp_code_hover_label">Associated Lean declarations</span><ul class="bp_code_hover_list">
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002EanalyzeDelay-005Fle-005Fdelay" data-bp-preview-title="analyzeDelay_le_delay" data-bp-preview-key="Informal.LeanCodePreview.analyzeDelay_le_delay"><a href="Symbolic-Delay-Analysis/Completeness/#--informal-external-decl-analyzeDelay_le_delay-analyzeDelay_le_delay"><code>analyzeDelay_le_delay</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </template><aside class="bp_code_summary_preview_panel bp_preview_panel" data-bp-preview-mode="hover" data-bp-preview-placement="anchored" hidden=""><div class="bp_code_summary_preview_header bp_preview_panel_header">
+                          <div class="bp_code_summary_preview_title bp_preview_panel_title"></div>
+                          <button type="button" class="bp_code_summary_preview_close bp_preview_panel_close" aria-label="Close Lean summary preview">Close</button></div>
+                        <div class="bp_code_summary_preview_body bp_preview_panel_body"></div>
+                        </aside></span></span><span class="bp_extra_slot bp_extra_slot_used_by"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-used-by-analyzeDelay-005Fle-005Fdelay-delay-005Feq-005FanalyzeDelay" data-bp-preview-title="Theorem 2.14" data-bp-preview-key="delay_eq_analyzeDelay--statement" data-bp-preview-fallback-label="delay_eq_analyzeDelay"><a class="bp_used_by_chip bp_code_link" href="Symbolic-Delay-Analysis/Completeness/#--informal-preview-delay_eq_analyzeDelay--statement" title="Reverse dependency: Theorem 2.14">used by 1</a></span></span></div>
+                </div>
+              <div class="bp_content bp_kind_theorem_content theorem_thmcontent">
+                <p>
+                  Under <span><span class="bp_inline_preview_ref" data-bp-preview-id="bp-uses-two-005Fin-005Fevery-005Ffiber-statement" data-bp-preview-title="Definition 2.10" data-bp-preview-key="two_in_every_fiber--statement" data-bp-preview-fallback-label="two_in_every_fiber"><a href="Symbolic-Delay-Analysis/Completeness/#--informal-preview-two_in_every_fiber--statement" title="two_in_every_fiber">Definition 2.10</a></span></span>, the algorithm is a lower bound on the semantic delay:
+<code class="bp_math display">\mathrm{analyzeDelay}(\mathit{sys}) \leq \mathrm{delay}(\mathit{sys}, h)</code>$$
+The proof follows the inverse of the soundness strategy: symbolic witnesses are
+transported back to concrete ones using <span><span class="bp_inline_preview_ref" data-bp-preview-id="bp-uses-two-005Fin-005Fevery-005Ffiber-statement" data-bp-preview-title="Definition 2.10" data-bp-preview-key="two_in_every_fiber--statement" data-bp-preview-fallback-label="two_in_every_fiber"><a href="Symbolic-Delay-Analysis/Completeness/#--informal-preview-two_in_every_fiber--statement" title="two_in_every_fiber">Definition 2.10</a></span></span> to pick
+distinct representatives <code>trackedRep</code> and <code>backgroundRep</code> for each branch label.</p>
+                </div>
+              </div>
+            <div class="bp_wrapper bp_code_panel_wrapper">
+              <details class="bp_code_block bp_code_panel"><summary class="bp_heading lemma_thmheading" title="Lean declarations (all present: 1/1)"><span class="bp_caption lemma_thmcaption bp_code_summary_text">Code for Theorem</span><span class="bp_label lemma_thmlabel bp_code_summary_label">2.13</span><span class="bp_code_summary_indicator"><span class="bp_code_summary_preview_root"><span class="bp_code_summary_preview_wrap bp_code_summary_preview_wrap_active" data-bp-preview-id="bp-code-summary" data-bp-preview-title="analyzeDelay_le_delay" tabindex="0" role="button" aria-label="Lean declarations (all present: 1/1)"><span class="bp_external_status_badge bp_external_status_badge_summary bp_external_status_ok" title="Lean declarations: all 1 present"><span class="bp_external_status_icon bp_external_status_ok">●</span><span class="bp_external_status_badge_text">1 theorem</span></span></span><template class="bp_code_summary_preview_tpl" data-bp-preview-id="bp-code-summary"><div class="bp_code_summary_preview_content">
+                          <div class="bp_code_hover_section">
+                            <span class="bp_code_hover_label">Associated Lean declarations</span><ul class="bp_code_hover_list">
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002EanalyzeDelay-005Fle-005Fdelay" data-bp-preview-title="analyzeDelay_le_delay" data-bp-preview-key="Informal.LeanCodePreview.analyzeDelay_le_delay"><a href="Symbolic-Delay-Analysis/Completeness/#--informal-external-decl-analyzeDelay_le_delay-analyzeDelay_le_delay"><code>analyzeDelay_le_delay</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </template><aside class="bp_code_summary_preview_panel bp_preview_panel" data-bp-preview-mode="hover" data-bp-preview-placement="anchored" hidden=""><div class="bp_code_summary_preview_header bp_preview_panel_header">
+                          <div class="bp_code_summary_preview_title bp_preview_panel_title"></div>
+                          <button type="button" class="bp_code_summary_preview_close bp_preview_panel_close" aria-label="Close Lean summary preview">Close</button></div>
+                        <div class="bp_code_summary_preview_body bp_preview_panel_body"></div>
+                        </aside></span></span></summary><ul class="bp_code_hover_list bp_external_decl_list">
+                  <li class="bp_external_decl_item bp_external_decl_item_rendered" id="--informal-external-decl-analyzeDelay_le_delay-analyzeDelay_le_delay">
+                    <div class="bp_external_decl_rendered">
+                      <div class="declaration decl theorem" data-decl="analyzeDelay_le_delay" data-kind="theorem">
+                        <div class="bp_external_decl_signature_wrap">
+                          <div class="wide-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">theorem</span> <span class="unknown token" data-binding="">analyzeDelay_le_delay</span><span class="inter-text"> </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.13313">α<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-7243200735919010059">Type<span class="hover-info"><code class="docstring">A type universe. `Type ≡ Type 0`, `Type u ≡ Sort (u + 1)`. </code></span></span><span class="unknown token" data-binding="">}</span><span class="inter-text"> </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.13314">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.13315">m<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="unknown token" data-binding="">}</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.13316">sys<span class="hover-info"><code>system n m</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-system">system<span class="hover-info"><code>system (n m : ℕ) : Type 1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.13314">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.13315">m<span class="hover-info"><code>ℕ</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">[</span><span class="const token" data-binding="const-GoodSystem">GoodSystem<span class="hover-info"><code>GoodSystem {n m : ℕ} (sys : system n m) : Type 1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.13316">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">]</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.13319">inspect<span class="hover-info"><code>α → sys.branchingType</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.13313">α<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.13316">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">.</span><span class="const token" data-binding="const-system.branchingType">branchingType<span class="hover-info"><code>system.branchingType {n m : ℕ} (self : system n m) : Type</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.13321">htwo<span class="hover-info"><code>TwoInEveryFiber inspect</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-TwoInEveryFiber">TwoInEveryFiber<span class="hover-info"><code>TwoInEveryFiber.{u_1, u_2} {α : Type u_1} {β : Type u_2} (inspect : α → β) : Prop</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.13319">inspect<span class="hover-info"><code>α → sys.branchingType</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text">
+  </span><span class="const token" data-binding="const-analyzeDelay">analyzeDelay<span class="hover-info"><code>analyzeDelay {n m : ℕ} (sys : system n m) [GoodSystem sys] : ℕ∞</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.13316">sys<span class="hover-info"><code>system n m</code></span></span><span class="inter-text"> </span><span class="const token" data-binding="const-LE.le">≤<span class="hover-info"><code>LE.le.{u} {α : Type u} [self : LE α] : α → α → Prop</code><span class="sep"></span><code class="docstring">The less-equal relation: `x ≤ y` 
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `≤` in identifiers is `le`.
+
+ * The recommended spelling of `&lt;=` in identifiers is `le` (prefer `≤` over `&lt;=`).</code></span></span><span class="inter-text"> </span><span class="const token" data-binding="const-delay">delay<span class="hover-info"><code>delay {α : Type} {n m : ℕ} (sys : system n m) (inspect : α → sys.branchingType) : ℕ∞</code><span class="sep"></span><code class="docstring">The worst-case delay of `sys` under `inspect`: the supremum over all packet occurrences of
+the earliest exit time, measured in ℕ∞ (= WithTop ℕ).
+
+For each packet occurrence (stream R, entry time t, packet p), we compute the infimum
+over all τ such that p exits at time t + τ. When the packet never exits (empty infimum),
+this gives ⊤ in ℕ∞, correctly capturing both packet loss and unbounded delay.
+
+`delay sys inspect = ⊤` means the system can lose packets or delay them indefinitely.
+`delay sys inspect = d &lt; ⊤` means every packet exits within d steps. </code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.13316">sys<span class="hover-info"><code>system n m</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.13319">inspect<span class="hover-info"><code>α → sys.branchingType</code></span></span></pre></div>
+                          <div class="narrow-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">theorem</span> <span class="unknown token" data-binding="">analyzeDelay_le_delay</span><span class="inter-text"> </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.13313">α<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-7243200735919010059">Type<span class="hover-info"><code class="docstring">A type universe. `Type ≡ Type 0`, `Type u ≡ Sort (u + 1)`. </code></span></span><span class="unknown token" data-binding="">}</span><span class="inter-text"> </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.13314">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.13315">m<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="unknown token" data-binding="">}</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.13316">sys<span class="hover-info"><code>system n m</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-system">system<span class="hover-info"><code>system (n m : ℕ) : Type 1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.13314">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.13315">m<span class="hover-info"><code>ℕ</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">[</span><span class="const token" data-binding="const-GoodSystem">GoodSystem<span class="hover-info"><code>GoodSystem {n m : ℕ} (sys : system n m) : Type 1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.13316">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">]</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.13319">inspect<span class="hover-info"><code>α → sys.branchingType</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.13313">α<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.13316">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">.</span><span class="const token" data-binding="const-system.branchingType">branchingType<span class="hover-info"><code>system.branchingType {n m : ℕ} (self : system n m) : Type</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.13321">htwo<span class="hover-info"><code>TwoInEveryFiber inspect</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-TwoInEveryFiber">TwoInEveryFiber<span class="hover-info"><code>TwoInEveryFiber.{u_1, u_2} {α : Type u_1} {β : Type u_2} (inspect : α → β) : Prop</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.13319">inspect<span class="hover-info"><code>α → sys.branchingType</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text">
+  </span><span class="const token" data-binding="const-analyzeDelay">analyzeDelay<span class="hover-info"><code>analyzeDelay {n m : ℕ} (sys : system n m) [GoodSystem sys] : ℕ∞</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.13316">sys<span class="hover-info"><code>system n m</code></span></span><span class="inter-text"> </span><span class="const token" data-binding="const-LE.le">≤<span class="hover-info"><code>LE.le.{u} {α : Type u} [self : LE α] : α → α → Prop</code><span class="sep"></span><code class="docstring">The less-equal relation: `x ≤ y` 
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `≤` in identifiers is `le`.
+
+ * The recommended spelling of `&lt;=` in identifiers is `le` (prefer `≤` over `&lt;=`).</code></span></span><span class="inter-text"> </span><span class="const token" data-binding="const-delay">delay<span class="hover-info"><code>delay {α : Type} {n m : ℕ} (sys : system n m) (inspect : α → sys.branchingType) : ℕ∞</code><span class="sep"></span><code class="docstring">The worst-case delay of `sys` under `inspect`: the supremum over all packet occurrences of
+the earliest exit time, measured in ℕ∞ (= WithTop ℕ).
+
+For each packet occurrence (stream R, entry time t, packet p), we compute the infimum
+over all τ such that p exits at time t + τ. When the packet never exits (empty infimum),
+this gives ⊤ in ℕ∞, correctly capturing both packet loss and unbounded delay.
+
+`delay sys inspect = ⊤` means the system can lose packets or delay them indefinitely.
+`delay sys inspect = d &lt; ⊤` means every packet exits within d steps. </code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.13316">sys<span class="hover-info"><code>system n m</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.13319">inspect<span class="hover-info"><code>α → sys.branchingType</code></span></span></pre></div>
+                          </div>
+                        <div class="bp_external_decl_body"></div>
+                        </div>
+                      </div>
+                    <div class="bp_external_decl_meta bp_external_decl_rendered_meta">
+                      <span class="bp_external_status_badge bp_external_decl_footer_status bp_external_decl_ok">complete</span></div>
+                    </li>
+                  </ul>
+                </details></div>
+            <div class="bp_wrapper bp_kind_theorem_wrapper theorem_thmwrapper theorem_thmwrapper theorem-style-plain bp_kind_theorem bp_style_plain" title="delay_eq_analyzeDelay" id="--informal-preview-delay_eq_analyzeDelay--statement">
+              <div class="bp_heading bp_kind_theorem_heading theorem_thmheading">
+                <div class="bp_heading_title_row bp_heading_title_row_statement">
+                  <span class="bp_caption bp_kind_theorem_caption theorem_thmcaption" title="delay_eq_analyzeDelay">Theorem</span><span class="bp_label bp_kind_theorem_label theorem_thmlabel">2.14</span></div>
+                <div class="bp_extras bp_extras_with_group thm_header_extras">
+                  <span class="bp_extra_slot bp_extra_slot_group"><div class="bp_used_by_wrap">
+                      <button type="button" class="bp_used_by_chip" title="Other entries in group Completeness and its necessary condition." aria-expanded="false">group</button><div class="bp_used_by_panel">
+                        <div class="bp_used_by_panel_header">
+                          <div class="bp_used_by_panel_title">
+                            Group: Completeness and its necessary condition. (4)</div>
+                          <div class="bp_used_by_panel_meta">
+                            Hover another entry in this group to preview it.</div>
+                          </div>
+                        <div class="bp_used_by_panel_body">
+                          <ul class="bp_used_by_list">
+                            <li class="bp_used_by_item bp_used_by_item_active" data-bp-used-preview-id="bp-group-delay-005Feq-005FanalyzeDelay-two-005Fin-005Fevery-005Ffiber" data-bp-used-preview-key="two_in_every_fiber--statement" data-bp-used-preview-title="Definition 2.10">
+                              <a class="bp_used_by_target" href="Symbolic-Delay-Analysis/Completeness/#--informal-preview-two_in_every_fiber--statement"><span class="bp_used_by_target_title">Definition 2.10</span><span class="bp_used_by_target_meta"><code>two_in_every_fiber</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-delay-005Feq-005FanalyzeDelay-two-005Fin-005Fevery-005Ffiber"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>two_in_every_fiber</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      Completeness and its necessary condition.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            <li class="bp_used_by_item" data-bp-used-preview-id="bp-group-delay-005Feq-005FanalyzeDelay-phantom-005Fbranch-005Fcounterexample" data-bp-used-preview-key="phantom_branch_counterexample--statement" data-bp-used-preview-title="Theorem 2.11">
+                              <a class="bp_used_by_target" href="Symbolic-Delay-Analysis/Completeness/#--informal-preview-phantom_branch_counterexample--statement"><span class="bp_used_by_target_title">Theorem 2.11</span><span class="bp_used_by_target_meta"><code>phantom_branch_counterexample</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-delay-005Feq-005FanalyzeDelay-phantom-005Fbranch-005Fcounterexample"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>phantom_branch_counterexample</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      Completeness and its necessary condition.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            <li class="bp_used_by_item" data-bp-used-preview-id="bp-group-delay-005Feq-005FanalyzeDelay-priority-005Fbypass-005Fcounterexample" data-bp-used-preview-key="priority_bypass_counterexample--statement" data-bp-used-preview-title="Theorem 2.12">
+                              <a class="bp_used_by_target" href="Symbolic-Delay-Analysis/Completeness/#--informal-preview-priority_bypass_counterexample--statement"><span class="bp_used_by_target_title">Theorem 2.12</span><span class="bp_used_by_target_meta"><code>priority_bypass_counterexample</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-delay-005Feq-005FanalyzeDelay-priority-005Fbypass-005Fcounterexample"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>priority_bypass_counterexample</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      Completeness and its necessary condition.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            <li class="bp_used_by_item" data-bp-used-preview-id="bp-group-delay-005Feq-005FanalyzeDelay-analyzeDelay-005Fle-005Fdelay" data-bp-used-preview-key="analyzeDelay_le_delay--statement" data-bp-used-preview-title="Theorem 2.13">
+                              <a class="bp_used_by_target" href="Symbolic-Delay-Analysis/Completeness/#--informal-preview-analyzeDelay_le_delay--statement"><span class="bp_used_by_target_title">Theorem 2.13</span><span class="bp_used_by_target_meta"><code>analyzeDelay_le_delay</code></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-group-delay-005Feq-005FanalyzeDelay-analyzeDelay-005Fle-005Fdelay"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>analyzeDelay_le_delay</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      Completeness and its necessary condition.</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            </ul>
+                          <div class="bp_used_by_preview_surface">
+                            <div class="bp_used_by_preview_header">
+                              <div class="bp_used_by_preview_label">
+                                Preview</div>
+                              <div class="bp_used_by_preview_title">
+                                Definition 2.10</div>
+                              </div>
+                            <div class="bp_used_by_preview_body">
+                              <div class="bp_code_hover_section">
+                                <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                  <li>
+                                    <code>two_in_every_fiber</code></li>
+                                  </ul>
+                                </div>
+                              <div class="bp_code_hover_section">
+                                <span class="bp_code_hover_label">Group</span><ul class="bp_code_hover_list">
+                                  <li>
+                                    Completeness and its necessary condition.</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </span><span class="bp_extra_slot bp_extra_slot_code"><span class="bp_code_summary_preview_root"><span class="bp_code_summary_preview_wrap bp_code_summary_preview_wrap_active" data-bp-preview-id="bp-code-summary" data-bp-preview-title="delay_eq_analyzeDelay" tabindex="0" role="button" aria-label="Lean declarations (all present: 1/1)"><span class="bp_code_link bp_code_link_status bp_code_link_status_proved" title="Lean declarations (all present: 1/1)"><span class="bp_code_status_symbol">✓</span><span class="bp_code_link_label">L∃∀N</span></span></span><template class="bp_code_summary_preview_tpl" data-bp-preview-id="bp-code-summary"><div class="bp_code_summary_preview_content">
+                          <div class="bp_code_hover_section">
+                            <span class="bp_code_hover_label">Associated Lean declarations</span><ul class="bp_code_hover_list">
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002Edelay-005Feq-005FanalyzeDelay" data-bp-preview-title="delay_eq_analyzeDelay" data-bp-preview-key="Informal.LeanCodePreview.delay_eq_analyzeDelay"><a href="Symbolic-Delay-Analysis/Completeness/#--informal-external-decl-delay_eq_analyzeDelay-delay_eq_analyzeDelay"><code>delay_eq_analyzeDelay</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </template><aside class="bp_code_summary_preview_panel bp_preview_panel" data-bp-preview-mode="hover" data-bp-preview-placement="anchored" hidden=""><div class="bp_code_summary_preview_header bp_preview_panel_header">
+                          <div class="bp_code_summary_preview_title bp_preview_panel_title"></div>
+                          <button type="button" class="bp_code_summary_preview_close bp_preview_panel_close" aria-label="Close Lean summary preview">Close</button></div>
+                        <div class="bp_code_summary_preview_body bp_preview_panel_body"></div>
+                        </aside></span></span><span class="bp_extra_slot bp_extra_slot_used_by"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-used-by-delay-005Feq-005FanalyzeDelay-analyzeDelayOpt-005Feq-005FanalyzeDelay" data-bp-preview-title="Theorem 2.17" data-bp-preview-key="analyzeDelayOpt_eq_analyzeDelay--statement" data-bp-preview-fallback-label="analyzeDelayOpt_eq_analyzeDelay"><a class="bp_used_by_chip bp_code_link" href="Symbolic-Delay-Analysis/Optimized-Algorithm/#--informal-preview-analyzeDelayOpt_eq_analyzeDelay--statement" title="Reverse dependency: Theorem 2.17">used by 1</a></span></span></div>
+                </div>
+              <div class="bp_content bp_kind_theorem_content theorem_thmcontent">
+                <p>
+                  Combining <span><span class="bp_inline_preview_ref" data-bp-preview-id="bp-uses-delay-005Fle-005FanalyzeDelay-statement" data-bp-preview-title="Theorem 2.9" data-bp-preview-key="delay_le_analyzeDelay--statement" data-bp-preview-fallback-label="delay_le_analyzeDelay"><a href="Symbolic-Delay-Analysis/Soundness/#--informal-preview-delay_le_analyzeDelay--statement" title="delay_le_analyzeDelay">Theorem 2.9</a></span><template class="bp_inline_preview_tpl" data-bp-preview-id="bp-uses-delay-005Fle-005FanalyzeDelay-statement"><p>
+                        The semantic delay is at most the algorithmic delay, with no assumption on <code>inspect</code>:
+<code class="bp_math display">\mathrm{delay}(\mathit{sys}, h) \leq \mathrm{analyzeDelay}(\mathit{sys})</code>$$
+This is the main exported soundness result. It follows from
+<span><span class="bp_inline_preview_ref" data-bp-preview-id="bp-uses-analyze-005Fdelay-005Fsound-statement" data-bp-preview-title="Theorem 2.8" data-bp-preview-key="analyze_delay_sound--statement" data-bp-preview-fallback-label="analyze_delay_sound"><a href="Symbolic-Delay-Analysis/Soundness/#--informal-preview-analyze_delay_sound--statement" title="analyze_delay_sound">Theorem 2.8</a></span></span> via the <span><span class="bp_inline_preview_ref" data-bp-preview-id="bp-uses-delay-005Fle-005Fiff-statement" data-bp-preview-title="Lemma 1.9" data-bp-preview-key="delay_le_iff--statement" data-bp-preview-fallback-label="delay_le_iff"><a href="Core-Model/Delay-Semantics/#--informal-preview-delay_le_iff--statement" title="delay_le_iff">Lemma 1.9</a></span></span> bridge.</p>
+                      </template></span> and <span><span class="bp_inline_preview_ref" data-bp-preview-id="bp-uses-analyzeDelay-005Fle-005Fdelay-statement" data-bp-preview-title="Theorem 2.13" data-bp-preview-key="analyzeDelay_le_delay--statement" data-bp-preview-fallback-label="analyzeDelay_le_delay"><a href="Symbolic-Delay-Analysis/Completeness/#--informal-preview-analyzeDelay_le_delay--statement" title="analyzeDelay_le_delay">Theorem 2.13</a></span><template class="bp_inline_preview_tpl" data-bp-preview-id="bp-uses-analyzeDelay-005Fle-005Fdelay-statement"><p>
+                        Under <span><span class="bp_inline_preview_ref" data-bp-preview-id="bp-uses-two-005Fin-005Fevery-005Ffiber-statement" data-bp-preview-title="Definition 2.10" data-bp-preview-key="two_in_every_fiber--statement" data-bp-preview-fallback-label="two_in_every_fiber"><a href="Symbolic-Delay-Analysis/Completeness/#--informal-preview-two_in_every_fiber--statement" title="two_in_every_fiber">Definition 2.10</a></span></span>, the algorithm is a lower bound on the semantic delay:
+<code class="bp_math display">\mathrm{analyzeDelay}(\mathit{sys}) \leq \mathrm{delay}(\mathit{sys}, h)</code>$$
+The proof follows the inverse of the soundness strategy: symbolic witnesses are
+transported back to concrete ones using <span><span class="bp_inline_preview_ref" data-bp-preview-id="bp-uses-two-005Fin-005Fevery-005Ffiber-statement" data-bp-preview-title="Definition 2.10" data-bp-preview-key="two_in_every_fiber--statement" data-bp-preview-fallback-label="two_in_every_fiber"><a href="Symbolic-Delay-Analysis/Completeness/#--informal-preview-two_in_every_fiber--statement" title="two_in_every_fiber">Definition 2.10</a></span></span> to pick
+distinct representatives <code>trackedRep</code> and <code>backgroundRep</code> for each branch label.</p>
+                      </template></span>,
+the algorithm is exact under <span><span class="bp_inline_preview_ref" data-bp-preview-id="bp-uses-two-005Fin-005Fevery-005Ffiber-statement" data-bp-preview-title="Definition 2.10" data-bp-preview-key="two_in_every_fiber--statement" data-bp-preview-fallback-label="two_in_every_fiber"><a href="Symbolic-Delay-Analysis/Completeness/#--informal-preview-two_in_every_fiber--statement" title="two_in_every_fiber">Definition 2.10</a></span></span>:
+<code class="bp_math display">\mathrm{delay}(\mathit{sys}, h) = \mathrm{analyzeDelay}(\mathit{sys})</code>$$</p>
+                </div>
+              </div>
+            <div class="bp_wrapper bp_code_panel_wrapper">
+              <details class="bp_code_block bp_code_panel"><summary class="bp_heading lemma_thmheading" title="Lean declarations (all present: 1/1)"><span class="bp_caption lemma_thmcaption bp_code_summary_text">Code for Theorem</span><span class="bp_label lemma_thmlabel bp_code_summary_label">2.14</span><span class="bp_code_summary_indicator"><span class="bp_code_summary_preview_root"><span class="bp_code_summary_preview_wrap bp_code_summary_preview_wrap_active" data-bp-preview-id="bp-code-summary" data-bp-preview-title="delay_eq_analyzeDelay" tabindex="0" role="button" aria-label="Lean declarations (all present: 1/1)"><span class="bp_external_status_badge bp_external_status_badge_summary bp_external_status_ok" title="Lean declarations: all 1 present"><span class="bp_external_status_icon bp_external_status_ok">●</span><span class="bp_external_status_badge_text">1 theorem</span></span></span><template class="bp_code_summary_preview_tpl" data-bp-preview-id="bp-code-summary"><div class="bp_code_summary_preview_content">
+                          <div class="bp_code_hover_section">
+                            <span class="bp_code_hover_label">Associated Lean declarations</span><ul class="bp_code_hover_list">
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002Edelay-005Feq-005FanalyzeDelay" data-bp-preview-title="delay_eq_analyzeDelay" data-bp-preview-key="Informal.LeanCodePreview.delay_eq_analyzeDelay"><a href="Symbolic-Delay-Analysis/Completeness/#--informal-external-decl-delay_eq_analyzeDelay-delay_eq_analyzeDelay"><code>delay_eq_analyzeDelay</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </template><aside class="bp_code_summary_preview_panel bp_preview_panel" data-bp-preview-mode="hover" data-bp-preview-placement="anchored" hidden=""><div class="bp_code_summary_preview_header bp_preview_panel_header">
+                          <div class="bp_code_summary_preview_title bp_preview_panel_title"></div>
+                          <button type="button" class="bp_code_summary_preview_close bp_preview_panel_close" aria-label="Close Lean summary preview">Close</button></div>
+                        <div class="bp_code_summary_preview_body bp_preview_panel_body"></div>
+                        </aside></span></span></summary><ul class="bp_code_hover_list bp_external_decl_list">
+                  <li class="bp_external_decl_item bp_external_decl_item_rendered" id="--informal-external-decl-delay_eq_analyzeDelay-delay_eq_analyzeDelay">
+                    <div class="bp_external_decl_rendered">
+                      <div class="declaration decl theorem" data-decl="delay_eq_analyzeDelay" data-kind="theorem">
+                        <div class="bp_external_decl_signature_wrap">
+                          <div class="wide-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">theorem</span> <span class="unknown token" data-binding="">delay_eq_analyzeDelay</span><span class="inter-text"> </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.14192">α<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-7243200735919010059">Type<span class="hover-info"><code class="docstring">A type universe. `Type ≡ Type 0`, `Type u ≡ Sort (u + 1)`. </code></span></span><span class="unknown token" data-binding="">}</span><span class="inter-text"> </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.14193">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.14194">m<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="unknown token" data-binding="">}</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.14195">sys<span class="hover-info"><code>system n m</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-system">system<span class="hover-info"><code>system (n m : ℕ) : Type 1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.14193">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.14194">m<span class="hover-info"><code>ℕ</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">[</span><span class="const token" data-binding="const-GoodSystem">GoodSystem<span class="hover-info"><code>GoodSystem {n m : ℕ} (sys : system n m) : Type 1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.14195">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">]</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.14198">inspect<span class="hover-info"><code>α → sys.branchingType</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.14192">α<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.14195">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">.</span><span class="const token" data-binding="const-system.branchingType">branchingType<span class="hover-info"><code>system.branchingType {n m : ℕ} (self : system n m) : Type</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.14200">htwo<span class="hover-info"><code>TwoInEveryFiber inspect</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-TwoInEveryFiber">TwoInEveryFiber<span class="hover-info"><code>TwoInEveryFiber.{u_1, u_2} {α : Type u_1} {β : Type u_2} (inspect : α → β) : Prop</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.14198">inspect<span class="hover-info"><code>α → sys.branchingType</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text">
+  </span><span class="const token" data-binding="const-delay">delay<span class="hover-info"><code>delay {α : Type} {n m : ℕ} (sys : system n m) (inspect : α → sys.branchingType) : ℕ∞</code><span class="sep"></span><code class="docstring">The worst-case delay of `sys` under `inspect`: the supremum over all packet occurrences of
+the earliest exit time, measured in ℕ∞ (= WithTop ℕ).
+
+For each packet occurrence (stream R, entry time t, packet p), we compute the infimum
+over all τ such that p exits at time t + τ. When the packet never exits (empty infimum),
+this gives ⊤ in ℕ∞, correctly capturing both packet loss and unbounded delay.
+
+`delay sys inspect = ⊤` means the system can lose packets or delay them indefinitely.
+`delay sys inspect = d &lt; ⊤` means every packet exits within d steps. </code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.14195">sys<span class="hover-info"><code>system n m</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.14198">inspect<span class="hover-info"><code>α → sys.branchingType</code></span></span><span class="inter-text"> </span><span class="const token" data-binding="const-Eq">=<span class="hover-info"><code>Eq.{u_1} {α : Sort u_1} : α → α → Prop</code><span class="sep"></span><code class="docstring">The equality relation. It has one introduction rule, `Eq.refl`.
+We use `a = b` as notation for `Eq a b`.
+A fundamental property of equality is that it is an equivalence relation.
+```
+variable (α : Type) (a b c d : α)
+variable (hab : a = b) (hcb : c = b) (hcd : c = d)
+
+example : a = d :=
+  Eq.trans (Eq.trans hab (Eq.symm hcb)) hcd
+```
+Equality is much more than an equivalence relation, however. It has the important property that every assertion
+respects the equivalence, in the sense that we can substitute equal expressions without changing the truth value.
+That is, given `h1 : a = b` and `h2 : p a`, we can construct a proof for `p b` using substitution: `Eq.subst h1 h2`.
+Example:
+```
+example (α : Type) (a b : α) (p : α → Prop)
+        (h1 : a = b) (h2 : p a) : p b :=
+  Eq.subst h1 h2
+
+example (α : Type) (a b : α) (p : α → Prop)
+    (h1 : a = b) (h2 : p a) : p b :=
+  h1 ▸ h2
+```
+The triangle in the second presentation is a macro built on top of `Eq.subst` and `Eq.symm`, and you can enter it by typing `\t`.
+For more information: [Equality](https://lean-lang.org/theorem_proving_in_lean4/quantifiers_and_equality.html#equality)
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `=` in identifiers is `eq`.</code></span></span><span class="inter-text"> </span><span class="const token" data-binding="const-analyzeDelay">analyzeDelay<span class="hover-info"><code>analyzeDelay {n m : ℕ} (sys : system n m) [GoodSystem sys] : ℕ∞</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.14195">sys<span class="hover-info"><code>system n m</code></span></span></pre></div>
+                          <div class="narrow-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">theorem</span> <span class="unknown token" data-binding="">delay_eq_analyzeDelay</span><span class="inter-text"> </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.14192">α<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-7243200735919010059">Type<span class="hover-info"><code class="docstring">A type universe. `Type ≡ Type 0`, `Type u ≡ Sort (u + 1)`. </code></span></span><span class="unknown token" data-binding="">}</span><span class="inter-text"> </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.14193">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.14194">m<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="unknown token" data-binding="">}</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.14195">sys<span class="hover-info"><code>system n m</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-system">system<span class="hover-info"><code>system (n m : ℕ) : Type 1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.14193">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.14194">m<span class="hover-info"><code>ℕ</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">[</span><span class="const token" data-binding="const-GoodSystem">GoodSystem<span class="hover-info"><code>GoodSystem {n m : ℕ} (sys : system n m) : Type 1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.14195">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">]</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.14198">inspect<span class="hover-info"><code>α → sys.branchingType</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.14192">α<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.14195">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">.</span><span class="const token" data-binding="const-system.branchingType">branchingType<span class="hover-info"><code>system.branchingType {n m : ℕ} (self : system n m) : Type</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.14200">htwo<span class="hover-info"><code>TwoInEveryFiber inspect</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-TwoInEveryFiber">TwoInEveryFiber<span class="hover-info"><code>TwoInEveryFiber.{u_1, u_2} {α : Type u_1} {β : Type u_2} (inspect : α → β) : Prop</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.14198">inspect<span class="hover-info"><code>α → sys.branchingType</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text">
+  </span><span class="const token" data-binding="const-delay">delay<span class="hover-info"><code>delay {α : Type} {n m : ℕ} (sys : system n m) (inspect : α → sys.branchingType) : ℕ∞</code><span class="sep"></span><code class="docstring">The worst-case delay of `sys` under `inspect`: the supremum over all packet occurrences of
+the earliest exit time, measured in ℕ∞ (= WithTop ℕ).
+
+For each packet occurrence (stream R, entry time t, packet p), we compute the infimum
+over all τ such that p exits at time t + τ. When the packet never exits (empty infimum),
+this gives ⊤ in ℕ∞, correctly capturing both packet loss and unbounded delay.
+
+`delay sys inspect = ⊤` means the system can lose packets or delay them indefinitely.
+`delay sys inspect = d &lt; ⊤` means every packet exits within d steps. </code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.14195">sys<span class="hover-info"><code>system n m</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.14198">inspect<span class="hover-info"><code>α → sys.branchingType</code></span></span><span class="inter-text"> </span><span class="const token" data-binding="const-Eq">=<span class="hover-info"><code>Eq.{u_1} {α : Sort u_1} : α → α → Prop</code><span class="sep"></span><code class="docstring">The equality relation. It has one introduction rule, `Eq.refl`.
+We use `a = b` as notation for `Eq a b`.
+A fundamental property of equality is that it is an equivalence relation.
+```
+variable (α : Type) (a b c d : α)
+variable (hab : a = b) (hcb : c = b) (hcd : c = d)
+
+example : a = d :=
+  Eq.trans (Eq.trans hab (Eq.symm hcb)) hcd
+```
+Equality is much more than an equivalence relation, however. It has the important property that every assertion
+respects the equivalence, in the sense that we can substitute equal expressions without changing the truth value.
+That is, given `h1 : a = b` and `h2 : p a`, we can construct a proof for `p b` using substitution: `Eq.subst h1 h2`.
+Example:
+```
+example (α : Type) (a b : α) (p : α → Prop)
+        (h1 : a = b) (h2 : p a) : p b :=
+  Eq.subst h1 h2
+
+example (α : Type) (a b : α) (p : α → Prop)
+    (h1 : a = b) (h2 : p a) : p b :=
+  h1 ▸ h2
+```
+The triangle in the second presentation is a macro built on top of `Eq.subst` and `Eq.symm`, and you can enter it by typing `\t`.
+For more information: [Equality](https://lean-lang.org/theorem_proving_in_lean4/quantifiers_and_equality.html#equality)
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `=` in identifiers is `eq`.</code></span></span><span class="inter-text"> </span><span class="const token" data-binding="const-analyzeDelay">analyzeDelay<span class="hover-info"><code>analyzeDelay {n m : ℕ} (sys : system n m) [GoodSystem sys] : ℕ∞</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.14195">sys<span class="hover-info"><code>system n m</code></span></span></pre></div>
+                          </div>
+                        <div class="bp_external_decl_body">
+                          <pre class="docstring">The semantic delay equals the algorithmic delay when `TwoInEveryFiber` holds.
+Completeness (`analyzeDelay ≤ delay`, requires `TwoInEveryFiber`) is `analyzeDelay_le_delay`. </pre></div>
+                        </div>
+                      </div>
+                    <div class="bp_external_decl_meta bp_external_decl_rendered_meta">
+                      <span class="bp_external_status_badge bp_external_decl_footer_status bp_external_decl_ok">complete</span></div>
+                    </li>
+                  </ul>
+                </details></div>
             </section>
           <nav class="prev-next-buttons">
-            <a class="local-button active" href="Core-Model/Delay-Semantics/#Network-Performance-Verification--Core-Model--Delay-Semantics" rel="prev" title="1.2. Delay Semantics"><span class="arrow">←</span><span class="where">1.2. Delay Semantics</span></a><a class="local-button active" href="Symbolic-Delay-Analysis/Abstractions/#Network-Performance-Verification--Symbolic-Delay-Analysis--Abstractions" rel="next" title="2.1. Abstractions"><span class="where">2.1. Abstractions</span><span class="arrow">→</span></a></nav>
+            <a class="local-button active" href="Symbolic-Delay-Analysis/Soundness/#Network-Performance-Verification--Symbolic-Delay-Analysis--Soundness" rel="prev" title="2.3. Soundness"><span class="arrow">←</span><span class="where">2.3. Soundness</span></a><a class="local-button active" href="Symbolic-Delay-Analysis/Optimized-Algorithm/#Network-Performance-Verification--Symbolic-Delay-Analysis--Optimized-Algorithm" rel="next" title="2.5. Optimized Algorithm"><span class="where">2.5. Optimized Algorithm</span><span class="arrow">→</span></a></nav>
           </div>
         </main></div>
     </body>

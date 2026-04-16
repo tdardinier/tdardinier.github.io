@@ -8,9 +8,9 @@
     window.location.replace(`${proto}//${hostName}${path}/${srch}${hsh}`);
   }
 })()</script>
-    <base href="./../"><meta charset="utf-8">
+    <base href="./../../"><meta charset="utf-8">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-    <title>Symbolic Delay Analysis</title><link rel="stylesheet" href="book.css">
+    <title>Abstractions</title><link rel="stylesheet" href="book.css">
     <link rel="stylesheet" href="verso-vars.css">
     <script src="https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js" integrity="sha384-zbcZAIxlvJtNE3Dp5nxLXdXtXyxwOdnILY1TDPVmKFhl4r4nSUG1r8bcFXGVa4Te" crossorigin="anonymous"></script>
     <script src="-verso-search/elasticlunr.min.js"></script>
@@ -6936,37 +6936,820 @@ window.onload = () => {
             </a><div class="split-tocs">
             <div class="split-toc book">
               <div class="title">
-                <label for="--verso-manual-toc-----bookRoot" class="toggle-split-toc"><input type="checkbox" class="toggle-split-toc" id="--verso-manual-toc-----bookRoot" checked="checked"></label><span class="">Table of Contents</span></div>
+                <label for="--verso-manual-toc-----bookRoot" class="toggle-split-toc"><input type="checkbox" class="toggle-split-toc" id="--verso-manual-toc-----bookRoot"></label><span class="">Table of Contents</span></div>
               <table><tr class="numbered"><td class="num">1.</td><td><a href="Core-Model/#Network-Performance-Verification--Core-Model">Core Model</a></td></tr><tr class="current numbered"><td class="num">2.</td><td><a href="Symbolic-Delay-Analysis/#Network-Performance-Verification--Symbolic-Delay-Analysis">Symbolic Delay Analysis</a></td></tr><tr class="numbered"><td class="num">3.</td><td><a href="Tagged-Delay-Analysis/#Network-Performance-Verification--Tagged-Delay-Analysis">Tagged Delay Analysis</a></td></tr><tr class="unnumbered"><td class="num"><td><a href="Dependency-Graph/#Network-Performance-Verification--Dependency-Graph">Dependency Graph</a></td></tr><tr class="unnumbered"><td class="num"><td><a href="Blueprint-Summary/#Network-Performance-Verification--Blueprint-Summary">Blueprint Summary</a></td></tr></table></div>
             <div class="split-toc">
               <div class="title">
-                <label for="--verso-manual-toc-Network-Performance-Verification--Symbolic-Delay-Analysis" class="toggle-split-toc"><input type="checkbox" class="toggle-split-toc" id="--verso-manual-toc-Network-Performance-Verification--Symbolic-Delay-Analysis" checked="checked"></label><span class="number">2.</span> <span class="current"><a href="Symbolic-Delay-Analysis/#Network-Performance-Verification--Symbolic-Delay-Analysis">Symbolic Delay Analysis</a></span></div>
-              <table><tr class="numbered"><td class="num">2.1.</td><td><a href="Symbolic-Delay-Analysis/Abstractions/#Network-Performance-Verification--Symbolic-Delay-Analysis--Abstractions">Abstractions</a></td></tr><tr class="numbered"><td class="num">2.2.</td><td><a href="Symbolic-Delay-Analysis/Reference-Algorithm/#Network-Performance-Verification--Symbolic-Delay-Analysis--Reference-Algorithm">Reference Algorithm</a></td></tr><tr class="numbered"><td class="num">2.3.</td><td><a href="Symbolic-Delay-Analysis/Soundness/#Network-Performance-Verification--Symbolic-Delay-Analysis--Soundness">Soundness</a></td></tr><tr class="numbered"><td class="num">2.4.</td><td><a href="Symbolic-Delay-Analysis/Completeness/#Network-Performance-Verification--Symbolic-Delay-Analysis--Completeness">Completeness</a></td></tr><tr class="numbered"><td class="num">2.5.</td><td><a href="Symbolic-Delay-Analysis/Optimized-Algorithm/#Network-Performance-Verification--Symbolic-Delay-Analysis--Optimized-Algorithm">Optimized Algorithm</a></td></tr></table></div>
+                <label for="--verso-manual-toc-Network-Performance-Verification--Symbolic-Delay-Analysis" class="toggle-split-toc"><input type="checkbox" class="toggle-split-toc" id="--verso-manual-toc-Network-Performance-Verification--Symbolic-Delay-Analysis" checked="checked"></label><span class="number">2.</span> <span class=""><a href="Symbolic-Delay-Analysis/#Network-Performance-Verification--Symbolic-Delay-Analysis">Symbolic Delay Analysis</a></span></div>
+              <table><tr class="current numbered"><td class="num">2.1.</td><td><a href="Symbolic-Delay-Analysis/Abstractions/#Network-Performance-Verification--Symbolic-Delay-Analysis--Abstractions">Abstractions</a></td></tr><tr class="numbered"><td class="num">2.2.</td><td><a href="Symbolic-Delay-Analysis/Reference-Algorithm/#Network-Performance-Verification--Symbolic-Delay-Analysis--Reference-Algorithm">Reference Algorithm</a></td></tr><tr class="numbered"><td class="num">2.3.</td><td><a href="Symbolic-Delay-Analysis/Soundness/#Network-Performance-Verification--Symbolic-Delay-Analysis--Soundness">Soundness</a></td></tr><tr class="numbered"><td class="num">2.4.</td><td><a href="Symbolic-Delay-Analysis/Completeness/#Network-Performance-Verification--Symbolic-Delay-Analysis--Completeness">Completeness</a></td></tr><tr class="numbered"><td class="num">2.5.</td><td><a href="Symbolic-Delay-Analysis/Optimized-Algorithm/#Network-Performance-Verification--Symbolic-Delay-Analysis--Optimized-Algorithm">Optimized Algorithm</a></td></tr></table></div>
+            <div class="split-toc">
+              <div class="title">
+                <span class="no-toggle"></span><span class="number">2.1.</span> <span class="current"><a href="Symbolic-Delay-Analysis/Abstractions/#Network-Performance-Verification--Symbolic-Delay-Analysis--Abstractions">Abstractions</a></span></div>
+              </div>
             </div>
           </div>
         <div class="last"></div>
         </nav>
       <main><div class="content-wrapper">
           <nav class="prev-next-buttons">
-            <a class="local-button active" href="Core-Model/Delay-Semantics/#Network-Performance-Verification--Core-Model--Delay-Semantics" rel="prev" title="1.2. Delay Semantics"><span class="arrow">←</span><span class="where">1.2. Delay Semantics</span></a><a class="local-button active" href="Symbolic-Delay-Analysis/Abstractions/#Network-Performance-Verification--Symbolic-Delay-Analysis--Abstractions" rel="next" title="2.1. Abstractions"><span class="where">2.1. Abstractions</span><span class="arrow">→</span></a></nav>
+            <a class="local-button active" href="Symbolic-Delay-Analysis/#Network-Performance-Verification--Symbolic-Delay-Analysis" rel="prev" title="2. Symbolic Delay Analysis"><span class="arrow">←</span><span class="where">2. Symbolic Delay Analysis</span></a><a class="local-button active" href="Symbolic-Delay-Analysis/Reference-Algorithm/#Network-Performance-Verification--Symbolic-Delay-Analysis--Reference-Algorithm" rel="next" title="2.2. Reference Algorithm"><span class="where">2.2. Reference Algorithm</span><span class="arrow">→</span></a></nav>
           <section>
             <h1>
-              2. Symbolic Delay Analysis<span class="permalink-widget inline"><a href="find/?domain=Verso.Genre.Manual.section&amp;name=Network-Performance-Verification--Symbolic-Delay-Analysis" title="Permalink">🔗</a></span></h1>
-            <ol class="section-toc">
-              <li>
-                <a href="Symbolic-Delay-Analysis/Abstractions/#Network-Performance-Verification--Symbolic-Delay-Analysis--Abstractions"><span class="number">2.1.</span> Abstractions</a></li>
-              <li>
-                <a href="Symbolic-Delay-Analysis/Reference-Algorithm/#Network-Performance-Verification--Symbolic-Delay-Analysis--Reference-Algorithm"><span class="number">2.2.</span> Reference Algorithm</a></li>
-              <li>
-                <a href="Symbolic-Delay-Analysis/Soundness/#Network-Performance-Verification--Symbolic-Delay-Analysis--Soundness"><span class="number">2.3.</span> Soundness</a></li>
-              <li>
-                <a href="Symbolic-Delay-Analysis/Completeness/#Network-Performance-Verification--Symbolic-Delay-Analysis--Completeness"><span class="number">2.4.</span> Completeness</a></li>
-              <li>
-                <a href="Symbolic-Delay-Analysis/Optimized-Algorithm/#Network-Performance-Verification--Symbolic-Delay-Analysis--Optimized-Algorithm"><span class="number">2.5.</span> Optimized Algorithm</a></li>
-              </ol>
+              2.1. Abstractions<span class="permalink-widget inline"><a href="find/?domain=Verso.Genre.Manual.section&amp;name=Network-Performance-Verification--Symbolic-Delay-Analysis--Abstractions" title="Permalink">🔗</a></span></h1>
+            <div class="bp_wrapper bp_kind_definition_wrapper definition_thmwrapper definition_thmwrapper theorem-style-definition bp_kind_definition bp_style_definition" title="enumerable_class" id="--informal-preview-enumerable_class--statement">
+              <div class="bp_heading bp_kind_definition_heading definition_thmheading">
+                <div class="bp_heading_title_row bp_heading_title_row_statement">
+                  <span class="bp_caption bp_kind_definition_caption definition_thmcaption" title="enumerable_class">Definition</span><span class="bp_label bp_kind_definition_label definition_thmlabel">2.4</span></div>
+                <div class="bp_extras bp_extras_with_group thm_header_extras">
+                  <span class="bp_extra_slot bp_extra_slot_group"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-group-enumerable-005Fclass-good-005Fsystem" data-bp-preview-title="Definition 2.5" data-bp-preview-key="good_system--statement" data-bp-preview-fallback-label="good_system"><a class="bp_used_by_chip bp_code_link" href="Symbolic-Delay-Analysis/Abstractions/#--informal-preview-good_system--statement" title="Group member: Definition 2.5">group</a></span></span><span class="bp_extra_slot bp_extra_slot_code"><span class="bp_code_summary_preview_root"><span class="bp_code_summary_preview_wrap bp_code_summary_preview_wrap_active" data-bp-preview-id="bp-code-summary" data-bp-preview-title="enumerable_class" tabindex="0" role="button" aria-label="Lean declarations (all present: 1/1)"><span class="bp_code_link bp_code_link_status bp_code_link_status_proved" title="Lean declarations (all present: 1/1)"><span class="bp_code_status_symbol">✓</span><span class="bp_code_link_label">L∃∀N</span></span></span><template class="bp_code_summary_preview_tpl" data-bp-preview-id="bp-code-summary"><div class="bp_code_summary_preview_content">
+                          <div class="bp_code_hover_section">
+                            <span class="bp_code_hover_label">Associated Lean declarations</span><ul class="bp_code_hover_list">
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002EEnumerable" data-bp-preview-title="Enumerable" data-bp-preview-key="Informal.LeanCodePreview.Enumerable"><a href="Symbolic-Delay-Analysis/Abstractions/#--informal-external-decl-enumerable_class-Enumerable"><code>Enumerable</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </template><aside class="bp_code_summary_preview_panel bp_preview_panel" data-bp-preview-mode="hover" data-bp-preview-placement="anchored" hidden=""><div class="bp_code_summary_preview_header bp_preview_panel_header">
+                          <div class="bp_code_summary_preview_title bp_preview_panel_title"></div>
+                          <button type="button" class="bp_code_summary_preview_close bp_preview_panel_close" aria-label="Close Lean summary preview">Close</button></div>
+                        <div class="bp_code_summary_preview_body bp_preview_panel_body"></div>
+                        </aside></span></span><span class="bp_extra_slot bp_extra_slot_used_by"><span class="bp_used_by_chip bp_used_by_chip_empty" title="No reverse dependencies">used by 0</span></span></div>
+                </div>
+              <div class="bp_content bp_kind_definition_content definition_thmcontent">
+                <p>
+                  The <code>Enumerable</code> typeclass provides a computable bijection between a type and
+<code>Fin n</code> for some <code>n</code>. It automatically derives <code>DecidableEq</code>, <code>Fintype</code>, and
+<code>LinearOrder</code> instances. It is the finiteness infrastructure used throughout
+the symbolic analysis to make state-space exploration executable.</p>
+                <p>
+                  The primary use is to constrain <code>stateType</code> and <code>branchingType</code> in a
+<span><span class="bp_inline_preview_ref" data-bp-preview-id="bp-uses-good-005Fsystem-statement" data-bp-preview-title="Definition 2.5" data-bp-preview-key="good_system--statement" data-bp-preview-fallback-label="good_system"><a href="Symbolic-Delay-Analysis/Abstractions/#--informal-preview-good_system--statement" title="good_system">Definition 2.5</a></span><template class="bp_inline_preview_tpl" data-bp-preview-id="bp-uses-good-005Fsystem-statement"><p>
+                        A <code>GoodSystem</code> constrains a <span><span class="bp_inline_preview_ref" data-bp-preview-id="bp-uses-device-005Ftype-statement" data-bp-preview-title="Definition 1.4" data-bp-preview-key="device_type--statement" data-bp-preview-fallback-label="device_type"><a href="Core-Model/Operational-Model/#--informal-preview-device_type--statement" title="device_type">Definition 1.4</a></span></span> with four properties:</p>
+                      <ol start="1">
+                        <li>
+                          <p>
+                            <em>State finiteness</em>: <code>stateType (branchingType × Bool)</code> is <code>Enumerable</code>.</p>
+                          </li>
+                        <li>
+                          <p>
+                            <em>Branching finiteness</em>: <code>branchingType</code> is <code>Enumerable</code>.</p>
+                          </li>
+                        <li>
+                          <p>
+                            <em>Functoriality</em>: <code>stateType</code> is a <code>Functor</code>.</p>
+                          </li>
+                        <li>
+                          <p>
+                            <em>Naturality</em>: <code>initState</code> and <code>device</code> commute with packet maps.</p>
+                          </li>
+                        </ol>
+                      <p>
+                        Properties 3 and 4 are the critical ones for the proof. They ensure that
+changing the packet type during the proof does not break the connection between
+symbolic and concrete executions: packet maps commute with <code>liftToStream</code>, so
+symbolic runs and concrete runs can be rigorously compared.</p>
+                      </template></span>: both must be <code>Enumerable</code> (after packet instantiation)
+for the delay algorithm to terminate.</p>
+                </div>
+              </div>
+            <div class="bp_wrapper bp_code_panel_wrapper">
+              <details class="bp_code_block bp_code_panel"><summary class="bp_heading lemma_thmheading" title="Lean declarations (all present: 1/1)"><span class="bp_caption lemma_thmcaption bp_code_summary_text">Code for Definition</span><span class="bp_label lemma_thmlabel bp_code_summary_label">2.4</span><span class="bp_code_summary_indicator"><span class="bp_code_summary_preview_root"><span class="bp_code_summary_preview_wrap bp_code_summary_preview_wrap_active" data-bp-preview-id="bp-code-summary" data-bp-preview-title="enumerable_class" tabindex="0" role="button" aria-label="Lean declarations (all present: 1/1)"><span class="bp_external_status_badge bp_external_status_badge_summary bp_external_status_ok" title="Lean declarations: all 1 present"><span class="bp_external_status_icon bp_external_status_ok">●</span><span class="bp_external_status_badge_text">1 definition</span></span></span><template class="bp_code_summary_preview_tpl" data-bp-preview-id="bp-code-summary"><div class="bp_code_summary_preview_content">
+                          <div class="bp_code_hover_section">
+                            <span class="bp_code_hover_label">Associated Lean declarations</span><ul class="bp_code_hover_list">
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002EEnumerable" data-bp-preview-title="Enumerable" data-bp-preview-key="Informal.LeanCodePreview.Enumerable"><a href="Symbolic-Delay-Analysis/Abstractions/#--informal-external-decl-enumerable_class-Enumerable"><code>Enumerable</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </template><aside class="bp_code_summary_preview_panel bp_preview_panel" data-bp-preview-mode="hover" data-bp-preview-placement="anchored" hidden=""><div class="bp_code_summary_preview_header bp_preview_panel_header">
+                          <div class="bp_code_summary_preview_title bp_preview_panel_title"></div>
+                          <button type="button" class="bp_code_summary_preview_close bp_preview_panel_close" aria-label="Close Lean summary preview">Close</button></div>
+                        <div class="bp_code_summary_preview_body bp_preview_panel_body"></div>
+                        </aside></span></span></summary><ul class="bp_code_hover_list bp_external_decl_list">
+                  <li class="bp_external_decl_item bp_external_decl_item_rendered" id="--informal-external-decl-enumerable_class-Enumerable">
+                    <div class="bp_external_decl_rendered">
+                      <div class="declaration decl class" data-decl="Enumerable" data-kind="class">
+                        <div class="bp_external_decl_signature_wrap">
+                          <div class="wide-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">class</span> <span class="unknown token" data-binding="">Enumerable.{u_1}</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.22">α<span class="hover-info"><code>Type u_1</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-7243200735919010059">Type u_1<span class="hover-info"><code class="docstring">A type universe. `Type ≡ Type 0`, `Type u ≡ Sort (u + 1)`. </code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-7243200735919010059">Type u_1<span class="hover-info"><code class="docstring">A type universe. `Type ≡ Type 0`, `Type u ≡ Sort (u + 1)`. </code></span></span></pre></div>
+                          <div class="narrow-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">class</span> <span class="unknown token" data-binding="">Enumerable.{u_1}</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.22">α<span class="hover-info"><code>Type u_1</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-7243200735919010059">Type u_1<span class="hover-info"><code class="docstring">A type universe. `Type ≡ Type 0`, `Type u ≡ Sort (u + 1)`. </code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-7243200735919010059">Type u_1<span class="hover-info"><code class="docstring">A type universe. `Type ≡ Type 0`, `Type u ≡ Sort (u + 1)`. </code></span></span></pre></div>
+                          </div>
+                        <div class="bp_external_decl_body">
+                          <h1>
+                            Instance Constructor</h1>
+                          <div class="constructor">
+                            <pre class="name-and-type hl lean"><span class="unknown token" data-binding="">Enumerable.mk.{u_1}</span><span class="inter-text"> </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.14">α<span class="hover-info"><code>Type u_1</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-7243200735919010059">Type u_1<span class="hover-info"><code class="docstring">A type universe. `Type ≡ Type 0`, `Type u ≡ Sort (u + 1)`. </code></span></span><span class="unknown token" data-binding="">}</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.15">size<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.17">enumerate<span class="hover-info"><code>Fin size → α</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Fin">Fin<span class="hover-info"><code>Fin (n : ℕ) : Type</code><span class="sep"></span><code class="docstring">Natural numbers less than some upper bound.
+
+In particular, a `Fin n` is a natural number `i` with the constraint that `i &lt; n`. It is the
+canonical type with `n` elements.
+</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.15">size<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.14">α<span class="hover-info"><code>Type u_1</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.19">rep<span class="hover-info"><code>α → Fin size</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.14">α<span class="hover-info"><code>Type u_1</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text"> </span><span class="const token" data-binding="const-Fin">Fin<span class="hover-info"><code>Fin (n : ℕ) : Type</code><span class="sep"></span><code class="docstring">Natural numbers less than some upper bound.
+
+In particular, a `Fin n` is a natural number `i` with the constraint that `i &lt; n`. It is the
+canonical type with `n` elements.
+</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.15">size<span class="hover-info"><code>ℕ</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.21">enum_rep<span class="hover-info"><code>∀ (x : α), enumerate (rep x) = x</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text">
+    </span><span class="unknown token" data-binding="">∀</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.20">x<span class="hover-info"><code>α</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.14">α<span class="hover-info"><code>Type u_1</code></span></span><span class="unknown token" data-binding="">),</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.17">enumerate<span class="hover-info"><code>Fin size → α</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.19">rep<span class="hover-info"><code>α → Fin size</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.20">x<span class="hover-info"><code>α</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="const token" data-binding="const-Eq">=<span class="hover-info"><code>Eq.{u_1} {α : Sort u_1} : α → α → Prop</code><span class="sep"></span><code class="docstring">The equality relation. It has one introduction rule, `Eq.refl`.
+We use `a = b` as notation for `Eq a b`.
+A fundamental property of equality is that it is an equivalence relation.
+```
+variable (α : Type) (a b c d : α)
+variable (hab : a = b) (hcb : c = b) (hcd : c = d)
+
+example : a = d :=
+  Eq.trans (Eq.trans hab (Eq.symm hcb)) hcd
+```
+Equality is much more than an equivalence relation, however. It has the important property that every assertion
+respects the equivalence, in the sense that we can substitute equal expressions without changing the truth value.
+That is, given `h1 : a = b` and `h2 : p a`, we can construct a proof for `p b` using substitution: `Eq.subst h1 h2`.
+Example:
+```
+example (α : Type) (a b : α) (p : α → Prop)
+        (h1 : a = b) (h2 : p a) : p b :=
+  Eq.subst h1 h2
+
+example (α : Type) (a b : α) (p : α → Prop)
+    (h1 : a = b) (h2 : p a) : p b :=
+  h1 ▸ h2
+```
+The triangle in the second presentation is a macro built on top of `Eq.subst` and `Eq.symm`, and you can enter it by typing `\t`.
+For more information: [Equality](https://lean-lang.org/theorem_proving_in_lean4/quantifiers_and_equality.html#equality)
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `=` in identifiers is `eq`.</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.20">x<span class="hover-info"><code>α</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text">
+  </span><span class="const token" data-binding="const-Enumerable">Enumerable<span class="hover-info"><code>Enumerable.{u_1} (α : Type u_1) : Type u_1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.14">α<span class="hover-info"><code>Type u_1</code></span></span></pre><div class="docs"></div>
+                            </div>
+                          <h1>
+                            Methods</h1>
+                          <section class="subdocs">
+                            <pre class="name-and-type hl lean"><span class="const token" data-binding="const-Enumerable.size">size<span class="hover-info"><code>ℕ</code></span></span> : <span class="inter-text"></span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="inter-text"></span></pre><div class="docs"></div>
+                            </section>
+                          <section class="subdocs">
+                            <pre class="name-and-type hl lean"><span class="const token" data-binding="const-Enumerable.enumerate">enumerate<span class="hover-info"><code>Fin (Enumerable.size α) → α</code></span></span> : <span class="inter-text"></span><span class="const token" data-binding="const-Fin">Fin<span class="hover-info"><code>Fin (n : ℕ) : Type</code><span class="sep"></span><code class="docstring">Natural numbers less than some upper bound.
+
+In particular, a `Fin n` is a natural number `i` with the constraint that `i &lt; n`. It is the
+canonical type with `n` elements.
+</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="const token" data-binding="const-Enumerable.size">Enumerable.size<span class="hover-info"><code>Enumerable.size.{u_1} (α : Type u_1) [self : Enumerable α] : ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.9">α<span class="hover-info"><code>Type u_1</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.9">α<span class="hover-info"><code>Type u_1</code></span></span></pre><div class="docs"></div>
+                            </section>
+                          <section class="subdocs">
+                            <pre class="name-and-type hl lean"><span class="const token" data-binding="const-Enumerable.rep">rep<span class="hover-info"><code>α → Fin (Enumerable.size α)</code></span></span> : <span class="inter-text"></span><span class="var token" data-binding="var-_uniq.9">α<span class="hover-info"><code>Type u_1</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text"> </span><span class="const token" data-binding="const-Fin">Fin<span class="hover-info"><code>Fin (n : ℕ) : Type</code><span class="sep"></span><code class="docstring">Natural numbers less than some upper bound.
+
+In particular, a `Fin n` is a natural number `i` with the constraint that `i &lt; n`. It is the
+canonical type with `n` elements.
+</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="const token" data-binding="const-Enumerable.size">Enumerable.size<span class="hover-info"><code>Enumerable.size.{u_1} (α : Type u_1) [self : Enumerable α] : ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.9">α<span class="hover-info"><code>Type u_1</code></span></span><span class="unknown token" data-binding="">)</span></pre><div class="docs"></div>
+                            </section>
+                          <section class="subdocs">
+                            <pre class="name-and-type hl lean"><span class="const token" data-binding="const-Enumerable.enum_rep">enum_rep<span class="hover-info"><code>∀ (x : α), Enumerable.enumerate (Enumerable.rep x) = x</code></span></span> : <span class="unknown token" data-binding="">∀</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.13">x<span class="hover-info"><code>α</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.9">α<span class="hover-info"><code>Type u_1</code></span></span><span class="unknown token" data-binding="">),</span><span class="inter-text"> </span><span class="const token" data-binding="const-Enumerable.enumerate">Enumerable.enumerate<span class="hover-info"><code>Enumerable.enumerate.{u_1} {α : Type u_1} [self : Enumerable α] : Fin (Enumerable.size α) → α</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="const token" data-binding="const-Enumerable.rep">Enumerable.rep<span class="hover-info"><code>Enumerable.rep.{u_1} {α : Type u_1} [self : Enumerable α] : α → Fin (Enumerable.size α)</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.13">x<span class="hover-info"><code>α</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="const token" data-binding="const-Eq">=<span class="hover-info"><code>Eq.{u_1} {α : Sort u_1} : α → α → Prop</code><span class="sep"></span><code class="docstring">The equality relation. It has one introduction rule, `Eq.refl`.
+We use `a = b` as notation for `Eq a b`.
+A fundamental property of equality is that it is an equivalence relation.
+```
+variable (α : Type) (a b c d : α)
+variable (hab : a = b) (hcb : c = b) (hcd : c = d)
+
+example : a = d :=
+  Eq.trans (Eq.trans hab (Eq.symm hcb)) hcd
+```
+Equality is much more than an equivalence relation, however. It has the important property that every assertion
+respects the equivalence, in the sense that we can substitute equal expressions without changing the truth value.
+That is, given `h1 : a = b` and `h2 : p a`, we can construct a proof for `p b` using substitution: `Eq.subst h1 h2`.
+Example:
+```
+example (α : Type) (a b : α) (p : α → Prop)
+        (h1 : a = b) (h2 : p a) : p b :=
+  Eq.subst h1 h2
+
+example (α : Type) (a b : α) (p : α → Prop)
+    (h1 : a = b) (h2 : p a) : p b :=
+  h1 ▸ h2
+```
+The triangle in the second presentation is a macro built on top of `Eq.subst` and `Eq.symm`, and you can enter it by typing `\t`.
+For more information: [Equality](https://lean-lang.org/theorem_proving_in_lean4/quantifiers_and_equality.html#equality)
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `=` in identifiers is `eq`.</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.13">x<span class="hover-info"><code>α</code></span></span></pre><div class="docs"></div>
+                            </section>
+                          </div>
+                        </div>
+                      </div>
+                    <div class="bp_external_decl_meta bp_external_decl_rendered_meta">
+                      <span class="bp_external_status_badge bp_external_decl_footer_status bp_external_decl_ok">complete</span></div>
+                    </li>
+                  </ul>
+                </details></div>
+            <div class="bp_wrapper bp_kind_definition_wrapper definition_thmwrapper definition_thmwrapper theorem-style-definition bp_kind_definition bp_style_definition" title="good_system" id="--informal-preview-good_system--statement">
+              <div class="bp_heading bp_kind_definition_heading definition_thmheading">
+                <div class="bp_heading_title_row bp_heading_title_row_statement">
+                  <span class="bp_caption bp_kind_definition_caption definition_thmcaption" title="good_system">Definition</span><span class="bp_label bp_kind_definition_label definition_thmlabel">2.5</span></div>
+                <div class="bp_extras bp_extras_with_group thm_header_extras">
+                  <span class="bp_extra_slot bp_extra_slot_group"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-group-good-005Fsystem-enumerable-005Fclass" data-bp-preview-title="Definition 2.4" data-bp-preview-key="enumerable_class--statement" data-bp-preview-fallback-label="enumerable_class"><a class="bp_used_by_chip bp_code_link" href="Symbolic-Delay-Analysis/Abstractions/#--informal-preview-enumerable_class--statement" title="Group member: Definition 2.4">group</a></span></span><span class="bp_extra_slot bp_extra_slot_code"><span class="bp_code_summary_preview_root"><span class="bp_code_summary_preview_wrap bp_code_summary_preview_wrap_active" data-bp-preview-id="bp-code-summary" data-bp-preview-title="good_system" tabindex="0" role="button" aria-label="Lean declarations (all present: 1/1)"><span class="bp_code_link bp_code_link_status bp_code_link_status_proved" title="Lean declarations (all present: 1/1)"><span class="bp_code_status_symbol">✓</span><span class="bp_code_link_label">L∃∀N</span></span></span><template class="bp_code_summary_preview_tpl" data-bp-preview-id="bp-code-summary"><div class="bp_code_summary_preview_content">
+                          <div class="bp_code_hover_section">
+                            <span class="bp_code_hover_label">Associated Lean declarations</span><ul class="bp_code_hover_list">
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002EGoodSystem" data-bp-preview-title="GoodSystem" data-bp-preview-key="Informal.LeanCodePreview.GoodSystem"><a href="Symbolic-Delay-Analysis/Abstractions/#--informal-external-decl-good_system-GoodSystem"><code>GoodSystem</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </template><aside class="bp_code_summary_preview_panel bp_preview_panel" data-bp-preview-mode="hover" data-bp-preview-placement="anchored" hidden=""><div class="bp_code_summary_preview_header bp_preview_panel_header">
+                          <div class="bp_code_summary_preview_title bp_preview_panel_title"></div>
+                          <button type="button" class="bp_code_summary_preview_close bp_preview_panel_close" aria-label="Close Lean summary preview">Close</button></div>
+                        <div class="bp_code_summary_preview_body bp_preview_panel_body"></div>
+                        </aside></span></span><span class="bp_extra_slot bp_extra_slot_used_by"><div class="bp_used_by_wrap">
+                      <button type="button" class="bp_used_by_chip" title="Reverse dependencies for good_system" aria-expanded="false">used by 4</button><div class="bp_used_by_panel">
+                        <div class="bp_used_by_panel_header">
+                          <div class="bp_used_by_panel_title">
+                            Used by 4</div>
+                          <div class="bp_used_by_panel_meta">
+                            Hover a use site to preview it.</div>
+                          </div>
+                        <div class="bp_used_by_panel_body">
+                          <ul class="bp_used_by_list">
+                            <li class="bp_used_by_item bp_used_by_item_active" data-bp-used-preview-id="bp-used-by-good-005Fsystem-delay-005FparComp-005Feq" data-bp-used-preview-key="delay_parComp_eq--statement" data-bp-used-preview-title="Theorem 1.12">
+                              <a class="bp_used_by_target" href="Core-Model/Delay-Semantics/#--informal-preview-delay_parComp_eq--statement"><span class="bp_used_by_target_title">Theorem 1.12</span><span class="bp_used_by_target_meta"><code>delay_parComp_eq</code><span class="bp_used_by_axis_badge">statement</span></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-used-by-good-005Fsystem-delay-005FparComp-005Feq"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>delay_parComp_eq</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Uses target in</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      statement</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            <li class="bp_used_by_item" data-bp-used-preview-id="bp-used-by-good-005Fsystem-enumerable-005Fclass" data-bp-used-preview-key="enumerable_class--statement" data-bp-used-preview-title="Definition 2.4">
+                              <a class="bp_used_by_target" href="Symbolic-Delay-Analysis/Abstractions/#--informal-preview-enumerable_class--statement"><span class="bp_used_by_target_title">Definition 2.4</span><span class="bp_used_by_target_meta"><code>enumerable_class</code><span class="bp_used_by_axis_badge">statement</span></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-used-by-good-005Fsystem-enumerable-005Fclass"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>enumerable_class</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Uses target in</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      statement</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            <li class="bp_used_by_item" data-bp-used-preview-id="bp-used-by-good-005Fsystem-symbolic-005Fpackets" data-bp-used-preview-key="symbolic_packets--statement" data-bp-used-preview-title="Definition 2.6">
+                              <a class="bp_used_by_target" href="Symbolic-Delay-Analysis/Reference-Algorithm/#--informal-preview-symbolic_packets--statement"><span class="bp_used_by_target_title">Definition 2.6</span><span class="bp_used_by_target_meta"><code>symbolic_packets</code><span class="bp_used_by_axis_badge">statement</span></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-used-by-good-005Fsystem-symbolic-005Fpackets"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>symbolic_packets</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Uses target in</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      statement</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            <li class="bp_used_by_item" data-bp-used-preview-id="bp-used-by-good-005Fsystem-tagged-005Frunnable" data-bp-used-preview-key="tagged_runnable--statement" data-bp-used-preview-title="Definition 3.4">
+                              <a class="bp_used_by_target" href="Tagged-Delay-Analysis/Interface/#--informal-preview-tagged_runnable--statement"><span class="bp_used_by_target_title">Definition 3.4</span><span class="bp_used_by_target_meta"><code>tagged_runnable</code><span class="bp_used_by_axis_badge">statement</span></span></a><template class="bp_used_by_preview_fallback_tpl" data-bp-used-preview-id="bp-used-by-good-005Fsystem-tagged-005Frunnable"><div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      <code>tagged_runnable</code></li>
+                                    </ul>
+                                  </div>
+                                <div class="bp_code_hover_section">
+                                  <span class="bp_code_hover_label">Uses target in</span><ul class="bp_code_hover_list">
+                                    <li>
+                                      statement</li>
+                                    </ul>
+                                  </div>
+                                </template></li>
+                            </ul>
+                          <div class="bp_used_by_preview_surface">
+                            <div class="bp_used_by_preview_header">
+                              <div class="bp_used_by_preview_label">
+                                Preview</div>
+                              <div class="bp_used_by_preview_title">
+                                Theorem 1.12</div>
+                              </div>
+                            <div class="bp_used_by_preview_body">
+                              <div class="bp_code_hover_section">
+                                <span class="bp_code_hover_label">Blueprint label</span><ul class="bp_code_hover_list">
+                                  <li>
+                                    <code>delay_parComp_eq</code></li>
+                                  </ul>
+                                </div>
+                              <div class="bp_code_hover_section">
+                                <span class="bp_code_hover_label">Uses target in</span><ul class="bp_code_hover_list">
+                                  <li>
+                                    statement</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </span></div>
+                </div>
+              <div class="bp_content bp_kind_definition_content definition_thmcontent">
+                <p>
+                  A <code>GoodSystem</code> constrains a <span><span class="bp_inline_preview_ref" data-bp-preview-id="bp-uses-device-005Ftype-statement" data-bp-preview-title="Definition 1.4" data-bp-preview-key="device_type--statement" data-bp-preview-fallback-label="device_type"><a href="Core-Model/Operational-Model/#--informal-preview-device_type--statement" title="device_type">Definition 1.4</a></span><template class="bp_inline_preview_tpl" data-bp-preview-id="bp-uses-device-005Ftype-statement"><p>
+                        A <code>system n m</code> is a stateful, packet-polymorphic device with <code>n</code> input links
+and <code>m</code> output links. Its four fields are:</p>
+                      <ul>
+                        <li>
+                          <p>
+                            <code>stateType : Type → Type</code> — the internal state, polymorphic in the packet type.</p>
+                          </li>
+                        <li>
+                          <p>
+                            <code>initState : stateType α</code> — the initial state, natural with respect to packet maps.</p>
+                          </li>
+                        <li>
+                          <p>
+                            <code>branchingType : Type</code> — the observable part of a packet used for routing decisions.</p>
+                          </li>
+                        <li>
+                          <p>
+                            <code>device : (α → branchingType) → statefulDevice α (stateType α) n m</code> — the
+  one-step transition, parameterized by an inspection function <code>inspect : α → branchingType</code>.</p>
+                          </li>
+                        </ul>
+                      <p>
+                        The key invariant is that the device may only observe packets through <code>inspect</code>.
+This separation between the concrete packet identity <code>α</code> and the routing label
+<code>branchingType</code> is what makes the symbolic delay analysis possible: two concrete
+packets with the same branch label are indistinguishable to the system.</p>
+                      </template></span> with four properties:</p>
+                <ol start="1">
+                  <li>
+                    <p>
+                      <em>State finiteness</em>: <code>stateType (branchingType × Bool)</code> is <code>Enumerable</code>.</p>
+                    </li>
+                  <li>
+                    <p>
+                      <em>Branching finiteness</em>: <code>branchingType</code> is <code>Enumerable</code>.</p>
+                    </li>
+                  <li>
+                    <p>
+                      <em>Functoriality</em>: <code>stateType</code> is a <code>Functor</code>.</p>
+                    </li>
+                  <li>
+                    <p>
+                      <em>Naturality</em>: <code>initState</code> and <code>device</code> commute with packet maps.</p>
+                    </li>
+                  </ol>
+                <p>
+                  Properties 3 and 4 are the critical ones for the proof. They ensure that
+changing the packet type during the proof does not break the connection between
+symbolic and concrete executions: packet maps commute with <code>liftToStream</code>, so
+symbolic runs and concrete runs can be rigorously compared.</p>
+                </div>
+              </div>
+            <div class="bp_wrapper bp_code_panel_wrapper">
+              <details class="bp_code_block bp_code_panel"><summary class="bp_heading lemma_thmheading" title="Lean declarations (all present: 1/1)"><span class="bp_caption lemma_thmcaption bp_code_summary_text">Code for Definition</span><span class="bp_label lemma_thmlabel bp_code_summary_label">2.5</span><span class="bp_code_summary_indicator"><span class="bp_code_summary_preview_root"><span class="bp_code_summary_preview_wrap bp_code_summary_preview_wrap_active" data-bp-preview-id="bp-code-summary" data-bp-preview-title="good_system" tabindex="0" role="button" aria-label="Lean declarations (all present: 1/1)"><span class="bp_external_status_badge bp_external_status_badge_summary bp_external_status_ok" title="Lean declarations: all 1 present"><span class="bp_external_status_icon bp_external_status_ok">●</span><span class="bp_external_status_badge_text">1 definition</span></span></span><template class="bp_code_summary_preview_tpl" data-bp-preview-id="bp-code-summary"><div class="bp_code_summary_preview_content">
+                          <div class="bp_code_hover_section">
+                            <span class="bp_code_hover_label">Associated Lean declarations</span><ul class="bp_code_hover_list">
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002EGoodSystem" data-bp-preview-title="GoodSystem" data-bp-preview-key="Informal.LeanCodePreview.GoodSystem"><a href="Symbolic-Delay-Analysis/Abstractions/#--informal-external-decl-good_system-GoodSystem"><code>GoodSystem</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </template><aside class="bp_code_summary_preview_panel bp_preview_panel" data-bp-preview-mode="hover" data-bp-preview-placement="anchored" hidden=""><div class="bp_code_summary_preview_header bp_preview_panel_header">
+                          <div class="bp_code_summary_preview_title bp_preview_panel_title"></div>
+                          <button type="button" class="bp_code_summary_preview_close bp_preview_panel_close" aria-label="Close Lean summary preview">Close</button></div>
+                        <div class="bp_code_summary_preview_body bp_preview_panel_body"></div>
+                        </aside></span></span></summary><ul class="bp_code_hover_list bp_external_decl_list">
+                  <li class="bp_external_decl_item bp_external_decl_item_rendered" id="--informal-external-decl-good_system-GoodSystem">
+                    <div class="bp_external_decl_rendered">
+                      <div class="declaration decl class" data-decl="GoodSystem" data-kind="class">
+                        <div class="bp_external_decl_signature_wrap">
+                          <div class="wide-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">class</span> <span class="unknown token" data-binding="">GoodSystem</span><span class="inter-text"> </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.1156">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1157">m<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="unknown token" data-binding="">}</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.1158">sys<span class="hover-info"><code>system n m</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-system">system<span class="hover-info"><code>system (n m : ℕ) : Type 1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1156">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1157">m<span class="hover-info"><code>ℕ</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-7243200735919010059">Type 1<span class="hover-info"><code class="docstring">A type universe. `Type ≡ Type 0`, `Type u ≡ Sort (u + 1)`. </code></span></span></pre></div>
+                          <div class="narrow-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">class</span> <span class="unknown token" data-binding="">GoodSystem</span><span class="inter-text"> </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.1156">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1157">m<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="unknown token" data-binding="">}</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.1158">sys<span class="hover-info"><code>system n m</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-system">system<span class="hover-info"><code>system (n m : ℕ) : Type 1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1156">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1157">m<span class="hover-info"><code>ℕ</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text">
+  </span><span class="sort token" data-binding="sort-7243200735919010059">Type 1<span class="hover-info"><code class="docstring">A type universe. `Type ≡ Type 0`, `Type u ≡ Sort (u + 1)`. </code></span></span></pre></div>
+                          </div>
+                        <div class="bp_external_decl_body">
+                          <h1>
+                            Instance Constructor</h1>
+                          <div class="constructor">
+                            <pre class="name-and-type hl lean"><span class="unknown token" data-binding="">GoodSystem.mk</span><span class="inter-text"> </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.1097">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1098">m<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="unknown token" data-binding="">}</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.1099">sys<span class="hover-info"><code>system n m</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-system">system<span class="hover-info"><code>system (n m : ℕ) : Type 1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1097">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1098">m<span class="hover-info"><code>ℕ</code></span></span><span class="unknown token" data-binding="">}</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.1103">state<span class="hover-info"><code>(α : Type) → [Enumerable α] → Enumerable (sys.stateType α)</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text">
+    </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.1101">α<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-7243200735919010059">Type<span class="hover-info"><code class="docstring">A type universe. `Type ≡ Type 0`, `Type u ≡ Sort (u + 1)`. </code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text">
+      </span><span class="unknown token" data-binding="">[</span><span class="const token" data-binding="const-Enumerable">Enumerable<span class="hover-info"><code>Enumerable.{u_1} (α : Type u_1) : Type u_1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1101">α<span class="hover-info"><code>Type</code></span></span><span class="unknown token" data-binding="">]</span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text">
+        </span><span class="const token" data-binding="const-Enumerable">Enumerable<span class="hover-info"><code>Enumerable.{u_1} (α : Type u_1) : Type u_1</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.1099">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">.</span><span class="const token" data-binding="const-system.stateType">stateType<span class="hover-info"><code>system.stateType {n m : ℕ} (self : system n m) : Type → Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1101">α<span class="hover-info"><code>Type</code></span></span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.1104">branch<span class="hover-info"><code>Enumerable sys.branchingType</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text">
+    </span><span class="const token" data-binding="const-Enumerable">Enumerable<span class="hover-info"><code>Enumerable.{u_1} (α : Type u_1) : Type u_1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1099">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">.</span><span class="const token" data-binding="const-system.branchingType">branchingType<span class="hover-info"><code>system.branchingType {n m : ℕ} (self : system n m) : Type</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.1106">stateType<span class="hover-info"><code>Functor sys.stateType</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Functor">Functor<span class="hover-info"><code>Functor.{u, v} (f : Type u → Type v) : Type (max (u + 1) v)</code><span class="sep"></span><code class="docstring">A functor in the sense used in functional programming, which means a function `f : Type u → Type v`
+has a way of mapping a function over its contents. This `map` operator is written `&lt;$&gt;`, and
+overloaded via `Functor` instances.
+
+This `map` function should respect identity and function composition. In other words, for all terms
+`v : f α`, it should be the case that:
+
+ * `id &lt;$&gt; v = v`
+
+ * For all functions `h : β → γ` and `g : α → β`, `(h ∘ g) &lt;$&gt; v = h &lt;$&gt; g &lt;$&gt; v`
+
+While all `Functor` instances should live up to these requirements, they are not required to _prove_
+that they do. Proofs may be required or provided via the `LawfulFunctor` class.
+
+Assuming that instances are lawful, this definition corresponds to the category-theoretic notion of
+[functor](https://en.wikipedia.org/wiki/Functor) in the special case where the category is the
+category of types and functions between them.
+</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1099">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">.</span><span class="const token" data-binding="const-system.stateType">stateType<span class="hover-info"><code>system.stateType {n m : ℕ} (self : system n m) : Type → Type</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.1113">initState_natural<span class="hover-info"><code>∀ {α β : Type} (f : α → β), f &lt;$&gt; sys.initState = sys.initState</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text">
+    </span><span class="unknown token" data-binding="">∀</span><span class="inter-text"> </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.1108">α<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1110">β<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-7243200735919010059">Type<span class="hover-info"><code class="docstring">A type universe. `Type ≡ Type 0`, `Type u ≡ Sort (u + 1)`. </code></span></span><span class="unknown token" data-binding="">}</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.1111">f<span class="hover-info"><code>α → β</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1108">α<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1110">β<span class="hover-info"><code>Type</code></span></span><span class="unknown token" data-binding="">),</span><span class="inter-text">
+      </span><span class="var token" data-binding="var-_uniq.1111">f<span class="hover-info"><code>α → β</code></span></span><span class="inter-text"> </span><span class="const token" data-binding="const-Functor.map">&lt;$&gt;<span class="hover-info"><code>Functor.map.{u, v} {f : Type u → Type v} [self : Functor f] {α β : Type u} : (α → β) → f α → f β</code><span class="sep"></span><code class="docstring">Applies a function inside a functor. This is used to overload the `&lt;$&gt;` operator.
+
+When mapping a constant function, use `Functor.mapConst` instead, because it may be more
+efficient.
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `&lt;$&gt;` in identifiers is `map`.</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1099">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">.</span><span class="const token" data-binding="const-system.initState">initState<span class="hover-info"><code>system.initState {n m : ℕ} (self : system n m) {α : Type} : self.stateType α</code></span></span><span class="inter-text"> </span><span class="const token" data-binding="const-Eq">=<span class="hover-info"><code>Eq.{u_1} {α : Sort u_1} : α → α → Prop</code><span class="sep"></span><code class="docstring">The equality relation. It has one introduction rule, `Eq.refl`.
+We use `a = b` as notation for `Eq a b`.
+A fundamental property of equality is that it is an equivalence relation.
+```
+variable (α : Type) (a b c d : α)
+variable (hab : a = b) (hcb : c = b) (hcd : c = d)
+
+example : a = d :=
+  Eq.trans (Eq.trans hab (Eq.symm hcb)) hcd
+```
+Equality is much more than an equivalence relation, however. It has the important property that every assertion
+respects the equivalence, in the sense that we can substitute equal expressions without changing the truth value.
+That is, given `h1 : a = b` and `h2 : p a`, we can construct a proof for `p b` using substitution: `Eq.subst h1 h2`.
+Example:
+```
+example (α : Type) (a b : α) (p : α → Prop)
+        (h1 : a = b) (h2 : p a) : p b :=
+  Eq.subst h1 h2
+
+example (α : Type) (a b : α) (p : α → Prop)
+    (h1 : a = b) (h2 : p a) : p b :=
+  h1 ▸ h2
+```
+The triangle in the second presentation is a macro built on top of `Eq.subst` and `Eq.symm`, and you can enter it by typing `\t`.
+For more information: [Equality](https://lean-lang.org/theorem_proving_in_lean4/quantifiers_and_equality.html#equality)
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `=` in identifiers is `eq`.</code></span></span><span class="inter-text">
+        </span><span class="var token" data-binding="var-_uniq.1099">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">.</span><span class="const token" data-binding="const-system.initState">initState<span class="hover-info"><code>system.initState {n m : ℕ} (self : system n m) {α : Type} : self.stateType α</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.1148">device_natural<span class="hover-info"><code>∀ {α β : Type} (f : α → β) (hb : β → sys.branchingType) (ins : kOTuple α n) (s : sys.stateType α),
+  let ha := fun a =&gt; hb (f a);
+  (mapKOTuple f (sys.device ha (ins, s)).1, f &lt;$&gt; (sys.device ha (ins, s)).2) =
+    sys.device hb (mapKOTuple f ins, f &lt;$&gt; s)</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text">
+    </span><span class="unknown token" data-binding="">∀</span><span class="inter-text"> </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.1115">α<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1117">β<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-7243200735919010059">Type<span class="hover-info"><code class="docstring">A type universe. `Type ≡ Type 0`, `Type u ≡ Sort (u + 1)`. </code></span></span><span class="unknown token" data-binding="">}</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.1119">f<span class="hover-info"><code>α → β</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1115">α<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1117">β<span class="hover-info"><code>Type</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+      </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.1122">hb<span class="hover-info"><code>β → sys.branchingType</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1117">β<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1099">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">.</span><span class="const token" data-binding="const-system.branchingType">branchingType<span class="hover-info"><code>system.branchingType {n m : ℕ} (self : system n m) : Type</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+      </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.1125">ins<span class="hover-info"><code>kOTuple α n</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-kOTuple">kOTuple<span class="hover-info"><code>kOTuple (α : Type) (k : ℕ) : Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1115">α<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1097">n<span class="hover-info"><code>ℕ</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+      </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.1126">s<span class="hover-info"><code>sys.stateType α</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1099">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">.</span><span class="const token" data-binding="const-system.stateType">stateType<span class="hover-info"><code>system.stateType {n m : ℕ} (self : system n m) : Type → Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1115">α<span class="hover-info"><code>Type</code></span></span><span class="unknown token" data-binding="">),</span><span class="inter-text">
+      </span><span class="keyword token" data-binding="">let</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1128">ha<span class="hover-info"><code>α → sys.branchingType</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:=</span><span class="inter-text"> </span><span class="keyword token" data-binding="">fun</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1127">a<span class="hover-info"><code>α</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">=&gt;</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1122">hb<span class="hover-info"><code>β → sys.branchingType</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.1119">f<span class="hover-info"><code>α → β</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1127">a<span class="hover-info"><code>α</code></span></span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">;</span><span class="inter-text">
+      </span><span class="const token" data-binding="const-Prod.mk">(<span class="hover-info"><code>Prod.mk.{u, v} {α : Type u} {β : Type v} (fst : α) (snd : β) : α × β</code><span class="sep"></span><code class="docstring">Constructs a pair. This is usually written `(x, y)` instead of `Prod.mk x y`.
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `(a, b)` in identifiers is `mk`.</code></span></span><span class="const token" data-binding="const-mapKOTuple">mapKOTuple<span class="hover-info"><code>mapKOTuple {α β : Type} (f : α → β) {k : ℕ} : kOTuple α k → kOTuple β k</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1119">f<span class="hover-info"><code>α → β</code></span></span><span class="inter-text">
+            </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.1099">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">.</span><span class="const token" data-binding="const-system.device">device<span class="hover-info"><code>system.device {n m : ℕ} (self : system n m) {α : Type} (inspect : α → self.branchingType) :
+  statefulDevice α (self.stateType α) n m</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1128">ha<span class="hover-info"><code>α → sys.branchingType</code></span></span><span class="inter-text"> </span><span class="const token" data-binding="const-Prod.mk">(<span class="hover-info"><code>Prod.mk.{u, v} {α : Type u} {β : Type v} (fst : α) (snd : β) : α × β</code><span class="sep"></span><code class="docstring">Constructs a pair. This is usually written `(x, y)` instead of `Prod.mk x y`.
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `(a, b)` in identifiers is `mk`.</code></span></span><span class="var token" data-binding="var-_uniq.1125">ins<span class="hover-info"><code>kOTuple α n</code></span></span><span class="const token" data-binding="const-Prod.mk">,<span class="hover-info"><code>Prod.mk.{u, v} {α : Type u} {β : Type v} (fst : α) (snd : β) : α × β</code><span class="sep"></span><code class="docstring">Constructs a pair. This is usually written `(x, y)` instead of `Prod.mk x y`.
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `(a, b)` in identifiers is `mk`.</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1126">s<span class="hover-info"><code>sys.stateType α</code></span></span><span class="const token" data-binding="const-Prod.mk">)<span class="hover-info"><code>Prod.mk.{u, v} {α : Type u} {β : Type v} (fst : α) (snd : β) : α × β</code><span class="sep"></span><code class="docstring">Constructs a pair. This is usually written `(x, y)` instead of `Prod.mk x y`.
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `(a, b)` in identifiers is `mk`.</code></span></span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">.1</span><span class="const token" data-binding="const-Prod.mk">,<span class="hover-info"><code>Prod.mk.{u, v} {α : Type u} {β : Type v} (fst : α) (snd : β) : α × β</code><span class="sep"></span><code class="docstring">Constructs a pair. This is usually written `(x, y)` instead of `Prod.mk x y`.
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `(a, b)` in identifiers is `mk`.</code></span></span><span class="inter-text">
+          </span><span class="var token" data-binding="var-_uniq.1119">f<span class="hover-info"><code>α → β</code></span></span><span class="inter-text"> </span><span class="const token" data-binding="const-Functor.map">&lt;$&gt;<span class="hover-info"><code>Functor.map.{u, v} {f : Type u → Type v} [self : Functor f] {α β : Type u} : (α → β) → f α → f β</code><span class="sep"></span><code class="docstring">Applies a function inside a functor. This is used to overload the `&lt;$&gt;` operator.
+
+When mapping a constant function, use `Functor.mapConst` instead, because it may be more
+efficient.
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `&lt;$&gt;` in identifiers is `map`.</code></span></span><span class="inter-text">
+            </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.1099">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">.</span><span class="const token" data-binding="const-system.device">device<span class="hover-info"><code>system.device {n m : ℕ} (self : system n m) {α : Type} (inspect : α → self.branchingType) :
+  statefulDevice α (self.stateType α) n m</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1128">ha<span class="hover-info"><code>α → sys.branchingType</code></span></span><span class="inter-text">
+                </span><span class="const token" data-binding="const-Prod.mk">(<span class="hover-info"><code>Prod.mk.{u, v} {α : Type u} {β : Type v} (fst : α) (snd : β) : α × β</code><span class="sep"></span><code class="docstring">Constructs a pair. This is usually written `(x, y)` instead of `Prod.mk x y`.
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `(a, b)` in identifiers is `mk`.</code></span></span><span class="var token" data-binding="var-_uniq.1125">ins<span class="hover-info"><code>kOTuple α n</code></span></span><span class="const token" data-binding="const-Prod.mk">,<span class="hover-info"><code>Prod.mk.{u, v} {α : Type u} {β : Type v} (fst : α) (snd : β) : α × β</code><span class="sep"></span><code class="docstring">Constructs a pair. This is usually written `(x, y)` instead of `Prod.mk x y`.
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `(a, b)` in identifiers is `mk`.</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1126">s<span class="hover-info"><code>sys.stateType α</code></span></span><span class="const token" data-binding="const-Prod.mk">)<span class="hover-info"><code>Prod.mk.{u, v} {α : Type u} {β : Type v} (fst : α) (snd : β) : α × β</code><span class="sep"></span><code class="docstring">Constructs a pair. This is usually written `(x, y)` instead of `Prod.mk x y`.
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `(a, b)` in identifiers is `mk`.</code></span></span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">.2</span><span class="const token" data-binding="const-Prod.mk">)<span class="hover-info"><code>Prod.mk.{u, v} {α : Type u} {β : Type v} (fst : α) (snd : β) : α × β</code><span class="sep"></span><code class="docstring">Constructs a pair. This is usually written `(x, y)` instead of `Prod.mk x y`.
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `(a, b)` in identifiers is `mk`.</code></span></span><span class="inter-text"> </span><span class="const token" data-binding="const-Eq">=<span class="hover-info"><code>Eq.{u_1} {α : Sort u_1} : α → α → Prop</code><span class="sep"></span><code class="docstring">The equality relation. It has one introduction rule, `Eq.refl`.
+We use `a = b` as notation for `Eq a b`.
+A fundamental property of equality is that it is an equivalence relation.
+```
+variable (α : Type) (a b c d : α)
+variable (hab : a = b) (hcb : c = b) (hcd : c = d)
+
+example : a = d :=
+  Eq.trans (Eq.trans hab (Eq.symm hcb)) hcd
+```
+Equality is much more than an equivalence relation, however. It has the important property that every assertion
+respects the equivalence, in the sense that we can substitute equal expressions without changing the truth value.
+That is, given `h1 : a = b` and `h2 : p a`, we can construct a proof for `p b` using substitution: `Eq.subst h1 h2`.
+Example:
+```
+example (α : Type) (a b : α) (p : α → Prop)
+        (h1 : a = b) (h2 : p a) : p b :=
+  Eq.subst h1 h2
+
+example (α : Type) (a b : α) (p : α → Prop)
+    (h1 : a = b) (h2 : p a) : p b :=
+  h1 ▸ h2
+```
+The triangle in the second presentation is a macro built on top of `Eq.subst` and `Eq.symm`, and you can enter it by typing `\t`.
+For more information: [Equality](https://lean-lang.org/theorem_proving_in_lean4/quantifiers_and_equality.html#equality)
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `=` in identifiers is `eq`.</code></span></span><span class="inter-text">
+        </span><span class="var token" data-binding="var-_uniq.1099">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">.</span><span class="const token" data-binding="const-system.device">device<span class="hover-info"><code>system.device {n m : ℕ} (self : system n m) {α : Type} (inspect : α → self.branchingType) :
+  statefulDevice α (self.stateType α) n m</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1122">hb<span class="hover-info"><code>β → sys.branchingType</code></span></span><span class="inter-text">
+          </span><span class="const token" data-binding="const-Prod.mk">(<span class="hover-info"><code>Prod.mk.{u, v} {α : Type u} {β : Type v} (fst : α) (snd : β) : α × β</code><span class="sep"></span><code class="docstring">Constructs a pair. This is usually written `(x, y)` instead of `Prod.mk x y`.
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `(a, b)` in identifiers is `mk`.</code></span></span><span class="const token" data-binding="const-mapKOTuple">mapKOTuple<span class="hover-info"><code>mapKOTuple {α β : Type} (f : α → β) {k : ℕ} : kOTuple α k → kOTuple β k</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1119">f<span class="hover-info"><code>α → β</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1125">ins<span class="hover-info"><code>kOTuple α n</code></span></span><span class="const token" data-binding="const-Prod.mk">,<span class="hover-info"><code>Prod.mk.{u, v} {α : Type u} {β : Type v} (fst : α) (snd : β) : α × β</code><span class="sep"></span><code class="docstring">Constructs a pair. This is usually written `(x, y)` instead of `Prod.mk x y`.
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `(a, b)` in identifiers is `mk`.</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1119">f<span class="hover-info"><code>α → β</code></span></span><span class="inter-text"> </span><span class="const token" data-binding="const-Functor.map">&lt;$&gt;<span class="hover-info"><code>Functor.map.{u, v} {f : Type u → Type v} [self : Functor f] {α β : Type u} : (α → β) → f α → f β</code><span class="sep"></span><code class="docstring">Applies a function inside a functor. This is used to overload the `&lt;$&gt;` operator.
+
+When mapping a constant function, use `Functor.mapConst` instead, because it may be more
+efficient.
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `&lt;$&gt;` in identifiers is `map`.</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1126">s<span class="hover-info"><code>sys.stateType α</code></span></span><span class="const token" data-binding="const-Prod.mk">)<span class="hover-info"><code>Prod.mk.{u, v} {α : Type u} {β : Type v} (fst : α) (snd : β) : α × β</code><span class="sep"></span><code class="docstring">Constructs a pair. This is usually written `(x, y)` instead of `Prod.mk x y`.
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `(a, b)` in identifiers is `mk`.</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text">
+  </span><span class="const token" data-binding="const-GoodSystem">GoodSystem<span class="hover-info"><code>GoodSystem {n m : ℕ} (sys : system n m) : Type 1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1099">sys<span class="hover-info"><code>system n m</code></span></span></pre><div class="docs"></div>
+                            </div>
+                          <h1>
+                            Methods</h1>
+                          <section class="subdocs">
+                            <pre class="name-and-type hl lean"><span class="const token" data-binding="const-GoodSystem.state">state<span class="hover-info"><code>(α : Type) → [Enumerable α] → Enumerable (sys.stateType α)</code></span></span> : <span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.1054">α<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-7243200735919010059">Type<span class="hover-info"><code class="docstring">A type universe. `Type ≡ Type 0`, `Type u ≡ Sort (u + 1)`. </code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text"> </span><span class="unknown token" data-binding="">[</span><span class="const token" data-binding="const-Enumerable">Enumerable<span class="hover-info"><code>Enumerable.{u_1} (α : Type u_1) : Type u_1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1054">α<span class="hover-info"><code>Type</code></span></span><span class="unknown token" data-binding="">]</span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text"> </span><span class="const token" data-binding="const-Enumerable">Enumerable<span class="hover-info"><code>Enumerable.{u_1} (α : Type u_1) : Type u_1</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.1051">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">.</span><span class="const token" data-binding="const-system.stateType">stateType<span class="hover-info"><code>system.stateType {n m : ℕ} (self : system n m) : Type → Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1054">α<span class="hover-info"><code>Type</code></span></span><span class="unknown token" data-binding="">)</span></pre><div class="docs"></div>
+                            </section>
+                          <section class="subdocs">
+                            <pre class="name-and-type hl lean"><span class="const token" data-binding="const-GoodSystem.branch">branch<span class="hover-info"><code>Enumerable sys.branchingType</code></span></span> : <span class="inter-text"></span><span class="const token" data-binding="const-Enumerable">Enumerable<span class="hover-info"><code>Enumerable.{u_1} (α : Type u_1) : Type u_1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1051">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">.</span><span class="const token" data-binding="const-system.branchingType">branchingType<span class="hover-info"><code>system.branchingType {n m : ℕ} (self : system n m) : Type</code></span></span></pre><div class="docs"></div>
+                            </section>
+                          <section class="subdocs">
+                            <pre class="name-and-type hl lean"><span class="const token" data-binding="const-GoodSystem.stateType">stateType<span class="hover-info"><code>Functor sys.stateType</code></span></span> : <span class="inter-text"></span><span class="const token" data-binding="const-Functor">Functor<span class="hover-info"><code>Functor.{u, v} (f : Type u → Type v) : Type (max (u + 1) v)</code><span class="sep"></span><code class="docstring">A functor in the sense used in functional programming, which means a function `f : Type u → Type v`
+has a way of mapping a function over its contents. This `map` operator is written `&lt;$&gt;`, and
+overloaded via `Functor` instances.
+
+This `map` function should respect identity and function composition. In other words, for all terms
+`v : f α`, it should be the case that:
+
+ * `id &lt;$&gt; v = v`
+
+ * For all functions `h : β → γ` and `g : α → β`, `(h ∘ g) &lt;$&gt; v = h &lt;$&gt; g &lt;$&gt; v`
+
+While all `Functor` instances should live up to these requirements, they are not required to _prove_
+that they do. Proofs may be required or provided via the `LawfulFunctor` class.
+
+Assuming that instances are lawful, this definition corresponds to the category-theoretic notion of
+[functor](https://en.wikipedia.org/wiki/Functor) in the special case where the category is the
+category of types and functions between them.
+</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1051">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">.</span><span class="const token" data-binding="const-system.stateType">stateType<span class="hover-info"><code>system.stateType {n m : ℕ} (self : system n m) : Type → Type</code></span></span></pre><div class="docs"></div>
+                            </section>
+                          <section class="subdocs">
+                            <pre class="name-and-type hl lean"><span class="const token" data-binding="const-GoodSystem.initState_natural">initState_natural<span class="hover-info"><code>∀ {α β : Type} (f : α → β), f &lt;$&gt; sys.initState = sys.initState</code></span></span> : <span class="unknown token" data-binding="">∀</span><span class="inter-text"> </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.1058">α<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1060">β<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-7243200735919010059">Type<span class="hover-info"><code class="docstring">A type universe. `Type ≡ Type 0`, `Type u ≡ Sort (u + 1)`. </code></span></span><span class="unknown token" data-binding="">}</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.1061">f<span class="hover-info"><code>α → β</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1058">α<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1060">β<span class="hover-info"><code>Type</code></span></span><span class="unknown token" data-binding="">),</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1061">f<span class="hover-info"><code>α → β</code></span></span><span class="inter-text"> </span><span class="const token" data-binding="const-Functor.map">&lt;$&gt;<span class="hover-info"><code>Functor.map.{u, v} {f : Type u → Type v} [self : Functor f] {α β : Type u} : (α → β) → f α → f β</code><span class="sep"></span><code class="docstring">Applies a function inside a functor. This is used to overload the `&lt;$&gt;` operator.
+
+When mapping a constant function, use `Functor.mapConst` instead, because it may be more
+efficient.
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `&lt;$&gt;` in identifiers is `map`.</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1051">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">.</span><span class="const token" data-binding="const-system.initState">initState<span class="hover-info"><code>system.initState {n m : ℕ} (self : system n m) {α : Type} : self.stateType α</code></span></span><span class="inter-text"> </span><span class="const token" data-binding="const-Eq">=<span class="hover-info"><code>Eq.{u_1} {α : Sort u_1} : α → α → Prop</code><span class="sep"></span><code class="docstring">The equality relation. It has one introduction rule, `Eq.refl`.
+We use `a = b` as notation for `Eq a b`.
+A fundamental property of equality is that it is an equivalence relation.
+```
+variable (α : Type) (a b c d : α)
+variable (hab : a = b) (hcb : c = b) (hcd : c = d)
+
+example : a = d :=
+  Eq.trans (Eq.trans hab (Eq.symm hcb)) hcd
+```
+Equality is much more than an equivalence relation, however. It has the important property that every assertion
+respects the equivalence, in the sense that we can substitute equal expressions without changing the truth value.
+That is, given `h1 : a = b` and `h2 : p a`, we can construct a proof for `p b` using substitution: `Eq.subst h1 h2`.
+Example:
+```
+example (α : Type) (a b : α) (p : α → Prop)
+        (h1 : a = b) (h2 : p a) : p b :=
+  Eq.subst h1 h2
+
+example (α : Type) (a b : α) (p : α → Prop)
+    (h1 : a = b) (h2 : p a) : p b :=
+  h1 ▸ h2
+```
+The triangle in the second presentation is a macro built on top of `Eq.subst` and `Eq.symm`, and you can enter it by typing `\t`.
+For more information: [Equality](https://lean-lang.org/theorem_proving_in_lean4/quantifiers_and_equality.html#equality)
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `=` in identifiers is `eq`.</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1051">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">.</span><span class="const token" data-binding="const-system.initState">initState<span class="hover-info"><code>system.initState {n m : ℕ} (self : system n m) {α : Type} : self.stateType α</code></span></span></pre><div class="docs"></div>
+                            </section>
+                          <section class="subdocs">
+                            <pre class="name-and-type hl lean"><span class="const token" data-binding="const-GoodSystem.device_natural">device_natural<span class="hover-info"><code>∀ {α β : Type} (f : α → β) (hb : β → sys.branchingType) (ins : kOTuple α n) (s : sys.stateType α),
+  let ha := fun a =&gt; hb (f a);
+  (mapKOTuple f (sys.device ha (ins, s)).1, f &lt;$&gt; (sys.device ha (ins, s)).2) =
+    sys.device hb (mapKOTuple f ins, f &lt;$&gt; s)</code></span></span> : <span class="unknown token" data-binding="">∀</span><span class="inter-text"> </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.1064">α<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1066">β<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-7243200735919010059">Type<span class="hover-info"><code class="docstring">A type universe. `Type ≡ Type 0`, `Type u ≡ Sort (u + 1)`. </code></span></span><span class="unknown token" data-binding="">}</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.1068">f<span class="hover-info"><code>α → β</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1064">α<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1066">β<span class="hover-info"><code>Type</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.1071">hb<span class="hover-info"><code>β → sys.branchingType</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1066">β<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">→</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1051">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">.</span><span class="const token" data-binding="const-system.branchingType">branchingType<span class="hover-info"><code>system.branchingType {n m : ℕ} (self : system n m) : Type</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.1074">ins<span class="hover-info"><code>kOTuple α n</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-kOTuple">kOTuple<span class="hover-info"><code>kOTuple (α : Type) (k : ℕ) : Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1064">α<span class="hover-info"><code>Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1049">n<span class="hover-info"><code>ℕ</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.1075">s<span class="hover-info"><code>sys.stateType α</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1051">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">.</span><span class="const token" data-binding="const-system.stateType">stateType<span class="hover-info"><code>system.stateType {n m : ℕ} (self : system n m) : Type → Type</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1064">α<span class="hover-info"><code>Type</code></span></span><span class="unknown token" data-binding="">),</span><span class="inter-text">
+  </span><span class="keyword token" data-binding="">let</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1077">ha<span class="hover-info"><code>α → sys.branchingType</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:=</span><span class="inter-text"> </span><span class="keyword token" data-binding="">fun</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1076">a<span class="hover-info"><code>α</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">=&gt;</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1071">hb<span class="hover-info"><code>β → sys.branchingType</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.1068">f<span class="hover-info"><code>α → β</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1076">a<span class="hover-info"><code>α</code></span></span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">;</span><span class="inter-text">
+  </span><span class="const token" data-binding="const-Prod.mk">(<span class="hover-info"><code>Prod.mk.{u, v} {α : Type u} {β : Type v} (fst : α) (snd : β) : α × β</code><span class="sep"></span><code class="docstring">Constructs a pair. This is usually written `(x, y)` instead of `Prod.mk x y`.
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `(a, b)` in identifiers is `mk`.</code></span></span><span class="const token" data-binding="const-mapKOTuple">mapKOTuple<span class="hover-info"><code>mapKOTuple {α β : Type} (f : α → β) {k : ℕ} : kOTuple α k → kOTuple β k</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1068">f<span class="hover-info"><code>α → β</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.1051">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">.</span><span class="const token" data-binding="const-system.device">device<span class="hover-info"><code>system.device {n m : ℕ} (self : system n m) {α : Type} (inspect : α → self.branchingType) :
+  statefulDevice α (self.stateType α) n m</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1077">ha<span class="hover-info"><code>α → sys.branchingType</code></span></span><span class="inter-text"> </span><span class="const token" data-binding="const-Prod.mk">(<span class="hover-info"><code>Prod.mk.{u, v} {α : Type u} {β : Type v} (fst : α) (snd : β) : α × β</code><span class="sep"></span><code class="docstring">Constructs a pair. This is usually written `(x, y)` instead of `Prod.mk x y`.
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `(a, b)` in identifiers is `mk`.</code></span></span><span class="var token" data-binding="var-_uniq.1074">ins<span class="hover-info"><code>kOTuple α n</code></span></span><span class="const token" data-binding="const-Prod.mk">,<span class="hover-info"><code>Prod.mk.{u, v} {α : Type u} {β : Type v} (fst : α) (snd : β) : α × β</code><span class="sep"></span><code class="docstring">Constructs a pair. This is usually written `(x, y)` instead of `Prod.mk x y`.
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `(a, b)` in identifiers is `mk`.</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1075">s<span class="hover-info"><code>sys.stateType α</code></span></span><span class="const token" data-binding="const-Prod.mk">)<span class="hover-info"><code>Prod.mk.{u, v} {α : Type u} {β : Type v} (fst : α) (snd : β) : α × β</code><span class="sep"></span><code class="docstring">Constructs a pair. This is usually written `(x, y)` instead of `Prod.mk x y`.
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `(a, b)` in identifiers is `mk`.</code></span></span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">.1</span><span class="const token" data-binding="const-Prod.mk">,<span class="hover-info"><code>Prod.mk.{u, v} {α : Type u} {β : Type v} (fst : α) (snd : β) : α × β</code><span class="sep"></span><code class="docstring">Constructs a pair. This is usually written `(x, y)` instead of `Prod.mk x y`.
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `(a, b)` in identifiers is `mk`.</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1068">f<span class="hover-info"><code>α → β</code></span></span><span class="inter-text"> </span><span class="const token" data-binding="const-Functor.map">&lt;$&gt;<span class="hover-info"><code>Functor.map.{u, v} {f : Type u → Type v} [self : Functor f] {α β : Type u} : (α → β) → f α → f β</code><span class="sep"></span><code class="docstring">Applies a function inside a functor. This is used to overload the `&lt;$&gt;` operator.
+
+When mapping a constant function, use `Functor.mapConst` instead, because it may be more
+efficient.
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `&lt;$&gt;` in identifiers is `map`.</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.1051">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">.</span><span class="const token" data-binding="const-system.device">device<span class="hover-info"><code>system.device {n m : ℕ} (self : system n m) {α : Type} (inspect : α → self.branchingType) :
+  statefulDevice α (self.stateType α) n m</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1077">ha<span class="hover-info"><code>α → sys.branchingType</code></span></span><span class="inter-text"> </span><span class="const token" data-binding="const-Prod.mk">(<span class="hover-info"><code>Prod.mk.{u, v} {α : Type u} {β : Type v} (fst : α) (snd : β) : α × β</code><span class="sep"></span><code class="docstring">Constructs a pair. This is usually written `(x, y)` instead of `Prod.mk x y`.
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `(a, b)` in identifiers is `mk`.</code></span></span><span class="var token" data-binding="var-_uniq.1074">ins<span class="hover-info"><code>kOTuple α n</code></span></span><span class="const token" data-binding="const-Prod.mk">,<span class="hover-info"><code>Prod.mk.{u, v} {α : Type u} {β : Type v} (fst : α) (snd : β) : α × β</code><span class="sep"></span><code class="docstring">Constructs a pair. This is usually written `(x, y)` instead of `Prod.mk x y`.
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `(a, b)` in identifiers is `mk`.</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1075">s<span class="hover-info"><code>sys.stateType α</code></span></span><span class="const token" data-binding="const-Prod.mk">)<span class="hover-info"><code>Prod.mk.{u, v} {α : Type u} {β : Type v} (fst : α) (snd : β) : α × β</code><span class="sep"></span><code class="docstring">Constructs a pair. This is usually written `(x, y)` instead of `Prod.mk x y`.
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `(a, b)` in identifiers is `mk`.</code></span></span><span class="unknown token" data-binding="">)</span><span class="unknown token" data-binding="">.2</span><span class="const token" data-binding="const-Prod.mk">)<span class="hover-info"><code>Prod.mk.{u, v} {α : Type u} {β : Type v} (fst : α) (snd : β) : α × β</code><span class="sep"></span><code class="docstring">Constructs a pair. This is usually written `(x, y)` instead of `Prod.mk x y`.
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `(a, b)` in identifiers is `mk`.</code></span></span><span class="inter-text"> </span><span class="const token" data-binding="const-Eq">=<span class="hover-info"><code>Eq.{u_1} {α : Sort u_1} : α → α → Prop</code><span class="sep"></span><code class="docstring">The equality relation. It has one introduction rule, `Eq.refl`.
+We use `a = b` as notation for `Eq a b`.
+A fundamental property of equality is that it is an equivalence relation.
+```
+variable (α : Type) (a b c d : α)
+variable (hab : a = b) (hcb : c = b) (hcd : c = d)
+
+example : a = d :=
+  Eq.trans (Eq.trans hab (Eq.symm hcb)) hcd
+```
+Equality is much more than an equivalence relation, however. It has the important property that every assertion
+respects the equivalence, in the sense that we can substitute equal expressions without changing the truth value.
+That is, given `h1 : a = b` and `h2 : p a`, we can construct a proof for `p b` using substitution: `Eq.subst h1 h2`.
+Example:
+```
+example (α : Type) (a b : α) (p : α → Prop)
+        (h1 : a = b) (h2 : p a) : p b :=
+  Eq.subst h1 h2
+
+example (α : Type) (a b : α) (p : α → Prop)
+    (h1 : a = b) (h2 : p a) : p b :=
+  h1 ▸ h2
+```
+The triangle in the second presentation is a macro built on top of `Eq.subst` and `Eq.symm`, and you can enter it by typing `\t`.
+For more information: [Equality](https://lean-lang.org/theorem_proving_in_lean4/quantifiers_and_equality.html#equality)
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `=` in identifiers is `eq`.</code></span></span><span class="inter-text">
+    </span><span class="var token" data-binding="var-_uniq.1051">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">.</span><span class="const token" data-binding="const-system.device">device<span class="hover-info"><code>system.device {n m : ℕ} (self : system n m) {α : Type} (inspect : α → self.branchingType) :
+  statefulDevice α (self.stateType α) n m</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1071">hb<span class="hover-info"><code>β → sys.branchingType</code></span></span><span class="inter-text"> </span><span class="const token" data-binding="const-Prod.mk">(<span class="hover-info"><code>Prod.mk.{u, v} {α : Type u} {β : Type v} (fst : α) (snd : β) : α × β</code><span class="sep"></span><code class="docstring">Constructs a pair. This is usually written `(x, y)` instead of `Prod.mk x y`.
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `(a, b)` in identifiers is `mk`.</code></span></span><span class="const token" data-binding="const-mapKOTuple">mapKOTuple<span class="hover-info"><code>mapKOTuple {α β : Type} (f : α → β) {k : ℕ} : kOTuple α k → kOTuple β k</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1068">f<span class="hover-info"><code>α → β</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1074">ins<span class="hover-info"><code>kOTuple α n</code></span></span><span class="const token" data-binding="const-Prod.mk">,<span class="hover-info"><code>Prod.mk.{u, v} {α : Type u} {β : Type v} (fst : α) (snd : β) : α × β</code><span class="sep"></span><code class="docstring">Constructs a pair. This is usually written `(x, y)` instead of `Prod.mk x y`.
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `(a, b)` in identifiers is `mk`.</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1068">f<span class="hover-info"><code>α → β</code></span></span><span class="inter-text"> </span><span class="const token" data-binding="const-Functor.map">&lt;$&gt;<span class="hover-info"><code>Functor.map.{u, v} {f : Type u → Type v} [self : Functor f] {α β : Type u} : (α → β) → f α → f β</code><span class="sep"></span><code class="docstring">Applies a function inside a functor. This is used to overload the `&lt;$&gt;` operator.
+
+When mapping a constant function, use `Functor.mapConst` instead, because it may be more
+efficient.
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `&lt;$&gt;` in identifiers is `map`.</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.1075">s<span class="hover-info"><code>sys.stateType α</code></span></span><span class="const token" data-binding="const-Prod.mk">)<span class="hover-info"><code>Prod.mk.{u, v} {α : Type u} {β : Type v} (fst : α) (snd : β) : α × β</code><span class="sep"></span><code class="docstring">Constructs a pair. This is usually written `(x, y)` instead of `Prod.mk x y`.
+
+
+Conventions for notations in identifiers:
+
+ * The recommended spelling of `(a, b)` in identifiers is `mk`.</code></span></span></pre><div class="docs"></div>
+                            </section>
+                          </div>
+                        </div>
+                      </div>
+                    <div class="bp_external_decl_meta bp_external_decl_rendered_meta">
+                      <span class="bp_external_status_badge bp_external_decl_footer_status bp_external_decl_ok">complete</span></div>
+                    </li>
+                  </ul>
+                </details></div>
             </section>
           <nav class="prev-next-buttons">
-            <a class="local-button active" href="Core-Model/Delay-Semantics/#Network-Performance-Verification--Core-Model--Delay-Semantics" rel="prev" title="1.2. Delay Semantics"><span class="arrow">←</span><span class="where">1.2. Delay Semantics</span></a><a class="local-button active" href="Symbolic-Delay-Analysis/Abstractions/#Network-Performance-Verification--Symbolic-Delay-Analysis--Abstractions" rel="next" title="2.1. Abstractions"><span class="where">2.1. Abstractions</span><span class="arrow">→</span></a></nav>
+            <a class="local-button active" href="Symbolic-Delay-Analysis/#Network-Performance-Verification--Symbolic-Delay-Analysis" rel="prev" title="2. Symbolic Delay Analysis"><span class="arrow">←</span><span class="where">2. Symbolic Delay Analysis</span></a><a class="local-button active" href="Symbolic-Delay-Analysis/Reference-Algorithm/#Network-Performance-Verification--Symbolic-Delay-Analysis--Reference-Algorithm" rel="next" title="2.2. Reference Algorithm"><span class="where">2.2. Reference Algorithm</span><span class="arrow">→</span></a></nav>
           </div>
         </main></div>
     </body>

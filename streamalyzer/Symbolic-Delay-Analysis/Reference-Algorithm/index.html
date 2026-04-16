@@ -8,9 +8,9 @@
     window.location.replace(`${proto}//${hostName}${path}/${srch}${hsh}`);
   }
 })()</script>
-    <base href="./../"><meta charset="utf-8">
+    <base href="./../../"><meta charset="utf-8">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-    <title>Symbolic Delay Analysis</title><link rel="stylesheet" href="book.css">
+    <title>Reference Algorithm</title><link rel="stylesheet" href="book.css">
     <link rel="stylesheet" href="verso-vars.css">
     <script src="https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js" integrity="sha384-zbcZAIxlvJtNE3Dp5nxLXdXtXyxwOdnILY1TDPVmKFhl4r4nSUG1r8bcFXGVa4Te" crossorigin="anonymous"></script>
     <script src="-verso-search/elasticlunr.min.js"></script>
@@ -6936,37 +6936,179 @@ window.onload = () => {
             </a><div class="split-tocs">
             <div class="split-toc book">
               <div class="title">
-                <label for="--verso-manual-toc-----bookRoot" class="toggle-split-toc"><input type="checkbox" class="toggle-split-toc" id="--verso-manual-toc-----bookRoot" checked="checked"></label><span class="">Table of Contents</span></div>
+                <label for="--verso-manual-toc-----bookRoot" class="toggle-split-toc"><input type="checkbox" class="toggle-split-toc" id="--verso-manual-toc-----bookRoot"></label><span class="">Table of Contents</span></div>
               <table><tr class="numbered"><td class="num">1.</td><td><a href="Core-Model/#Network-Performance-Verification--Core-Model">Core Model</a></td></tr><tr class="current numbered"><td class="num">2.</td><td><a href="Symbolic-Delay-Analysis/#Network-Performance-Verification--Symbolic-Delay-Analysis">Symbolic Delay Analysis</a></td></tr><tr class="numbered"><td class="num">3.</td><td><a href="Tagged-Delay-Analysis/#Network-Performance-Verification--Tagged-Delay-Analysis">Tagged Delay Analysis</a></td></tr><tr class="unnumbered"><td class="num"><td><a href="Dependency-Graph/#Network-Performance-Verification--Dependency-Graph">Dependency Graph</a></td></tr><tr class="unnumbered"><td class="num"><td><a href="Blueprint-Summary/#Network-Performance-Verification--Blueprint-Summary">Blueprint Summary</a></td></tr></table></div>
             <div class="split-toc">
               <div class="title">
-                <label for="--verso-manual-toc-Network-Performance-Verification--Symbolic-Delay-Analysis" class="toggle-split-toc"><input type="checkbox" class="toggle-split-toc" id="--verso-manual-toc-Network-Performance-Verification--Symbolic-Delay-Analysis" checked="checked"></label><span class="number">2.</span> <span class="current"><a href="Symbolic-Delay-Analysis/#Network-Performance-Verification--Symbolic-Delay-Analysis">Symbolic Delay Analysis</a></span></div>
-              <table><tr class="numbered"><td class="num">2.1.</td><td><a href="Symbolic-Delay-Analysis/Abstractions/#Network-Performance-Verification--Symbolic-Delay-Analysis--Abstractions">Abstractions</a></td></tr><tr class="numbered"><td class="num">2.2.</td><td><a href="Symbolic-Delay-Analysis/Reference-Algorithm/#Network-Performance-Verification--Symbolic-Delay-Analysis--Reference-Algorithm">Reference Algorithm</a></td></tr><tr class="numbered"><td class="num">2.3.</td><td><a href="Symbolic-Delay-Analysis/Soundness/#Network-Performance-Verification--Symbolic-Delay-Analysis--Soundness">Soundness</a></td></tr><tr class="numbered"><td class="num">2.4.</td><td><a href="Symbolic-Delay-Analysis/Completeness/#Network-Performance-Verification--Symbolic-Delay-Analysis--Completeness">Completeness</a></td></tr><tr class="numbered"><td class="num">2.5.</td><td><a href="Symbolic-Delay-Analysis/Optimized-Algorithm/#Network-Performance-Verification--Symbolic-Delay-Analysis--Optimized-Algorithm">Optimized Algorithm</a></td></tr></table></div>
+                <label for="--verso-manual-toc-Network-Performance-Verification--Symbolic-Delay-Analysis" class="toggle-split-toc"><input type="checkbox" class="toggle-split-toc" id="--verso-manual-toc-Network-Performance-Verification--Symbolic-Delay-Analysis" checked="checked"></label><span class="number">2.</span> <span class=""><a href="Symbolic-Delay-Analysis/#Network-Performance-Verification--Symbolic-Delay-Analysis">Symbolic Delay Analysis</a></span></div>
+              <table><tr class="numbered"><td class="num">2.1.</td><td><a href="Symbolic-Delay-Analysis/Abstractions/#Network-Performance-Verification--Symbolic-Delay-Analysis--Abstractions">Abstractions</a></td></tr><tr class="current numbered"><td class="num">2.2.</td><td><a href="Symbolic-Delay-Analysis/Reference-Algorithm/#Network-Performance-Verification--Symbolic-Delay-Analysis--Reference-Algorithm">Reference Algorithm</a></td></tr><tr class="numbered"><td class="num">2.3.</td><td><a href="Symbolic-Delay-Analysis/Soundness/#Network-Performance-Verification--Symbolic-Delay-Analysis--Soundness">Soundness</a></td></tr><tr class="numbered"><td class="num">2.4.</td><td><a href="Symbolic-Delay-Analysis/Completeness/#Network-Performance-Verification--Symbolic-Delay-Analysis--Completeness">Completeness</a></td></tr><tr class="numbered"><td class="num">2.5.</td><td><a href="Symbolic-Delay-Analysis/Optimized-Algorithm/#Network-Performance-Verification--Symbolic-Delay-Analysis--Optimized-Algorithm">Optimized Algorithm</a></td></tr></table></div>
+            <div class="split-toc">
+              <div class="title">
+                <span class="no-toggle"></span><span class="number">2.2.</span> <span class="current"><a href="Symbolic-Delay-Analysis/Reference-Algorithm/#Network-Performance-Verification--Symbolic-Delay-Analysis--Reference-Algorithm">Reference Algorithm</a></span></div>
+              </div>
             </div>
           </div>
         <div class="last"></div>
         </nav>
       <main><div class="content-wrapper">
           <nav class="prev-next-buttons">
-            <a class="local-button active" href="Core-Model/Delay-Semantics/#Network-Performance-Verification--Core-Model--Delay-Semantics" rel="prev" title="1.2. Delay Semantics"><span class="arrow">←</span><span class="where">1.2. Delay Semantics</span></a><a class="local-button active" href="Symbolic-Delay-Analysis/Abstractions/#Network-Performance-Verification--Symbolic-Delay-Analysis--Abstractions" rel="next" title="2.1. Abstractions"><span class="where">2.1. Abstractions</span><span class="arrow">→</span></a></nav>
+            <a class="local-button active" href="Symbolic-Delay-Analysis/Abstractions/#Network-Performance-Verification--Symbolic-Delay-Analysis--Abstractions" rel="prev" title="2.1. Abstractions"><span class="arrow">←</span><span class="where">2.1. Abstractions</span></a><a class="local-button active" href="Symbolic-Delay-Analysis/Soundness/#Network-Performance-Verification--Symbolic-Delay-Analysis--Soundness" rel="next" title="2.3. Soundness"><span class="where">2.3. Soundness</span><span class="arrow">→</span></a></nav>
           <section>
             <h1>
-              2. Symbolic Delay Analysis<span class="permalink-widget inline"><a href="find/?domain=Verso.Genre.Manual.section&amp;name=Network-Performance-Verification--Symbolic-Delay-Analysis" title="Permalink">🔗</a></span></h1>
-            <ol class="section-toc">
-              <li>
-                <a href="Symbolic-Delay-Analysis/Abstractions/#Network-Performance-Verification--Symbolic-Delay-Analysis--Abstractions"><span class="number">2.1.</span> Abstractions</a></li>
-              <li>
-                <a href="Symbolic-Delay-Analysis/Reference-Algorithm/#Network-Performance-Verification--Symbolic-Delay-Analysis--Reference-Algorithm"><span class="number">2.2.</span> Reference Algorithm</a></li>
-              <li>
-                <a href="Symbolic-Delay-Analysis/Soundness/#Network-Performance-Verification--Symbolic-Delay-Analysis--Soundness"><span class="number">2.3.</span> Soundness</a></li>
-              <li>
-                <a href="Symbolic-Delay-Analysis/Completeness/#Network-Performance-Verification--Symbolic-Delay-Analysis--Completeness"><span class="number">2.4.</span> Completeness</a></li>
-              <li>
-                <a href="Symbolic-Delay-Analysis/Optimized-Algorithm/#Network-Performance-Verification--Symbolic-Delay-Analysis--Optimized-Algorithm"><span class="number">2.5.</span> Optimized Algorithm</a></li>
-              </ol>
+              2.2. Reference Algorithm<span class="permalink-widget inline"><a href="find/?domain=Verso.Genre.Manual.section&amp;name=Network-Performance-Verification--Symbolic-Delay-Analysis--Reference-Algorithm" title="Permalink">🔗</a></span></h1>
+            <div class="bp_wrapper bp_kind_definition_wrapper definition_thmwrapper definition_thmwrapper theorem-style-definition bp_kind_definition bp_style_definition" title="symbolic_packets" id="--informal-preview-symbolic_packets--statement">
+              <div class="bp_heading bp_kind_definition_heading definition_thmheading">
+                <div class="bp_heading_title_row bp_heading_title_row_statement">
+                  <span class="bp_caption bp_kind_definition_caption definition_thmcaption" title="symbolic_packets">Definition</span><span class="bp_label bp_kind_definition_label definition_thmlabel">2.6</span></div>
+                <div class="bp_extras bp_extras_with_group thm_header_extras">
+                  <span class="bp_extra_slot bp_extra_slot_group"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-group-symbolic-005Fpackets-analyze-005Fdelay" data-bp-preview-title="Definition 2.7" data-bp-preview-key="analyze_delay--statement" data-bp-preview-fallback-label="analyze_delay"><a class="bp_used_by_chip bp_code_link" href="Symbolic-Delay-Analysis/Reference-Algorithm/#--informal-preview-analyze_delay--statement" title="Group member: Definition 2.7">group</a></span></span><span class="bp_extra_slot bp_extra_slot_code"><span class="bp_code_summary_preview_root"><span class="bp_code_summary_preview_wrap bp_code_summary_preview_wrap_active" data-bp-preview-id="bp-code-summary" data-bp-preview-title="symbolic_packets" tabindex="0" role="button" aria-label="No associated Lean declarations"><span class="bp_code_link bp_code_link_status bp_code_link_status_absent bp_code_link_empty" title="No associated Lean declarations"><span class="bp_code_status_symbol">X</span><span class="bp_code_link_label">L∃∀N</span></span></span><template class="bp_code_summary_preview_tpl" data-bp-preview-id="bp-code-summary"><div class="bp_code_summary_preview_content">
+                          <div class="bp_code_hover_section">
+                            <span class="bp_code_hover_label">Lean status</span><ul class="bp_code_hover_list">
+                              <li class="bp_code_hover_none">
+                                No associated Lean code or declarations.</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </template><aside class="bp_code_summary_preview_panel bp_preview_panel" data-bp-preview-mode="hover" data-bp-preview-placement="anchored" hidden=""><div class="bp_code_summary_preview_header bp_preview_panel_header">
+                          <div class="bp_code_summary_preview_title bp_preview_panel_title"></div>
+                          <button type="button" class="bp_code_summary_preview_close bp_preview_panel_close" aria-label="Close Lean summary preview">Close</button></div>
+                        <div class="bp_code_summary_preview_body bp_preview_panel_body"></div>
+                        </aside></span></span><span class="bp_extra_slot bp_extra_slot_used_by"><span class="bp_used_by_chip bp_used_by_chip_empty" title="No reverse dependencies">used by 0</span></span></div>
+                </div>
+              <div class="bp_content bp_kind_definition_content definition_thmcontent">
+                <p>
+                  The core idea of the symbolic analysis: replace concrete packets of type <code>α</code> by
+<em>symbolic packets</em> of type <code>branchingType × Bool</code>.</p>
+                <ul>
+                  <li>
+                    <p>
+                      The branching label records everything the system may inspect.</p>
+                    </li>
+                  <li>
+                    <p>
+                      The <code>Bool</code> tag distinguishes one <em>tracked</em> packet (<code>true</code>) from <em>background</em>
+  traffic (<code>false</code>).</p>
+                    </li>
+                  </ul>
+                <p>
+                  Because a <span><span class="bp_inline_preview_ref" data-bp-preview-id="bp-uses-good-005Fsystem-statement" data-bp-preview-title="Definition 2.5" data-bp-preview-key="good_system--statement" data-bp-preview-fallback-label="good_system"><a href="Symbolic-Delay-Analysis/Abstractions/#--informal-preview-good_system--statement" title="good_system">Definition 2.5</a></span><template class="bp_inline_preview_tpl" data-bp-preview-id="bp-uses-good-005Fsystem-statement"><p>
+                        A <code>GoodSystem</code> constrains a <span><span class="bp_inline_preview_ref" data-bp-preview-id="bp-uses-device-005Ftype-statement" data-bp-preview-title="Definition 1.4" data-bp-preview-key="device_type--statement" data-bp-preview-fallback-label="device_type"><a href="Core-Model/Operational-Model/#--informal-preview-device_type--statement" title="device_type">Definition 1.4</a></span></span> with four properties:</p>
+                      <ol start="1">
+                        <li>
+                          <p>
+                            <em>State finiteness</em>: <code>stateType (branchingType × Bool)</code> is <code>Enumerable</code>.</p>
+                          </li>
+                        <li>
+                          <p>
+                            <em>Branching finiteness</em>: <code>branchingType</code> is <code>Enumerable</code>.</p>
+                          </li>
+                        <li>
+                          <p>
+                            <em>Functoriality</em>: <code>stateType</code> is a <code>Functor</code>.</p>
+                          </li>
+                        <li>
+                          <p>
+                            <em>Naturality</em>: <code>initState</code> and <code>device</code> commute with packet maps.</p>
+                          </li>
+                        </ol>
+                      <p>
+                        Properties 3 and 4 are the critical ones for the proof. They ensure that
+changing the packet type during the proof does not break the connection between
+symbolic and concrete executions: packet maps commute with <code>liftToStream</code>, so
+symbolic runs and concrete runs can be rigorously compared.</p>
+                      </template></span> has finitely many branch labels and the <code>Bool</code>
+tag adds one bit, the symbolic state space is finite. The algorithm can therefore
+terminate even though the original packet type <code>α</code> may be infinite.</p>
+                </div>
+              </div>
+            <div class="bp_wrapper bp_kind_definition_wrapper definition_thmwrapper definition_thmwrapper theorem-style-definition bp_kind_definition bp_style_definition" title="analyze_delay" id="--informal-preview-analyze_delay--statement">
+              <div class="bp_heading bp_kind_definition_heading definition_thmheading">
+                <div class="bp_heading_title_row bp_heading_title_row_statement">
+                  <span class="bp_caption bp_kind_definition_caption definition_thmcaption" title="analyze_delay">Definition</span><span class="bp_label bp_kind_definition_label definition_thmlabel">2.7</span></div>
+                <div class="bp_extras bp_extras_with_group thm_header_extras">
+                  <span class="bp_extra_slot bp_extra_slot_group"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-group-analyze-005Fdelay-symbolic-005Fpackets" data-bp-preview-title="Definition 2.6" data-bp-preview-key="symbolic_packets--statement" data-bp-preview-fallback-label="symbolic_packets"><a class="bp_used_by_chip bp_code_link" href="Symbolic-Delay-Analysis/Reference-Algorithm/#--informal-preview-symbolic_packets--statement" title="Group member: Definition 2.6">group</a></span></span><span class="bp_extra_slot bp_extra_slot_code"><span class="bp_code_summary_preview_root"><span class="bp_code_summary_preview_wrap bp_code_summary_preview_wrap_active" data-bp-preview-id="bp-code-summary" data-bp-preview-title="analyze_delay" tabindex="0" role="button" aria-label="Lean declarations (all present: 1/1)"><span class="bp_code_link bp_code_link_status bp_code_link_status_proved" title="Lean declarations (all present: 1/1)"><span class="bp_code_status_symbol">✓</span><span class="bp_code_link_label">L∃∀N</span></span></span><template class="bp_code_summary_preview_tpl" data-bp-preview-id="bp-code-summary"><div class="bp_code_summary_preview_content">
+                          <div class="bp_code_hover_section">
+                            <span class="bp_code_hover_label">Associated Lean declarations</span><ul class="bp_code_hover_list">
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002EanalyzeDelay" data-bp-preview-title="analyzeDelay" data-bp-preview-key="Informal.LeanCodePreview.analyzeDelay"><a href="Symbolic-Delay-Analysis/Reference-Algorithm/#--informal-external-decl-analyze_delay-analyzeDelay"><code>analyzeDelay</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </template><aside class="bp_code_summary_preview_panel bp_preview_panel" data-bp-preview-mode="hover" data-bp-preview-placement="anchored" hidden=""><div class="bp_code_summary_preview_header bp_preview_panel_header">
+                          <div class="bp_code_summary_preview_title bp_preview_panel_title"></div>
+                          <button type="button" class="bp_code_summary_preview_close bp_preview_panel_close" aria-label="Close Lean summary preview">Close</button></div>
+                        <div class="bp_code_summary_preview_body bp_preview_panel_body"></div>
+                        </aside></span></span><span class="bp_extra_slot bp_extra_slot_used_by"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-used-by-analyze-005Fdelay-analyze-005Fdelay-005Fopt" data-bp-preview-title="Definition 2.16" data-bp-preview-key="analyze_delay_opt--statement" data-bp-preview-fallback-label="analyze_delay_opt"><a class="bp_used_by_chip bp_code_link" href="Symbolic-Delay-Analysis/Optimized-Algorithm/#--informal-preview-analyze_delay_opt--statement" title="Reverse dependency: Definition 2.16">used by 1</a></span></span></div>
+                </div>
+              <div class="bp_content bp_kind_definition_content definition_thmcontent">
+                <p>
+                  The reference symbolic delay algorithm. It enumerates all <em>root configurations</em>
+(reachable background state paired with one tracked symbolic input), then for
+each root configuration runs the system forward until the tracked packet exits
+or the bound is exceeded. The result is the maximum delay across all root
+configurations, or <code>none</code> (= ∞) if any root configuration has unbounded delay.</p>
+                <p>
+                  The computation is organized in two phases:</p>
+                <ol start="1">
+                  <li>
+                    <p>
+                      <em>Background reachability</em>: compute all states reachable from <code>initState</code>
+   under background-only traffic. The tracked packet arrives in some such state,
+   so the worst case must quantify over all of them.</p>
+                    </li>
+                  <li>
+                    <p>
+                      <em>Local delay</em>: from each root configuration, explore reachable symbolic
+   states and record the exit step of the tracked packet.</p>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            <div class="bp_wrapper bp_code_panel_wrapper">
+              <details class="bp_code_block bp_code_panel"><summary class="bp_heading lemma_thmheading" title="Lean declarations (all present: 1/1)"><span class="bp_caption lemma_thmcaption bp_code_summary_text">Code for Definition</span><span class="bp_label lemma_thmlabel bp_code_summary_label">2.7</span><span class="bp_code_summary_indicator"><span class="bp_code_summary_preview_root"><span class="bp_code_summary_preview_wrap bp_code_summary_preview_wrap_active" data-bp-preview-id="bp-code-summary" data-bp-preview-title="analyze_delay" tabindex="0" role="button" aria-label="Lean declarations (all present: 1/1)"><span class="bp_external_status_badge bp_external_status_badge_summary bp_external_status_ok" title="Lean declarations: all 1 present"><span class="bp_external_status_icon bp_external_status_ok">●</span><span class="bp_external_status_badge_text">1 definition</span></span></span><template class="bp_code_summary_preview_tpl" data-bp-preview-id="bp-code-summary"><div class="bp_code_summary_preview_content">
+                          <div class="bp_code_hover_section">
+                            <span class="bp_code_hover_label">Associated Lean declarations</span><ul class="bp_code_hover_list">
+                              <li class="bp_code_decl_item">
+                                <span class="bp_code_decl_name"><span class="bp_inline_preview_ref" data-bp-preview-id="bp-lean-code-Informal-002ELeanCodePreview-002EanalyzeDelay" data-bp-preview-title="analyzeDelay" data-bp-preview-key="Informal.LeanCodePreview.analyzeDelay"><a href="Symbolic-Delay-Analysis/Reference-Algorithm/#--informal-external-decl-analyze_delay-analyzeDelay"><code>analyzeDelay</code></a></span></span><span class="bp_code_decl_status bp_code_decl_status_ok">[complete]</span></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </template><aside class="bp_code_summary_preview_panel bp_preview_panel" data-bp-preview-mode="hover" data-bp-preview-placement="anchored" hidden=""><div class="bp_code_summary_preview_header bp_preview_panel_header">
+                          <div class="bp_code_summary_preview_title bp_preview_panel_title"></div>
+                          <button type="button" class="bp_code_summary_preview_close bp_preview_panel_close" aria-label="Close Lean summary preview">Close</button></div>
+                        <div class="bp_code_summary_preview_body bp_preview_panel_body"></div>
+                        </aside></span></span></summary><ul class="bp_code_hover_list bp_external_decl_list">
+                  <li class="bp_external_decl_item bp_external_decl_item_rendered" id="--informal-external-decl-analyze_delay-analyzeDelay">
+                    <div class="bp_external_decl_rendered">
+                      <div class="declaration decl def" data-decl="analyzeDelay" data-kind="def">
+                        <div class="bp_external_decl_signature_wrap">
+                          <div class="wide-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">def</span> <span class="unknown token" data-binding="">analyzeDelay</span><span class="inter-text"> </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.4386">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4387">m<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="unknown token" data-binding="">}</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.4388">sys<span class="hover-info"><code>system n m</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-system">system<span class="hover-info"><code>system (n m : ℕ) : Type 1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4386">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4387">m<span class="hover-info"><code>ℕ</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">[</span><span class="const token" data-binding="const-GoodSystem">GoodSystem<span class="hover-info"><code>GoodSystem {n m : ℕ} (sys : system n m) : Type 1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4388">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">]</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-ENat">ℕ∞<span class="hover-info"><code>ENat : Type</code><span class="sep"></span><code class="docstring">Extended natural numbers `ℕ∞ = WithTop ℕ`. </code></span></span></pre></div>
+                          <div class="narrow-only">
+                            <pre class="bp_external_decl_signature signature hl lean block"><span class="keyword token">def</span> <span class="unknown token" data-binding="">analyzeDelay</span><span class="inter-text"> </span><span class="unknown token" data-binding="">{</span><span class="var token" data-binding="var-_uniq.4386">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4387">m<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-Nat">ℕ<span class="hover-info"><code>Nat : Type</code><span class="sep"></span><code class="docstring">The natural numbers, starting at zero.
+
+This type is special-cased by both the kernel and the compiler, and overridden with an efficient
+implementation. Both use a fast arbitrary-precision arithmetic library (usually
+[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.
+</code></span></span><span class="unknown token" data-binding="">}</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.4388">sys<span class="hover-info"><code>system n m</code></span></span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-system">system<span class="hover-info"><code>system (n m : ℕ) : Type 1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4386">n<span class="hover-info"><code>ℕ</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4387">m<span class="hover-info"><code>ℕ</code></span></span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">[</span><span class="const token" data-binding="const-GoodSystem">GoodSystem<span class="hover-info"><code>GoodSystem {n m : ℕ} (sys : system n m) : Type 1</code></span></span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.4388">sys<span class="hover-info"><code>system n m</code></span></span><span class="unknown token" data-binding="">]</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-ENat">ℕ∞<span class="hover-info"><code>ENat : Type</code><span class="sep"></span><code class="docstring">Extended natural numbers `ℕ∞ = WithTop ℕ`. </code></span></span></pre></div>
+                          </div>
+                        <div class="bp_external_decl_body"></div>
+                        </div>
+                      </div>
+                    <div class="bp_external_decl_meta bp_external_decl_rendered_meta">
+                      <span class="bp_external_status_badge bp_external_decl_footer_status bp_external_decl_ok">complete</span></div>
+                    </li>
+                  </ul>
+                </details></div>
             </section>
           <nav class="prev-next-buttons">
-            <a class="local-button active" href="Core-Model/Delay-Semantics/#Network-Performance-Verification--Core-Model--Delay-Semantics" rel="prev" title="1.2. Delay Semantics"><span class="arrow">←</span><span class="where">1.2. Delay Semantics</span></a><a class="local-button active" href="Symbolic-Delay-Analysis/Abstractions/#Network-Performance-Verification--Symbolic-Delay-Analysis--Abstractions" rel="next" title="2.1. Abstractions"><span class="where">2.1. Abstractions</span><span class="arrow">→</span></a></nav>
+            <a class="local-button active" href="Symbolic-Delay-Analysis/Abstractions/#Network-Performance-Verification--Symbolic-Delay-Analysis--Abstractions" rel="prev" title="2.1. Abstractions"><span class="arrow">←</span><span class="where">2.1. Abstractions</span></a><a class="local-button active" href="Symbolic-Delay-Analysis/Soundness/#Network-Performance-Verification--Symbolic-Delay-Analysis--Soundness" rel="next" title="2.3. Soundness"><span class="where">2.3. Soundness</span><span class="arrow">→</span></a></nav>
           </div>
         </main></div>
     </body>
