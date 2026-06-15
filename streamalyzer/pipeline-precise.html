@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<title>New approach for computing delay (and other properties) inspired by Streaming String Transducers</title>
+<style>
+  body { font: 14px/1.5 system-ui, sans-serif; color: #21272e; margin: 0; }
+  main { max-width: 1200px; margin: 0 auto; padding: 2rem 1.4rem 4rem; }
+  h1 { font-size: 1.6rem; } h2 { font-size: 1.25rem; margin-top: 2.2rem;
+       border-bottom: 2px solid #d4d9de; padding-bottom: .25rem; }
+  h3 { font-size: 1rem; margin: 1.2rem 0 .4rem; }
+  pre, code, td { font-family: ui-monospace, Consolas, monospace; }
+  pre { font-size: .78rem; line-height: 1.42; background: #f4f5f7;
+        padding: .8em 1em; overflow-x: auto; border: 1px solid #d4d9de; }
+  table { border-collapse: collapse; font-size: .76rem; margin: .5rem 0;
+          width: 100%; }
+  th, td { border: 1px solid #d4d9de; padding: .25rem .5rem; text-align: left;
+           vertical-align: top; }
+  th { background: #f4f5f7; font-family: system-ui; }
+  svg { max-width: 100%; height: auto; border: 1px solid #d4d9de;
+        margin: .5rem 0; }
+  .wide { overflow-x: auto; }
+  .wide svg { width: 100%; }
+  p.note { color: #5c6670; font-size: .85rem; }
+  ul, ol { margin: .4rem 0 .7rem 1.3rem; padding: 0; }
+  li { margin: .3rem 0; }
+  .dead { color: #8a939c; font-style: italic; }
+  @media print { svg { page-break-inside: avoid; }
+                 h2 { page-break-before: always; } }
+</style></head><body><main>
+<h1>New approach for computing delay (and other properties) inspired by Streaming String Transducers</h1>
+<p class="note">
+Context: The previous model of a network device was too permissive, which made the analysis more complex in general.
+In the new model, a device step can only branch on:
+</p>
+<ul>
+<li>its <b>visible state</b> — the part of its state that is exposed to the control
+logic (e.g., whether a queue is empty or not, but not the specific length or the packets it contains); and</li>
+<li>the <b>incoming packets</b> at this step — whether one arrives, plus whatever of it the
+control is allowed to read.</li>
+</ul>
+<p class="note">
+It <b>cannot</b> branch on the data it has <i>stored</i>: the packets it is buffering,
+its internal counters and timers, and any other latent register state are invisible to the
+branch decision. Stored contents may only be forwarded, buffered, released, or rewritten by
+fixed assignments — never inspected to choose what to do. This is exactly the discipline
+of a <b>Streaming String Transducer</b> (the control depends only on the input and a finite
+state, while the unbounded registers are transformed blindly), and it is what makes the
+visible behaviour a finite automaton and the delay analysis tractable.
+</p>
+
+<h2>The pipeline at a glance</h2>
+<div class="fig"><svg xmlns="http://www.w3.org/2000/svg"
+font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif"
+viewBox="0 0 1480 150">
+<defs><marker id="ovah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7"
+orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="#5b6573"/></marker></defs>
+
+<!-- spine arrows -->
+<path d="M157,81 L242,81" stroke="#5b6573" stroke-width="2" fill="none" marker-end="url(#ovah)"/>
+<path d="M397,81 L482,81" stroke="#5b6573" stroke-width="2" fill="none" marker-end="url(#ovah)"/>
+<path d="M637,81 L722,81" stroke="#5b6573" stroke-width="2" fill="none" marker-end="url(#ovah)"/>
+<text x="680" y="72" text-anchor="middle" font-size="11.5" font-weight="600" fill="#1b2430">+ pos</text>
+<path d="M877,81 L952,81" stroke="#5b6573" stroke-width="2" fill="none" marker-end="url(#ovah)"/>
+
+<!-- 1 device -->
+<rect x="15" y="50" width="142" height="62" rx="12" fill="#fff" stroke="#1b2430" stroke-width="2"/>
+<text x="86" y="78" text-anchor="middle" font-size="15" font-weight="700" fill="#1b2430">① Device</text>
+<text x="86" y="97" text-anchor="middle" font-size="11.5" fill="#6b7280">cyclic gated shaper</text>
+
+<!-- 2 automaton -->
+<rect x="245" y="50" width="150" height="62" rx="12" fill="#fff" stroke="#1f5fa8" stroke-width="2"/>
+<text x="320" y="78" text-anchor="middle" font-size="15" font-weight="700" fill="#1b2430">② Automaton</text>
+<text x="320" y="97" text-anchor="middle" font-size="11.5" fill="#6b7280">4 visible states</text>
+
+<!-- 3 reachability (green = the shared engine) -->
+<rect x="485" y="50" width="150" height="62" rx="12" fill="#eef6f0" stroke="#1a7f4e" stroke-width="2"/>
+<text x="560" y="78" text-anchor="middle" font-size="15" font-weight="700" fill="#1b2430">③ Reachability</text>
+<text x="560" y="97" text-anchor="middle" font-size="11.5" fill="#1a7f4e">exact reachable set</text>
+
+<!-- 4 WACS -->
+<rect x="725" y="50" width="150" height="62" rx="12" fill="#fff" stroke="#1b2430" stroke-width="2"/>
+<text x="800" y="78" text-anchor="middle" font-size="15" font-weight="700" fill="#1b2430">④ WACS</text>
+<text x="800" y="97" text-anchor="middle" font-size="11.5" fill="#6b7280">track one packet</text>
+
+<!-- 5 max-weight reachability: a container expanding into +cost -> reachability -> max -->
+<rect x="955" y="22" width="490" height="118" rx="14" fill="#fdf6ef" stroke="#c2620a" stroke-width="2"/>
+<text x="1200" y="42" text-anchor="middle" font-size="13.5" font-weight="700" fill="#c2620a">⑤ Max-weight reachability → delay</text>
+<path d="M1096,100 L1122,100" stroke="#5b6573" stroke-width="2" fill="none" marker-end="url(#ovah)"/>
+<path d="M1286,100 L1312,100" stroke="#5b6573" stroke-width="2" fill="none" marker-end="url(#ovah)"/>
+<rect x="976" y="80" width="120" height="40" rx="9" fill="#fff" stroke="#8a939c" stroke-width="1.6"/>
+<text x="1036" y="98" text-anchor="middle" font-size="12" fill="#1b2430">add cost</text>
+<text x="1036" y="112" text-anchor="middle" font-size="12" fill="#1b2430">variable</text>
+<rect x="1126" y="80" width="160" height="40" rx="9" fill="#eef6f0" stroke="#1a7f4e" stroke-width="1.8"/>
+<text x="1206" y="97" text-anchor="middle" font-size="12.5" font-weight="600" fill="#1b2430">reachability</text>
+<text x="1206" y="112" text-anchor="middle" font-size="10.5" fill="#1a7f4e">= step ③</text>
+<rect x="1316" y="80" width="120" height="40" rx="9" fill="#fff" stroke="#c2620a" stroke-width="1.6"/>
+<text x="1376" y="98" text-anchor="middle" font-size="12" fill="#1b2430">max cost</text>
+<text x="1376" y="112" text-anchor="middle" font-size="12" fill="#1b2430">at exits</text>
+</svg></div>
+<p class="note">The pipeline reuses one engine: <b>③ Reachability</b> and the
+<b>reachability</b> step inside <b>⑤</b> (both green) are the <i>same</i> algorithm —
+<code>REACH</code> in the step-3 and step-5 pseudocode. Step ⑤ only adds a <code>cost</code>
+variable to the WACS and reads off its maximum at the exits.</p>
+
+<h2>1 · The device: a cyclic gated shaper</h2>
+<p>We use one example device throughout, the same device at every step: a <b>cyclic gated
+shaper</b>. A <i>gate</i> alternates between <b>closed</b> and <b>open</b> every
+<code>P</code> ticks. Arriving packets are appended to a FIFO buffer of capacity
+<code>C</code>; while the gate is <b>open</b> two packets leave per tick, while it is
+<b>closed</b> nothing leaves and the queue fills. We want to know: <i>how long can a packet
+wait before it is forwarded?</i></p>
+<p>The device has two levels of state — the full <b>concrete</b> state, and the <b>visible</b>
+part the step is allowed to branch on:</p>
+<ul>
+<li><b>concrete state</b>
+<code>{closed, open} × {0, …, P−1} × (buffer of ≤ C packets)</code>: the gate, a hidden
+countdown timer <code>t ∈ {0, …, P−1}</code>, and the queued packets, whose length is
+<code>q ∈ {0, …, C}</code>. Each tick the timer does <code>t → t−1</code> and, at
+<code>0</code>, flips the gate and reloads to <code>P−1</code>. The two integers
+<code>t</code> (timer) and <code>q</code> (queue length) are the variables the rest of the
+document tracks.</li>
+<li><b>visible state</b> <code>{closed, open} × {empty, nonempty}</code>: the gate, plus a
+coarse queue view — here just whether the queue is empty. Four values, the nodes of
+step 2.</li>
+</ul>
+<p>The step branches only on those four visible values; it never reads the timer or the
+buffered packets — it can only advance the timer, enqueue, and dequeue.</p>
+<h3>The step function</h3>
+<p>One tick, in pseudocode. The only branch is on the visible state — the gate bit and
+whether the queue is empty; the state update is the same every tick.</p>
+<pre>step(input, gate, queueEmpty):     # gate and queueEmpty are the visible state
+
+    # outputs — the only branch, on the visible state
+    if gate is open and not queueEmpty:
+        out1, out2 := popOrNothing(), popOrNothing()   # up to 2 packets leave this tick
+    else:
+        out1, out2 := none, none                       # gate closed, or queue empty
+
+    # state update — the same every tick, no branch:
+    advance the timer:  t := t − 1;  on wrap (t = 0) flip the gate and reload t := P − 1
+    enqueue(input)                     # append to the buffer (dropped if the buffer is full)</pre>
+<p class="note">The <code>queueEmpty</code> test is not strictly necessary —
+<code>popOrNothing</code> already yields nothing on an empty queue, so the device behaves
+the same without it. We read it as visible state anyway: it splits each gate phase into an
+empty and a nonempty case, which gives the cleaner four-node automaton of step 2.</p>
+<details><summary>Complete Lean source of <code>Network/CoreSST/Devices/CyclicGatedShaperDual.lean</code>
+(verbatim)</summary>
+<pre>import Network.CoreSST.Storage.DualCounter
+import Network.CoreSST.Storage.BoundedFIFO
+
+/-!
+Cyclic gated shaper over the fused `DualCounter` phase storage.
+
+Behaviorally the same device as `cyclicGatedShaper`, distilled to its decision content:
+
+* the gate bit and its phase timer live in one storage component (`DualCounter`) whose
+  visible view is *only the gate bit* — the timer, including whether this is the last tick
+  of the phase, is hidden;
+* the FIFO is used through `popIfNonempty`, whose storage semantics already make popping an
+  empty queue a no-op, so the device does not consult the queue view at all.
+
+The `step` function therefore branches on a single visible bit (is the gate open?) and
+emits the same update list on every tick (`advance` the phase, `push` the input).
+
+The queue&#x27;s device-facing view `LenUpTo K` is a pure *representation dial* with no effect
+on behavior or on the analysis result: `K = 0` gives the minimal two-node visible graph
+(timer and queue length fully symbolic); `K = 2` exposes queue length {0, 1, 2+} as visible
+structure (six nodes), which reads more like a classical automaton.
+-/
+
+namespace CoreSST.Devices
+
+namespace CyclicGatedShaperDual
+
+/-- Fused gate-bit/timer phase storage: visible gate, hidden `Bool × Fin P`. -/
+abbrev phaseStorage (P : Nat) : StorageSignature :=
+  DualCounter.storageSignature (P - 1)
+
+/-- Bounded FIFO whose `LenUpTo K` view the step never reads (`K` is the dial only). -/
+abbrev queueStorage (C K : Nat) : StorageSignature :=
+  Signatures.BQueue.storageSignature C K
+
+/-- Product storage for the fused phase and the bounded FIFO. -/
+abbrev storageSignature (C P K : Nat) : StorageSignature :=
+  Product.storageSignature (phaseStorage P) (queueStorage C K)
+
+/-- Pop the FIFO head if the queue is nonempty; a no-op on the empty queue. -/
+def popIfNonempty {C P K : Nat} : (storageSignature C P K).Output :=
+  Sum.inr Signatures.BQueue.Output.pop
+
+/-- Advance the fused phase counter (tick; toggle gate and reset on wrap). -/
+def advancePhase {C P K : Nat} {α : Type _} : (storageSignature C P K).Update α :=
+  Product.leftUpdate (S := phaseStorage P) (T := queueStorage C K)
+    DualCounter.advance
+
+/-- Push one current input packet into the FIFO. -/
+def pushInput {C P K : Nat} {α : Type _} (packet : Option α) :
+    (storageSignature C P K).Update α :=
+  Product.rightUpdate (S := phaseStorage P) (T := queueStorage C K)
+    ⟨Signatures.BQueue.UpdateOp.push, packet⟩
+
+/-- Output plan used by both output ports: pop while the gate is open. -/
+def outputPlan {C P K : Nat} {α : Type _} (gateOpen : Bool) :
+    Option α ⊕ (storageSignature C P K).Output :=
+  if gateOpen then
+    Sum.inr popIfNonempty
+  else
+    Sum.inl none
+
+end CyclicGatedShaperDual
+
+/--
+One-input, two-output cyclic gated shaper over the fused dual-counter phase storage.
+
+`C` is the FIFO capacity, `P` the half-cycle length, `K` the queue-view refinement dial
+(unused by the step).  The step branches on a single visible bit — is the gate open? —
+and the update list is the same on every tick.
+-/
+def cyclicGatedShaperDual (C P : Nat) (K : Nat := 0) : device 1 2 where
+  BranchType := Unit
+  ModifType := Empty
+  Storage := CyclicGatedShaperDual.storageSignature C P K
+  step := fun _inspect _modify input shape =&gt;
+    let gateOpen := shape.1
+    let plan := CyclicGatedShaperDual.outputPlan (C := C) (P := P) (K := K) gateOpen
+    let packet := input.get ⟨0, by omega⟩
+    (Vector.ofFn fun _port : Fin 2 =&gt; plan,
+      [CyclicGatedShaperDual.advancePhase (C := C) (P := P) (K := K),
+       CyclicGatedShaperDual.pushInput (C := C) (P := P) (K := K) packet])
+
+end CoreSST.Devices
+</pre></details>
+
+<h2>2 · The visible transition system computed by Lean</h2>
+<p>4 visible nodes and 24 transitions, over the 3 variables <code>gate</code>, <code>t</code>,
+<code>q</code>. A transition
+<code>source → target</code> carries an <i>input</i> (does a packet arrive this tick?), a
+<i>guard</i> (a condition on the variables), and an <i>assignment</i> (how the variables
+change); it fires when the device is in <code>source</code>, the guard holds, and applying
+the assignment lands the variables in <code>target</code>. The edge labels and guard column
+show only the <i>distinctive</i> guard atoms — those not already implied by the source
+node's reachable states (step 3); variables not assigned are left unchanged.</p>
+<h3>Initial configurations</h3>
+<table><tr><th>node</th><th>initial cell</th></tr>
+<tr><td>n0</td><td>gate = 0 ∧ t = P-1 ∧ q = 0</td></tr></table>
+<h3>Graph — one arrow per transition; the arrow color is the input
+(<span style="color:#8a939c">gray = None, no arrival this tick</span>,
+<span style="color:#1f5fa8">blue = Some, a packet arrives</span>); each label reads
+<code>input / guard</code> with the assignment (<code>:=</code>) beneath; parallel
+transitions fan out as separate arcs; <b>hover an arrow to highlight it</b>
+(a node shows its full reachable cells); clicking jumps to the table</h3>
+<p>A state in this automaton is three numbers: the gate (<code>0</code> = closed,
+<code>1</code> = open), the timer <code>t ∈ {0, …, P−1}</code>, and the queue length
+<code>q ∈ {0, …, C}</code> (<code>C</code> the capacity). The queue's actual <i>contents</i>
+play no role in the delay analysis — the device never branches on them — so the length
+<code>q</code> is all we need to track.</p>
+<p>How to read it: the <b>left</b> column is the gate <b>closed</b>, the <b>right</b> column
+<b>open</b>; the top row is an empty queue (<code>q = 0</code>), the bottom row a nonempty one
+(<code>q ≥ 1</code>). While closed (left) nothing is emitted, so the queue can only grow —
+never shrink back; while open (right) it drains. Crossing between the two columns
+(closed ↔ open) happens only when <code>t = 0</code> — the countdown has finished and the
+gate flips.</p>
+<style>.fig{width:min(96vw,2100px);position:relative;left:50%;transform:translateX(-50%)}.fig svg{max-width:100%;max-height:94vh;height:auto;display:block;margin:0 auto}.fig text{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}.fig .lbl{paint-order:stroke;stroke:#fff;stroke-width:8;stroke-linejoin:round}.fig g.tr path{fill:none}.fig g.tr:hover path{stroke-width:3.6}.fig a{text-decoration:none}</style><div class="fig"><svg xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" viewBox="20 -6 1559 1402"><defs><marker id="arrS" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="#1f5fa8"/></marker><marker id="arrN" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="#8a939c"/></marker><marker id="arrG" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="#1a7f4e"/></marker></defs><g class="tr"><a href="#edge-table"><title>e0 [None]   1 ≤ t   ⊢   t := t-1</title><path d="M326,138 C360,25 240,25 274,138" fill="none" stroke="#8a939c" stroke-width="2.2" marker-end="url(#arrN)"/><text class="lbl" x="300" y="37" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="18" font-weight="600" fill="#1b2430">None</text><text class="lbl" x="300" y="58" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="19" fill="#1b2430">1 ≤ t</text><text class="lbl" x="300" y="79" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="17" fill="#3a4350">t := t-1</text></a></g><g class="tr"><a href="#edge-table"><title>e1 [None]   t = 0   ⊢   gate := 1, t := P-1</title><path d="M395,187 Q800,258 1205,187" fill="none" stroke="#8a939c" stroke-width="2.2" marker-end="url(#arrN)"/><text class="lbl" x="800" y="201" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="18" font-weight="600" fill="#1b2430">None</text><text class="lbl" x="800" y="222" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="19" fill="#1b2430">t = 0</text><text class="lbl" x="800" y="243" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="17" fill="#3a4350">gate := 1, t := P-1</text></a></g><g class="tr"><a href="#edge-table"><title>e2 [Some]   1 ≤ t   ⊢   t := t-1, q := q+1</title><path d="M293,202 Q212,570 293,938" fill="none" stroke="#1f5fa8" stroke-width="2.2" marker-end="url(#arrS)"/><text class="lbl" x="252" y="549" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="18" font-weight="600" fill="#1b2430">Some</text><text class="lbl" x="252" y="570" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="19" fill="#1b2430">1 ≤ t</text><text class="lbl" x="252" y="591" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="17" fill="#3a4350">t := t-1, q := q+1</text></a></g><g class="tr"><a href="#edge-table"><title>e3 [Some]   t = 0   ⊢   gate := 1, t := P-1, q := q+1</title><path d="M330,202 Q745,639 1246,938" fill="none" stroke="#1f5fa8" stroke-width="2.2" marker-end="url(#arrS)"/><text class="lbl" x="767" y="583" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="18" font-weight="600" fill="#1b2430">Some</text><text class="lbl" x="767" y="604" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="19" fill="#1b2430">t = 0</text><text class="lbl" x="767" y="625" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="17" fill="#3a4350">gate := 1, t := P-1, q := q+1</text></a></g><g class="tr"><a href="#edge-table"><title>e5 [None]   t = 0   ⊢   gate := 0, t := P-1, q := 0</title><path d="M1205,153 Q800,82 395,153" fill="none" stroke="#8a939c" stroke-width="2.2" marker-end="url(#arrN)"/><text class="lbl" x="800" y="97" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="18" font-weight="600" fill="#1b2430">None</text><text class="lbl" x="800" y="118" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="19" fill="#1b2430">t = 0</text><text class="lbl" x="800" y="139" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="17" fill="#3a4350">gate := 0, t := P-1, q := 0</text></a></g><g class="tr"><a href="#edge-table"><title>e4 [None]   1 ≤ t   ⊢   t := t-1, q := 0</title><path d="M1326,138 C1360,25 1240,25 1274,138" fill="none" stroke="#8a939c" stroke-width="2.2" marker-end="url(#arrN)"/><text class="lbl" x="1300" y="37" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="18" font-weight="600" fill="#1b2430">None</text><text class="lbl" x="1300" y="58" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="19" fill="#1b2430">1 ≤ t</text><text class="lbl" x="1300" y="79" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="17" fill="#3a4350">t := t-1, q := 0</text></a></g><g class="tr"><a href="#edge-table"><title>e7 [Some]   t = 0   ⊢   gate := 0, t := P-1, q := 1</title><path d="M1246,202 Q745,501 330,938" fill="none" stroke="#1f5fa8" stroke-width="2.2" marker-end="url(#arrS)"/><text class="lbl" x="767" y="515" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="18" font-weight="600" fill="#1b2430">Some</text><text class="lbl" x="767" y="536" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="19" fill="#1b2430">t = 0</text><text class="lbl" x="767" y="557" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="17" fill="#3a4350">gate := 0, t := P-1, q := 1</text></a></g><g class="tr"><a href="#edge-table"><title>e6 [Some]   1 ≤ t   ⊢   t := t-1, q := 1</title><path d="M1293,202 Q1212,570 1293,938" fill="none" stroke="#1f5fa8" stroke-width="2.2" marker-end="url(#arrS)"/><text class="lbl" x="1252" y="549" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="18" font-weight="600" fill="#1b2430">Some</text><text class="lbl" x="1252" y="570" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="19" fill="#1b2430">1 ≤ t</text><text class="lbl" x="1252" y="591" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="17" fill="#3a4350">t := t-1, q := 1</text></a></g><g class="tr"><a href="#edge-table"><title>e8 [None]   1 ≤ t   ⊢   t := t-1</title><path d="M274,1002 C240,1115 360,1115 326,1002" fill="none" stroke="#8a939c" stroke-width="2.2" marker-end="url(#arrN)"/><text class="lbl" x="230" y="1069" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="end" font-size="18" font-weight="600" fill="#1b2430">None</text><text class="lbl" x="230" y="1090" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="end" font-size="19" fill="#1b2430">1 ≤ t</text><text class="lbl" x="230" y="1111" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="end" font-size="17" fill="#3a4350">t := t-1</text></a></g><g class="tr"><a href="#edge-table"><title>e10 [Some]   1 ≤ t ∧ q ≤ C-1   ⊢   t := t-1, q := q+1</title><path d="M274,1002 C240,1215 360,1215 326,1002" fill="none" stroke="#1f5fa8" stroke-width="2.2" marker-end="url(#arrS)"/><text class="lbl" x="230" y="1143" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="end" font-size="18" font-weight="600" fill="#1b2430">Some</text><text class="lbl" x="230" y="1164" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="end" font-size="19" fill="#1b2430">1 ≤ t ∧ q ≤ C-1</text><text class="lbl" x="230" y="1185" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="end" font-size="17" fill="#3a4350">t := t-1, q := q+1</text></a></g><g class="tr"><a href="#edge-table"><title>e11 [Some]   1 ≤ t ∧ C ≤ q   ⊢   t := t-1</title><path d="M274,1002 C240,1315 360,1315 326,1002" fill="none" stroke="#1f5fa8" stroke-width="2.2" marker-end="url(#arrS)"/><text class="lbl" x="230" y="1217" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="end" font-size="18" font-weight="600" fill="#1b2430">Some</text><text class="lbl" x="230" y="1238" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="end" font-size="19" fill="#1b2430">1 ≤ t ∧ C ≤ q</text><text class="lbl" x="230" y="1259" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="end" font-size="17" fill="#3a4350">t := t-1</text></a></g><g class="tr"><a href="#edge-table"><title>e9 [None]   t = 0   ⊢   gate := 1, t := P-1</title><path d="M395,985 Q800,1050 1205,985" fill="none" stroke="#8a939c" stroke-width="2.2" marker-end="url(#arrN)"/><text class="lbl" x="638" y="991" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="18" font-weight="600" fill="#1b2430">None</text><text class="lbl" x="638" y="1012" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="19" fill="#1b2430">t = 0</text><text class="lbl" x="638" y="1033" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="17" fill="#3a4350">gate := 1, t := P-1</text></a></g><g class="tr"><a href="#edge-table"><title>e12 [Some]   t = 0 ∧ q ≤ C-1   ⊢   gate := 1, t := P-1, q := q+1</title><path d="M367,1002 Q800,1210 1233,1002" fill="none" stroke="#1f5fa8" stroke-width="2.2" marker-end="url(#arrS)"/><text class="lbl" x="904" y="1079" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="18" font-weight="600" fill="#1b2430">Some</text><text class="lbl" x="904" y="1100" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="19" fill="#1b2430">t = 0 ∧ q ≤ C-1</text><text class="lbl" x="904" y="1121" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="17" fill="#3a4350">gate := 1, t := P-1, q := q+1</text></a></g><g class="tr"><a href="#edge-table"><title>e13 [Some]   t = 0 ∧ C ≤ q   ⊢   gate := 1, t := P-1</title><path d="M340,1002 Q800,1370 1260,1002" fill="none" stroke="#1f5fa8" stroke-width="2.2" marker-end="url(#arrS)"/><text class="lbl" x="800" y="1165" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="18" font-weight="600" fill="#1b2430">Some</text><text class="lbl" x="800" y="1186" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="19" fill="#1b2430">t = 0 ∧ C ≤ q</text><text class="lbl" x="800" y="1207" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="17" fill="#3a4350">gate := 1, t := P-1</text></a></g><g class="tr"><a href="#edge-table"><title>e17 [None]   t = 0 ∧ q = 1   ⊢   gate := 0, t := P-1, q := 0</title><path d="M1270,938 Q855,501 354,202" fill="none" stroke="#8a939c" stroke-width="2.2" marker-end="url(#arrN)"/><text class="lbl" x="1004" y="650" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="18" font-weight="600" fill="#1b2430">None</text><text class="lbl" x="1004" y="671" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="19" fill="#1b2430">t = 0 ∧ q = 1</text><text class="lbl" x="1004" y="692" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="17" fill="#3a4350">gate := 0, t := P-1, q := 0</text></a></g><g class="tr"><a href="#edge-table"><title>e18 [None]   t = 0 ∧ q = 2   ⊢   gate := 0, t := P-1, q := q-2</title><path d="M1281,938 Q947,386 395,202" fill="none" stroke="#8a939c" stroke-width="2.2" marker-end="url(#arrN)"/><text class="lbl" x="783" y="374" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="18" font-weight="600" fill="#1b2430">None</text><text class="lbl" x="783" y="395" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="19" fill="#1b2430">t = 0 ∧ q = 2</text><text class="lbl" x="783" y="416" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="17" fill="#3a4350">gate := 0, t := P-1, q := q-2</text></a></g><g class="tr"><a href="#edge-table"><title>e14 [None]   1 ≤ t ∧ q = 1   ⊢   t := t-1, q := 0</title><path d="M1307,938 Q1388,570 1307,202" fill="none" stroke="#8a939c" stroke-width="2.2" marker-end="url(#arrN)"/><text class="lbl" x="1346" y="623" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="18" font-weight="600" fill="#1b2430">None</text><text class="lbl" x="1346" y="644" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="19" fill="#1b2430">1 ≤ t ∧ q = 1</text><text class="lbl" x="1346" y="665" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="17" fill="#3a4350">t := t-1, q := 0</text></a></g><g class="tr"><a href="#edge-table"><title>e15 [None]   1 ≤ t ∧ q = 2   ⊢   t := t-1, q := q-2</title><path d="M1319,938 Q1536,570 1319,202" fill="none" stroke="#8a939c" stroke-width="2.2" marker-end="url(#arrN)"/><text class="lbl" x="1421" y="461" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="18" font-weight="600" fill="#1b2430">None</text><text class="lbl" x="1421" y="482" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="19" fill="#1b2430">1 ≤ t ∧ q = 2</text><text class="lbl" x="1421" y="503" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="17" fill="#3a4350">t := t-1, q := q-2</text></a></g><g class="tr"><a href="#edge-table"><title>e19 [None]   t = 0 ∧ 3 ≤ q   ⊢   gate := 0, t := P-1, q := q-2</title><path d="M1205,955 Q800,890 395,955" fill="none" stroke="#8a939c" stroke-width="2.2" marker-end="url(#arrN)"/><text class="lbl" x="962" y="907" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="18" font-weight="600" fill="#1b2430">None</text><text class="lbl" x="962" y="928" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="19" fill="#1b2430">t = 0 ∧ 3 ≤ q</text><text class="lbl" x="962" y="949" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="17" fill="#3a4350">gate := 0, t := P-1, q := q-2</text></a></g><g class="tr"><a href="#edge-table"><title>e22 [Some]   t = 0 ∧ q = 1   ⊢   gate := 0, t := P-1, q := 1</title><path d="M1233,938 Q800,730 367,938" fill="none" stroke="#1f5fa8" stroke-width="2.2" marker-end="url(#arrS)"/><text class="lbl" x="696" y="819" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="18" font-weight="600" fill="#1b2430">Some</text><text class="lbl" x="696" y="840" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="19" fill="#1b2430">t = 0 ∧ q = 1</text><text class="lbl" x="696" y="861" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="17" fill="#3a4350">gate := 0, t := P-1, q := 1</text></a></g><g class="tr"><a href="#edge-table"><title>e23 [Some]   t = 0 ∧ 2 ≤ q   ⊢   gate := 0, t := P-1, q := q-1</title><path d="M1260,938 Q800,570 340,938" fill="none" stroke="#1f5fa8" stroke-width="2.2" marker-end="url(#arrS)"/><text class="lbl" x="800" y="733" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="18" font-weight="600" fill="#1b2430">Some</text><text class="lbl" x="800" y="754" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="19" fill="#1b2430">t = 0 ∧ 2 ≤ q</text><text class="lbl" x="800" y="775" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="17" fill="#3a4350">gate := 0, t := P-1, q := q-1</text></a></g><g class="tr"><a href="#edge-table"><title>e16 [None]   3 ≤ q   ⊢   t := t-1, q := q-2</title><path d="M1274,1002 C1240,1115 1360,1115 1326,1002" fill="none" stroke="#8a939c" stroke-width="2.2" marker-end="url(#arrN)"/><text class="lbl" x="1370" y="1069" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="start" font-size="18" font-weight="600" fill="#1b2430">None</text><text class="lbl" x="1370" y="1090" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="start" font-size="19" fill="#1b2430">3 ≤ q</text><text class="lbl" x="1370" y="1111" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="start" font-size="17" fill="#3a4350">t := t-1, q := q-2</text></a></g><g class="tr"><a href="#edge-table"><title>e20 [Some]   1 ≤ t ∧ q = 1   ⊢   t := t-1, q := 1</title><path d="M1274,1002 C1240,1215 1360,1215 1326,1002" fill="none" stroke="#1f5fa8" stroke-width="2.2" marker-end="url(#arrS)"/><text class="lbl" x="1370" y="1143" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="start" font-size="18" font-weight="600" fill="#1b2430">Some</text><text class="lbl" x="1370" y="1164" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="start" font-size="19" fill="#1b2430">1 ≤ t ∧ q = 1</text><text class="lbl" x="1370" y="1185" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="start" font-size="17" fill="#3a4350">t := t-1, q := 1</text></a></g><g class="tr"><a href="#edge-table"><title>e21 [Some]   1 ≤ t ∧ 2 ≤ q   ⊢   t := t-1, q := q-1</title><path d="M1274,1002 C1240,1315 1360,1315 1326,1002" fill="none" stroke="#1f5fa8" stroke-width="2.2" marker-end="url(#arrS)"/><text class="lbl" x="1370" y="1217" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="start" font-size="18" font-weight="600" fill="#1b2430">Some</text><text class="lbl" x="1370" y="1238" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="start" font-size="19" fill="#1b2430">1 ≤ t ∧ 2 ≤ q</text><text class="lbl" x="1370" y="1259" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="start" font-size="17" fill="#3a4350">t := t-1, q := q-1</text></a></g><circle cx="70" cy="36" r="6" fill="#1a7f4e"/><path d="M70,36 L245,138" stroke="#1a7f4e" stroke-width="2.2" fill="none" marker-end="url(#arrG)"/><g class="nd"><a href="#node-table"><title>n0   q = 0 ∧ gate = 0 ∧ t ≤ P-1</title><rect x="205" y="138" width="190" height="64" rx="32" fill="#fff" stroke="#1b2430" stroke-width="1.6"/><text x="300" y="162" text-anchor="middle" font-size="12" fill="#8a939c">n0</text><text x="300" y="184" text-anchor="middle" font-size="17" font-weight="600" fill="#1b2430">closed · q=0</text></a></g><g class="nd"><a href="#node-table"><title>n1   q = 0 ∧ gate = 1 ∧ t ≤ P-1</title><rect x="1205" y="138" width="190" height="64" rx="32" fill="#fff" stroke="#1b2430" stroke-width="1.6"/><text x="1300" y="162" text-anchor="middle" font-size="12" fill="#8a939c">n1</text><text x="1300" y="184" text-anchor="middle" font-size="17" font-weight="600" fill="#1b2430">open · q=0</text></a></g><g class="nd"><a href="#node-table"><title>n2   gate = 0 ∧ 1 ≤ q ∧ q+t ≤ P</title><rect x="205" y="938" width="190" height="64" rx="32" fill="#fff" stroke="#1b2430" stroke-width="1.6"/><text x="300" y="962" text-anchor="middle" font-size="12" fill="#8a939c">n2</text><text x="300" y="984" text-anchor="middle" font-size="17" font-weight="600" fill="#1b2430">closed · q≥1</text></a></g><g class="nd"><a href="#node-table"><title>n3   gate = 1 ∧ t ≤ P-1 ∧ 1 ≤ q ∧ q ≤ t+2</title><rect x="1205" y="938" width="190" height="64" rx="32" fill="#fff" stroke="#1b2430" stroke-width="1.6"/><text x="1300" y="962" text-anchor="middle" font-size="12" fill="#8a939c">n3</text><text x="1300" y="984" text-anchor="middle" font-size="17" font-weight="600" fill="#1b2430">open · q≥1</text></a></g></svg></div>
+<h3 id="edge-table">All 24 edges</h3>
+<table><tr><th>id</th><th>input</th><th>edge</th><th>guard</th><th>assignment</th></tr>
+<tr><td>e0</td><td>None</td><td>n0 → n0</td><td>1 ≤ t</td><td>t := t-1</td></tr>
+<tr><td>e1</td><td>None</td><td>n0 → n1</td><td>t = 0</td><td>gate := 1, t := P-1</td></tr>
+<tr><td>e2</td><td>Some</td><td>n0 → n2</td><td>1 ≤ t</td><td>t := t-1, q := q+1</td></tr>
+<tr><td>e3</td><td>Some</td><td>n0 → n3</td><td>t = 0</td><td>gate := 1, t := P-1, q := q+1</td></tr>
+<tr><td>e4</td><td>None</td><td>n1 → n1</td><td>1 ≤ t</td><td>t := t-1, q := 0</td></tr>
+<tr><td>e5</td><td>None</td><td>n1 → n0</td><td>t = 0</td><td>gate := 0, t := P-1, q := 0</td></tr>
+<tr><td>e6</td><td>Some</td><td>n1 → n3</td><td>1 ≤ t</td><td>t := t-1, q := 1</td></tr>
+<tr><td>e7</td><td>Some</td><td>n1 → n2</td><td>t = 0</td><td>gate := 0, t := P-1, q := 1</td></tr>
+<tr><td>e8</td><td>None</td><td>n2 → n2</td><td>1 ≤ t</td><td>t := t-1</td></tr>
+<tr><td>e9</td><td>None</td><td>n2 → n3</td><td>t = 0</td><td>gate := 1, t := P-1</td></tr>
+<tr><td>e10</td><td>Some</td><td>n2 → n2</td><td>1 ≤ t ∧ q ≤ C-1</td><td>t := t-1, q := q+1</td></tr>
+<tr><td>e11</td><td>Some</td><td>n2 → n2</td><td>1 ≤ t ∧ C ≤ q</td><td>t := t-1</td></tr>
+<tr><td>e12</td><td>Some</td><td>n2 → n3</td><td>t = 0 ∧ q ≤ C-1</td><td>gate := 1, t := P-1, q := q+1</td></tr>
+<tr><td>e13</td><td>Some</td><td>n2 → n3</td><td>t = 0 ∧ C ≤ q</td><td>gate := 1, t := P-1</td></tr>
+<tr><td>e14</td><td>None</td><td>n3 → n1</td><td>1 ≤ t ∧ q = 1</td><td>t := t-1, q := 0</td></tr>
+<tr><td>e15</td><td>None</td><td>n3 → n1</td><td>1 ≤ t ∧ q = 2</td><td>t := t-1, q := q-2</td></tr>
+<tr><td>e16</td><td>None</td><td>n3 → n3</td><td>3 ≤ q</td><td>t := t-1, q := q-2</td></tr>
+<tr><td>e17</td><td>None</td><td>n3 → n0</td><td>t = 0 ∧ q = 1</td><td>gate := 0, t := P-1, q := 0</td></tr>
+<tr><td>e18</td><td>None</td><td>n3 → n0</td><td>t = 0 ∧ q = 2</td><td>gate := 0, t := P-1, q := q-2</td></tr>
+<tr><td>e19</td><td>None</td><td>n3 → n2</td><td>t = 0 ∧ 3 ≤ q</td><td>gate := 0, t := P-1, q := q-2</td></tr>
+<tr><td>e20</td><td>Some</td><td>n3 → n3</td><td>1 ≤ t ∧ q = 1</td><td>t := t-1, q := 1</td></tr>
+<tr><td>e21</td><td>Some</td><td>n3 → n3</td><td>1 ≤ t ∧ 2 ≤ q</td><td>t := t-1, q := q-1</td></tr>
+<tr><td>e22</td><td>Some</td><td>n3 → n2</td><td>t = 0 ∧ q = 1</td><td>gate := 0, t := P-1, q := 1</td></tr>
+<tr><td>e23</td><td>Some</td><td>n3 → n2</td><td>t = 0 ∧ 2 ≤ q</td><td>gate := 0, t := P-1, q := q-1</td></tr></table>
+
+<h2>3 · Per-node exact reachable cells (the ISL-computed domain)</h2>
+<p>The transition system above is fed to the analysis engine, which computes — per visible
+node — the <i>exact</i> set of reachable states as a finite union of conjunctive
+cells. These cells are what the rest of the pipeline runs on: the node names in the graph
+above (e.g. <code>closed · q≥1</code>) are the values these cells pin at every node, and
+the elided guard atoms in step 2 are exactly the ones these cells already imply.</p>
+<p><b>How ISL computes this.</b> Each visible node carries a set of states; we
+represent that set as an <a href="https://libisl.sourceforge.io/">ISL</a> (integer set
+library) Presburger set — a parametric union of convex integer cells over
+<code>gate, t, q</code>, with <code>C</code> and <code>P</code> kept as
+symbolic parameters. Each edge becomes an affine ISL map (guard as domain constraints,
+assignment as the output tuple). Reachability is then computed one strongly-connected
+component at a time, in topological order: the cycles inside each component (the gate keeps
+cycling) are collapsed with ISL's <i>exact transitive closure</i> rather than unrolled tick
+by tick, and the result flows forward to the next component. So the computation finishes in
+finitely many steps and the result is exact — not an over-approximation (the export records
+<code>exact = true</code>),
+parametric in <code>C</code> and <code>P</code>. Because <code>C</code> and <code>P</code>
+stay symbolic, the cost of this step scales with the size of the visible control graph
+and the ISL Presburger operations — <i>not</i> with the
+numeric magnitude of <code>C</code> or <code>P</code>: the same cells come out whether
+<code>C = 5</code> or <code>C = 977</code>, which is why this example uses such large
+sentinels. (Unrolling the counters instead would make the work scale with
+<code>C·P</code>.) This is an untrusted oracle: the cells it proposes are re-checked for
+coverage and inductiveness against the typed Lean system.</p>
+<pre># one-step relation of an edge (guard G, assignment A), as a parametric ISL map:
+#     step(e) := { (x, A(x)) | x ⊨ G }
+
+# REACH — exact reachable set at every node, computed SCC by SCC. This is the
+# shared engine: step 5 calls the very same function.
+function REACH(system):
+    R[n] := system.seed[n]                 # initial sets (∅ where there is none)
+    for each SCC comp of system, in topological order:
+        # states entering comp: the seed plus flow from already-finished SCCs
+        entry := seed landing in comp
+        for each edge e: u --&gt; v   with v ∈ comp, u ∉ comp:
+            entry := entry ∪ apply(step(e), R[u])
+
+        # collapse every cycle inside comp at once — HERE is the closure:
+        loop      := ∪ { step(e) | edge e lies entirely inside comp }
+        loop_plus := transitive_closure(loop)   # &lt;&lt;&lt; ISL EXACT transitive closure
+        reached   := entry ∪ apply(loop_plus, entry)   # every number of laps, one shot
+
+        for each node v ∈ comp:  R[v] := reached ∩ (configurations at v)
+    return R
+
+R := REACH(visible system)     # step 3: seed = the initial config n0; parametric in C, P</pre>
+<div id="node-table">
+<table><tr><th>node</th><th>reachable cells (finite union of conjunctions)</th></tr>
+<tr><td>n0 (closed  q=0)</td><td>⟨q = 0 ∧ gate = 0 ∧ t ≤ P-1⟩</td></tr>
+<tr><td>n1 (open  q=0)</td><td>⟨q = 0 ∧ gate = 1 ∧ t ≤ P-1⟩</td></tr>
+<tr><td>n2 (closed  q≥1)</td><td>⟨gate = 0 ∧ 1 ≤ q ∧ q+t ≤ P⟩</td></tr>
+<tr><td>n3 (open  q≥1)</td><td>⟨gate = 1 ∧ t ≤ P-1 ∧ 1 ≤ q ∧ q ≤ t+2⟩</td></tr></table>
+</div>
+<p class="note"><b>Why do this before building the WACS (step 4)?</b> The reachable cells
+are not cosmetic — they are what makes the delay analysis both <i>small</i> and
+<i>finite</i>. (i) They prune the WACS to live behaviour: configurations the device can
+never be in (e.g. a nonempty-queue state with <code>q = 0</code>) are dropped, so the
+delay automaton has fewer states and transitions. (ii) They discharge guard atoms (the
+elided ones above), keeping every transition label minimal. (iii) Most importantly, the
+<i>relational</i> invariants they expose — here <code>q + t ≤ P</code> at
+<code>closed · q≥1</code> and <code>q ≤ t+2</code> at <code>open · q≥1</code> — bound how
+large the queue can grow relative to the phase timer. Those bounds are exactly what makes
+the worst-case delay finite (and tight): without them the cyclic graph would let the
+accumulated cost appear unbounded.</p>
+
+
+<h2>4 · The WACS delay automaton</h2>
+<p>The idea is to measure delay by <i>tagging one packet</i>. Starting from any reachable
+state of step 2, we inject a packet, tag it, and follow it until it is forwarded, counting the
+ticks. For this example that means adding a single variable, <code>pos</code> — the position
+of the tagged packet in the queue, numbered from the head (<code>0</code> = next to leave).
+The packet is appended at the back, so if <code>q</code> packets are already queued when it
+arrives, they are all ahead of it and <code>pos = q</code>. Each tick the packets ahead are
+dequeued and <code>pos</code> drops; when the tagged packet reaches the front and is popped it
+leaves — and the ticks elapsed are its delay.</p>
+<p>Formally this is a <b>weighted affine counter system</b> (WACS): the step-2 system extended
+with <code>pos</code> and restricted to the reachable states of step 3. It has 8 states over
+<code>gate, t, q, pos</code>, 31 weighted transitions, 4 <span style="color:#1a7f4e">roots</span>
+(where the tagged packet arrives, at cost 0), and 13 <span style="color:#c2620a">exits</span>.
+Each transition adds its weight to a running <code>cost</code> — here every weight is 1, one
+device tick — so <code>cost</code> counts the ticks since arrival. An
+<span style="color:#c2620a">exit</span> fires when the tagged packet is popped, so the cost at
+that moment <i>is</i> its delay; the worst-case delay is the maximum cost over all
+root → exit runs (step 5 computes it).</p>
+<p><b>How this connects to the figure of step 2:</b> the WACS is that same system
+“with a finger on one packet”. Every state is a node of step 2 with the
+tracked position <code>pos</code> adjoined: the four <span style="color:#1a7f4e">
+root states</span> are the four nodes at the instant the tagged packet arrives, and
+the live tracking states occupy <i>the same grid slots</i> as their step-2 nodes.
+A tracked packet forces <code>q ≥ 1</code> (it sits at <code>pos ≤
+q-1</code>), so the tracking states over the <code>q=0</code> nodes are
+unreachable — every transition into them is infeasible (15 of the
+31 transitions and 4 of the
+13 exits are such dead cases; they are marked in the tables and
+omitted from the figure). Every live transition is one device tick (weight 1).</p>
+<h3 id="wacs-states">States</h3>
+<p class="note">Every state ranges over the same variables
+gate, t, q, pos; each row gives its meaning and the
+exact configurations the engine certifies reachable for it.</p>
+<table><tr><th>state</th><th>meaning</th><th>exported domains</th></tr>
+<tr><td>S0</td><td>root — the tagged packet arrives in n0 (closed · pos=0 · q=0)</td><td>—</td></tr>
+<tr><td>S1</td><td>n2 while the tagged packet is inside (closed · q≥1, pos ≤ q-1)</td><td>—</td></tr>
+<tr><td>S2</td><td>n3 while the tagged packet is inside (open · q≥1, pos ≤ q-1)</td><td>—</td></tr>
+<tr><td>S3</td><td>root — the tagged packet arrives in n1 (open · pos=0 · q=0)</td><td>—</td></tr>
+<tr><td>S4</td><td>root — the tagged packet arrives in n2 (closed · pos=0 · q≥1)</td><td>—</td></tr>
+<tr><td>S5</td><td>root — the tagged packet arrives in n3 (open · pos=0 · q≥1)</td><td>—</td></tr>
+<tr><td>S6</td><td>would be n0 with the tagged packet inside (closed · q=0) — unreachable: tracking forces q ≥ 1, so every transition into it is infeasible</td><td>—</td></tr>
+<tr><td>S7</td><td>would be n1 with the tagged packet inside (open · q=0) — unreachable: tracking forces q ≥ 1, so every transition into it is infeasible</td><td>—</td></tr></table>
+<h3>Automaton — live part, read top to bottom (arrival → tracking → departure)
+and in the same two columns as step 2 (closed left, open right); <span style="color:#1a7f4e">
+green = arrival (the roots across the top, each with its outgoing transitions listed
+beneath it)</span>, ink = one-tick tracking transitions,
+<span style="color:#c2620a">orange = exits, fanning down to the terminal (the label shows
+the departure condition; the cost reached at the exit is the delay)</span>; the unreachable
+<code>q=0</code> tracking states are ghosted in the row above the live states;
+semantically identical exit cases
+are drawn once (all ids in the tooltip); guards elide atoms implied by the source
+state's invariant; ids resolve in the tables</h3>
+<div class="fig"><svg xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" viewBox="-25 -58 1840 1530"><defs><marker id="warrI" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="#1b2430"/></marker><marker id="warrG" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="#1a7f4e"/></marker><marker id="warrO" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="#c2620a"/></marker></defs><g class="tr"><a href="#wacs-table"><title>t0   1 ≤ t   ⊢   t := t-1, q := q+1, pos := q   (weight 1)</title><path d="M208,32 Q301,413 535,718" fill="none" stroke="#1a7f4e" stroke-width="2.2" marker-end="url(#warrG)"/><text class="lbl" x="200" y="100" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="19" fill="#1b2430">1 ≤ t</text><text class="lbl" x="200" y="120" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="17" fill="#3a4350">t := t-1, q := q+1, pos := q</text></a></g><g class="tr"><a href="#wacs-table"><title>t1   t = 0   ⊢   gate := 1, t := P-1, q := q+1, pos := q   (weight 1)</title><path d="M229,32 Q604,443 1066,718" fill="none" stroke="#1a7f4e" stroke-width="2.2" marker-end="url(#warrG)"/><text class="lbl" x="200" y="180" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="19" fill="#1b2430">t = 0</text><text class="lbl" x="200" y="200" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="17" fill="#3a4350">gate := 1, t := P-1, q := q+1, pos := q</text></a></g><g class="tr"><a href="#wacs-table"><title>t18   1 ≤ t   ⊢   t := t-1   (weight 1)</title><path d="M440,776 C337,810 337,690 440,724" fill="none" stroke="#1b2430" stroke-width="2.2" marker-end="url(#warrI)"/><text class="lbl" x="292" y="714" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="end" font-size="19" fill="#1b2430">1 ≤ t</text><text class="lbl" x="292" y="736" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="end" font-size="17" fill="#3a4350">t := t-1</text></a></g><g class="tr"><a href="#wacs-table"><title>t20   1 ≤ t ∧ q ≤ C-1   ⊢   t := t-1, q := q+1   (weight 1)</title><path d="M440,776 C254,810 254,690 440,724" fill="none" stroke="#1b2430" stroke-width="2.2" marker-end="url(#warrI)"/><text class="lbl" x="292" y="764" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="end" font-size="19" fill="#1b2430">1 ≤ t ∧ q ≤ C-1</text><text class="lbl" x="292" y="786" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="end" font-size="17" fill="#3a4350">t := t-1, q := q+1</text></a></g><g class="tr"><a href="#wacs-table"><title>t19   t = 0   ⊢   gate := 1, t := P-1   (weight 1)</title><path d="M662,718 Q840,662 1018,718" fill="none" stroke="#1b2430" stroke-width="2.2" marker-end="url(#warrI)"/><text class="lbl" x="804" y="681" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="19" fill="#1b2430">t = 0</text><text class="lbl" x="804" y="702" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="17" fill="#3a4350">gate := 1, t := P-1</text></a></g><g class="tr"><a href="#wacs-table"><title>t21   t = 0 ∧ q ≤ C-1   ⊢   gate := 1, t := P-1, q := q+1   (weight 1)</title><path d="M598,718 Q840,514 1082,718" fill="none" stroke="#1b2430" stroke-width="2.2" marker-end="url(#warrI)"/><text class="lbl" x="898" y="611" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="19" fill="#1b2430">t = 0 ∧ q ≤ C-1</text><text class="lbl" x="898" y="632" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="17" fill="#3a4350">gate := 1, t := P-1, q := q+1</text></a></g><g class="tr"><a href="#wacs-table"><title>t24   2 ≤ pos   ⊢   t := t-1, q := q-2, pos := pos-2   (weight 1)</title><path d="M1240,776 C1343,810 1343,690 1240,724" fill="none" stroke="#1b2430" stroke-width="2.2" marker-end="url(#warrI)"/><text class="lbl" x="1388" y="714" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="start" font-size="19" fill="#1b2430">2 ≤ pos</text><text class="lbl" x="1388" y="736" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="start" font-size="17" fill="#3a4350">t := t-1, q := q-2, pos := pos-2</text></a></g><g class="tr"><a href="#wacs-table"><title>t28   2 ≤ pos   ⊢   t := t-1, q := q-1, pos := pos-2   (weight 1)</title><path d="M1240,776 C1426,810 1426,690 1240,724" fill="none" stroke="#1b2430" stroke-width="2.2" marker-end="url(#warrI)"/><text class="lbl" x="1388" y="764" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="start" font-size="19" fill="#1b2430">2 ≤ pos</text><text class="lbl" x="1388" y="786" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="start" font-size="17" fill="#3a4350">t := t-1, q := q-1, pos := pos-2</text></a></g><g class="tr"><a href="#wacs-table"><title>t3   t = 0   ⊢   gate := 0, t := P-1, q := 1, pos := 0   (weight 1)</title><path d="M1085,32 Q769,322 576,718" fill="none" stroke="#1a7f4e" stroke-width="2.2" marker-end="url(#warrG)"/><text class="lbl" x="1120" y="100" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="19" fill="#1b2430">t = 0</text><text class="lbl" x="1120" y="120" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="17" fill="#3a4350">gate := 0, t := P-1, q := 1, pos := 0</text></a></g><g class="tr"><a href="#wacs-table"><title>t2   1 ≤ t   ⊢   t := t-1, q := 1, pos := 0   (weight 1)</title><path d="M1112,32 Q1032,375 1112,718" fill="none" stroke="#1a7f4e" stroke-width="2.2" marker-end="url(#warrG)"/><text class="lbl" x="1120" y="180" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="19" fill="#1b2430">1 ≤ t</text><text class="lbl" x="1120" y="200" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="17" fill="#3a4350">t := t-1, q := 1, pos := 0</text></a></g><g class="tr"><a href="#wacs-table"><title>t4   1 ≤ t ∧ q ≤ C-1   ⊢   t := t-1, q := q+1, pos := q   (weight 1)</title><path d="M648,32 Q523,363 557,718" fill="none" stroke="#1a7f4e" stroke-width="2.2" marker-end="url(#warrG)"/><text class="lbl" x="660" y="100" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="19" fill="#1b2430">1 ≤ t ∧ q ≤ C-1</text><text class="lbl" x="660" y="120" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="17" fill="#3a4350">t := t-1, q := q+1, pos := q</text></a></g><g class="tr"><a href="#wacs-table"><title>t5   t = 0 ∧ q ≤ C-1   ⊢   gate := 1, t := P-1, q := q+1, pos := q   (weight 1)</title><path d="M672,32 Q815,421 1090,718" fill="none" stroke="#1a7f4e" stroke-width="2.2" marker-end="url(#warrG)"/><text class="lbl" x="660" y="180" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="19" fill="#1b2430">t = 0 ∧ q ≤ C-1</text><text class="lbl" x="660" y="200" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="17" fill="#3a4350">gate := 1, t := P-1, q := q+1, pos := q</text></a></g><g class="tr"><a href="#wacs-table"><title>t8   q = 1 ∧ t = 0   ⊢   gate := 0, t := P-1, q := 1, pos := 0   (weight 1)</title><path d="M1521,32 Q1018,304 593,718" fill="none" stroke="#1a7f4e" stroke-width="2.2" marker-end="url(#warrG)"/><text class="lbl" x="1580" y="100" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="19" fill="#1b2430">q = 1 ∧ t = 0</text><text class="lbl" x="1580" y="120" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="17" fill="#3a4350">gate := 0, t := P-1, q := 1, pos := 0</text></a></g><g class="tr"><a href="#wacs-table"><title>t9   t = 0 ∧ 2 ≤ q   ⊢   gate := 0, t := P-1, q := q-1, pos := q-2   (weight 1)</title><path d="M1468,32 Q930,185 581,718" fill="none" stroke="#1a7f4e" stroke-width="2.2" marker-end="url(#warrG)"/><text class="lbl" x="1580" y="180" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="19" fill="#1b2430">t = 0 ∧ 2 ≤ q</text><text class="lbl" x="1580" y="200" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="17" fill="#3a4350">gate := 0, t := P-1, q := q-1, pos := q-2</text></a></g><g class="tr"><a href="#wacs-table"><title>t6   q = 1 ∧ 1 ≤ t   ⊢   t := t-1, q := 1, pos := 0   (weight 1)</title><path d="M1550,32 Q1275,329 1132,718" fill="none" stroke="#1a7f4e" stroke-width="2.2" marker-end="url(#warrG)"/><text class="lbl" x="1580" y="260" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="19" fill="#1b2430">q = 1 ∧ 1 ≤ t</text><text class="lbl" x="1580" y="280" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="17" fill="#3a4350">t := t-1, q := 1, pos := 0</text></a></g><g class="tr"><a href="#wacs-table"><title>t7   1 ≤ t ∧ 2 ≤ q   ⊢   t := t-1, q := q-1, pos := q-2   (weight 1)</title><path d="M1525,32 Q1149,252 1122,718" fill="none" stroke="#1a7f4e" stroke-width="2.2" marker-end="url(#warrG)"/><text class="lbl" x="1580" y="340" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="19" fill="#1b2430">1 ≤ t ∧ 2 ≤ q</text><text class="lbl" x="1580" y="360" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="17" fill="#3a4350">t := t-1, q := q-1, pos := q-2</text></a></g><g class="tr"><a href="#wacs-exits"><title>x4, x9   q = 1 ∧ 1 ≤ t</title><path d="M1099,782 Q933,1033 847,1336" fill="none" stroke="#c2620a" stroke-width="2.2" marker-end="url(#warrO)"/><text class="lbl" x="1130" y="843" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="start" font-size="19" fill="#1b2430">q = 1 ∧ 1 ≤ t</text></a></g><g class="tr"><a href="#wacs-exits"><title>x5   1 ≤ t ∧ q = 2</title><path d="M1111,782 Q1027,1077 856,1336" fill="none" stroke="#c2620a" stroke-width="2.2" marker-end="url(#warrO)"/><text class="lbl" x="1133" y="929" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="start" font-size="19" fill="#1b2430">1 ≤ t ∧ q = 2</text></a></g><g class="tr"><a href="#wacs-exits"><title>x6   3 ≤ q ∧ pos ≤ 1</title><path d="M1090,782 Q878,1008 843,1336" fill="none" stroke="#c2620a" stroke-width="2.2" marker-end="url(#warrO)"/><text class="lbl" x="1023" y="972" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="start" font-size="19" fill="#1b2430">3 ≤ q ∧ pos ≤ 1</text></a></g><g class="tr"><a href="#wacs-exits"><title>x7, x11   q = 1 ∧ t = 0</title><path d="M1117,782 Q1082,1102 862,1336" fill="none" stroke="#c2620a" stroke-width="2.2" marker-end="url(#warrO)"/><text class="lbl" x="1100" y="1091" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="start" font-size="19" fill="#1b2430">q = 1 ∧ t = 0</text></a></g><g class="tr"><a href="#wacs-exits"><title>x8   t = 0 ∧ q = 2</title><path d="M1079,782 Q824,983 839,1336" fill="none" stroke="#c2620a" stroke-width="2.2" marker-end="url(#warrO)"/><text class="lbl" x="931" y="1110" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="start" font-size="19" fill="#1b2430">t = 0 ∧ q = 2</text></a></g><g class="tr"><a href="#wacs-exits"><title>x10   1 ≤ t ∧ 2 ≤ q ∧ pos ≤ 1</title><path d="M1121,782 Q1136,1127 864,1341" fill="none" stroke="#c2620a" stroke-width="2.2" marker-end="url(#warrO)"/><text class="lbl" x="1037" y="1244" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="start" font-size="19" fill="#1b2430">1 ≤ t ∧ 2 ≤ q ∧ pos ≤ 1</text></a></g><g class="tr"><a href="#wacs-exits"><title>x12   t = 0 ∧ 2 ≤ q</title><path d="M1066,782 Q769,958 836,1336" fill="none" stroke="#c2620a" stroke-width="2.2" marker-end="url(#warrO)"/><text class="lbl" x="897" y="1277" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="start" font-size="19" fill="#1b2430">t = 0 ∧ 2 ≤ q</text></a></g><g class="nd"><a href="#wacs-states"><title>S1: n2 while the tagged packet is inside (closed · q≥1, pos ≤ q-1)</title><rect x="440" y="718" width="240" height="64" rx="32" fill="#fff" stroke="#1b2430" stroke-width="1.6"/><text x="560" y="742" text-anchor="middle" font-size="12" fill="#8a939c">S1 — n2 + tag</text><text x="560" y="764" text-anchor="middle" font-size="17" font-weight="600" fill="#1b2430">closed · q≥1</text></a></g><g class="nd"><a href="#wacs-states"><title>S2: n3 while the tagged packet is inside (open · q≥1, pos ≤ q-1)</title><rect x="1000" y="718" width="240" height="64" rx="32" fill="#fff" stroke="#1b2430" stroke-width="1.6"/><text x="1120" y="742" text-anchor="middle" font-size="12" fill="#8a939c">S2 — n3 + tag</text><text x="1120" y="764" text-anchor="middle" font-size="17" font-weight="600" fill="#1b2430">open · q≥1</text></a></g><g class="nd"><a href="#wacs-states"><title>S6: would be n0 with the tagged packet inside (closed · q=0) — unreachable: tracking forces q ≥ 1, so every transition into it is infeasible</title><rect x="440" y="438" width="240" height="64" rx="32" fill="#fafbfc" stroke="#b6bdc4" stroke-width="1.6" stroke-dasharray="7,5"/><text x="560" y="462" text-anchor="middle" font-size="12" fill="#8a939c">S6 — unreachable</text><text x="560" y="484" text-anchor="middle" font-size="17" font-weight="600" fill="#9aa2ab">closed · q=0</text></a></g><g class="nd"><a href="#wacs-states"><title>S7: would be n1 with the tagged packet inside (open · q=0) — unreachable: tracking forces q ≥ 1, so every transition into it is infeasible</title><rect x="1000" y="438" width="240" height="64" rx="32" fill="#fafbfc" stroke="#b6bdc4" stroke-width="1.6" stroke-dasharray="7,5"/><text x="1120" y="462" text-anchor="middle" font-size="12" fill="#8a939c">S7 — unreachable</text><text x="1120" y="484" text-anchor="middle" font-size="17" font-weight="600" fill="#9aa2ab">open · q=0</text></a></g><g class="nd"><a href="#wacs-states"><title>S0: root — the tagged packet arrives in n0 (closed · pos=0 · q=0)</title><rect x="80" y="-32" width="240" height="64" rx="32" fill="#f0f7f2" stroke="#1a7f4e" stroke-width="1.6"/><text x="200" y="-8" text-anchor="middle" font-size="12" fill="#8a939c">S0 — the tagged packet arrives</text><text x="200" y="14" text-anchor="middle" font-size="17" font-weight="600" fill="#1b2430">closed · pos=0 · q=0</text></a></g><g class="nd"><a href="#wacs-states"><title>S3: root — the tagged packet arrives in n1 (open · pos=0 · q=0)</title><rect x="1000" y="-32" width="240" height="64" rx="32" fill="#f0f7f2" stroke="#1a7f4e" stroke-width="1.6"/><text x="1120" y="-8" text-anchor="middle" font-size="12" fill="#8a939c">S3 — the tagged packet arrives</text><text x="1120" y="14" text-anchor="middle" font-size="17" font-weight="600" fill="#1b2430">open · pos=0 · q=0</text></a></g><g class="nd"><a href="#wacs-states"><title>S4: root — the tagged packet arrives in n2 (closed · pos=0 · q≥1)</title><rect x="540" y="-32" width="240" height="64" rx="32" fill="#f0f7f2" stroke="#1a7f4e" stroke-width="1.6"/><text x="660" y="-8" text-anchor="middle" font-size="12" fill="#8a939c">S4 — the tagged packet arrives</text><text x="660" y="14" text-anchor="middle" font-size="17" font-weight="600" fill="#1b2430">closed · pos=0 · q≥1</text></a></g><g class="nd"><a href="#wacs-states"><title>S5: root — the tagged packet arrives in n3 (open · pos=0 · q≥1)</title><rect x="1460" y="-32" width="240" height="64" rx="32" fill="#f0f7f2" stroke="#1a7f4e" stroke-width="1.6"/><text x="1580" y="-8" text-anchor="middle" font-size="12" fill="#8a939c">S5 — the tagged packet arrives</text><text x="1580" y="14" text-anchor="middle" font-size="17" font-weight="600" fill="#1b2430">open · pos=0 · q≥1</text></a></g><circle cx="840.0" cy="1360" r="24" fill="none" stroke="#c2620a" stroke-width="2"/><circle cx="840.0" cy="1360" r="18" fill="none" stroke="#c2620a" stroke-width="2"/><text class="lbl" x="840" y="1418" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="17" font-weight="600" fill="#c2620a">the tagged packet departs</text><text class="lbl" x="840" y="1438" paint-order="stroke" stroke="#ffffff" stroke-width="7" stroke-linejoin="round" text-anchor="middle" font-size="17" font-weight="600" fill="#c2620a">delay = accumulated cost</text></svg></div>
+<h3 id="wacs-table">All 31 weighted transitions</h3>
+<table><tr><th>id</th><th>transition</th><th>guard</th><th>assignment</th><th>weight</th></tr>
+<tr><td>t0</td><td>S0 → S1</td><td>1 ≤ t</td><td>t := t-1, q := q+1, pos := q</td><td>1</td></tr>
+<tr><td>t1</td><td>S0 → S2</td><td>t = 0</td><td>gate := 1, t := P-1, q := q+1, pos := q</td><td>1</td></tr>
+<tr><td>t2</td><td>S3 → S2</td><td>1 ≤ t</td><td>t := t-1, q := 1, pos := 0</td><td>1</td></tr>
+<tr><td>t3</td><td>S3 → S1</td><td>t = 0</td><td>gate := 0, t := P-1, q := 1, pos := 0</td><td>1</td></tr>
+<tr><td>t4</td><td>S4 → S1</td><td>1 ≤ t ∧ q ≤ C-1</td><td>t := t-1, q := q+1, pos := q</td><td>1</td></tr>
+<tr><td>t5</td><td>S4 → S2</td><td>t = 0 ∧ q ≤ C-1</td><td>gate := 1, t := P-1, q := q+1, pos := q</td><td>1</td></tr>
+<tr><td>t6</td><td>S5 → S2</td><td>q = 1 ∧ 1 ≤ t</td><td>t := t-1, q := 1, pos := 0</td><td>1</td></tr>
+<tr><td>t7</td><td>S5 → S2</td><td>1 ≤ t ∧ 2 ≤ q</td><td>t := t-1, q := q-1, pos := q-2</td><td>1</td></tr>
+<tr><td>t8</td><td>S5 → S1</td><td>q = 1 ∧ t = 0</td><td>gate := 0, t := P-1, q := 1, pos := 0</td><td>1</td></tr>
+<tr><td>t9</td><td>S5 → S1</td><td>t = 0 ∧ 2 ≤ q</td><td>gate := 0, t := P-1, q := q-1, pos := q-2</td><td>1</td></tr>
+<tr><td>t10</td><td>S6 → S6</td><td>q = 0 ∧ pos ≤ q-1 <span class="dead">— infeasible, never fires</span></td><td>t := t-1</td><td>1</td></tr>
+<tr><td>t11</td><td>S6 → S7</td><td>q = 0 ∧ pos ≤ q-1 <span class="dead">— infeasible, never fires</span></td><td>gate := 1, t := P-1</td><td>1</td></tr>
+<tr><td>t12</td><td>S6 → S1</td><td>q = 0 ∧ pos ≤ q-1 <span class="dead">— infeasible, never fires</span></td><td>t := t-1, q := q+1</td><td>1</td></tr>
+<tr><td>t13</td><td>S6 → S2</td><td>q = 0 ∧ pos ≤ q-1 <span class="dead">— infeasible, never fires</span></td><td>gate := 1, t := P-1, q := q+1</td><td>1</td></tr>
+<tr><td>t14</td><td>S7 → S7</td><td>2 ≤ pos ∧ pos ≤ 1 <span class="dead">— infeasible, never fires</span></td><td>t := t-1, q := 0, pos := pos-2</td><td>1</td></tr>
+<tr><td>t15</td><td>S7 → S6</td><td>2 ≤ pos ∧ pos ≤ 1 <span class="dead">— infeasible, never fires</span></td><td>gate := 0, t := P-1, q := 0, pos := pos-2</td><td>1</td></tr>
+<tr><td>t16</td><td>S7 → S2</td><td>q ≤ 1 ∧ pos ≤ q-1 ∧ pos = 2 <span class="dead">— infeasible, never fires</span></td><td>t := t-1, q := 1, pos := pos-2</td><td>1</td></tr>
+<tr><td>t17</td><td>S7 → S1</td><td>q ≤ 1 ∧ pos ≤ q-1 ∧ pos = 2 <span class="dead">— infeasible, never fires</span></td><td>gate := 0, t := P-1, q := 1, pos := pos-2</td><td>1</td></tr>
+<tr><td>t18</td><td>S1 → S1</td><td>1 ≤ t</td><td>t := t-1</td><td>1</td></tr>
+<tr><td>t19</td><td>S1 → S2</td><td>t = 0</td><td>gate := 1, t := P-1</td><td>1</td></tr>
+<tr><td>t20</td><td>S1 → S1</td><td>1 ≤ t ∧ q ≤ C-1</td><td>t := t-1, q := q+1</td><td>1</td></tr>
+<tr><td>t21</td><td>S1 → S2</td><td>t = 0 ∧ q ≤ C-1</td><td>gate := 1, t := P-1, q := q+1</td><td>1</td></tr>
+<tr><td>t22</td><td>S2 → S7</td><td>2 ≤ pos ∧ pos ≤ 1 <span class="dead">— infeasible, never fires</span></td><td>t := t-1, q := 0, pos := pos-2</td><td>1</td></tr>
+<tr><td>t23</td><td>S2 → S7</td><td>q = 2 ∧ pos ≤ q-1 ∧ 2 ≤ pos <span class="dead">— infeasible, never fires</span></td><td>t := t-1, q := q-2, pos := pos-2</td><td>1</td></tr>
+<tr><td>t24</td><td>S2 → S2</td><td>2 ≤ pos</td><td>t := t-1, q := q-2, pos := pos-2</td><td>1</td></tr>
+<tr><td>t25</td><td>S2 → S6</td><td>2 ≤ pos ∧ pos ≤ 1 <span class="dead">— infeasible, never fires</span></td><td>gate := 0, t := P-1, q := 0, pos := pos-2</td><td>1</td></tr>
+<tr><td>t26</td><td>S2 → S6</td><td>q = 2 ∧ pos ≤ q-1 ∧ 2 ≤ pos <span class="dead">— infeasible, never fires</span></td><td>gate := 0, t := P-1, q := q-2, pos := pos-2</td><td>1</td></tr>
+<tr><td>t27</td><td>S2 → S2</td><td>q = 1 ∧ pos ≤ q-1 ∧ pos = 2 <span class="dead">— infeasible, never fires</span></td><td>t := t-1, q := 1, pos := pos-2</td><td>1</td></tr>
+<tr><td>t28</td><td>S2 → S2</td><td>2 ≤ pos</td><td>t := t-1, q := q-1, pos := pos-2</td><td>1</td></tr>
+<tr><td>t29</td><td>S2 → S1</td><td>q = 1 ∧ pos ≤ q-1 ∧ pos = 2 <span class="dead">— infeasible, never fires</span></td><td>gate := 0, t := P-1, q := 1, pos := pos-2</td><td>1</td></tr>
+<tr><td>t30</td><td>S2 → S1</td><td>q ≤ t+2 ∧ t = 0 ∧ pos ≤ q-1 ∧ 2 ≤ pos <span class="dead">— infeasible, never fires</span></td><td>gate := 0, t := P-1, q := q-1, pos := pos-2</td><td>1</td></tr></table>
+<h3>All roots</h3>
+<table><tr><th>id</th><th>state</th><th>root domain (configurations where the tagged packet arrives)</th></tr>
+<tr><td>r0</td><td>S0</td><td>q = 0 ∧ gate = 0 ∧ pos = 0</td></tr>
+<tr><td>r1</td><td>S3</td><td>gate = 1 ∧ q = 0 ∧ pos = 0</td></tr>
+<tr><td>r2</td><td>S4</td><td>1 ≤ q ∧ q+t ≤ P ∧ gate = 0 ∧ pos = 0</td></tr>
+<tr><td>r3</td><td>S5</td><td>gate = 1 ∧ q ≤ t+2 ∧ 1 ≤ q ∧ pos = 0</td></tr></table>
+<h3 id="wacs-exits">All exits</h3>
+<table><tr><th>id</th><th>source state</th><th>kind</th><th>guard</th></tr>
+<tr><td>x0</td><td>S7</td><td>finite</td><td>q = 0 ∧ pos ≤ q-1 <span class="dead">— infeasible, never fires</span></td></tr>
+<tr><td>x1</td><td>S7</td><td>finite</td><td>q = 0 ∧ pos ≤ q-1 <span class="dead">— infeasible, never fires</span></td></tr>
+<tr><td>x2</td><td>S7</td><td>finite</td><td>q = 0 ∧ pos ≤ q-1 <span class="dead">— infeasible, never fires</span></td></tr>
+<tr><td>x3</td><td>S7</td><td>finite</td><td>q = 0 ∧ pos ≤ q-1 <span class="dead">— infeasible, never fires</span></td></tr>
+<tr><td>x4</td><td>S2</td><td>finite</td><td>q = 1 ∧ 1 ≤ t</td></tr>
+<tr><td>x5</td><td>S2</td><td>finite</td><td>1 ≤ t ∧ q = 2</td></tr>
+<tr><td>x6</td><td>S2</td><td>finite</td><td>3 ≤ q ∧ pos ≤ 1</td></tr>
+<tr><td>x7</td><td>S2</td><td>finite</td><td>q = 1 ∧ t = 0</td></tr>
+<tr><td>x8</td><td>S2</td><td>finite</td><td>t = 0 ∧ q = 2</td></tr>
+<tr><td>x9</td><td>S2</td><td>finite</td><td>q = 1 ∧ 1 ≤ t</td></tr>
+<tr><td>x10</td><td>S2</td><td>finite</td><td>1 ≤ t ∧ 2 ≤ q ∧ pos ≤ 1</td></tr>
+<tr><td>x11</td><td>S2</td><td>finite</td><td>q = 1 ∧ t = 0</td></tr>
+<tr><td>x12</td><td>S2</td><td>finite</td><td>t = 0 ∧ 2 ≤ q</td></tr></table>
+
+
+<h2>5 · Computing the delay from the WACS</h2>
+<p>The delay is the longest a tracked packet can sit in the system, i.e. the largest
+accumulated <code>cost</code> over every run from a root (arrival) to an exit (departure).
+The graph is cyclic — the gate keeps cycling — so we cannot simply enumerate paths; the
+worst case is found in closed form with ISL:</p>
+<p><b>Where does <code>cost</code> live?</b> It is simply <i>another variable</i> — a
+non-negative integer dimension adjoined to every node's set, alongside the device variables
+and <code>pos</code>. It is not part of the device; it is the observer's tick counter,
+carried by the very same affine machinery (a root pins <code>cost = 0</code>; each
+transition's map sets <code>cost' = cost + weight</code>). Reachability over this augmented
+state is then the same component-by-component closure as step 3:</p>
+<ol>
+<li><b>State-cell graph.</b> Take the live WACS as a graph: nodes are the (state, reachable
+cell) pairs of step 4, edges are the weighted transitions. Each node carries an ISL set of
+<code>(device variables, pos, cost)</code> tuples, parametric in <code>C</code> and
+<code>P</code>.</li>
+<li><b>Seed.</b> Put each feasible root in with <code>cost = 0</code>.</li>
+<li><b>Close component by component.</b> Process the SCCs in topological order, pushing
+sets along edges and adding each transition's weight to <code>cost</code>. A
+strongly-connected component (a cycle of states) is not unrolled: its internal weighted
+relation is collapsed once with ISL's <i>exact transitive closure</i>, which expresses
+"any number of laps, each adding its ticks" as a single parametric set. The relational
+reachable invariants from step 3 (e.g. <code>q + t ≤ P</code>) are part of these sets, so
+the closure stays bounded.</li>
+<li><b>Maximize at the exits.</b> At every reachable finite exit, intersect the node's
+reachable set with the exit guard and ask ISL for the maximum reachable <code>cost</code>.
+The overall delay is the maximum of these over all exits. If any infinite exit is
+reachable, or a maximum is unbounded, the delay is infinite.</li>
+</ol>
+<pre># the WACS = the step-2 system + pos, with one extra `cost` dimension; each
+# transition's one-step relation (guard G, assignment A, weight w) also bumps cost:
+#     step(t) := { ((x, c), (A(x), c + w)) | x ⊨ G }
+# and its seed pins every feasible root at cost = 0.
+
+S := REACH(WACS)               # &lt;&lt;&lt; the SAME function as step 3, over (vars, pos, cost)
+
+delay := 0                     # the only extra work: take the largest cost at the exits
+for each reachable exit (node n, guard E):
+    delay := max(delay, ISL_max(S[n] ∩ E, cost))   # ∞ if unbounded
+return delay</pre>
+<p>For this example the oracle returns: <b>finite, delay = <code>P+1</code></b> (with <code>P = 541</code> in this run, that is <code>542</code> ticks). (8 state-cell nodes; 2 exact closure call(s); exact (no precision lost); <code>trusted = false</code> — a proposal Lean re-checks.)</p>
+<p>Intuitively this is the right answer: the worst case is a packet that arrives just as
+the gate <i>closes</i>. It then waits out the entire closed half-cycle (<code>P</code>
+ticks) before the gate reopens, plus one more tick to be forwarded — a delay of
+<code>P+1</code>, independent of the capacity <code>C</code>. The whole computation is an
+untrusted oracle: the value and its supporting reachable sets are handed back to Lean,
+which certifies the bound against the typed device before CoreSST reports it.</p>
+
+<h2>6 · Ongoing and next steps</h2>
+<p>The example above is a single device, carried through the whole pipeline. Three directions
+are in progress or planned:</p>
+<ul>
+<li><b>Modular state construction.</b> A library of reusable state components, each shipping
+its three views — the <i>concrete</i> state, the <i>visible</i> projection the control may
+branch on, and the <i>affine</i> update relations the analysis runs on: bounded FIFO queues,
+counters, control state, and the combinators that assemble them (product, vector, …). A
+device is then built from these pieces, and its automaton, reachable sets, and WACS follow
+from the components' views instead of being hand-derived per device.</li>
+<li><b>Other properties and queries.</b> The WACS is a generic weighted automaton, so the
+same engine answers more than worst-case delay — for instance whether the delay is bounded at
+all, the maximum queue occupancy a packet sees, or other quantitative queries — each just a
+different weighting or aggregation over the same construction.</li>
+<li><b>Modular (compositional) analysis.</b> Sequential composition of devices does
+<i>not</i> preserve the structure that makes a single device tractable: the input of a
+downstream device is the <i>output stream</i> of the upstream one, and a device may branch on
+that incoming packet — so the two are coupled and cannot be analyzed independently with a free
+input. The plan is to analyze each device's delay <i>under a constrained input stream</i> (an
+assumption on its arrivals) and to find a way to <i>propagate</i> those stream constraints
+along the pipeline: the constraint a device guarantees on its output stream becomes the
+assumption the next device is analyzed under.</li>
+</ul>
+
+</main></body></html>
