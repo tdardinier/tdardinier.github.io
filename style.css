@@ -1,5 +1,104 @@
+:root {
+	--bg: #ffffff;
+	--text: #212529;
+	--muted: grey;
+	--link: #007bff;
+	--link-hover: #0056b3;
+	--rule: rgba(0, 0, 0, 0.1);
+	--self-author: #38610B;
+	--award: green;
+	--abstract-bg: rgb(180, 230, 255);
+	--abstract-border: grey;
+	--highlight: rgb(255, 255, 150);
+	--toggle-bg: #f1f3f5;
+	color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+	--bg: #16181c;
+	--text: #e3e5e8;
+	--muted: #9ea4ab;
+	--link: #6cb2ff;
+	--link-hover: #a3cfff;
+	--rule: rgba(255, 255, 255, 0.15);
+	--self-author: #9ccc65;
+	--award: #6fcf73;
+	--abstract-bg: #1f3444;
+	--abstract-border: #4b6272;
+	--highlight: #4a4520;
+	--toggle-bg: #2a2e34;
+	color-scheme: dark;
+}
+
 body {
-	background-color: white;
+	background-color: var(--bg);
+	color: var(--text);
+}
+
+a {
+	color: var(--link);
+}
+
+a:hover {
+	color: var(--link-hover);
+}
+
+hr {
+	border-top-color: var(--rule);
+}
+
+.subtitle {
+	color: var(--muted);
+}
+
+/* Links scroll their target to the top of the screen; leave a little room above it. */
+[id] {
+	scroll-margin-top: 12px;
+}
+
+.highlighted {
+	background-color: var(--highlight);
+}
+
+#theme-toggle {
+	position: fixed;
+	top: 12px;
+	right: 12px;
+	z-index: 10;
+	width: 40px;
+	height: 40px;
+	border: 1px solid var(--rule);
+	border-radius: 50%;
+	background-color: var(--toggle-bg);
+	color: var(--text);
+	font-size: 20px;
+	line-height: 1;
+	cursor: pointer;
+}
+
+/* Bootstrap draws a dotted focus outline after a mouse click; keep it for keyboard users only. */
+#theme-toggle:focus {
+	outline: none;
+}
+
+#theme-toggle:focus-visible {
+	outline: 2px solid var(--link);
+	outline-offset: 2px;
+}
+
+.theme-icon-light,
+:root[data-theme="dark"] .theme-icon-dark {
+	display: none;
+}
+
+:root[data-theme="dark"] .theme-icon-light {
+	display: inline;
+}
+
+/* Black icons would disappear on the dark background. */
+:root[data-theme="dark"] img[src$="github.svg"],
+:root[data-theme="dark"] .awards img {
+	filter: invert(1);
 }
 .notbold {
 	font-weight: normal
@@ -65,7 +164,7 @@ h2 {
 }
 .description {
 	/* color: #555555; */
-	color: grey;
+	color: var(--muted);
 	/* font-size:16px; */
 	display: block;
 }
@@ -73,9 +172,9 @@ h2 {
 	height:45px;
 }
 .abstract {
-	background-color: rgba(180, 230, 255);
+	background-color: var(--abstract-bg);
 	padding: 8px;
-	border: solid 1px grey;
+	border: solid 1px var(--abstract-border);
 	display: none;
 }
 /*
@@ -94,6 +193,71 @@ a[href^="#"]:after {
 .special-links:after {
 	display:none;
 }
+/* Links on names in lists (authors, students) keep the text colour, so that
+   the lists don't turn blue; they only show an underline on hover. */
+a.person {
+	color: inherit;
+}
+
+a.person:hover {
+	color: inherit;
+	text-decoration: underline;
+}
+
 .self-author {
-	color: #38610B
+	color: var(--self-author);
+}
+
+.awards {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	color: var(--award);
+}
+
+.awards a {
+	color: inherit;
+}
+
+.awards h4 {
+	margin: 2px 0;
+}
+
+#phd-students,
+#prospective-students {
+	margin-bottom: 10px;
+}
+
+/* Phones: no justified text (big gaps between words), and put the date/venue
+   columns on one line above the entry instead of stacking them, centred. */
+@media (max-width: 575.98px) {
+	#about p {
+		text-align: left !important;
+	}
+
+	.element > .left,
+	.element > .middle {
+		flex: 0 0 auto;
+		width: auto;
+		max-width: none;
+		text-align: left;
+		padding-right: 0;
+		font-weight: bold;
+	}
+
+	.element > .middle {
+		padding-left: 8px;
+	}
+
+	.element > .left:empty {
+		display: none;
+	}
+
+	.element > .left:empty + .middle {
+		padding-left: 15px;
+	}
+
+	.element > .right {
+		padding-left: 15px;
+	}
 }
