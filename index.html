@@ -46,15 +46,21 @@
 			}
 		}
 
-		var current_highlighted = "publications";
+		// The element highlighted after following an internal link, if any.
+		var highlighted = null;
 		function unhighlight() {
-			document.getElementById(current_highlighted).classList.remove("highlighted");
+			if (highlighted) {
+				highlighted.classList.remove("highlighted");
+				highlighted = null;
+			}
 		}
-	
-		function highlight(s) {
+
+		function highlight(id) {
 			unhighlight();
-			document.getElementById(s).classList.add("highlighted");
-			current_highlighted = s;
+			highlighted = document.getElementById(id);
+			if (highlighted) {
+				highlighted.classList.add("highlighted");
+			}
 		}
 	</script>
 
@@ -1363,7 +1369,7 @@ In this thesis, we find (and prove correct) a soundness condition which characte
 				Christopher Cohnen (MSc practical work project, co-supervised with Hongyi Ling)
 				<br/>
 				<span class="description">
-					<a href="students/2026_Christopher_Cohnen_MSc_project_description.pdf">Automating Quantitative Weakest Hyper Pre</a> (project description)
+					<a href="students/2026_Christopher_Cohnen_MSc_project_report.pdf">An Automated Verifier for Quantitative Hyperproperties</a>
 				</span>
 			</span>
 		</div>
